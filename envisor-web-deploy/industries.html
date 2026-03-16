@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Envisor Industries — Kalkulasi Solar &amp; Tagihan Industri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#0A0A0A;--black-light:#111;--black-card:#0F0F0F;
+  --gold:#C9A96E;--gold-light:#DBBF8C;--gold-dim:rgba(201,169,110,0.12);--gold-dim2:rgba(201,169,110,0.06);
+  --silver:#A8A8A8;--silver-light:#C8C8C8;--white:#F5F2ED;
+  --font-d:'Cormorant Garamond',Georgia,serif;
+  --font-b:'DM Sans',Helvetica,sans-serif;
+  --border:rgba(201,169,110,0.12);--border-h:rgba(201,169,110,0.28);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--black);color:var(--white);-webkit-font-smoothing:antialiased;line-height:1.6}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 50% 50% at 15% 20%,rgba(201,169,110,0.04) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 85% 75%,rgba(168,168,168,0.03) 0%,transparent 70%);pointer-events:none;z-index:0}
+a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
+
+header{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px);height:72px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(16px)}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:32px;height:32px;border:1.5px solid var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:600;font-size:16px;color:var(--gold)}
+.logo-text{font-family:var(--font-d);font-size:22px;font-weight:500;letter-spacing:1px}
+.logo-text span{color:var(--gold);font-weight:300}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);transition:color .3s}
+.nav a:hover{color:var(--gold-light)}.nav a.on{color:var(--gold)}
+.btn-g{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--black);background:linear-gradient(135deg,var(--gold),var(--gold-light));padding:10px 24px;border-radius:2px;display:inline-block;transition:all .3s;border:none;cursor:pointer}
+.btn-g:hover{box-shadow:0 4px 24px rgba(201,169,110,0.3);transform:translateY(-1px)}
+.btn-o{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);background:transparent;padding:10px 24px;border-radius:2px;display:inline-block;transition:all .3s;cursor:pointer}
+.btn-o:hover{background:var(--gold-dim)}
+.container{max-width:1200px;margin:0 auto;padding:0 clamp(24px,4vw,60px);position:relative;z-index:1}
+
+.hero{padding:clamp(48px,8vh,80px) 0 clamp(36px,6vh,56px);text-align:center;border-bottom:1px solid var(--border);position:relative;z-index:1}
+.hero-tag{display:inline-block;padding:6px 16px;border-radius:2px;border:1px solid var(--border);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.hero h1{font-family:var(--font-d);font-size:clamp(32px,5vw,56px);font-weight:300;letter-spacing:1px;line-height:1.15;margin-bottom:16px}
+.hero h1 strong{font-weight:600;color:var(--gold)}
+.hero p{font-size:16px;color:var(--silver);max-width:600px;margin:0 auto;font-weight:300;line-height:1.7}
+
+.sec{padding:clamp(48px,8vh,80px) 0;position:relative;z-index:1}
+.sec-label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.sec-title{font-family:var(--font-d);font-size:clamp(24px,3vw,40px);font-weight:400;letter-spacing:1px;line-height:1.2;margin-bottom:24px}
+.sec-title strong{font-weight:600;color:var(--gold)}
+
+/* Tabs */
+.tabs{display:flex;gap:2px;margin-bottom:40px;border-bottom:1px solid var(--border)}
+.tab{font-family:var(--font-b);font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--silver);background:none;border:none;padding:14px 28px;cursor:pointer;position:relative;transition:color .3s}
+.tab:hover{color:var(--white)}
+.tab.on{color:var(--gold)}
+.tab.on::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--gold)}
+.tp{display:none}.tp.on{display:block}
+
+/* Calc layout */
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.cf{display:flex;flex-direction:column;gap:20px}
+.fg label{display:block;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);margin-bottom:8px}
+.fi{width:100%;padding:12px 16px;background:var(--black-card);border:1px solid var(--border);border-radius:4px;font-family:var(--font-b);font-size:14px;color:var(--white);transition:border-color .3s}
+.fi:focus{outline:none;border-color:var(--gold)}
+.fi::placeholder{color:rgba(168,168,168,.4)}
+select.fi{appearance:none;background:var(--black-card) url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23C9A96E' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 16px center;cursor:pointer}
+select.fi option{background:var(--black-card);color:var(--white)}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* Result panel */
+.rp{background:var(--black-card);border:1px solid var(--border);border-radius:8px;padding:32px;min-height:400px;display:flex;flex-direction:column}
+.rp-empty{flex:1;display:flex;align-items:center;justify-content:center;text-align:center}
+.rp-empty p{font-size:14px;color:rgba(168,168,168,.4);font-weight:300;line-height:1.7}
+.rh{font-family:var(--font-d);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.rr{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--gold-dim2)}
+.rr:last-of-type{border:none}
+.rl{font-size:13px;color:var(--silver);font-weight:400}
+.rv{font-size:14px;font-weight:700;color:var(--white);text-align:right}
+.rhl{margin-top:24px;padding:20px;border-radius:6px;background:var(--gold-dim);border:1px solid var(--border);text-align:center}
+.rhl .big{font-family:var(--font-d);font-size:clamp(28px,3vw,40px);font-weight:600;color:var(--gold);margin-bottom:4px}
+.rhl .sub{font-size:12px;color:var(--silver);font-weight:400}
+.rn{font-size:11px;color:rgba(168,168,168,.5);margin-top:16px;line-height:1.6;font-weight:300}
+
+.cta{text-align:center;padding:clamp(40px,6vh,60px) 24px;border-top:1px solid var(--border);position:relative;z-index:1}
+.cta h2{font-family:var(--font-d);font-size:clamp(24px,3vw,36px);font-weight:400;margin-bottom:12px;letter-spacing:1px}
+.cta h2 strong{color:var(--gold);font-weight:600}
+.cta p{font-size:14px;color:var(--silver);margin-bottom:24px;font-weight:300}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+footer{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px);height:52px;border-top:1px solid var(--border);position:relative;z-index:1}
+footer p{font-size:11px;color:rgba(168,168,168,.5)}
+footer a{font-size:11px;color:rgba(168,168,168,.4);margin-left:16px;transition:color .3s}
+footer a:hover{color:var(--gold)}
+
+.ham{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.ham span{width:20px;height:1.5px;background:var(--silver);border-radius:1px}
+.mnav{display:none;position:fixed;inset:0;z-index:999;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mnav.open{display:flex}
+.mnav a{font-family:var(--font-d);font-size:22px;color:var(--silver-light);letter-spacing:2px}
+.mnav a:hover{color:var(--gold)}
+.mnav-x{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--silver);font-size:28px;cursor:pointer}
+
+@media(max-width:900px){.cg{grid-template-columns:1fr}.fr{grid-template-columns:1fr}}
+@media(max-width:768px){.nav a:not(.btn-g){display:none}.ham{display:flex}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo"><div class="logo-mark">E</div><div class="logo-text">ENVISOR<span>.AI</span></div></a>
+  <div class="nav">
+    <a href="https://envisor.vercel.app/" target="_blank">Envisor AI</a>
+    <a href="advisor.html">Expert</a>
+    <a href="inspection.html">Inspection</a>
+    <a href="industries.html" class="on">Industries</a>
+    <a href="mailto:hello@envisorai.com" class="btn-g">Hubungi Kami</a>
+    <button class="ham" id="hm"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-tag">Envisor Industries</div>
+    <h1>Kalkulasi <strong>Solar &amp; Tagihan</strong><br>untuk Industri</h1>
+    <p>Hitung potensi penghematan dengan PLTS rooftop dan estimasi tagihan listrik enterprise berdasarkan tarif PLN terkini.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="container">
+    <div class="tabs">
+      <button class="tab on" onclick="switchTab('solar',this)">Kalkulasi Solar Panel</button>
+      <button class="tab" onclick="switchTab('billing',this)">Kalkulasi Tagihan Industri</button>
+    </div>
+
+    <!-- TAB: SOLAR -->
+    <div class="tp on" id="t-solar">
+      <div class="cg">
+        <div>
+          <span class="sec-label">Simulasi PLTS Rooftop</span>
+          <div class="sec-title">Hitung <strong>Potensi Solar</strong></div>
+          <div class="cf">
+            <div class="fg"><label>Luas Atap Tersedia (m2)</label><input type="number" class="fi" id="sArea" value="200" placeholder="Contoh: 200"></div>
+            <div class="fr">
+              <div class="fg"><label>Jam Sinar Matahari / Hari</label><select class="fi" id="sHours"><option value="3.5">3.5 jam (Jawa Barat)</option><option value="4" selected>4.0 jam (Jawa Tengah)</option><option value="4.5">4.5 jam (Jawa Timur)</option><option value="5">5.0 jam (NTT/NTB/Bali)</option><option value="4.2">4.2 jam (Sumatera)</option><option value="4.8">4.8 jam (Kalimantan)</option><option value="5.2">5.2 jam (Sulawesi)</option></select></div>
+              <div class="fg"><label>Tarif PLN (Rp/kWh)</label><select class="fi" id="sTariff"><option value="1444.70">Rp 1,444 (B2 6.6-200 kVA)</option><option value="1114.74" selected>Rp 1,114 (I3 &gt;200 kVA)</option><option value="1699.53">Rp 1,699 (B3 &gt;200 kVA)</option><option value="996.74">Rp 996 (I4 30,000 kVA)</option></select></div>
+            </div>
+            <div class="fr">
+              <div class="fg"><label>Tipe Panel</label><select class="fi" id="sType"><option value="0.18">Polycrystalline (18%)</option><option value="0.20" selected>Monocrystalline (20%)</option><option value="0.22">HJT / TOPCon (22%)</option></select></div>
+              <div class="fg"><label>Harga per Wp (Rp)</label><input type="number" class="fi" id="sCost" value="9500" placeholder="Rp/Wp"></div>
+            </div>
+            <button class="btn-g" onclick="calcSolar()" style="align-self:flex-start;margin-top:8px">Hitung Potensi Solar</button>
+          </div>
+        </div>
+        <div class="rp" id="rSolar"><div class="rp-empty"><p>Masukkan data di sebelah kiri<br>dan tekan "Hitung" untuk melihat hasil simulasi.</p></div></div>
+      </div>
+    </div>
+
+    <!-- TAB: BILLING -->
+    <div class="tp" id="t-billing">
+      <div class="cg">
+        <div>
+          <span class="sec-label">Estimasi Tagihan Enterprise</span>
+          <div class="sec-title">Kalkulasi <strong>Tagihan Industri</strong></div>
+          <div class="cf">
+            <div class="fg"><label>Golongan Tarif PLN</label><select class="fi" id="bGol"><option value="B2|1444.70|40">B2 - Bisnis Menengah (6.6-200 kVA)</option><option value="B3|1699.53|40" selected>B3 - Bisnis Besar (&gt;200 kVA)</option><option value="I3|1114.74|30">I3 - Industri Menengah (&gt;200 kVA)</option><option value="I4|996.74|30">I4 - Industri Besar (30,000 kVA+)</option><option value="P1|1699.53|40">P1 - Pemerintah Kecil</option><option value="P3|1699.53|40">P3 - Pemerintah Besar</option></select></div>
+            <div class="fr">
+              <div class="fg"><label>Daya Tersambung (kVA)</label><input type="number" class="fi" id="bKVA" value="555" placeholder="Contoh: 555"></div>
+              <div class="fg"><label>Konsumsi Bulanan (kWh)</label><input type="number" class="fi" id="bKWH" value="120000" placeholder="Contoh: 120000"></div>
+            </div>
+            <div class="fr">
+              <div class="fg"><label>kVARh (Reactive Power)</label><input type="number" class="fi" id="bKVAR" value="15000" placeholder="Contoh: 15000"></div>
+              <div class="fg"><label>Jam Operasi per Bulan</label><input type="number" class="fi" id="bHrs" value="720" placeholder="Contoh: 720"></div>
+            </div>
+            <div class="fg"><label>Beban Puncak Tertinggi (kW)</label><input type="number" class="fi" id="bPeak" value="400" placeholder="Contoh: 400"></div>
+            <button class="btn-g" onclick="calcBill()" style="align-self:flex-start;margin-top:8px">Hitung Estimasi Tagihan</button>
+          </div>
+        </div>
+        <div class="rp" id="rBill"><div class="rp-empty"><p>Masukkan parameter di sebelah kiri<br>untuk estimasi tagihan listrik industri Anda.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Butuh analisis <strong>lebih mendalam?</strong></h2>
+  <p>Tim Envisor Industries siap membantu audit energi dan perencanaan PLTS enterprise Anda.</p>
+  <div class="cta-btns"><a href="mailto:hello@envisorai.com" class="btn-g">Konsultasi Enterprise</a><a href="index.html" class="btn-o">Kembali ke Beranda</a></div>
+</section>
+
+<footer><p>&copy; 2025 Envisor Group</p><div><a href="#">Privacy</a><a href="#">Terms</a></div></footer>
+
+<div class="mnav" id="mn"><button class="mnav-x" id="mx">&times;</button><a href="index.html">Beranda</a><a href="advisor.html">Expert</a><a href="inspection.html">Inspection</a><a href="industries.html">Industries</a></div>
+
+<script>
+document.getElementById('hm').onclick=function(){document.getElementById('mn').classList.add('open')};
+document.getElementById('mx').onclick=function(){document.getElementById('mn').classList.remove('open')};
+
+function switchTab(id,btn){
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on')});
+  document.querySelectorAll('.tp').forEach(function(t){t.classList.remove('on')});
+  btn.classList.add('on');
+  document.getElementById('t-'+id).classList.add('on');
+}
+
+function rp(n){
+  if(n>=1e9) return 'Rp '+(n/1e9).toFixed(2)+' Miliar';
+  if(n>=1e6) return 'Rp '+(n/1e6).toFixed(1)+' Juta';
+  if(n>=1e3) return 'Rp '+Math.round(n/1e3)+'K';
+  return 'Rp '+Math.round(n);
+}
+function rpf(n){return 'Rp '+Math.round(n).toLocaleString('id-ID')}
+
+function calcSolar(){
+  var area=parseFloat(document.getElementById('sArea').value)||0;
+  var hrs=parseFloat(document.getElementById('sHours').value)||4;
+  var tariff=parseFloat(document.getElementById('sTariff').value)||1114.74;
+  var eff=parseFloat(document.getElementById('sType').value)||0.20;
+  var cpw=parseFloat(document.getElementById('sCost').value)||9500;
+  var wpM2=1000*eff;
+  var kWp=(area*wpM2)/1000;
+  var dKWh=kWp*hrs*0.80;
+  var mKWh=dKWh*30;
+  var yKWh=dKWh*365;
+  var mSave=mKWh*tariff;
+  var ySave=yKWh*tariff;
+  var invest=kWp*1000*cpw;
+  var payback=invest/ySave;
+  var co2=yKWh*0.82;
+  document.getElementById('rSolar').innerHTML=
+    '<div class="rh">Hasil Simulasi PLTS Rooftop</div>'+
+    '<div class="rr"><span class="rl">Kapasitas Terpasang</span><span class="rv">'+kWp.toFixed(1)+' kWp</span></div>'+
+    '<div class="rr"><span class="rl">Produksi Harian</span><span class="rv">'+dKWh.toFixed(0)+' kWh/hari</span></div>'+
+    '<div class="rr"><span class="rl">Produksi Bulanan</span><span class="rv">'+Math.round(mKWh).toLocaleString('id-ID')+' kWh</span></div>'+
+    '<div class="rr"><span class="rl">Produksi Tahunan</span><span class="rv">'+Math.round(yKWh).toLocaleString('id-ID')+' kWh</span></div>'+
+    '<div class="rr"><span class="rl">Penghematan / Bulan</span><span class="rv" style="color:var(--gold)">'+rp(mSave)+'</span></div>'+
+    '<div class="rr"><span class="rl">Penghematan / Tahun</span><span class="rv" style="color:var(--gold)">'+rp(ySave)+'</span></div>'+
+    '<div class="rr"><span class="rl">Total Investasi</span><span class="rv">'+rp(invest)+'</span></div>'+
+    '<div class="rr"><span class="rl">Reduksi CO2 / Tahun</span><span class="rv">'+(co2/1000).toFixed(1)+' ton</span></div>'+
+    '<div class="rhl"><div class="big">'+payback.toFixed(1)+' Tahun</div><div class="sub">Estimasi Payback Period (ROI)</div></div>'+
+    '<div class="rn">* Performance ratio 80%. Degradasi panel ~0.5%/tahun belum dihitung. Harga termasuk inverter, mounting, dan instalasi. Tarif PLN dapat berubah sesuai regulasi ESDM.</div>';
+}
+
+function calcBill(){
+  var g=document.getElementById('bGol').value.split('|');
+  var gn=g[0],tk=parseFloat(g[1]),bk=parseFloat(g[2]);
+  var kva=parseFloat(document.getElementById('bKVA').value)||0;
+  var kwh=parseFloat(document.getElementById('bKWH').value)||0;
+  var kvar=parseFloat(document.getElementById('bKVAR').value)||0;
+  var hrs=parseFloat(document.getElementById('bHrs').value)||720;
+  var bp=kwh*tk;
+  var bb=kva*bk*1000;
+  var kt=kwh*0.62;
+  var ke=Math.max(0,kvar-kt);
+  var bv=ke*tk;
+  var st=bp+bb+bv;
+  var pr=gn.charAt(0)==='I'?0.03:0.06;
+  var ppj=st*pr;
+  var mat=st>1000000?10000:0;
+  var tot=st+ppj+mat;
+  var lf=(kwh/(kva*hrs*0.85))*100;
+  var ck=tot/kwh;
+  document.getElementById('rBill').innerHTML=
+    '<div class="rh">Estimasi Tagihan &mdash; Golongan '+gn+'</div>'+
+    '<div class="rr"><span class="rl">Tarif Dasar (per kWh)</span><span class="rv">'+rpf(tk)+'</span></div>'+
+    '<div class="rr"><span class="rl">Biaya Pemakaian ('+kwh.toLocaleString('id-ID')+' kWh)</span><span class="rv">'+rp(bp)+'</span></div>'+
+    '<div class="rr"><span class="rl">Biaya Beban ('+kva+' kVA)</span><span class="rv">'+rp(bb)+'</span></div>'+
+    '<div class="rr"><span class="rl">Biaya kVARh Excess'+(ke>0?' ('+Math.round(ke)+')':'')+'</span><span class="rv">'+(ke>0?rp(bv):'Tidak ada penalty')+'</span></div>'+
+    '<div class="rr"><span class="rl">PPJ ('+(pr*100).toFixed(0)+'%)</span><span class="rv">'+rp(ppj)+'</span></div>'+
+    '<div class="rr"><span class="rl">Materai</span><span class="rv">'+rpf(mat)+'</span></div>'+
+    '<div style="height:1px;background:var(--border);margin:8px 0"></div>'+
+    '<div class="rr"><span class="rl">Load Factor</span><span class="rv">'+lf.toFixed(1)+'%</span></div>'+
+    '<div class="rr"><span class="rl">Biaya Efektif per kWh</span><span class="rv">'+rpf(ck)+'</span></div>'+
+    '<div class="rhl"><div class="big">'+rp(tot)+'</div><div class="sub">Estimasi Total Tagihan per Bulan</div></div>'+
+    '<div class="rn">* Estimasi berdasarkan tarif PLN berlaku. Tarif aktual dapat berbeda tergantung penyesuaian triwulanan ESDM, rekonsiliasi meter, dan komponen tambahan.</div>';
+}
+</script>
+</body>
+</html>

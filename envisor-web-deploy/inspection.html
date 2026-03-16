@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Envisor Inspection — Platform Job Matching Instalatir Listrik</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#0A0A0A;--black-light:#111;--black-card:#0F0F0F;
+  --gold:#C9A96E;--gold-light:#DBBF8C;--gold-dim:rgba(201,169,110,0.12);
+  --silver:#A8A8A8;--silver-light:#C8C8C8;--white:#F5F2ED;
+  --font-d:'Cormorant Garamond',Georgia,serif;
+  --font-b:'DM Sans',Helvetica,sans-serif;
+  --border:rgba(201,169,110,0.12);--border-h:rgba(201,169,110,0.28);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--black);color:var(--white);-webkit-font-smoothing:antialiased;line-height:1.6}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 50% 50% at 15% 20%,rgba(201,169,110,0.04) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 85% 75%,rgba(168,168,168,0.03) 0%,transparent 70%);pointer-events:none;z-index:0}
+a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
+
+header{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px);height:72px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(16px)}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:32px;height:32px;border:1.5px solid var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:600;font-size:16px;color:var(--gold)}
+.logo-text{font-family:var(--font-d);font-size:22px;font-weight:500;letter-spacing:1px}
+.logo-text span{color:var(--gold);font-weight:300}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);transition:color .3s}
+.nav a:hover{color:var(--gold-light)}.nav a.on{color:var(--gold)}
+.btn-g{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--black);background:linear-gradient(135deg,var(--gold),var(--gold-light));padding:10px 24px;border-radius:2px;display:inline-block;transition:all .3s;border:none;cursor:pointer}
+.btn-g:hover{box-shadow:0 4px 24px rgba(201,169,110,0.3);transform:translateY(-1px)}
+.btn-o{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);background:transparent;padding:10px 24px;border-radius:2px;display:inline-block;transition:all .3s;cursor:pointer}
+.btn-o:hover{background:var(--gold-dim)}
+.container{max-width:1200px;margin:0 auto;padding:0 clamp(24px,4vw,60px);position:relative;z-index:1}
+
+/* Hero */
+.hero{padding:clamp(48px,8vh,80px) 0 clamp(36px,6vh,56px);text-align:center;border-bottom:1px solid var(--border);position:relative;z-index:1}
+.hero-tag{display:inline-block;padding:6px 16px;border-radius:2px;border:1px solid var(--border);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.hero h1{font-family:var(--font-d);font-size:clamp(32px,5vw,56px);font-weight:300;letter-spacing:1px;line-height:1.15;margin-bottom:16px}
+.hero h1 strong{font-weight:600;color:var(--gold)}
+.hero p{font-size:16px;color:var(--silver);max-width:620px;margin:0 auto;font-weight:300;line-height:1.7}
+
+/* Section */
+.sec{padding:clamp(48px,8vh,80px) 0;position:relative;z-index:1}
+.sec-label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.sec-title{font-family:var(--font-d);font-size:clamp(28px,4vw,48px);font-weight:400;letter-spacing:1px;line-height:1.2;margin-bottom:12px}
+.sec-title strong{font-weight:600;color:var(--gold)}
+.sec-sub{font-size:15px;color:var(--silver);max-width:560px;font-weight:300;line-height:1.7}
+
+/* How it works */
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.how-card{background:var(--black-card);border:1px solid var(--border);border-radius:8px;padding:32px 24px;text-align:center}
+.how-num{width:40px;height:40px;border-radius:50%;margin:0 auto 18px;background:linear-gradient(135deg,var(--gold),var(--gold-light));display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--black)}
+.how-card h3{font-family:var(--font-d);font-size:20px;font-weight:500;margin-bottom:4px}
+.how-role{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.how-list{list-style:none;text-align:left;display:flex;flex-direction:column;gap:8px}
+.how-list li{font-size:13px;color:var(--silver);padding-left:18px;position:relative;line-height:1.5}
+.how-list li::before{content:'';position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;border:1.5px solid var(--gold)}
+
+/* Filter */
+.fbar{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;align-items:center}
+.fsel{
+  appearance:none;
+  background:var(--black-card) url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23C9A96E' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 16px center;
+  border:1px solid var(--border);border-radius:4px;padding:12px 44px 12px 16px;
+  font-family:var(--font-b);font-size:13px;font-weight:500;color:var(--white);cursor:pointer;transition:border-color .3s;min-width:200px;
+}
+.fsel:focus{outline:none;border-color:var(--gold)}
+.fsel option{background:var(--black-card);color:var(--white)}
+.fcount{font-size:13px;color:var(--silver);margin-left:8px}
+
+/* Inspector cards */
+.ig{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.ic{background:var(--black-card);border:1px solid var(--border);border-radius:8px;padding:24px;transition:all .4s;display:flex;gap:16px;align-items:flex-start}
+.ic:hover{border-color:var(--border-h);transform:translateY(-2px)}
+.ic-av{width:48px;height:48px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--gold-dim),var(--black-card));border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:16px;font-weight:600;color:var(--gold)}
+.ic-name{font-size:15px;font-weight:600;margin-bottom:3px}
+.ic-spec{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.ic-bio{font-size:12px;color:var(--silver);line-height:1.5}
+.ic-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.ic-tag{font-size:10px;font-weight:500;padding:3px 10px;border-radius:2px;background:var(--gold-dim);color:var(--gold);border:1px solid var(--border)}
+.ic-rating{display:flex;align-items:center;gap:4px;margin-top:8px}
+.ic-stars{color:var(--gold);font-size:12px;letter-spacing:1px}
+.ic-score{font-size:12px;color:var(--silver);font-weight:600}
+.ic-btn{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);cursor:pointer;transition:color .3s}
+.ic-btn:hover{color:var(--gold-light)}
+.empty{text-align:center;padding:60px 20px;grid-column:1/-1}
+.empty p{font-size:15px;color:var(--silver);font-weight:300}
+
+/* CTA */
+.cta{text-align:center;padding:clamp(40px,6vh,60px) 24px;border-top:1px solid var(--border);position:relative;z-index:1}
+.cta h2{font-family:var(--font-d);font-size:clamp(24px,3vw,36px);font-weight:400;margin-bottom:12px;letter-spacing:1px}
+.cta h2 strong{color:var(--gold);font-weight:600}
+.cta p{font-size:14px;color:var(--silver);margin-bottom:24px;font-weight:300}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+footer{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px);height:52px;border-top:1px solid var(--border);position:relative;z-index:1}
+footer p{font-size:11px;color:rgba(168,168,168,.5)}
+footer a{font-size:11px;color:rgba(168,168,168,.4);margin-left:16px;transition:color .3s}
+footer a:hover{color:var(--gold)}
+
+.ham{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.ham span{width:20px;height:1.5px;background:var(--silver);border-radius:1px}
+.mnav{display:none;position:fixed;inset:0;z-index:999;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mnav.open{display:flex}
+.mnav a{font-family:var(--font-d);font-size:22px;color:var(--silver-light);letter-spacing:2px}
+.mnav a:hover{color:var(--gold)}
+.mnav-x{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--silver);font-size:28px;cursor:pointer}
+
+@media(max-width:1024px){.ig{grid-template-columns:repeat(2,1fr)}.how{grid-template-columns:1fr}}
+@media(max-width:768px){.nav a:not(.btn-g){display:none}.ham{display:flex}}
+@media(max-width:600px){.ig{grid-template-columns:1fr}.fbar{flex-direction:column}.fsel{width:100%}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo"><div class="logo-mark">E</div><div class="logo-text">ENVISOR<span>.AI</span></div></a>
+  <div class="nav">
+    <a href="https://envisor.vercel.app/" target="_blank">Envisor AI</a>
+    <a href="advisor.html">Expert</a>
+    <a href="inspection.html" class="on">Inspection</a>
+    <a href="industries.html">Industries</a>
+    <a href="mailto:hello@envisorai.com" class="btn-g">Order Inspeksi</a>
+    <button class="ham" id="hm"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-tag">Envisor Inspection</div>
+    <h1>Marketplace <strong>Instalatir Listrik</strong><br>Terverifikasi</h1>
+    <p>Platform yang mempertemukan kebutuhan inspeksi listrik rumah dan gedung dengan teknisi bersertifikat di wilayah Anda.</p>
+  </div>
+</section>
+
+<section class="sec" style="border-bottom:1px solid var(--border)">
+  <div class="container">
+    <span class="sec-label">Cara Kerja</span>
+    <div class="sec-title">3 Langkah <strong>Mudah</strong></div>
+    <div class="how">
+      <div class="how-card">
+        <div class="how-num">1</div>
+        <h3>Daftar &amp; Upload CV</h3>
+        <div class="how-role">Instalatir</div>
+        <ul class="how-list"><li>Upload CV dan sertifikat keahlian</li><li>Verifikasi BNSP / SLO oleh tim</li><li>Profil publik di platform</li><li>Set area kerja dan availability</li></ul>
+      </div>
+      <div class="how-card">
+        <div class="how-num">2</div>
+        <h3>Matching &amp; Dispatch</h3>
+        <div class="how-role">Platform AI</div>
+        <ul class="how-list"><li>AI match lokasi dan keahlian</li><li>Notifikasi job ke kandidat terbaik</li><li>Klien lihat profil dan rating</li><li>Konfirmasi dan jadwal otomatis</li></ul>
+      </div>
+      <div class="how-card">
+        <div class="how-num">3</div>
+        <h3>Order Inspeksi</h3>
+        <div class="how-role">Klien</div>
+        <ul class="how-list"><li>Input kebutuhan inspeksi listrik</li><li>Pilih atau terima matching AI</li><li>Bayar via platform (escrow)</li><li>Review dan rating setelah selesai</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="container">
+    <span class="sec-label">Cari Instalatir</span>
+    <div class="sec-title">Filter berdasarkan <strong>Wilayah UP3 PLN</strong></div>
+    <p class="sec-sub">Pilih wilayah UP3 dan spesialisasi untuk menemukan instalatir terverifikasi di area Anda.</p>
+    <div class="fbar">
+      <select class="fsel" id="fUP3">
+        <option value="all">Semua Wilayah UP3</option>
+        <optgroup label="DKI Jakarta &amp; Banten">
+          <option value="jkt-selatan">UP3 Jakarta Selatan</option><option value="jkt-pusat">UP3 Jakarta Pusat</option><option value="jkt-barat">UP3 Jakarta Barat</option><option value="jkt-utara">UP3 Jakarta Utara</option><option value="jkt-timur">UP3 Jakarta Timur</option><option value="tangerang">UP3 Tangerang</option><option value="banten-utara">UP3 Banten Utara</option>
+        </optgroup>
+        <optgroup label="Jawa Barat">
+          <option value="bekasi">UP3 Bekasi</option><option value="karawang">UP3 Karawang</option><option value="cirebon">UP3 Cirebon</option><option value="bandung">UP3 Bandung</option><option value="sukabumi">UP3 Sukabumi</option><option value="bogor">UP3 Bogor</option><option value="depok">UP3 Depok</option><option value="purwakarta">UP3 Purwakarta</option><option value="tasikmalaya">UP3 Tasikmalaya</option><option value="garut">UP3 Garut</option><option value="majalengka">UP3 Majalengka</option>
+        </optgroup>
+        <optgroup label="Jawa Tengah &amp; DIY">
+          <option value="semarang">UP3 Semarang</option><option value="surakarta">UP3 Surakarta</option><option value="yogyakarta">UP3 Yogyakarta</option><option value="purwokerto">UP3 Purwokerto</option><option value="tegal">UP3 Tegal</option><option value="pekalongan">UP3 Pekalongan</option><option value="kudus">UP3 Kudus</option>
+        </optgroup>
+        <optgroup label="Jawa Timur">
+          <option value="sby-selatan">UP3 Surabaya Selatan</option><option value="sby-utara">UP3 Surabaya Utara</option><option value="malang">UP3 Malang</option><option value="kediri">UP3 Kediri</option><option value="jember">UP3 Jember</option><option value="madiun">UP3 Madiun</option><option value="mojokerto">UP3 Mojokerto</option>
+        </optgroup>
+        <optgroup label="Sumatera">
+          <option value="medan">UP3 Medan</option><option value="padang">UP3 Padang</option><option value="palembang">UP3 Palembang</option><option value="pekanbaru">UP3 Pekanbaru</option><option value="lampung">UP3 Lampung</option><option value="batam">UP3 Batam</option>
+        </optgroup>
+        <optgroup label="Kalimantan, Sulawesi, Bali &amp; NTT">
+          <option value="pontianak">UP3 Pontianak</option><option value="banjarmasin">UP3 Banjarmasin</option><option value="balikpapan">UP3 Balikpapan</option><option value="makassar">UP3 Makassar</option><option value="manado">UP3 Manado</option><option value="denpasar">UP3 Denpasar</option><option value="mataram">UP3 Mataram</option>
+        </optgroup>
+      </select>
+      <select class="fsel" id="fSpec">
+        <option value="all">Semua Spesialisasi</option>
+        <option value="rumah">Inspeksi Rumah Tangga</option>
+        <option value="gedung">Inspeksi Gedung</option>
+        <option value="baru">Instalasi Baru</option>
+        <option value="k3">K3 Kelistrikan</option>
+        <option value="solar">Panel Surya / PLTS</option>
+        <option value="maintenance">Maintenance Rutin</option>
+      </select>
+      <span class="fcount" id="fCount">Menampilkan 12 instalatir</span>
+    </div>
+    <div class="ig" id="grid"></div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Butuh <strong>inspeksi listrik?</strong></h2>
+  <p>Temukan instalatir terverifikasi di wilayah Anda dalam hitungan menit.</p>
+  <div class="cta-btns"><a href="mailto:hello@envisorai.com" class="btn-g">Order Inspeksi</a><a href="index.html" class="btn-o">Kembali ke Beranda</a></div>
+</section>
+
+<footer><p>&copy; 2025 Envisor Group</p><div><a href="#">Privacy</a><a href="#">Terms</a></div></footer>
+
+<div class="mnav" id="mn"><button class="mnav-x" id="mx">&times;</button><a href="index.html">Beranda</a><a href="advisor.html">Expert</a><a href="inspection.html">Inspection</a><a href="industries.html">Industries</a></div>
+
+<script>
+document.getElementById('hm').onclick=function(){document.getElementById('mn').classList.add('open')};
+document.getElementById('mx').onclick=function(){document.getElementById('mn').classList.remove('open')};
+
+var data=[
+  {n:"Ahmad Fauzi, S.T.",i:"AF",s:"rumah",u:"cirebon",r:4.9,j:87,c:["BNSP","SLO"],a:"Cirebon & Kuningan",b:"Instalatir senior 12 tahun. Spesialis inspeksi rumah tangga dan panel distribusi."},
+  {n:"Budi Prasetyo",i:"BP",s:"gedung",u:"jkt-selatan",r:4.8,j:124,c:["AKLI","K3"],a:"Jakarta Selatan & Depok",b:"Ex-PLN 15 tahun. Ahli inspeksi gedung komersial dan sistem proteksi."},
+  {n:"Candra Wijaya, A.Md.",i:"CW",s:"baru",u:"bandung",r:4.7,j:65,c:["BNSP","PUIL"],a:"Bandung Raya",b:"Teknisi instalasi baru untuk perumahan dan ruko. Lulusan Polban."},
+  {n:"Dimas Ardianto",i:"DA",s:"k3",u:"sby-selatan",r:4.9,j:93,c:["K3L","OHSAS"],a:"Surabaya & Sidoarjo",b:"Konsultan K3 kelistrikan untuk pabrik dan gudang. Sertifikasi BNSP."},
+  {n:"Eko Sulistyo, S.T.",i:"ES",s:"solar",u:"semarang",r:4.6,j:41,c:["PLTS","ESDM"],a:"Semarang & Demak",b:"Spesialis instalasi PLTS rooftop residensial dan komersial."},
+  {n:"Farid Hidayat",i:"FH",s:"maintenance",u:"bekasi",r:4.8,j:156,c:["BNSP","SLO"],a:"Bekasi & Cikarang",b:"Teknisi maintenance rutin gedung dan kawasan industri MM2100."},
+  {n:"Gunawan Setiawan",i:"GS",s:"rumah",u:"bogor",r:4.7,j:72,c:["AKLI","BNSP"],a:"Bogor & Cibinong",b:"Instalatir berpengalaman untuk inspeksi dan perbaikan listrik rumah."},
+  {n:"Heri Susanto, A.Md.",i:"HS",s:"gedung",u:"medan",r:4.5,j:58,c:["BNSP","K3"],a:"Medan & Deli Serdang",b:"Teknisi inspeksi gedung dan sistem grounding. Area Sumatera Utara."},
+  {n:"Irfan Maulana",i:"IM",s:"baru",u:"tangerang",r:4.8,j:89,c:["PUIL","SLO"],a:"Tangerang & BSD",b:"Spesialis instalasi listrik perumahan baru dan apartemen."},
+  {n:"Joko Purnomo, S.T.",i:"JP",s:"solar",u:"denpasar",r:4.9,j:37,c:["PLTS","ESDM"],a:"Bali & Denpasar",b:"Ahli PLTS rooftop untuk villa dan hotel. Berpengalaman di proyek EBT."},
+  {n:"Kurniawan Adi",i:"KA",s:"k3",u:"makassar",r:4.6,j:45,c:["K3L","BNSP"],a:"Makassar & Gowa",b:"Konsultan K3 listrik untuk sektor pertambangan dan industri."},
+  {n:"Lukman Hakim",i:"LH",s:"maintenance",u:"malang",r:4.7,j:103,c:["BNSP","AKLI"],a:"Malang & Batu",b:"Teknisi maintenance rutin untuk pabrik dan gedung perkantoran."}
+];
+var specMap={rumah:"Inspeksi Rumah",gedung:"Inspeksi Gedung",baru:"Instalasi Baru",k3:"K3 Kelistrikan",solar:"Panel Surya",maintenance:"Maintenance"};
+
+function render(){
+  var u=document.getElementById('fUP3').value;
+  var s=document.getElementById('fSpec').value;
+  var f=data.filter(function(d){
+    if(u!=='all'&&d.u!==u) return false;
+    if(s!=='all'&&d.s!==s) return false;
+    return true;
+  });
+  document.getElementById('fCount').textContent='Menampilkan '+f.length+' instalatir';
+  if(!f.length){document.getElementById('grid').innerHTML='<div class="empty"><p>Belum ada instalatir terdaftar di wilayah ini. Hubungi kami untuk informasi.</p></div>';return;}
+  document.getElementById('grid').innerHTML=f.map(function(d){
+    var stars='';for(var x=0;x<5;x++) stars+=x<Math.floor(d.r)?'&#9733;':'&#9734;';
+    return '<div class="ic"><div class="ic-av">'+d.i+'</div><div><div class="ic-name">'+d.n+'</div><div class="ic-spec">'+specMap[d.s]+'</div><div class="ic-bio">'+d.b+'</div><div class="ic-tags">'+d.c.map(function(c){return '<span class="ic-tag">'+c+'</span>'}).join('')+'<span class="ic-tag">'+d.a+'</span></div><div class="ic-rating"><span class="ic-stars">'+stars+'</span><span class="ic-score">'+d.r+' / '+d.j+' job</span></div><div class="ic-btn">Pesan Inspeksi &#8594;</div></div></div>';
+  }).join('');
+}
+document.getElementById('fUP3').onchange=render;
+document.getElementById('fSpec').onchange=render;
+render();
+</script>
+</body>
+</html>
