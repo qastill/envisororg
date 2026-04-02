@@ -3,25 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Envisor Industries — Kalkulasi Solar &amp; Tagihan Industri</title>
+<title>Envisor Industries — Efisiensi Energi untuk Industri</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --black:#0A0A0A;--black-light:#111;--black-card:#0F0F0F;
-  --gold:#C9A96E;--gold-light:#DBBF8C;--gold-dim:rgba(201,169,110,0.12);--gold-dim2:rgba(201,169,110,0.06);
-  --silver:#A8A8A8;--silver-light:#C8C8C8;--white:#F5F2ED;
-  --font-d:'Cormorant Garamond',Georgia,serif;
-  --font-b:'DM Sans',Helvetica,sans-serif;
-  --border:rgba(201,169,110,0.12);--border-h:rgba(201,169,110,0.28);
+--black:#0A0A0A;--black-light:#111;--black-card:#0F0F0F;
+--gold:#C9A96E;--gold-light:#DBBF8C;--gold-dim:rgba(201,169,110,0.12);--gold-dim2:rgba(201,169,110,0.06);
+--silver:#A8A8A8;--silver-light:#C8C8C8;--white:#F5F2ED;
+--font-d:'Cormorant Garamond',Georgia,serif;
+--font-b:'DM Sans',Helvetica,sans-serif;
+--border:rgba(201,169,110,0.12);--border-h:rgba(201,169,110,0.28);
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--font-b);background:var(--black);color:var(--white);-webkit-font-smoothing:antialiased;line-height:1.6}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 50% 50% at 15% 20%,rgba(201,169,110,0.04) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 85% 75%,rgba(168,168,168,0.03) 0%,transparent 70%);pointer-events:none;z-index:0}
 a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
-
 header{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px);height:72px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(16px)}
 .logo{display:flex;align-items:center;gap:12px}
 .logo-mark{width:32px;height:32px;border:1.5px solid var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:600;font-size:16px;color:var(--gold)}
@@ -35,62 +34,10 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 c
 .btn-o{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);background:transparent;padding:10px 24px;border-radius:2px;display:inline-block;transition:all .3s;cursor:pointer}
 .btn-o:hover{background:var(--gold-dim)}
 .container{max-width:1200px;margin:0 auto;padding:0 clamp(24px,4vw,60px);position:relative;z-index:1}
-
-.hero{padding:clamp(48px,8vh,80px) 0 clamp(36px,6vh,56px);text-align:center;border-bottom:1px solid var(--border);position:relative;z-index:1}
-.hero-tag{display:inline-block;padding:6px 16px;border-radius:2px;border:1px solid var(--border);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
-.hero h1{font-family:var(--font-d);font-size:clamp(32px,5vw,56px);font-weight:300;letter-spacing:1px;line-height:1.15;margin-bottom:16px}
-.hero h1 strong{font-weight:600;color:var(--gold)}
-.hero p{font-size:16px;color:var(--silver);max-width:600px;margin:0 auto;font-weight:300;line-height:1.7}
-
-.sec{padding:clamp(48px,8vh,80px) 0;position:relative;z-index:1}
-.sec-label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
-.sec-title{font-family:var(--font-d);font-size:clamp(24px,3vw,40px);font-weight:400;letter-spacing:1px;line-height:1.2;margin-bottom:24px}
-.sec-title strong{font-weight:600;color:var(--gold)}
-
-/* Tabs */
-.tabs{display:flex;gap:2px;margin-bottom:40px;border-bottom:1px solid var(--border)}
-.tab{font-family:var(--font-b);font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--silver);background:none;border:none;padding:14px 28px;cursor:pointer;position:relative;transition:color .3s}
-.tab:hover{color:var(--white)}
-.tab.on{color:var(--gold)}
-.tab.on::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--gold)}
-.tp{display:none}.tp.on{display:block}
-
-/* Calc layout */
-.cg{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-.cf{display:flex;flex-direction:column;gap:20px}
-.fg label{display:block;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);margin-bottom:8px}
-.fi{width:100%;padding:12px 16px;background:var(--black-card);border:1px solid var(--border);border-radius:4px;font-family:var(--font-b);font-size:14px;color:var(--white);transition:border-color .3s}
-.fi:focus{outline:none;border-color:var(--gold)}
-.fi::placeholder{color:rgba(168,168,168,.4)}
-select.fi{appearance:none;background:var(--black-card) url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23C9A96E' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 16px center;cursor:pointer}
-select.fi option{background:var(--black-card);color:var(--white)}
-.fr{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-
-/* Result panel */
-.rp{background:var(--black-card);border:1px solid var(--border);border-radius:8px;padding:32px;min-height:400px;display:flex;flex-direction:column}
-.rp-empty{flex:1;display:flex;align-items:center;justify-content:center;text-align:center}
-.rp-empty p{font-size:14px;color:rgba(168,168,168,.4);font-weight:300;line-height:1.7}
-.rh{font-family:var(--font-d);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid var(--border)}
-.rr{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--gold-dim2)}
-.rr:last-of-type{border:none}
-.rl{font-size:13px;color:var(--silver);font-weight:400}
-.rv{font-size:14px;font-weight:700;color:var(--white);text-align:right}
-.rhl{margin-top:24px;padding:20px;border-radius:6px;background:var(--gold-dim);border:1px solid var(--border);text-align:center}
-.rhl .big{font-family:var(--font-d);font-size:clamp(28px,3vw,40px);font-weight:600;color:var(--gold);margin-bottom:4px}
-.rhl .sub{font-size:12px;color:var(--silver);font-weight:400}
-.rn{font-size:11px;color:rgba(168,168,168,.5);margin-top:16px;line-height:1.6;font-weight:300}
-
-.cta{text-align:center;padding:clamp(40px,6vh,60px) 24px;border-top:1px solid var(--border);position:relative;z-index:1}
-.cta h2{font-family:var(--font-d);font-size:clamp(24px,3vw,36px);font-weight:400;margin-bottom:12px;letter-spacing:1px}
-.cta h2 strong{color:var(--gold);font-weight:600}
-.cta p{font-size:14px;color:var(--silver);margin-bottom:24px;font-weight:300}
-.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-
 footer{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px);height:52px;border-top:1px solid var(--border);position:relative;z-index:1}
 footer p{font-size:11px;color:rgba(168,168,168,.5)}
 footer a{font-size:11px;color:rgba(168,168,168,.4);margin-left:16px;transition:color .3s}
 footer a:hover{color:var(--gold)}
-
 .ham{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
 .ham span{width:20px;height:1.5px;background:var(--silver);border-radius:1px}
 .mnav{display:none;position:fixed;inset:0;z-index:999;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:28px}
@@ -98,180 +45,713 @@ footer a:hover{color:var(--gold)}
 .mnav a{font-family:var(--font-d);font-size:22px;color:var(--silver-light);letter-spacing:2px}
 .mnav a:hover{color:var(--gold)}
 .mnav-x{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--silver);font-size:28px;cursor:pointer}
-
-@media(max-width:900px){.cg{grid-template-columns:1fr}.fr{grid-template-columns:1fr}}
-@media(max-width:768px){.nav a:not(.btn-g){display:none}.ham{display:flex}}
+/* PAGE SYSTEM */
+.pg{display:none;min-height:calc(100vh - 124px);position:relative;z-index:1}
+.pg.active{display:block}
+/* LANDING */
+.land-hero{padding:clamp(60px,10vh,100px) 0 clamp(40px,6vh,60px);text-align:center}
+.land-tag{display:inline-block;padding:6px 16px;border-radius:2px;border:1px solid var(--border);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.land-hero h1{font-family:var(--font-d);font-size:clamp(32px,5vw,56px);font-weight:300;letter-spacing:1px;line-height:1.15;margin-bottom:16px}
+.land-hero h1 strong{font-weight:600;color:var(--gold)}
+.land-hero p{font-size:16px;color:var(--silver);max-width:640px;margin:0 auto;font-weight:300;line-height:1.7}
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:0 0 clamp(60px,8vh,80px)}
+.svc-card{background:var(--black-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;cursor:pointer;transition:all .4s}
+.svc-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 12px 40px rgba(201,169,110,0.1)}
+.svc-img{width:100%;height:220px;object-fit:cover;filter:brightness(0.7)}
+.svc-card:hover .svc-img{filter:brightness(0.85)}
+.svc-body{padding:28px}
+.svc-num{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gold);margin-bottom:8px}
+.svc-body h3{font-family:var(--font-d);font-size:24px;font-weight:500;margin-bottom:10px;letter-spacing:.5px}
+.svc-body p{font-size:14px;color:var(--silver);font-weight:300;line-height:1.6;margin-bottom:16px}
+.svc-link{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:8px;transition:gap .3s}
+.svc-card:hover .svc-link{gap:14px}
+/* INDEX PAGES */
+.idx-hero{padding:clamp(36px,6vh,56px) 0 24px}
+.idx-back{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:1px;color:var(--silver);margin-bottom:20px;cursor:pointer;transition:color .3s;background:none;border:none;font-family:var(--font-b)}
+.idx-back:hover{color:var(--gold)}
+.idx-hero h2{font-family:var(--font-d);font-size:clamp(28px,4vw,44px);font-weight:400;letter-spacing:1px;margin-bottom:10px}
+.idx-hero h2 strong{font-weight:600;color:var(--gold)}
+.idx-hero p{font-size:15px;color:var(--silver);font-weight:300;max-width:640px;line-height:1.7}
+.topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;padding:0 0 clamp(60px,8vh,80px)}
+.topic-card{background:var(--black-card);border:1px solid var(--border);border-radius:8px;padding:28px;cursor:pointer;transition:all .3s;display:flex;flex-direction:column;gap:10px}
+.topic-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,169,110,0.08)}
+.topic-num{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gold)}
+.topic-card h4{font-family:var(--font-d);font-size:20px;font-weight:500;letter-spacing:.5px}
+.topic-card p{font-size:13px;color:var(--silver);font-weight:300;line-height:1.6}
+/* ARTICLE DETAIL PAGES */
+.art-wrap{padding:clamp(36px,6vh,56px) 0 clamp(60px,8vh,80px)}
+.art-back{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:1px;color:var(--silver);margin-bottom:24px;cursor:pointer;transition:color .3s;background:none;border:none;font-family:var(--font-b)}
+.art-back:hover{color:var(--gold)}
+.art-hero-img{width:100%;height:320px;object-fit:cover;border-radius:8px;margin-bottom:28px;filter:brightness(0.75)}
+.art-badge{display:inline-block;padding:4px 12px;border-radius:2px;border:1px solid var(--border);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.art-wrap h2{font-family:var(--font-d);font-size:clamp(28px,4vw,40px);font-weight:400;letter-spacing:1px;line-height:1.2;margin-bottom:24px}
+.art-wrap h2 strong{font-weight:600;color:var(--gold)}
+.art-text{font-size:15px;color:var(--silver-light);font-weight:300;line-height:1.8;margin-bottom:20px;max-width:800px}
+.art-img{width:100%;max-width:700px;height:260px;object-fit:cover;border-radius:6px;margin:20px 0;filter:brightness(0.8)}
+.formula-box{background:var(--black-card);border:1px solid var(--border);border-radius:8px;padding:24px 28px;margin:24px 0;max-width:700px}
+.formula-box .ftitle{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.formula-box .fmath{font-family:'Courier New',monospace;font-size:16px;color:var(--white);line-height:1.8;padding:12px 0}
+.formula-box .fnote{font-size:12px;color:var(--silver);font-weight:300;line-height:1.6;margin-top:8px;border-top:1px solid var(--border);padding-top:10px}
+.highlight-box{background:linear-gradient(135deg,rgba(201,169,110,0.08),rgba(201,169,110,0.03));border:1px solid var(--border-h);border-radius:8px;padding:24px 28px;margin:28px 0;max-width:700px}
+.highlight-box h4{font-family:var(--font-d);font-size:18px;font-weight:500;color:var(--gold);margin-bottom:8px}
+.highlight-box p{font-size:14px;color:var(--silver-light);font-weight:300;line-height:1.7}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0;max-width:700px}
+.info-card{background:var(--black-card);border:1px solid var(--border);border-radius:6px;padding:18px 20px}
+.info-card h5{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.info-card p{font-size:13px;color:var(--silver-light);font-weight:300;line-height:1.6}
+.art-nav{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);gap:16px}
+.art-nav-btn{font-size:12px;font-weight:500;letter-spacing:1px;color:var(--silver);cursor:pointer;transition:color .3s;background:none;border:1px solid var(--border);padding:10px 20px;border-radius:4px;font-family:var(--font-b)}
+.art-nav-btn:hover{color:var(--gold);border-color:var(--gold)}
+@media(max-width:900px){.svc-grid{grid-template-columns:1fr}.info-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.nav a:not(.btn-g){display:none}.ham{display:flex}.svc-grid{grid-template-columns:1fr}.topic-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
 <header>
-  <a href="index.html" class="logo"><div class="logo-mark">E</div><div class="logo-text">ENVISOR<span>.AI</span></div></a>
-  <div class="nav">
-    <a href="https://envisor.vercel.app/" target="_blank">Envisor AI</a>
-    <a href="advisor.html">Expert</a>
-    <a href="inspection.html">Inspection</a>
-    <a href="industries.html" class="on">Industries</a>
-    <a href="mailto:hello@envisorai.com" class="btn-g">Hubungi Kami</a>
-    <button class="ham" id="hm"><span></span><span></span><span></span></button>
-  </div>
+<a href="index.html" class="logo"><div class="logo-mark">E</div><div class="logo-text">ENVISOR<span>.AI</span></div></a>
+<div class="nav">
+<a href="https://envisor.vercel.app/" target="_blank">Envisor AI</a>
+<a href="advisor.html">Expert</a>
+<a href="inspection.html">Inspection</a>
+<a href="industries.html" class="on">Industries</a>
+<a href="mailto:hello@envisorai.com" class="btn-g">Hubungi Kami</a>
+<button class="ham" id="hm"><span></span><span></span><span></span></button>
+</div>
 </header>
 
-<section class="hero">
-  <div class="container">
-    <div class="hero-tag">Envisor Industries</div>
-    <h1>Kalkulasi <strong>Solar &amp; Tagihan</strong><br>untuk Industri</h1>
-    <p>Hitung potensi penghematan dengan PLTS rooftop dan estimasi tagihan listrik enterprise berdasarkan tarif PLN terkini.</p>
-  </div>
-</section>
+<!-- ========== PAGE: LANDING ========== -->
+<div class="pg active" id="pg-land">
+<div class="container">
+<div class="land-hero">
+<div class="land-tag">Envisor Industries</div>
+<h1>Dua Pilar <strong>Efisiensi Energi</strong><br>untuk Industri Anda</h1>
+<p>Optimalkan biaya operasional melalui pemanfaatan energi surya dan manajemen daya reaktif. Envisor hadir sebagai mitra strategis efisiensi energi industri Indonesia.</p>
+</div>
+<div class="svc-grid">
+<div class="svc-card" onclick="nav('pg-solar-idx')">
+<img class="svc-img" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&h=300&fit=crop" alt="Solar Panel">
+<div class="svc-body">
+<div class="svc-num">SERVICE 01</div>
+<h3>Feasibility Study &amp; Kalkulasi Solar Panel</h3>
+<p>Analisis kelayakan PLTS rooftop untuk industri Anda — mulai dari perhitungan kapasitas, estimasi produksi energi, ROI, hingga payback period berdasarkan data lokasi aktual.</p>
+<span class="svc-link">Pelajari Selengkapnya &rarr;</span>
+</div>
+</div>
+<div class="svc-card" onclick="nav('pg-kvar-idx')">
+<img class="svc-img" src="https://images.unsplash.com/photo-1658870901700-9c0418787aa7?w=600&h=300&fit=crop" alt="Electrical Panel">
+<div class="svc-body">
+<div class="svc-num">SERVICE 02</div>
+<h3>Efisiensi Tagihan Listrik &amp; Kompensasi kVAR</h3>
+<p>Pahami struktur tagihan PLN, eliminasi denda kVARh, atasi masalah harmonisa, dan optimalkan power factor — hemat hingga 15-30% biaya listrik bulanan industri Anda.</p>
+<span class="svc-link">Pelajari Selengkapnya &rarr;</span>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-<section class="sec">
-  <div class="container">
-    <div class="tabs">
-      <button class="tab on" onclick="switchTab('solar',this)">Kalkulasi Solar Panel</button>
-      <button class="tab" onclick="switchTab('billing',this)">Kalkulasi Tagihan Industri</button>
-    </div>
+<!-- ========== PAGE: SOLAR INDEX ========== -->
+<div class="pg" id="pg-solar-idx">
+<div class="container">
+<div class="idx-hero">
+<button class="idx-back" onclick="nav('pg-land')">&larr; Kembali ke Beranda</button>
+<h2>Feasibility Study <strong>Solar Panel</strong> untuk Industri</h2>
+<p>Empat aspek kritis yang harus Anda pahami sebelum investasi PLTS rooftop — dari potensi iradiasi hingga analisis finansial mendalam.</p>
+</div>
+<div class="topic-grid">
+<div class="topic-card" onclick="nav('pg-solar-0')">
+<div class="topic-num">TOPIK 01</div>
+<h4>Potensi Iradiasi &amp; Kapasitas Atap</h4>
+<p>Analisis Global Horizontal Irradiance (GHI) dan perhitungan kapasitas terpasang berdasarkan luas atap efektif.</p>
+</div>
+<div class="topic-card" onclick="nav('pg-solar-1')">
+<div class="topic-num">TOPIK 02</div>
+<h4>Komponen &amp; Teknologi Panel Surya</h4>
+<p>Perbandingan Monocrystalline, Polycrystalline, HJT/TOPCon — efisiensi, degradasi, dan rekomendasi industri.</p>
+</div>
+<div class="topic-card" onclick="nav('pg-solar-2')">
+<div class="topic-num">TOPIK 03</div>
+<h4>Analisis Finansial &amp; ROI</h4>
+<p>Perhitungan Net Present Value, Payback Period, LCOE, dan sensitivitas tarif PLN terhadap kelayakan investasi.</p>
+</div>
+<div class="topic-card" onclick="nav('pg-solar-3')">
+<div class="topic-num">TOPIK 04</div>
+<h4>Regulasi &amp; Skema Net Metering PLN</h4>
+<p>Permen ESDM No. 26/2021, skema ekspor-impor listrik, dan proses perizinan PLTS rooftop industri.</p>
+</div>
+</div>
+</div>
+</div>
 
-    <!-- TAB: SOLAR -->
-    <div class="tp on" id="t-solar">
-      <div class="cg">
-        <div>
-          <span class="sec-label">Simulasi PLTS Rooftop</span>
-          <div class="sec-title">Hitung <strong>Potensi Solar</strong></div>
-          <div class="cf">
-            <div class="fg"><label>Luas Atap Tersedia (m2)</label><input type="number" class="fi" id="sArea" value="200" placeholder="Contoh: 200"></div>
-            <div class="fr">
-              <div class="fg"><label>Jam Sinar Matahari / Hari</label><select class="fi" id="sHours"><option value="3.5">3.5 jam (Jawa Barat)</option><option value="4" selected>4.0 jam (Jawa Tengah)</option><option value="4.5">4.5 jam (Jawa Timur)</option><option value="5">5.0 jam (NTT/NTB/Bali)</option><option value="4.2">4.2 jam (Sumatera)</option><option value="4.8">4.8 jam (Kalimantan)</option><option value="5.2">5.2 jam (Sulawesi)</option></select></div>
-              <div class="fg"><label>Tarif PLN (Rp/kWh)</label><select class="fi" id="sTariff"><option value="1444.70">Rp 1,444 (B2 6.6-200 kVA)</option><option value="1114.74" selected>Rp 1,114 (I3 &gt;200 kVA)</option><option value="1699.53">Rp 1,699 (B3 &gt;200 kVA)</option><option value="996.74">Rp 996 (I4 30,000 kVA)</option></select></div>
-            </div>
-            <div class="fr">
-              <div class="fg"><label>Tipe Panel</label><select class="fi" id="sType"><option value="0.18">Polycrystalline (18%)</option><option value="0.20" selected>Monocrystalline (20%)</option><option value="0.22">HJT / TOPCon (22%)</option></select></div>
-              <div class="fg"><label>Harga per Wp (Rp)</label><input type="number" class="fi" id="sCost" value="9500" placeholder="Rp/Wp"></div>
-            </div>
-            <button class="btn-g" onclick="calcSolar()" style="align-self:flex-start;margin-top:8px">Hitung Potensi Solar</button>
-          </div>
-        </div>
-        <div class="rp" id="rSolar"><div class="rp-empty"><p>Masukkan data di sebelah kiri<br>dan tekan "Hitung" untuk melihat hasil simulasi.</p></div></div>
-      </div>
-    </div>
+<!-- ========== PAGE: KVAR INDEX ========== -->
+<div class="pg" id="pg-kvar-idx">
+<div class="container">
+<div class="idx-hero">
+<button class="idx-back" onclick="nav('pg-land')">&larr; Kembali ke Beranda</button>
+<h2>Efisiensi <strong>Tagihan Listrik</strong> &amp; Kompensasi kVAR</h2>
+<p>Sebelas topik penting yang mengungkap bagaimana denda kVARh terjadi, cara kompensasinya, dan dampaknya terhadap operasional industri Anda.</p>
+</div>
+<div class="topic-grid">
+<div class="topic-card" onclick="nav('pg-kvar-0')">
+<div class="topic-num">TOPIK 01</div>
+<h4>Apa Itu Denda kVAR dalam Tagihan PLN?</h4>
+<p>Memahami komponen kVARh excess pada tagihan listrik industri dan mengapa PLN mengenakan biaya tambahan.</p>
+</div>
+<div class="topic-card" onclick="nav('pg-kvar-1')">
+<div class="topic-num">TOPIK 02</div>
+<h4>Perhitungan kVARh oleh PLN</h4>
+<p>Rumus dan mekanisme PLN dalam menghitung konsumsi daya reaktif dan ambang batas penalti cosφ.</p>
+</div>
+<div class="topic-card" onclick="nav('pg-kvar-2')">
+<div class="topic-num">TOPIK 03</div>
+<h4>Penyebab Munculnya Denda kVAR</h4>
+<p>Faktor-faktor teknis yang menyebabkan power factor rendah — dari motor induksi hingga ballast lampu.</p>
+</div>
+<div class="topic-card" onclick="nav('pg-kvar-3')">
+<div class="topic-num">TOPIK 04</div>
+<h4>Jenis Beban &amp; Karakteristik kVAR</h4>
+<p>Klasifikasi beban resistif, induktif, dan kapasitif — serta kontribusinya terhadap daya reaktif.</p>
+</div>
+<div class="topic-card" onclick="nav('pg-kvar-4')">
+<div class="topic-num">TOPIK 05</div>
+<h4>Jenis-Jenis Kapasitor Bank</h4>
+<p>Fixed, automatic, detuned reactor, active filter — karakteristik dan aplikasi masing-masing tipe.</p>
+</div>
+<div class="topic-card" onclick="nav('pg-kvar-5')">
+<div class="topic-num">TOPIK 06</div>
+<h4>Mengapa Kapasitor Bank Gagal Kompensasi?</h4>
+<p>Penyebab umum kegagalan kompensasi daya reaktif meski sudah memasang kapasitor bank.</p>
+</div>
+<div class="topic-card" onclick="nav('pg-kvar-6')">
+<div class="topic-num">TOPIK 07</div>
+<h4>Dampak Overkapasitif (Leading Power Factor)</h4>
+<p>Risiko dan kerusakan yang terjadi ketika kompensasi berlebihan menyebabkan cosφ leading.</p>
+</div>
+<div class="topic-card" onclick="nav('pg-kvar-7')">
+<div class="topic-num">TOPIK 08</div>
+<h4>Dampak Beban Over-Induktif</h4>
+<p>Konsekuensi teknis dan finansial dari power factor lagging yang terlalu rendah pada industri.</p>
+</div>
+<div class="topic-card" onclick="nav('pg-kvar-8')">
+<div class="topic-num">TOPIK 09</div>
+<h4>Dampak ke Peralatan Elektronik</h4>
+<p>Bagaimana daya reaktif berlebih merusak VFD, PLC, sensor, dan peralatan sensitif lainnya.</p>
+</div>
+<div class="topic-card" onclick="nav('pg-kvar-9')">
+<div class="topic-num">TOPIK 10</div>
+<h4>Dampak ke Jaringan PLN</h4>
+<p>Pengaruh power factor buruk terhadap losses jaringan, drop tegangan, dan stabilitas grid.</p>
+</div>
+<div class="topic-card" onclick="nav('pg-kvar-10')">
+<div class="topic-num">TOPIK 11</div>
+<h4>Harmonisa &amp; Cara Kompensasinya</h4>
+<p>Memahami Total Harmonic Distortion (THD), sumber harmonisa, dan solusi filtering yang tepat.</p>
+</div>
+</div>
+</div>
+</div>
 
-    <!-- TAB: BILLING -->
-    <div class="tp" id="t-billing">
-      <div class="cg">
-        <div>
-          <span class="sec-label">Estimasi Tagihan Enterprise</span>
-          <div class="sec-title">Kalkulasi <strong>Tagihan Industri</strong></div>
-          <div class="cf">
-            <div class="fg"><label>Golongan Tarif PLN</label><select class="fi" id="bGol"><option value="B2|1444.70|40">B2 - Bisnis Menengah (6.6-200 kVA)</option><option value="B3|1699.53|40" selected>B3 - Bisnis Besar (&gt;200 kVA)</option><option value="I3|1114.74|30">I3 - Industri Menengah (&gt;200 kVA)</option><option value="I4|996.74|30">I4 - Industri Besar (30,000 kVA+)</option><option value="P1|1699.53|40">P1 - Pemerintah Kecil</option><option value="P3|1699.53|40">P3 - Pemerintah Besar</option></select></div>
-            <div class="fr">
-              <div class="fg"><label>Daya Tersambung (kVA)</label><input type="number" class="fi" id="bKVA" value="555" placeholder="Contoh: 555"></div>
-              <div class="fg"><label>Konsumsi Bulanan (kWh)</label><input type="number" class="fi" id="bKWH" value="120000" placeholder="Contoh: 120000"></div>
-            </div>
-            <div class="fr">
-              <div class="fg"><label>kVARh (Reactive Power)</label><input type="number" class="fi" id="bKVAR" value="15000" placeholder="Contoh: 15000"></div>
-              <div class="fg"><label>Jam Operasi per Bulan</label><input type="number" class="fi" id="bHrs" value="720" placeholder="Contoh: 720"></div>
-            </div>
-            <div class="fg"><label>Beban Puncak Tertinggi (kW)</label><input type="number" class="fi" id="bPeak" value="400" placeholder="Contoh: 400"></div>
-            <button class="btn-g" onclick="calcBill()" style="align-self:flex-start;margin-top:8px">Hitung Estimasi Tagihan</button>
-          </div>
-        </div>
-        <div class="rp" id="rBill"><div class="rp-empty"><p>Masukkan parameter di sebelah kiri<br>untuk estimasi tagihan listrik industri Anda.</p></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- ========== SOLAR DETAIL PAGES ========== -->
+<div class="pg" id="pg-solar-0">
+<div class="container">
+<div class="art-wrap">
+<button class="art-back" onclick="nav('pg-solar-idx')">&larr; Daftar Topik Solar</button>
+<img class="art-hero-img" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=900&h=400&fit=crop" alt="Solar Irradiance">
+<div class="art-badge">Topik 01 / Solar</div>
+<h2>Potensi Iradiasi &amp; <strong>Kapasitas Atap</strong></h2>
+<p class="art-text">Indonesia terletak di garis khatulistiwa dengan rata-rata iradiasi matahari 4.5-5.2 kWh/m²/hari — salah satu yang tertinggi di dunia. Potensi ini menjadikan PLTS rooftop sangat layak secara teknis untuk kawasan industri di seluruh Nusantara.</p>
+<p class="art-text">Global Horizontal Irradiance (GHI) mengukur total radiasi matahari yang diterima permukaan horizontal per satuan luas. Data GHI menjadi dasar utama dalam menghitung estimasi produksi energi tahunan sebuah sistem PLTS.</p>
+<img class="art-img" src="https://images.unsplash.com/photo-1552197892-f2ad2f75e7c8?w=700&h=300&fit=crop" alt="Solar measurement">
+<div class="formula-box">
+<div class="ftitle">Rumus Kapasitas Terpasang</div>
+<div class="fmath">kWp = (Luas Atap Efektif × Efisiensi Panel × 1000) / 1000<br>Produksi Harian = kWp × PSH × PR</div>
+<div class="fnote">PSH = Peak Sun Hours (jam sinar puncak, 3.5-5.2 jam tergantung lokasi). PR = Performance Ratio (umumnya 0.75-0.85 untuk rooftop industri). Luas atap efektif = 60-70% dari total luas atap (memperhitungkan shading, struktur, dan akses maintenance).</div>
+</div>
+<div class="info-grid">
+<div class="info-card"><h5>Jawa Barat</h5><p>GHI rata-rata 3.8-4.2 kWh/m²/hari. Cocok untuk sistem 100-500 kWp.</p></div>
+<div class="info-card"><h5>Jawa Timur</h5><p>GHI rata-rata 4.3-4.8 kWh/m²/hari. Optimal untuk PLTS skala besar.</p></div>
+<div class="info-card"><h5>Kalimantan</h5><p>GHI rata-rata 4.0-4.5 kWh/m²/hari. Potensi besar untuk industri tambang.</p></div>
+<div class="info-card"><h5>NTT/NTB/Bali</h5><p>GHI rata-rata 5.0-5.5 kWh/m²/hari. Tertinggi di Indonesia.</p></div>
+</div>
+<p class="art-text">Perhitungan kapasitas dimulai dari survei atap — menentukan luas efektif yang bebas bayangan, orientasi azimuth, dan kemiringan optimal. Untuk atap datar, panel biasanya dipasang dengan tilt angle 10-15° menghadap utara atau selatan tergantung posisi lintang.</p>
+<div class="highlight-box">
+<h4>Solusi Envisor</h4>
+<p>Tim Envisor melakukan survei atap menggunakan drone dan analisis shading 3D untuk memastikan setiap meter persegi atap Anda memberikan hasil optimal. Kami menghitung kapasitas terpasang berdasarkan data GHI aktual lokasi Anda, bukan estimasi rata-rata.</p>
+</div>
+<div class="art-nav">
+<span></span>
+<button class="art-nav-btn" onclick="nav('pg-solar-1')">Selanjutnya: Komponen &amp; Teknologi &rarr;</button>
+</div>
+</div>
+</div>
+</div>
 
-<section class="cta">
-  <h2>Butuh analisis <strong>lebih mendalam?</strong></h2>
-  <p>Tim Envisor Industries siap membantu audit energi dan perencanaan PLTS enterprise Anda.</p>
-  <div class="cta-btns"><a href="mailto:hello@envisorai.com" class="btn-g">Konsultasi Enterprise</a><a href="index.html" class="btn-o">Kembali ke Beranda</a></div>
-</section>
+<div class="pg" id="pg-solar-1">
+<div class="container">
+<div class="art-wrap">
+<button class="art-back" onclick="nav('pg-solar-idx')">&larr; Daftar Topik Solar</button>
+<img class="art-hero-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&h=400&fit=crop" alt="Solar Technology">
+<div class="art-badge">Topik 02 / Solar</div>
+<h2>Komponen &amp; <strong>Teknologi Panel Surya</strong></h2>
+<p class="art-text">Pemilihan teknologi panel surya yang tepat sangat mempengaruhi performa dan ROI jangka panjang. Tiga teknologi utama yang tersedia saat ini memiliki karakteristik berbeda — efisiensi, degradasi tahunan, dan harga per Wp yang bervariasi signifikan.</p>
+<img class="art-img" src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=700&h=300&fit=crop" alt="Solar panel types">
+<div class="info-grid">
+<div class="info-card"><h5>Polycrystalline</h5><p>Efisiensi 15-18%. Degradasi ~0.7%/tahun. Harga Rp 7,000-8,500/Wp. Cocok untuk budget terbatas.</p></div>
+<div class="info-card"><h5>Monocrystalline</h5><p>Efisiensi 19-22%. Degradasi ~0.5%/tahun. Harga Rp 8,500-11,000/Wp. Standar industri terbaik.</p></div>
+<div class="info-card"><h5>HJT (Heterojunction)</h5><p>Efisiensi 22-24%. Degradasi ~0.3%/tahun. Harga Rp 11,000-14,000/Wp. Premium performance.</p></div>
+<div class="info-card"><h5>TOPCon</h5><p>Efisiensi 22-25%. Degradasi ~0.4%/tahun. Harga Rp 10,000-13,000/Wp. Teknologi terbaru.</p></div>
+</div>
+<p class="art-text">Selain panel, komponen kritis lainnya meliputi inverter (string inverter vs micro-inverter), mounting system (fixed tilt vs adjustable), kabel DC/AC, combiner box, dan sistem monitoring. Inverter dengan efisiensi 97%+ dari brand tier-1 seperti Huawei, SMA, atau Growatt sangat direkomendasikan.</p>
+<div class="formula-box">
+<div class="ftitle">Degradasi &amp; Produksi Jangka Panjang</div>
+<div class="fmath">Produksi Tahun-n = Produksi Tahun-1 × (1 - Degradasi)ⁿ⁻¹<br>Lifetime Energy = Σ Produksi Tahun-1 s/d Tahun-25</div>
+<div class="fnote">Panel tier-1 menjamin minimum 80% output di tahun ke-25. Garansi produk 12-15 tahun, garansi performa 25-30 tahun.</div>
+</div>
+<div class="highlight-box">
+<h4>Rekomendasi Envisor</h4>
+<p>Kami merekomendasikan Monocrystalline atau TOPCon untuk industri — keseimbangan terbaik antara efisiensi, durabilitas, dan harga. Tim engineering Envisor akan membantu Anda memilih spesifikasi optimal berdasarkan profil konsumsi dan kondisi atap Anda.</p>
+</div>
+<div class="art-nav">
+<button class="art-nav-btn" onclick="nav('pg-solar-0')">&larr; Sebelumnya</button>
+<button class="art-nav-btn" onclick="nav('pg-solar-2')">Selanjutnya: Analisis Finansial &rarr;</button>
+</div>
+</div>
+</div>
+</div>
 
+<div class="pg" id="pg-solar-2">
+<div class="container">
+<div class="art-wrap">
+<button class="art-back" onclick="nav('pg-solar-idx')">&larr; Daftar Topik Solar</button>
+<img class="art-hero-img" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=900&h=400&fit=crop" alt="Financial Analysis">
+<div class="art-badge">Topik 03 / Solar</div>
+<h2>Analisis Finansial &amp; <strong>ROI Solar Panel</strong></h2>
+<p class="art-text">Keputusan investasi PLTS harus didasarkan pada analisis finansial yang rigorous. Tiga metrik utama yang digunakan: Net Present Value (NPV), Internal Rate of Return (IRR), dan Levelized Cost of Energy (LCOE) — ketiganya memberikan gambaran kelayakan dari perspektif berbeda.</p>
+<div class="formula-box">
+<div class="ftitle">Metrik Finansial PLTS</div>
+<div class="fmath">NPV = Σ [Savingₜ / (1+r)ᵗ] - Investasi Awal<br>LCOE = Total Biaya Lifetime / Total Energi Lifetime<br>Payback = Investasi / Penghematan Tahunan</div>
+<div class="fnote">r = discount rate (umumnya 8-12% untuk industri di Indonesia). t = tahun ke-1 sampai 25. LCOE dibandingkan dengan tarif PLN — jika LCOE < tarif PLN, investasi layak.</div>
+</div>
+<img class="art-img" src="https://images.unsplash.com/photo-1591696205602-2f950c417cb9?w=700&h=300&fit=crop" alt="Financial calculation">
+<p class="art-text">Untuk sistem 200 kWp di Jawa Tengah dengan tarif I3 (Rp 1,114/kWh), investasi sekitar Rp 1.9 Miliar menghasilkan penghematan Rp 290-330 Juta per tahun. Payback period berkisar 5.8-6.5 tahun — sangat layak mengingat umur sistem 25+ tahun.</p>
+<div class="info-grid">
+<div class="info-card"><h5>Payback Period</h5><p>Rata-rata 4-7 tahun untuk industri di Indonesia, tergantung tarif golongan dan lokasi.</p></div>
+<div class="info-card"><h5>IRR Tipikal</h5><p>15-25% per tahun — jauh di atas deposito bank atau instrumen investasi konvensional.</p></div>
+<div class="info-card"><h5>Lifetime Saving</h5><p>Hingga Rp 6-8 Miliar selama 25 tahun untuk sistem 200 kWp pada tarif saat ini.</p></div>
+<div class="info-card"><h5>LCOE vs PLN</h5><p>LCOE PLTS: Rp 600-800/kWh vs tarif PLN industri Rp 996-1,699/kWh.</p></div>
+</div>
+<div class="highlight-box">
+<h4>Analisis Envisor</h4>
+<p>Kami menyediakan feasibility study lengkap dengan model finansial detail — termasuk sensitivity analysis terhadap kenaikan tarif PLN, skenario degradasi panel, dan proyeksi cash flow 25 tahun. Setiap keputusan investasi harus berbasis data, bukan asumsi.</p>
+</div>
+<div class="art-nav">
+<button class="art-nav-btn" onclick="nav('pg-solar-1')">&larr; Sebelumnya</button>
+<button class="art-nav-btn" onclick="nav('pg-solar-3')">Selanjutnya: Regulasi &amp; Net Metering &rarr;</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="pg" id="pg-solar-3">
+<div class="container">
+<div class="art-wrap">
+<button class="art-back" onclick="nav('pg-solar-idx')">&larr; Daftar Topik Solar</button>
+<img class="art-hero-img" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&h=400&fit=crop" alt="Regulation">
+<div class="art-badge">Topik 04 / Solar</div>
+<h2>Regulasi &amp; <strong>Skema Net Metering PLN</strong></h2>
+<p class="art-text">Permen ESDM No. 26 Tahun 2021 menjadi dasar hukum bagi pelanggan PLN yang ingin memasang PLTS rooftop. Regulasi ini mengatur skema ekspor-impor listrik antara sistem PLTS pelanggan dengan jaringan PLN melalui mekanisme net metering.</p>
+<p class="art-text">Dalam skema net metering, kelebihan energi yang diekspor ke grid PLN akan dikreditkan dengan faktor 100% — artinya setiap 1 kWh yang Anda ekspor akan mengurangi 1 kWh dari tagihan impor Anda. Kredit ini dapat diakumulasikan selama 3 bulan billing period.</p>
+<img class="art-img" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=700&h=300&fit=crop" alt="Grid connection">
+<div class="formula-box">
+<div class="ftitle">Perhitungan Net Metering</div>
+<div class="fmath">Tagihan = (kWh Impor - kWh Ekspor) × Tarif/kWh<br>Jika Ekspor > Impor → Kredit untuk bulan berikutnya (maks 3 bulan)</div>
+<div class="fnote">Kapasitas PLTS maksimum 100% dari daya tersambung. Permohonan melalui PLN UID setempat dengan melengkapi dokumen teknis dan SLO (Sertifikat Laik Operasi).</div>
+</div>
+<div class="info-grid">
+<div class="info-card"><h5>Dokumen Diperlukan</h5><p>SLO, single line diagram, spesifikasi inverter grid-tie, surat permohonan ke PLN UID.</p></div>
+<div class="info-card"><h5>Proses Approval</h5><p>14-30 hari kerja setelah dokumen lengkap. Termasuk studi interkoneksi oleh PLN.</p></div>
+<div class="info-card"><h5>Batas Kapasitas</h5><p>Maksimum 100% daya tersambung. Untuk >500 kWp perlu studi tambahan.</p></div>
+<div class="info-card"><h5>Insentif Pajak</h5><p>PPh 22 dibebaskan untuk impor panel surya. Tax holiday untuk proyek >10 MW.</p></div>
+</div>
+<div class="highlight-box">
+<h4>Pendampingan Envisor</h4>
+<p>Proses perizinan PLTS bisa membingungkan. Envisor mendampingi Anda mulai dari penyusunan dokumen teknis, pengajuan ke PLN, hingga commissioning dan pengujian interkoneksi — memastikan sistem Anda beroperasi legal dan optimal.</p>
+</div>
+<div class="art-nav">
+<button class="art-nav-btn" onclick="nav('pg-solar-2')">&larr; Sebelumnya</button>
+<span></span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ========== KVAR DETAIL PAGES ========== -->
+<div class="pg" id="pg-kvar-0">
+<div class="container">
+<div class="art-wrap">
+<button class="art-back" onclick="nav('pg-kvar-idx')">&larr; Daftar Topik kVAR</button>
+<img class="art-hero-img" src="https://images.unsplash.com/photo-1658870901700-9c0418787aa7?w=900&h=400&fit=crop" alt="Electricity bill">
+<div class="art-badge">Topik 01 / kVAR</div>
+<h2>Apa Itu <strong>Denda kVAR</strong> dalam Tagihan PLN?</h2>
+<p class="art-text">Dalam tagihan listrik industri, terdapat komponen yang sering luput dari perhatian namun berdampak sangat signifikan terhadap total biaya — yaitu denda kVARh atau biaya kelebihan pemakaian daya reaktif. Denda ini dikenakan ketika power factor (cosφ) instalasi Anda turun di bawah ambang batas yang ditetapkan PLN.</p>
+<p class="art-text">Daya reaktif (kVAR) adalah komponen daya yang tidak menghasilkan kerja nyata, namun diperlukan untuk membangkitkan medan magnet pada peralatan induktif seperti motor, trafo, dan ballast. Ketika konsumsi kVAR berlebihan, PLN mengenakan biaya tambahan karena daya reaktif membebani kapasitas transmisi dan distribusi jaringan.</p>
+<img class="art-img" src="https://images.unsplash.com/premium_photo-1764702399613-b1245df6a467?w=700&h=300&fit=crop" alt="Power meter">
+<div class="formula-box">
+<div class="ftitle">Segitiga Daya (Power Triangle)</div>
+<div class="fmath">S² = P² + Q²<br>cosφ = P / S<br>Q = P × tanφ</div>
+<div class="fnote">S = Daya Semu (kVA), P = Daya Aktif (kW), Q = Daya Reaktif (kVAR). Power factor (cosφ) ideal untuk industri adalah ≥ 0.85. Di bawah nilai ini, PLN mengenakan penalti kVARh.</div>
+</div>
+<div class="highlight-box">
+<h4>Audit Envisor</h4>
+<p>Envisor melakukan analisis tagihan listrik komprehensif untuk mengidentifikasi komponen denda kVARh dan potensi penghematan. Banyak industri tidak menyadari bahwa 10-20% dari tagihan mereka adalah biaya kelebihan daya reaktif yang sebenarnya bisa dieliminasi.</p>
+</div>
+<div class="art-nav">
+<span></span>
+<button class="art-nav-btn" onclick="nav('pg-kvar-1')">Selanjutnya: Perhitungan PLN &rarr;</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="pg" id="pg-kvar-1">
+<div class="container">
+<div class="art-wrap">
+<button class="art-back" onclick="nav('pg-kvar-idx')">&larr; Daftar Topik kVAR</button>
+<img class="art-hero-img" src="https://images.unsplash.com/photo-1563456019498-843e11bdaae0?w=900&h=400&fit=crop" alt="Calculation">
+<div class="art-badge">Topik 02 / kVAR</div>
+<h2>Perhitungan <strong>kVARh oleh PLN</strong></h2>
+<p class="art-text">PLN menggunakan kWh-meter elektronik yang mampu mencatat konsumsi daya aktif (kWh) dan daya reaktif (kVARh) secara terpisah. Penalti kVARh dihitung berdasarkan selisih antara konsumsi kVARh aktual dengan batas toleransi yang diizinkan.</p>
+<div class="formula-box">
+<div class="ftitle">Rumus Perhitungan Denda kVARh PLN</div>
+<div class="fmath">Batas Toleransi = kWh × tan(arccos 0.85) = kWh × 0.62<br>kVARh Excess = kVARh Tercatat - Batas Toleransi<br>Denda = kVARh Excess × Tarif per kWh</div>
+<div class="fnote">Jika kVARh tercatat ≤ kWh × 0.62, tidak ada denda. Jika melebihi, setiap kVARh excess dikenakan tarif sama dengan tarif dasar per kWh. Contoh: untuk tarif I3 (Rp 1,114/kWh) dengan excess 10,000 kVARh, denda = Rp 11,140,000/bulan.</div>
+</div>
+<p class="art-text">Batas cosφ = 0.85 menghasilkan rasio kVARh/kWh maksimum sebesar 0.62 (tan dari arccos 0.85). Artinya, untuk setiap 100 kWh yang Anda konsumsi, PLN mengizinkan maksimum 62 kVARh daya reaktif. Lebih dari itu, Anda akan dikenakan denda.</p>
+<img class="art-img" src="https://images.unsplash.com/premium_photo-1682147307418-07ad7e897bc9?w=700&h=300&fit=crop" alt="Digital meter">
+<div class="info-grid">
+<div class="info-card"><h5>Contoh: Pabrik A</h5><p>kWh = 150,000. kVARh = 120,000. Toleransi = 93,000. Excess = 27,000. Denda = Rp 30 Juta/bulan.</p></div>
+<div class="info-card"><h5>Contoh: Pabrik B</h5><p>kWh = 80,000. kVARh = 45,000. Toleransi = 49,600. Excess = 0. Tidak ada denda.</p></div>
+</div>
+<div class="highlight-box">
+<h4>Analisis Envisor</h4>
+<p>Tim Envisor menganalisis 12 bulan data tagihan Anda untuk memetakan pola konsumsi kVARh dan menghitung total kerugian akibat denda. Kami menyusun strategi kompensasi yang terukur dan tepat sasaran.</p>
+</div>
+<div class="art-nav">
+<button class="art-nav-btn" onclick="nav('pg-kvar-0')">&larr; Sebelumnya</button>
+<button class="art-nav-btn" onclick="nav('pg-kvar-2')">Selanjutnya: Penyebab Denda &rarr;</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="pg" id="pg-kvar-2">
+<div class="container">
+<div class="art-wrap">
+<button class="art-back" onclick="nav('pg-kvar-idx')">&larr; Daftar Topik kVAR</button>
+<img class="art-hero-img" src="https://images.unsplash.com/premium_photo-1663100602567-f5aa2ef49375?w=900&h=400&fit=crop" alt="Industrial motors">
+<div class="art-badge">Topik 03 / kVAR</div>
+<h2>Penyebab Munculnya <strong>Denda kVAR</strong></h2>
+<p class="art-text">Denda kVAR muncul karena satu alasan fundamental: power factor instalasi Anda turun di bawah 0.85. Penyebab utamanya adalah dominasi beban induktif yang menarik daya reaktif berlebihan dari jaringan PLN tanpa menghasilkan kerja nyata.</p>
+<p class="art-text">Motor induksi adalah penyumbang terbesar daya reaktif di lingkungan industri — terutama saat beroperasi di bawah kapasitas nominal (underloaded). Sebuah motor 50 HP yang hanya dibebani 30% akan memiliki power factor serendah 0.4-0.5, jauh di bawah batas 0.85.</p>
+<img class="art-img" src="https://images.unsplash.com/photo-1738918937796-743064feefa1?w=700&h=300&fit=crop" alt="Electric motor">
+<div class="info-grid">
+<div class="info-card"><h5>Motor Induksi</h5><p>Penyumbang 60-70% total kVAR. Power factor 0.3-0.85 tergantung pembebanan.</p></div>
+<div class="info-card"><h5>Transformator</h5><p>Penyumbang 15-20% kVAR, terutama trafo yang underloaded atau oversized.</p></div>
+<div class="info-card"><h5>Ballast Lampu</h5><p>Lampu discharge (HID, fluorescent lama) menarik kVAR signifikan tanpa kompensasi.</p></div>
+<div class="info-card"><h5>Mesin Las &amp; Furnace</h5><p>Beban intermiten dengan power factor sangat rendah (0.3-0.6) saat beroperasi.</p></div>
+</div>
+<p class="art-text">Faktor lain yang memperburuk power factor termasuk kabel yang terlalu panjang (reactive impedance), kapasitor bank yang rusak atau tidak berfungsi, dan perubahan pola beban tanpa penyesuaian kompensasi. Banyak pabrik yang power factor-nya memburuk secara bertahap tanpa disadari karena penambahan mesin baru tanpa evaluasi ulang sistem kompensasi.</p>
+<div class="highlight-box">
+<h4>Diagnosa Envisor</h4>
+<p>Envisor melakukan pengukuran power quality selama 7-14 hari menggunakan power analyzer untuk memetakan profil kVAR setiap feeder dan mengidentifikasi kontributor utama denda. Solusi yang tepat dimulai dari diagnosa yang akurat.</p>
+</div>
+<div class="art-nav">
+<button class="art-nav-btn" onclick="nav('pg-kvar-1')">&larr; Sebelumnya</button>
+<button class="art-nav-btn" onclick="nav('pg-kvar-3')">Selanjutnya: Jenis Beban &rarr;</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="pg" id="pg-kvar-3">
+<div class="container">
+<div class="art-wrap">
+<button class="art-back" onclick="nav('pg-kvar-idx')">&larr; Daftar Topik kVAR</button>
+<img class="art-hero-img" src="https://images.unsplash.com/photo-1648827783088-303b82175366?w=900&h=400&fit=crop" alt="Electrical loads">
+<div class="art-badge">Topik 04 / kVAR</div>
+<h2>Jenis Beban &amp; <strong>Karakteristik kVAR</strong></h2>
+<p class="art-text">Untuk memahami daya reaktif, kita perlu mengenal tiga jenis beban listrik dasar — masing-masing memiliki hubungan unik antara tegangan dan arus yang menentukan karakter power factor-nya.</p>
+<div class="info-grid">
+<div class="info-card"><h5>Beban Resistif (R)</h5><p>Contoh: heater, lampu pijar, oven listrik. Arus sefasa dengan tegangan. cosφ = 1.0. Tidak menghasilkan kVAR.</p></div>
+<div class="info-card"><h5>Beban Induktif (L)</h5><p>Contoh: motor, trafo, solenoid. Arus tertinggal (lagging) dari tegangan. cosφ < 1.0. Mengonsumsi kVAR.</p></div>
+<div class="info-card"><h5>Beban Kapasitif (C)</h5><p>Contoh: kapasitor bank, kabel panjang. Arus mendahului (leading) tegangan. cosφ < 1.0. Menghasilkan kVAR.</p></div>
+<div class="info-card"><h5>Beban Non-Linear</h5><p>Contoh: VFD, rectifier, UPS. Menarik arus tidak sinusoidal. Menghasilkan harmonisa dan distorsi kVAR.</p></div>
+</div>
+<div class="formula-box">
+<div class="ftitle">Hubungan Fase Tegangan-Arus</div>
+<div class="fmath">Resistif: φ = 0° → Q = 0 kVAR<br>Induktif: φ = +30° s/d +90° → Q > 0 (lagging)<br>Kapasitif: φ = -30° s/d -90° → Q < 0 (leading)</div>
+<div class="fnote">Sudut fase (φ) positif berarti arus tertinggal dari tegangan (induktif). Negatif berarti arus mendahului tegangan (kapasitif). Kompensasi kVAR bekerja dengan menambahkan beban kapasitif untuk mengimbangi kelebihan induktif.</div>
+</div>
+<p class="art-text">Di lingkungan industri, 70-90% beban bersifat induktif — didominasi motor listrik. Inilah mengapa hampir semua pabrik memerlukan kompensasi daya reaktif. Semakin besar proporsi beban induktif dan semakin rendah utilisasinya, semakin besar kebutuhan kompensasi kVAR.</p>
+<div class="highlight-box">
+<h4>Mapping Envisor</h4>
+<p>Envisor memetakan komposisi beban di setiap panel distribusi Anda untuk memahami profil kVAR secara granular. Dengan data ini, kami merancang sistem kompensasi yang presisi — bukan sekedar memasang kapasitor bank berdasarkan estimasi.</p>
+</div>
+<div class="art-nav">
+<button class="art-nav-btn" onclick="nav('pg-kvar-2')">&larr; Sebelumnya</button>
+<button class="art-nav-btn" onclick="nav('pg-kvar-4')">Selanjutnya: Jenis Kapasitor Bank &rarr;</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="pg" id="pg-kvar-4">
+<div class="container">
+<div class="art-wrap">
+<button class="art-back" onclick="nav('pg-kvar-idx')">&larr; Daftar Topik kVAR</button>
+<img class="art-hero-img" src="https://images.unsplash.com/photo-1708586314600-18d3cb7ef9ae?w=900&h=400&fit=crop" alt="Capacitor bank">
+<div class="art-badge">Topik 05 / kVAR</div>
+<h2>Jenis-Jenis <strong>Kapasitor Bank</strong></h2>
+<p class="art-text">Kapasitor bank adalah solusi paling umum untuk kompensasi daya reaktif. Namun, tidak semua kapasitor bank diciptakan sama — pemilihan tipe yang tepat sangat bergantung pada karakteristik beban, tingkat harmonisa, dan pola operasi pabrik Anda.</p>
+<div class="info-grid">
+<div class="info-card"><h5>Fixed Capacitor Bank</h5><p>Kapasitas tetap, tanpa switching. Cocok untuk beban stabil 24/7. Murah tapi tidak fleksibel. Risiko overcompensation saat beban rendah.</p></div>
+<div class="info-card"><h5>Automatic (APFC)</h5><p>Switching otomatis berdasarkan cosφ aktual. Controller mengaktifkan step kapasitor sesuai kebutuhan. Standar industri paling populer.</p></div>
+<div class="info-card"><h5>Detuned Reactor</h5><p>Kapasitor + reaktor seri untuk menghindari resonansi harmonisa. Wajib untuk lingkungan dengan THD > 5%. Melindungi kapasitor dari kerusakan.</p></div>
+<div class="info-card"><h5>Active Power Filter (APF)</h5><p>Kompensasi real-time menggunakan power electronics. Mampu mengatasi harmonisa + kVAR sekaligus. Mahal tapi paling efektif.</p></div>
+</div>
+<img class="art-img" src="https://images.unsplash.com/photo-1597279393696-d5701aee7bf7?w=700&h=300&fit=crop" alt="APFC panel">
+<p class="art-text">Automatic Power Factor Controller (APFC) bekerja dengan mengukur cosφ secara real-time dan mengaktifkan/menonaktifkan step kapasitor melalui kontaktor. Sistem ini biasanya terdiri dari 6-12 step dengan kapasitas total disesuaikan kebutuhan kompensasi. Response time berkisar 5-30 detik tergantung controller yang digunakan.</p>
+<div class="formula-box">
+<div class="ftitle">Perhitungan Kapasitas Kapasitor Bank</div>
+<div class="fmath">Qc = P × (tanφ₁ - tanφ₂)<br>Qc = kVAR kapasitor yang dibutuhkan<br>φ₁ = sudut fase awal, φ₂ = sudut fase target</div>
+<div class="fnote">φ₁ = arccos(PF awal), φ₂ = arccos(PF target). Contoh: P=500kW, PF awal=0.65, PF target=0.95 → Qc = 500 × (1.169 - 0.329) = 420 kVAR.</div>
+</div>
+<div class="highlight-box">
+<h4>Spesifikasi Envisor</h4>
+<p>Envisor tidak hanya merekomendasikan kapasitas kVAR — kami merancang spesifikasi lengkap termasuk tipe kapasitor, jumlah step, detuning factor, rating kontaktor, dan proteksi. Solusi yang tepat mencegah kegagalan prematur dan memaksimalkan penghematan.</p>
+</div>
+<div class="art-nav">
+<button class="art-nav-btn" onclick="nav('pg-kvar-3')">&larr; Sebelumnya</button>
+<button class="art-nav-btn" onclick="nav('pg-kvar-5')">Selanjutnya: Gagal Kompensasi &rarr;</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="pg" id="pg-kvar-5">
+<div class="container">
+<div class="art-wrap">
+<button class="art-back" onclick="nav('pg-kvar-idx')">&larr; Daftar Topik kVAR</button>
+<img class="art-hero-img" src="https://images.unsplash.com/premium_photo-1679672988622-df7b3ce938aa?w=900&h=400&fit=crop" alt="Failed capacitor">
+<div class="art-badge">Topik 06 / kVAR</div>
+<h2>Mengapa Kapasitor Bank <strong>Gagal Kompensasi?</strong></h2>
+<p class="art-text">Banyak industri sudah memasang kapasitor bank namun denda kVARh tetap muncul di tagihan. Ini adalah masalah yang sangat umum dan biasanya disebabkan oleh beberapa faktor teknis yang sering diabaikan.</p>
+<div class="info-grid">
+<div class="info-card"><h5>Kapasitor Rusak/Degradasi</h5><p>Kapasitor memiliki umur 5-8 tahun. Kapasitansi menurun seiring waktu — kapasitor yang sudah tua hanya memberikan 50-70% kompensasi nominal.</p></div>
+<div class="info-card"><h5>Controller Tidak Kalibrasi</h5><p>APFC controller yang tidak dikalibrasi ulang setelah perubahan beban akan salah membaca kebutuhan kompensasi.</p></div>
+<div class="info-card"><h5>Kontaktor Aus</h5><p>Kontaktor kapasitor yang aus mengakibatkan gagal switching — step kapasitor tidak aktif meski controller memerintahkan.</p></div>
+<div class="info-card"><h5>Harmonisa Tinggi</h5><p>THD > 5% tanpa detuned reactor menyebabkan resonansi yang merusak kapasitor dan mengganggu kompensasi.</p></div>
+</div>
+<p class="art-text">Penyebab lain termasuk fuse kapasitor yang putus tanpa indikator, CT (Current Transformer) yang salah rasio atau terbalik polaritas, pengkabelan yang longgar, serta desain sistem yang tidak memperhitungkan variasi beban harian. Sebuah kapasitor bank yang dirancang untuk beban shift 1 mungkin tidak memadai untuk operasi 3 shift.</p>
+<img class="art-img" src="https://images.unsplash.com/photo-1621638363255-9c092fa8d4ab?w=700&h=300&fit=crop" alt="Maintenance panel">
+<div class="highlight-box">
+<h4>Troubleshooting Envisor</h4>
+<p>Envisor melakukan audit kapasitor bank menyeluruh — mengukur kapasitansi aktual setiap step, memeriksa kondisi kontaktor, memverifikasi kalibrasi controller, dan menganalisis waveform untuk mendeteksi resonansi harmonisa. Kami menemukan akar masalah, bukan sekedar mengganti komponen.</p>
+</div>
+<div class="art-nav">
+<button class="art-nav-btn" onclick="nav('pg-kvar-4')">&larr; Sebelumnya</button>
+<button class="art-nav-btn" onclick="nav('pg-kvar-6')">Selanjutnya: Dampak Overkapasitif &rarr;</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="pg" id="pg-kvar-6">
+<div class="container">
+<div class="art-wrap">
+<button class="art-back" onclick="nav('pg-kvar-idx')">&larr; Daftar Topik kVAR</button>
+<img class="art-hero-img" src="https://images.unsplash.com/photo-1767114648561-eeaf4874d906?w=900&h=400&fit=crop" alt="Overcapacitive">
+<div class="art-badge">Topik 07 / kVAR</div>
+<h2>Dampak <strong>Overkapasitif</strong> (Leading Power Factor)</h2>
+<p class="art-text">Overkapasitif terjadi ketika kompensasi daya reaktif berlebihan — jumlah kVAR kapasitif melebihi kVAR induktif yang ada. Kondisi ini menyebabkan power factor menjadi leading (kapasitif) dan menimbulkan masalah teknis yang tidak kalah serius dari power factor rendah.</p>
+<p class="art-text">Pada kondisi leading, tegangan di ujung jaringan bisa naik di atas nominal (overvoltage) karena efek Ferranti. Kenaikan tegangan 5-10% sudah cukup untuk memperpendek umur peralatan elektronik dan menyebabkan trip pada proteksi overvoltage.</p>
+<div class="info-grid">
+<div class="info-card"><h5>Overvoltage</h5><p>Tegangan naik 5-15% di atas nominal, merusak insulation peralatan dan memperpendek umur komponen.</p></div>
+<div class="info-card"><h5>Resonansi</h5><p>Kapasitor berlebih + reaktansi jaringan bisa membentuk rangkaian resonansi yang memperkuat harmonisa.</p></div>
+<div class="info-card"><h5>Kerusakan Generator</h5><p>Generator yang menerima daya reaktif leading dapat mengalami overheating pada stator winding.</p></div>
+<div class="info-card"><h5>Trip Proteksi</h5><p>Relay overvoltage dan power factor relay akan trip, menyebabkan downtime tidak terencana.</p></div>
+</div>
+<div class="formula-box">
+<div class="ftitle">Batas Kompensasi Aman</div>
+<div class="fmath">PF Target = 0.95 - 0.98 (lagging)<br>JANGAN kompensasi hingga PF = 1.0 atau leading<br>Safety margin = 5-10% di bawah kebutuhan kompensasi penuh</div>
+<div class="fnote">Overcompensation paling sering terjadi saat beban turun drastis (malam hari, weekend) sementara fixed capacitor bank tetap aktif. APFC dengan minimum step yang cukup kecil dapat mencegah hal ini.</div>
+</div>
+<div class="highlight-box">
+<h4>Proteksi Envisor</h4>
+<p>Envisor merancang sistem kompensasi dengan safety margin dan proteksi anti-overcompensation. Kami memastikan setiap instalasi dilengkapi relay power factor dengan setting under/over compensation alarm untuk mencegah kondisi leading.</p>
+</div>
+<div class="art-nav">
+<button class="art-nav-btn" onclick="nav('pg-kvar-5')">&larr; Sebelumnya</button>
+<button class="art-nav-btn" onclick="nav('pg-kvar-7')">Selanjutnya: Dampak Over-Induktif &rarr;</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="pg" id="pg-kvar-7">
+<div class="container">
+<div class="art-wrap">
+<button class="art-back" onclick="nav('pg-kvar-idx')">&larr; Daftar Topik kVAR</button>
+<img class="art-hero-img" src="https://images.unsplash.com/premium_photo-1715573563379-d18ba5339340?w=900&h=400&fit=crop" alt="Inductive load">
+<div class="art-badge">Topik 08 / kVAR</div>
+<h2>Dampak <strong>Beban Over-Induktif</strong></h2>
+<p class="art-text">Beban over-induktif — dengan power factor lagging di bawah 0.85 — tidak hanya mengakibatkan denda kVARh tetapi juga menimbulkan serangkaian masalah teknis yang meningkatkan biaya operasional secara keseluruhan dan memperpendek umur peralatan.</p>
+<p class="art-text">Arus yang lebih besar dari seharusnya (karena rendahnya power factor) menyebabkan pemanasan berlebih pada kabel, busbar, dan koneksi. Losses pada konduktor meningkat proporsional dengan kuadrat arus (I²R losses), yang berarti penurunan PF dari 0.95 ke 0.70 akan meningkatkan losses kabel sebesar 84%.</p>
+<img class="art-img" src="https://images.unsplash.com/photo-1563456020111-f02d832ae94c?w=700&h=300&fit=crop" alt="Cable heating">
+<div class="formula-box">
+<div class="ftitle">Dampak PF Rendah terhadap Arus &amp; Losses</div>
+<div class="fmath">I = P / (V × cosφ × √3)<br>Losses = I² × R<br>Rasio Losses = (PF_target / PF_aktual)²</div>
+<div class="fnote">Contoh: PF turun dari 0.95 ke 0.70. Rasio = (0.95/0.70)² = 1.84. Artinya losses kabel meningkat 84%. Arus juga meningkat 36%, membebani kapasitas trafo dan panel.</div>
+</div>
+<div class="info-grid">
+<div class="info-card"><h5>Voltage Drop</h5><p>Arus besar menyebabkan drop tegangan signifikan — motor tidak mendapat tegangan nominal, efisiensi menurun.</p></div>
+<div class="info-card"><h5>Trafo Overload</h5><p>Trafo harus menyuplai kVA lebih besar dari kW aktual. Trafo 1000 kVA hanya bisa menyuplai 700 kW pada PF 0.70.</p></div>
+<div class="info-card"><h5>Pemanasan Berlebih</h5><p>Kabel, busbar, kontaktor mengalami thermal stress. Risiko kebakaran panel meningkat signifikan.</p></div>
+<div class="info-card"><h5>Biaya Tersembunyi</h5><p>Selain denda PLN, losses energi 5-15%, penurunan umur peralatan, dan risiko downtime = biaya total jauh lebih besar.</p></div>
+</div>
+<div class="highlight-box">
+<h4>Optimasi Envisor</h4>
+<p>Envisor menghitung total biaya dari power factor rendah — bukan hanya denda kVARh, tetapi juga losses energi, penurunan kapasitas trafo, dan risiko kerusakan peralatan. Solusi kompensasi kami dirancang untuk memberikan ROI yang menyeluruh.</p>
+</div>
+<div class="art-nav">
+<button class="art-nav-btn" onclick="nav('pg-kvar-6')">&larr; Sebelumnya</button>
+<button class="art-nav-btn" onclick="nav('pg-kvar-8')">Selanjutnya: Dampak ke Elektronik &rarr;</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="pg" id="pg-kvar-8">
+<div class="container">
+<div class="art-wrap">
+<button class="art-back" onclick="nav('pg-kvar-idx')">&larr; Daftar Topik kVAR</button>
+<img class="art-hero-img" src="https://images.unsplash.com/photo-1692719094491-2746e82a8595?w=900&h=400&fit=crop" alt="Electronics damage">
+<div class="art-badge">Topik 09 / kVAR</div>
+<h2>Dampak ke <strong>Peralatan Elektronik</strong></h2>
+<p class="art-text">Peralatan elektronik sensitif seperti Variable Frequency Drive (VFD), PLC, DCS, sensor presisi, dan sistem kontrol otomasi sangat rentan terhadap gangguan power quality yang ditimbulkan oleh daya reaktif berlebih dan harmonisa.</p>
+<p class="art-text">VFD (Variable Frequency Drive) merupakan peralatan yang paling terdampak karena memiliki rangkaian rectifier di sisi input yang sensitif terhadap distorsi tegangan. Fluktuasi tegangan akibat switching kapasitor bank yang terlalu kasar dapat menyebabkan DC bus voltage berfluktuasi dan memicu trip fault.</p>
+<img class="art-img" src="https://images.unsplash.com/premium_photo-1764691268874-b9976e1992bb?w=700&h=300&fit=crop" alt="VFD drive">
+<div class="info-grid">
+<div class="info-card"><h5>VFD/Inverter</h5><p>DC bus voltage ripple meningkat. Trip fault (overvoltage/undervoltage). Kapasitor internal degradasi lebih cepat.</p></div>
+<div class="info-card"><h5>PLC &amp; DCS</h5><p>Gangguan pada analog input (noise pada sinyal 4-20mA). False trigger pada digital I/O. Komunikasi fieldbus terganggu.</p></div>
+<div class="info-card"><h5>Sensor &amp; Instrumen</h5><p>Pembacaan tidak akurat pada sensor tekanan, flow, temperature. Kalibrasi drift akibat noise EMI.</p></div>
+<div class="info-card"><h5>UPS &amp; Power Supply</h5><p>SMPS overheating akibat harmonisa. Kapasitor elektrolit degradasi cepat. Battery charger tidak optimal.</p></div>
+</div>
+<p class="art-text">Switching transient dari kapasitor bank juga menghasilkan spike tegangan yang bisa mencapai 1.5-2x tegangan nominal dalam durasi mikro-detik. Meskipun singkat, transien ini secara kumulatif merusak insulation komponen semikonduktor dan memperpendek umur peralatan elektronik secara signifikan.</p>
+<div class="highlight-box">
+<h4>Proteksi Envisor</h4>
+<p>Envisor mendesain sistem kompensasi yang ramah terhadap peralatan elektronik sensitif — menggunakan pre-insertion resistor, thyristor switching (bukan kontaktor), dan detuned filter untuk meminimalkan switching transient dan harmonisa. Perlindungan investasi peralatan Anda adalah prioritas kami.</p>
+</div>
+<div class="art-nav">
+<button class="art-nav-btn" onclick="nav('pg-kvar-7')">&larr; Sebelumnya</button>
+<button class="art-nav-btn" onclick="nav('pg-kvar-9')">Selanjutnya: Dampak ke Jaringan PLN &rarr;</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="pg" id="pg-kvar-9">
+<div class="container">
+<div class="art-wrap">
+<button class="art-back" onclick="nav('pg-kvar-idx')">&larr; Daftar Topik kVAR</button>
+<img class="art-hero-img" src="https://images.unsplash.com/premium_photo-1764691387776-ea925121ef7e?w=900&h=400&fit=crop" alt="Power grid">
+<div class="art-badge">Topik 10 / kVAR</div>
+<h2>Dampak ke <strong>Jaringan PLN</strong></h2>
+<p class="art-text">Power factor yang buruk tidak hanya merugikan pabrik Anda — dampaknya meluas ke jaringan distribusi PLN dan secara tidak langsung mempengaruhi kualitas listrik untuk pelanggan lain di sekitar Anda. Inilah alasan fundamental mengapa PLN mengenakan denda kVARh.</p>
+<p class="art-text">Ketika power factor rendah, arus yang mengalir di jaringan distribusi PLN lebih besar dari seharusnya. Ini menyebabkan losses I²R pada trafo distribusi, kabel, dan saluran udara PLN meningkat. PLN harus menyediakan infrastruktur berkapasitas lebih besar untuk menyuplai daya semu (kVA) yang sama.</p>
+<img class="art-img" src="https://images.unsplash.com/premium_photo-1663091882457-1fc318654298?w=700&h=300&fit=crop" alt="Distribution network">
+<div class="info-grid">
+<div class="info-card"><h5>Losses Jaringan</h5><p>Losses di trafo dan saluran distribusi meningkat proporsional I². PF 0.70 vs 0.95 = losses 84% lebih tinggi.</p></div>
+<div class="info-card"><h5>Voltage Drop</h5><p>Arus reaktif menyebabkan drop tegangan pada jaringan distribusi, mempengaruhi kualitas tegangan pelanggan lain.</p></div>
+<div class="info-card"><h5>Kapasitas Terbuang</h5><p>Trafo distribusi PLN terpakai untuk menyuplai kVAR, mengurangi kapasitas kW yang bisa disuplai ke pelanggan lain.</p></div>
+<div class="info-card"><h5>Stabilitas Grid</h5><p>Daya reaktif berlebih dapat memperburuk stabilitas tegangan pada kondisi beban puncak jaringan PLN.</p></div>
+</div>
+<div class="formula-box">
+<div class="ftitle">Pelepasan Kapasitas Jaringan</div>
+<div class="fmath">kVA_terpakai = kW / cosφ<br>PF 0.70 → kVA = kW / 0.70 = 1.43 × kW<br>PF 0.95 → kVA = kW / 0.95 = 1.05 × kW<br>Penghematan kapasitas = 27% dari kVA</div>
+<div class="fnote">Dengan memperbaiki PF dari 0.70 ke 0.95, kapasitas trafo PLN yang terpakai berkurang 27%. Ini berarti PLN bisa melayani lebih banyak pelanggan tanpa investasi infrastruktur baru.</div>
+</div>
+<div class="highlight-box">
+<h4>Kontribusi Envisor</h4>
+<p>Perbaikan power factor bukan hanya menghemat biaya Anda — tetapi juga berkontribusi pada efisiensi jaringan listrik nasional. Envisor membantu industri Indonesia menjadi lebih efisien secara energi, mendukung program pemerintah dalam penghematan energi nasional.</p>
+</div>
+<div class="art-nav">
+<button class="art-nav-btn" onclick="nav('pg-kvar-8')">&larr; Sebelumnya</button>
+<button class="art-nav-btn" onclick="nav('pg-kvar-10')">Selanjutnya: Harmonisa &rarr;</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="pg" id="pg-kvar-10">
+<div class="container">
+<div class="art-wrap">
+<button class="art-back" onclick="nav('pg-kvar-idx')">&larr; Daftar Topik kVAR</button>
+<img class="art-hero-img" src="https://images.unsplash.com/photo-1633556424327-cb61ad884b80?w=900&h=400&fit=crop" alt="Harmonics">
+<div class="art-badge">Topik 11 / kVAR</div>
+<h2>Harmonisa &amp; <strong>Cara Kompensasinya</strong></h2>
+<p class="art-text">Harmonisa adalah distorsi pada bentuk gelombang arus dan tegangan yang disebabkan oleh beban non-linear. Di era industri modern, sumber harmonisa semakin banyak — VFD, rectifier, UPS, LED driver, dan peralatan berbasis power electronics lainnya menghasilkan arus harmonisa yang signifikan.</p>
+<p class="art-text">Total Harmonic Distortion (THD) mengukur tingkat distorsi total relatif terhadap komponen fundamental (50 Hz). Standar IEEE 519-2014 menetapkan batas THD tegangan 5% dan THD arus bervariasi tergantung rasio short circuit current terhadap load current (Isc/IL).</p>
+<img class="art-img" src="https://images.unsplash.com/premium_photo-1756915803615-28adec621b27?w=700&h=300&fit=crop" alt="Waveform distortion">
+<div class="formula-box">
+<div class="ftitle">Perhitungan THD</div>
+<div class="fmath">THD = √(V₂² + V₃² + V₅² + ... + Vₙ²) / V₁ × 100%<br>V₁ = komponen fundamental, Vₙ = harmonisa ke-n</div>
+<div class="fnote">Harmonisa orde ganjil (3, 5, 7, 11, 13) paling dominan di industri. Harmonisa ke-5 (250 Hz) dan ke-7 (350 Hz) biasanya paling besar, dihasilkan oleh 6-pulse rectifier yang ada di VFD dan UPS.</div>
+</div>
+<div class="info-grid">
+<div class="info-card"><h5>Passive Filter</h5><p>Rangkaian LC yang di-tune ke frekuensi harmonisa tertentu (5th, 7th, 11th). Murah, efektif untuk harmonisa dominan yang sudah diketahui.</p></div>
+<div class="info-card"><h5>Active Filter (AHF)</h5><p>Meng-inject arus anti-harmonisa secara real-time. Efektif untuk spektrum lebar. Mahal tapi paling fleksibel dan presisi.</p></div>
+<div class="info-card"><h5>Hybrid Filter</h5><p>Kombinasi passive + active. Passive menangani harmonisa dominan, active menangani sisanya. Cost-effective untuk THD tinggi.</p></div>
+<div class="info-card"><h5>Multi-Pulse Rectifier</h5><p>12-pulse atau 18-pulse rectifier pada VFD besar. Mengurangi harmonisa dari sumbernya. Solusi built-in yang efektif.</p></div>
+</div>
+<p class="art-text">Harmonisa juga mempengaruhi akurasi kompensasi daya reaktif. Kapasitor bank standar (tanpa detuned reactor) dapat mengalami resonansi paralel dengan impedansi jaringan pada frekuensi harmonisa — memperkuat distorsi alih-alih memperbaikinya. Inilah mengapa detuned reactor (biasanya 5.67% atau 7%) wajib dipasang di lingkungan dengan THD > 5%.</p>
+<div class="formula-box">
+<div class="ftitle">Frekuensi Resonansi</div>
+<div class="fmath">f_resonansi = f_fundamental × √(Ssc / Qc)<br>Detuning Factor p = f_tuning² / f_fundamental²</div>
+<div class="fnote">Ssc = Short circuit power di titik pemasangan. Qc = Kapasitas kapasitor. Detuning factor 7% (p=0.07) men-tune frekuensi resonansi ke 189 Hz — di bawah harmonisa ke-5 (250 Hz) sehingga resonansi tidak terjadi.</div>
+</div>
+<div class="highlight-box">
+<h4>Solusi Komprehensif Envisor</h4>
+<p>Envisor melakukan pengukuran spektrum harmonisa lengkap dan merancang solusi filtering yang terintegrasi dengan kompensasi daya reaktif. Kami memastikan kapasitor bank Anda terlindungi dari resonansi sekaligus menurunkan THD ke batas standar IEEE 519. Satu solusi, dua manfaat.</p>
+</div>
+<div class="art-nav">
+<button class="art-nav-btn" onclick="nav('pg-kvar-9')">&larr; Sebelumnya</button>
+<span></span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ========== FOOTER ========== -->
 <footer><p>&copy; 2025 Envisor Group</p><div><a href="#">Privacy</a><a href="#">Terms</a></div></footer>
 
+<!-- Mobile Nav -->
 <div class="mnav" id="mn"><button class="mnav-x" id="mx">&times;</button><a href="index.html">Beranda</a><a href="advisor.html">Expert</a><a href="inspection.html">Inspection</a><a href="industries.html">Industries</a></div>
 
 <script>
 document.getElementById('hm').onclick=function(){document.getElementById('mn').classList.add('open')};
 document.getElementById('mx').onclick=function(){document.getElementById('mn').classList.remove('open')};
 
-function switchTab(id,btn){
-  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on')});
-  document.querySelectorAll('.tp').forEach(function(t){t.classList.remove('on')});
-  btn.classList.add('on');
-  document.getElementById('t-'+id).classList.add('on');
-}
-
-function rp(n){
-  if(n>=1e9) return 'Rp '+(n/1e9).toFixed(2)+' Miliar';
-  if(n>=1e6) return 'Rp '+(n/1e6).toFixed(1)+' Juta';
-  if(n>=1e3) return 'Rp '+Math.round(n/1e3)+'K';
-  return 'Rp '+Math.round(n);
-}
-function rpf(n){return 'Rp '+Math.round(n).toLocaleString('id-ID')}
-
-function calcSolar(){
-  var area=parseFloat(document.getElementById('sArea').value)||0;
-  var hrs=parseFloat(document.getElementById('sHours').value)||4;
-  var tariff=parseFloat(document.getElementById('sTariff').value)||1114.74;
-  var eff=parseFloat(document.getElementById('sType').value)||0.20;
-  var cpw=parseFloat(document.getElementById('sCost').value)||9500;
-  var wpM2=1000*eff;
-  var kWp=(area*wpM2)/1000;
-  var dKWh=kWp*hrs*0.80;
-  var mKWh=dKWh*30;
-  var yKWh=dKWh*365;
-  var mSave=mKWh*tariff;
-  var ySave=yKWh*tariff;
-  var invest=kWp*1000*cpw;
-  var payback=invest/ySave;
-  var co2=yKWh*0.82;
-  document.getElementById('rSolar').innerHTML=
-    '<div class="rh">Hasil Simulasi PLTS Rooftop</div>'+
-    '<div class="rr"><span class="rl">Kapasitas Terpasang</span><span class="rv">'+kWp.toFixed(1)+' kWp</span></div>'+
-    '<div class="rr"><span class="rl">Produksi Harian</span><span class="rv">'+dKWh.toFixed(0)+' kWh/hari</span></div>'+
-    '<div class="rr"><span class="rl">Produksi Bulanan</span><span class="rv">'+Math.round(mKWh).toLocaleString('id-ID')+' kWh</span></div>'+
-    '<div class="rr"><span class="rl">Produksi Tahunan</span><span class="rv">'+Math.round(yKWh).toLocaleString('id-ID')+' kWh</span></div>'+
-    '<div class="rr"><span class="rl">Penghematan / Bulan</span><span class="rv" style="color:var(--gold)">'+rp(mSave)+'</span></div>'+
-    '<div class="rr"><span class="rl">Penghematan / Tahun</span><span class="rv" style="color:var(--gold)">'+rp(ySave)+'</span></div>'+
-    '<div class="rr"><span class="rl">Total Investasi</span><span class="rv">'+rp(invest)+'</span></div>'+
-    '<div class="rr"><span class="rl">Reduksi CO2 / Tahun</span><span class="rv">'+(co2/1000).toFixed(1)+' ton</span></div>'+
-    '<div class="rhl"><div class="big">'+payback.toFixed(1)+' Tahun</div><div class="sub">Estimasi Payback Period (ROI)</div></div>'+
-    '<div class="rn">* Performance ratio 80%. Degradasi panel ~0.5%/tahun belum dihitung. Harga termasuk inverter, mounting, dan instalasi. Tarif PLN dapat berubah sesuai regulasi ESDM.</div>';
-}
-
-function calcBill(){
-  var g=document.getElementById('bGol').value.split('|');
-  var gn=g[0],tk=parseFloat(g[1]),bk=parseFloat(g[2]);
-  var kva=parseFloat(document.getElementById('bKVA').value)||0;
-  var kwh=parseFloat(document.getElementById('bKWH').value)||0;
-  var kvar=parseFloat(document.getElementById('bKVAR').value)||0;
-  var hrs=parseFloat(document.getElementById('bHrs').value)||720;
-  var bp=kwh*tk;
-  var bb=kva*bk*1000;
-  var kt=kwh*0.62;
-  var ke=Math.max(0,kvar-kt);
-  var bv=ke*tk;
-  var st=bp+bb+bv;
-  var pr=gn.charAt(0)==='I'?0.03:0.06;
-  var ppj=st*pr;
-  var mat=st>1000000?10000:0;
-  var tot=st+ppj+mat;
-  var lf=(kwh/(kva*hrs*0.85))*100;
-  var ck=tot/kwh;
-  document.getElementById('rBill').innerHTML=
-    '<div class="rh">Estimasi Tagihan &mdash; Golongan '+gn+'</div>'+
-    '<div class="rr"><span class="rl">Tarif Dasar (per kWh)</span><span class="rv">'+rpf(tk)+'</span></div>'+
-    '<div class="rr"><span class="rl">Biaya Pemakaian ('+kwh.toLocaleString('id-ID')+' kWh)</span><span class="rv">'+rp(bp)+'</span></div>'+
-    '<div class="rr"><span class="rl">Biaya Beban ('+kva+' kVA)</span><span class="rv">'+rp(bb)+'</span></div>'+
-    '<div class="rr"><span class="rl">Biaya kVARh Excess'+(ke>0?' ('+Math.round(ke)+')':'')+'</span><span class="rv">'+(ke>0?rp(bv):'Tidak ada penalty')+'</span></div>'+
-    '<div class="rr"><span class="rl">PPJ ('+(pr*100).toFixed(0)+'%)</span><span class="rv">'+rp(ppj)+'</span></div>'+
-    '<div class="rr"><span class="rl">Materai</span><span class="rv">'+rpf(mat)+'</span></div>'+
-    '<div style="height:1px;background:var(--border);margin:8px 0"></div>'+
-    '<div class="rr"><span class="rl">Load Factor</span><span class="rv">'+lf.toFixed(1)+'%</span></div>'+
-    '<div class="rr"><span class="rl">Biaya Efektif per kWh</span><span class="rv">'+rpf(ck)+'</span></div>'+
-    '<div class="rhl"><div class="big">'+rp(tot)+'</div><div class="sub">Estimasi Total Tagihan per Bulan</div></div>'+
-    '<div class="rn">* Estimasi berdasarkan tarif PLN berlaku. Tarif aktual dapat berbeda tergantung penyesuaian triwulanan ESDM, rekonsiliasi meter, dan komponen tambahan.</div>';
+function nav(id){
+  document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('active')});
+  var target=document.getElementById(id);
+  if(target){
+    target.classList.add('active');
+    window.scrollTo({top:0,behavior:'instant'});
+    document.documentElement.scrollTop=0;
+    document.body.scrollTop=0;
+  }
 }
 </script>
 </body>
