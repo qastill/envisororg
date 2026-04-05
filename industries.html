@@ -387,6 +387,115 @@ footer a:hover{color:var(--gold)}
 <span></span>
 </div>
 </div>
+
+
+<!-- ========== KVAR CALCULATOR ========== -->
+<div id="kvar-calculator-section">
+<style>
+#kvar-calculator-section{margin-top:48px;padding-top:48px;border-top:1px solid rgba(201,169,110,0.15)}
+#kvar-calculator-section .calc-header{text-align:center;margin-bottom:36px}
+#kvar-calculator-section .calc-header .calc-label{font-family:'DM Sans',Helvetica,sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+#kvar-calculator-section .calc-header h2{font-family:var(--font-d);font-size:36px;font-weight:400;color:var(--white);margin:0 0 12px 0;line-height:1.3}
+#kvar-calculator-section .calc-header h2 span{color:var(--gold);font-style:italic}
+#kvar-calculator-section .calc-header p{font-family:var(--font-b);font-size:14px;color:var(--silver);max-width:700px;margin:0 auto;line-height:1.6}
+#kvar-calculator-section .calc-container{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:1040px;margin:0 auto}
+#kvar-calculator-section .calc-panel{background:var(--black-card);border:1px solid var(--gold-dim);border-radius:8px;padding:28px}
+#kvar-calculator-section .calc-panel h3{font-family:var(--font-d);font-size:22px;font-weight:500;color:var(--white);margin:0 0 6px 0}
+#kvar-calculator-section .calc-panel .panel-desc{font-family:var(--font-b);font-size:12px;color:var(--silver);margin-bottom:20px;line-height:1.5}
+#kvar-calculator-section .form-group{margin-bottom:16px}
+#kvar-calculator-section .form-group label{display:block;font-family:var(--font-b);font-size:12px;font-weight:500;color:var(--silver-light);margin-bottom:6px;letter-spacing:0.5px}
+#kvar-calculator-section .form-group label .unit{color:var(--gold);font-weight:400;font-size:11px}
+#kvar-calculator-section .form-group input,#kvar-calculator-section .form-group select{width:100%;padding:10px 14px;background:rgba(255,255,255,0.03);border:1px solid var(--gold-dim);border-radius:6px;color:var(--white);font-family:var(--font-b);font-size:14px;outline:none;transition:border-color 0.2s;box-sizing:border-box;-webkit-appearance:none;appearance:none}
+#kvar-calculator-section .form-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23c9a96e' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px}
+#kvar-calculator-section .form-group select option{background:#111;color:var(--white)}
+#kvar-calculator-section .form-group input:focus,#kvar-calculator-section .form-group select:focus{border-color:var(--gold);box-shadow:0 0 0 2px rgba(201,169,110,0.1)}
+#kvar-calculator-section .form-group input::placeholder{color:rgba(245,242,237,0.25)}
+#kvar-calculator-section .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#kvar-calculator-section .btn-calc{width:100%;padding:12px 20px;background:linear-gradient(135deg,var(--gold),#a8884e);border:none;border-radius:6px;color:var(--black);font-family:var(--font-b);font-size:14px;font-weight:600;cursor:pointer;transition:all 0.3s;letter-spacing:0.5px;margin-top:8px}
+#kvar-calculator-section .btn-calc:hover{background:linear-gradient(135deg,var(--gold-light),#b8985e);transform:translateY(-1px);box-shadow:0 4px 16px rgba(201,169,110,0.3)}
+#kvar-calculator-section .btn-reset{width:100%;padding:10px 20px;background:transparent;border:1px solid rgba(201,169,110,0.3);border-radius:6px;color:var(--gold);font-family:var(--font-b);font-size:13px;font-weight:500;cursor:pointer;transition:all 0.3s;margin-top:8px}
+#kvar-calculator-section .btn-reset:hover{border-color:var(--gold);background:rgba(201,169,110,0.05)}
+#kvar-calculator-section .results-panel{background:var(--black-card);border:1px solid var(--gold-dim);border-radius:8px;padding:28px;display:flex;flex-direction:column}
+#kvar-calculator-section .results-placeholder{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(245,242,237,0.25);text-align:center;padding:40px 20px}
+#kvar-calculator-section .results-placeholder .icon{font-size:48px;margin-bottom:16px;opacity:0.4}
+#kvar-calculator-section .results-placeholder p{font-family:var(--font-b);font-size:13px;line-height:1.6}
+#kvar-calculator-section .result-content{display:none}
+#kvar-calculator-section .result-content.active{display:block}
+#kvar-calculator-section .result-main-value{text-align:center;padding:24px 16px;background:var(--gold-dim2);border:1px solid rgba(201,169,110,0.15);border-radius:8px;margin-bottom:20px}
+#kvar-calculator-section .result-main-value .label{font-family:var(--font-b);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+#kvar-calculator-section .result-main-value .value{font-family:var(--font-d);font-size:42px;font-weight:600;color:var(--gold);line-height:1.1}
+#kvar-calculator-section .result-main-value .value .unit-text{font-size:22px;font-weight:400;color:rgba(201,169,110,0.7)}
+#kvar-calculator-section .result-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+#kvar-calculator-section .result-detail{background:rgba(255,255,255,0.02);border:1px solid rgba(201,169,110,0.08);border-radius:6px;padding:14px}
+#kvar-calculator-section .result-detail .rd-label{font-family:var(--font-b);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--silver);margin-bottom:4px}
+#kvar-calculator-section .result-detail .rd-value{font-family:var(--font-b);font-size:16px;font-weight:600;color:var(--white)}
+#kvar-calculator-section .result-detail .rd-value .rd-unit{font-size:12px;font-weight:400;color:var(--silver)}
+#kvar-calculator-section .recommendation-box{background:var(--gold-dim2);border:1px solid var(--gold-dim);border-radius:8px;padding:18px;margin-top:8px}
+#kvar-calculator-section .recommendation-box .rec-title{font-family:var(--font-b);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:600}
+#kvar-calculator-section .recommendation-box .rec-type{font-family:var(--font-d);font-size:20px;font-weight:500;color:var(--white);margin-bottom:8px}
+#kvar-calculator-section .recommendation-box .rec-desc{font-family:var(--font-b);font-size:12px;color:var(--silver);line-height:1.6}
+#kvar-calculator-section .recommendation-box .rec-specs{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#kvar-calculator-section .recommendation-box .rec-spec{font-family:var(--font-b);font-size:11px;color:var(--silver);padding:6px 0;border-bottom:1px solid rgba(201,169,110,0.06)}
+#kvar-calculator-section .recommendation-box .rec-spec strong{color:var(--white);font-weight:500}
+#kvar-calculator-section .denda-box{background:rgba(220,50,50,0.05);border:1px solid rgba(220,50,50,0.15);border-radius:8px;padding:16px;margin-top:12px}
+#kvar-calculator-section .denda-box .denda-title{font-family:var(--font-b);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#dc3232;margin-bottom:8px;font-weight:600}
+#kvar-calculator-section .denda-box .denda-value{font-family:var(--font-b);font-size:20px;font-weight:700;color:#e74c3c}
+#kvar-calculator-section .denda-box .denda-desc{font-family:var(--font-b);font-size:11px;color:var(--silver);margin-top:6px;line-height:1.5}
+#kvar-calculator-section .savings-box{background:rgba(50,180,80,0.05);border:1px solid rgba(50,180,80,0.15);border-radius:8px;padding:16px;margin-top:12px}
+#kvar-calculator-section .savings-box .savings-title{font-family:var(--font-b);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#32b450;margin-bottom:8px;font-weight:600}
+#kvar-calculator-section .savings-box .savings-value{font-family:var(--font-b);font-size:20px;font-weight:700;color:#2ecc71}
+#kvar-calculator-section .savings-box .savings-desc{font-family:var(--font-b);font-size:11px;color:var(--silver);margin-top:6px;line-height:1.5}
+#kvar-calculator-section .triangle-visual{text-align:center;margin:16px 0;padding:16px;background:rgba(255,255,255,0.02);border-radius:8px}
+#kvar-calculator-section .triangle-visual svg{max-width:280px;width:100%}
+@media(max-width:768px){#kvar-calculator-section .calc-container{grid-template-columns:1fr}#kvar-calculator-section .result-detail-grid{grid-template-columns:1fr}#kvar-calculator-section .recommendation-box .rec-specs{grid-template-columns:1fr}}</style>
+<div class="calc-header">
+<div class="calc-label">KALKULATOR INTERAKTIF</div>
+<h2>Kalkulator Kapasitas <span>kVAR</span> &amp; Jenis Kapasitor</h2>
+<p>Masukkan parameter listrik instalasi Anda untuk menghitung kebutuhan kapasitor bank, estimasi penghematan denda kVARh, dan rekomendasi jenis kapasitor yang tepat.</p>
+</div>
+<div class="calc-container">
+<div class="calc-panel">
+<h3>Parameter Input</h3>
+<div class="panel-desc">Masukkan data dari tagihan PLN atau hasil pengukuran di lapangan</div>
+<div class="form-group"><label>Daya Aktif (P) <span class="unit">kW</span></label><input type="number" id="calc-p" placeholder="Contoh: 500" min="0" step="1"></div>
+<div class="form-row">
+<div class="form-group"><label>Power Factor Saat Ini <span class="unit">cos&phi;</span></label><input type="number" id="calc-pf-now" placeholder="Contoh: 0.70" min="0.1" max="1" step="0.01"></div>
+<div class="form-group"><label>Power Factor Target <span class="unit">cos&phi;</span></label><input type="number" id="calc-pf-target" placeholder="0.95" min="0.85" max="0.99" step="0.01" value="0.95"></div>
+</div>
+<div class="form-group"><label>Tegangan Sistem <span class="unit">Volt</span></label><select id="calc-voltage"><option value="380">380V (Low Voltage)</option><option value="400">400V (Low Voltage)</option><option value="6600">6.6kV (Medium Voltage)</option><option value="11000">11kV (Medium Voltage)</option><option value="20000">20kV (Medium Voltage)</option></select></div>
+<div class="form-row">
+<div class="form-group"><label>kWh per Bulan <span class="unit">(opsional)</span></label><input type="number" id="calc-kwh" placeholder="Contoh: 150000" min="0" step="100"></div>
+<div class="form-group"><label>kVARh per Bulan <span class="unit">(opsional)</span></label><input type="number" id="calc-kvarh" placeholder="Contoh: 120000" min="0" step="100"></div>
+</div>
+<div class="form-group"><label>THD Arus <span class="unit">% (opsional)</span></label><input type="number" id="calc-thd" placeholder="Contoh: 8.5" min="0" max="100" step="0.1"></div>
+<div class="form-group"><label>Karakteristik Beban</label><select id="calc-load-type"><option value="stable">Stabil (24/7, pabrik kontinu)</option><option value="variable">Variabel (shift, beban berubah-ubah)</option><option value="dynamic">Dinamis (beban fluktuatif tinggi)</option><option value="intermittent">Intermiten (las, crane, furnace)</option></select></div>
+<button class="btn-calc" onclick="calculateKVAR()">&#9889; Hitung Kapasitas kVAR</button>
+<button class="btn-reset" onclick="resetCalculator()">Reset Calculator</button>
+</div>
+<div class="results-panel">
+<h3>Hasil Perhitungan</h3>
+<div class="panel-desc">Kapasitas kVAR, jenis kapasitor, dan estimasi penghematan</div>
+<div class="results-placeholder" id="results-placeholder"><div class="icon">&#9889;</div><p>Masukkan parameter di sebelah kiri<br>lalu klik <strong>"Hitung Kapasitas kVAR"</strong><br>untuk melihat hasil perhitungan.</p></div>
+<div class="result-content" id="result-content">
+<div class="result-main-value"><div class="label">KAPASITAS KAPASITOR YANG DIBUTUHKAN</div><div class="value" id="res-kvar-needed">&mdash; <span class="unit-text">kVAR</span></div></div>
+<div class="triangle-visual" id="triangle-visual"></div>
+<div class="result-detail-grid">
+<div class="result-detail"><div class="rd-label">DAYA SEMU (S) SAAT INI</div><div class="rd-value" id="res-s-now">&mdash; <span class="rd-unit">kVA</span></div></div>
+<div class="result-detail"><div class="rd-label">DAYA SEMU (S) SETELAH</div><div class="rd-value" id="res-s-after">&mdash; <span class="rd-unit">kVA</span></div></div>
+<div class="result-detail"><div class="rd-label">kVAR SAAT INI</div><div class="rd-value" id="res-q-now">&mdash; <span class="rd-unit">kVAR</span></div></div>
+<div class="result-detail"><div class="rd-label">kVAR SETELAH</div><div class="rd-value" id="res-q-after">&mdash; <span class="rd-unit">kVAR</span></div></div>
+<div class="result-detail"><div class="rd-label">ARUS SEBELUM</div><div class="rd-value" id="res-i-before">&mdash; <span class="rd-unit">A</span></div></div>
+<div class="result-detail"><div class="rd-label">ARUS SETELAH</div><div class="rd-value" id="res-i-after">&mdash; <span class="rd-unit">A</span></div></div>
+</div>
+<div class="recommendation-box" id="rec-box"><div class="rec-title">REKOMENDASI JENIS KAPASITOR</div><div class="rec-type" id="rec-type">&mdash;</div><div class="rec-desc" id="rec-desc">&mdash;</div><div class="rec-specs" id="rec-specs"></div></div>
+<div class="denda-box" id="denda-box" style="display:none"><div class="denda-title">ESTIMASI DENDA kVARH / BULAN</div><div class="denda-value" id="denda-value">&mdash;</div><div class="denda-desc" id="denda-desc">&mdash;</div></div>
+<div class="savings-box" id="savings-box" style="display:none"><div class="savings-title">POTENSI PENGHEMATAN / TAHUN</div><div class="savings-value" id="savings-value">&mdash;</div><div class="savings-desc" id="savings-desc">&mdash;</div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ========== /KVAR CALCULATOR ========== -->
+
 </div>
 </div>
 
@@ -1037,5 +1146,14 @@ function nav(id){
   }
 }
 </script>
+
+
+<script>
+function calculateKVAR(){var P=parseFloat(document.getElementById('calc-p').value),pN=parseFloat(document.getElementById('calc-pf-now').value),pT=parseFloat(document.getElementById('calc-pf-target').value),V=parseFloat(document.getElementById('calc-voltage').value),kwh=parseFloat(document.getElementById('calc-kwh').value)||0,kvarh=parseFloat(document.getElementById('calc-kvarh').value)||0,thd=parseFloat(document.getElementById('calc-thd').value)||0,lt=document.getElementById('calc-load-type').value;if(isNaN(P)||P<=0){alert('Masukkan Daya Aktif (P) yang valid');return}if(isNaN(pN)||pN<=0||pN>=1){alert('Power Factor saat ini harus antara 0.1 - 0.99');return}if(pN>=pT){alert('Power Factor saat ini harus lebih rendah dari target');return}var t1=Math.tan(Math.acos(pN)),t2=Math.tan(Math.acos(pT)),Qc=P*(t1-t2),sN=P/pN,qN=P*t1,sA=P/pT,qA=P*t2,iB=(P*1000)/(Math.sqrt(3)*V*pN),iA=(P*1000)/(Math.sqrt(3)*V*pT),sm=1.1;switch(lt){case'stable':sm=1.05;break;case'variable':sm=1.15;break;case'dynamic':sm=1.2;break;case'intermittent':sm=1.25;break}var Qm=Qc*sm,ss=[5,10,12.5,15,20,25,30,40,50,60,75,100,125,150,200,250,300,400,500,600,750,1000],rs=ss.find(function(s){return s>=Qm})||Math.ceil(Qm/50)*50,rT='',rD='',rS=[];if(thd>15){rT='Active Power Filter (APF) + Kapasitor Bank';rD='THD arus sangat tinggi ('+thd.toFixed(1)+'%). Diperlukan Active Power Filter untuk mengatasi harmonisa sebelum memasang kapasitor bank.';rS=[{l:'Tipe Filter',v:'Active Power Filter (APF)'},{l:'Kapasitas APF',v:Math.ceil(Qc*0.6)+' kVAR + harmonic'},{l:'Kapasitor Bank',v:'Detuned Reactor '+Math.ceil(Qc*0.5)+' kVAR'},{l:'Detuning Factor',v:'7% (189 Hz)'},{l:'Tegangan',v:V+'V'},{l:'Estimasi Biaya',v:'Rp '+fN(Math.round(Qm*1200000))}]}else if(thd>5){rT='Automatic Detuned Reactor Capacitor Bank';rD='THD arus moderat ('+thd.toFixed(1)+'%). Diperlukan kapasitor bank dengan detuned reactor untuk mencegah resonansi harmonisa. Detuning factor 7% (p=0.07) melindungi dari harmonisa ke-5 dan ke-7.';rS=[{l:'Tipe',v:'APFC + Detuned Reactor'},{l:'Kapasitas Total',v:rs+' kVAR'},{l:'Detuning Factor',v:thd>10?'5.67% (210 Hz)':'7% (189 Hz)'},{l:'Jumlah Step',v:cS(rs)},{l:'Tegangan',v:V+'V'},{l:'Estimasi Biaya',v:'Rp '+fN(Math.round(Qm*500000))}]}else if(lt==='stable'){if(Qc<50){rT='Fixed Capacitor Bank';rD='Beban stabil dengan kebutuhan kompensasi kecil. Fixed capacitor bank cukup efektif dan ekonomis.';rS=[{l:'Tipe',v:'Fixed Capacitor Bank'},{l:'Kapasitas',v:rs+' kVAR'},{l:'Switching',v:'Manual / Kontaktor'},{l:'Tegangan',v:V+'V'},{l:'Proteksi',v:'Fuse + Discharge Resistor'},{l:'Estimasi Biaya',v:'Rp '+fN(Math.round(Qm*200000))}]}else{rT='Automatic Power Factor Controller (APFC)';rD='Beban stabil namun kapasitas cukup besar. APFC dengan switching otomatis memberikan kompensasi optimal.';rS=[{l:'Tipe',v:'APFC Standard'},{l:'Kapasitas Total',v:rs+' kVAR'},{l:'Jumlah Step',v:cS(rs)},{l:'Controller',v:'12/14 Step PF Controller'},{l:'Tegangan',v:V+'V'},{l:'Estimasi Biaya',v:'Rp '+fN(Math.round(Qm*300000))}]}}else if(lt==='dynamic'||lt==='intermittent'){if(Qm>200){rT='Hybrid: APFC + Static VAR Compensator (SVC)';rD='Beban dinamis/intermiten dengan kapasitas besar memerlukan kombinasi APFC dan SVC/thyristor-switched untuk respons cepat.';rS=[{l:'Tipe',v:'Hybrid APFC + TSC/SVC'},{l:'APFC Base',v:Math.ceil(rs*0.6)+' kVAR'},{l:'TSC Dynamic',v:Math.ceil(rs*0.5)+' kVAR'},{l:'Response Time',v:'< 20ms (Thyristor)'},{l:'Tegangan',v:V+'V'},{l:'Estimasi Biaya',v:'Rp '+fN(Math.round(Qm*700000))}]}else{rT='Fast-Switching APFC (Thyristor)';rD='Beban dinamis memerlukan switching cepat. Thyristor-switched capacitor bank memberikan respons < 20ms.';rS=[{l:'Tipe',v:'Thyristor-Switched APFC'},{l:'Kapasitas Total',v:rs+' kVAR'},{l:'Jumlah Step',v:cS(rs)},{l:'Switching',v:'Thyristor (< 20ms)'},{l:'Tegangan',v:V+'V'},{l:'Estimasi Biaya',v:'Rp '+fN(Math.round(Qm*500000))}]}}else{rT='Automatic Power Factor Controller (APFC)';rD='Beban variabel memerlukan kompensasi otomatis. APFC dengan jumlah step yang cukup akan mengikuti perubahan beban.';rS=[{l:'Tipe',v:'APFC Standard'},{l:'Kapasitas Total',v:rs+' kVAR'},{l:'Jumlah Step',v:cS(rs)},{l:'Controller',v:'12/14 Step PF Controller'},{l:'Tegangan',v:V+'V'},{l:'Estimasi Biaya',v:'Rp '+fN(Math.round(Qm*350000))}]}document.getElementById('results-placeholder').style.display='none';var rc=document.getElementById('result-content');rc.classList.add('active');document.getElementById('res-kvar-needed').innerHTML=Qc.toFixed(1)+' <span class="unit-text">kVAR<\/span>';document.getElementById('res-s-now').innerHTML=sN.toFixed(1)+' <span class="rd-unit">kVA<\/span>';document.getElementById('res-s-after').innerHTML=sA.toFixed(1)+' <span class="rd-unit">kVA<\/span>';document.getElementById('res-q-now').innerHTML=qN.toFixed(1)+' <span class="rd-unit">kVAR<\/span>';document.getElementById('res-q-after').innerHTML=qA.toFixed(1)+' <span class="rd-unit">kVAR<\/span>';document.getElementById('res-i-before').innerHTML=iB.toFixed(1)+' <span class="rd-unit">A<\/span>';document.getElementById('res-i-after').innerHTML=iA.toFixed(1)+' <span class="rd-unit">A<\/span>';document.getElementById('rec-type').textContent=rT;document.getElementById('rec-desc').textContent=rD;document.getElementById('rec-specs').innerHTML=rS.map(function(s){return'<div class="rec-spec"><strong>'+s.l+':<\/strong> '+s.v+'<\/div>'}).join('');dPT(P,qN,sN,qA,sA,pN,pT);if(kwh>0&&kvarh>0){var tol=kwh*0.62,ex=Math.max(0,kvarh-tol);if(ex>0){var tp=1114,dB=ex*tp,dT=dB*12;document.getElementById('denda-box').style.display='block';document.getElementById('denda-value').textContent='Rp '+fN(Math.round(dB))+' / bulan';document.getElementById('denda-desc').textContent='kVARh tercatat: '+fN(kvarh)+' | Batas toleransi: '+fN(Math.round(tol))+' | Excess: '+fN(Math.round(ex))+' kVARh';document.getElementById('savings-box').style.display='block';document.getElementById('savings-value').textContent='Rp '+fN(Math.round(dT));document.getElementById('savings-desc').textContent='Dengan memasang kapasitor bank '+rs+' kVAR, denda kVARh dapat dieliminasi sepenuhnya. Payback period estimasi: '+(Math.round(Qm*350000/dT*10)/10)+' tahun.'}else{document.getElementById('denda-box').style.display='block';document.getElementById('denda-value').textContent='Tidak ada denda';document.getElementById('denda-desc').textContent='kVARh ('+fN(kvarh)+') di bawah toleransi ('+fN(Math.round(tol))+'). Kompensasi tetap disarankan.';document.getElementById('savings-box').style.display='none'}}else{document.getElementById('denda-box').style.display='none';document.getElementById('savings-box').style.display='none'}rc.scrollIntoView({behavior:'smooth',block:'start'})}
+function resetCalculator(){document.getElementById('calc-p').value='';document.getElementById('calc-pf-now').value='';document.getElementById('calc-pf-target').value='0.95';document.getElementById('calc-voltage').value='380';document.getElementById('calc-kwh').value='';document.getElementById('calc-kvarh').value='';document.getElementById('calc-thd').value='';document.getElementById('calc-load-type').value='stable';document.getElementById('results-placeholder').style.display='flex';document.getElementById('result-content').classList.remove('active');document.getElementById('denda-box').style.display='none';document.getElementById('savings-box').style.display='none'}
+function cS(t){if(t<=50)return'6 step (1:1:1:1:1:1)';if(t<=100)return'6 step (1:2:2:2:2:2)';if(t<=200)return'8 step';if(t<=400)return'12 step';if(t<=600)return'12 step (disesuaikan)';return'14 step (disesuaikan)'}
+function fN(n){return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}
+function dPT(P,qN,sN,qA,sA,pN,pT){var c=document.getElementById('triangle-visual'),w=260,h=160,mx=30,my=20,sc=(w-2*mx)/sN,pL=P*sc,qNL=qN*sc,qAL=qA*sc,ox=mx,oy=h-my,px=ox+pL,qNX=px,qNY=oy-qNL,qAX=px,qAY=oy-qAL;c.innerHTML='<svg viewBox="0 0 '+w+' '+h+'" xmlns="http://www.w3.org/2000/svg"><polygon points="'+ox+','+oy+' '+px+','+oy+' '+qNX+','+qNY+'" fill="rgba(220,50,50,0.06)" stroke="rgba(220,50,50,0.4)" stroke-width="1.5" stroke-dasharray="4,3"/><polygon points="'+ox+','+oy+' '+px+','+oy+' '+qAX+','+qAY+'" fill="rgba(201,169,110,0.08)" stroke="#c9a96e" stroke-width="1.5"/><line x1="'+ox+'" y1="'+oy+'" x2="'+px+'" y2="'+oy+'" stroke="#4a9" stroke-width="2"/><line x1="'+qNX+'" y1="'+oy+'" x2="'+qNX+'" y2="'+qNY+'" stroke="rgba(220,50,50,0.5)" stroke-width="1.5" stroke-dasharray="4,3"/><line x1="'+qAX+'" y1="'+oy+'" x2="'+qAX+'" y2="'+qAY+'" stroke="#c9a96e" stroke-width="2"/><line x1="'+qAX+'" y1="'+qAY+'" x2="'+qNX+'" y2="'+qNY+'" stroke="#2ecc71" stroke-width="2" stroke-dasharray="5,3"/><text x="'+(ox+pL/2)+'" y="'+(oy+14)+'" text-anchor="middle" fill="#4a9" font-size="10" font-family="DM Sans,sans-serif">P = '+P+' kW<\/text><text x="'+(qNX+8)+'" y="'+(oy-qNL/2)+'" fill="rgba(220,50,50,0.7)" font-size="9">Q\u2081='+qN.toFixed(0)+'<\/text><text x="'+(qAX-50)+'" y="'+(oy-qAL/2-2)+'" fill="#c9a96e" font-size="9">Q\u2082='+qA.toFixed(0)+'<\/text><text x="'+(qNX+8)+'" y="'+((qAY+qNY)/2)+'" fill="#2ecc71" font-size="9">Qc<\/text><text x="'+(ox+2)+'" y="'+(oy-8)+'" fill="rgba(245,242,237,0.35)" font-size="8">cos\u03C6\u2081='+pN+'<\/text><text x="'+(ox+2)+'" y="'+(oy-18)+'" fill="#c9a96e" font-size="8">cos\u03C6\u2082='+pT+'<\/text><\/svg>'}
+<\/script>
 </body>
 </html>
