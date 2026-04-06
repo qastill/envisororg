@@ -104,6 +104,53 @@ footer a:hover{color:var(--gold)}
 .art-nav-btn:hover{color:var(--gold);border-color:var(--gold)}
 @media(max-width:900px){.svc-grid{grid-template-columns:1fr}.info-grid{grid-template-columns:1fr}}
 @media(max-width:768px){.nav a:not(.btn-g){display:none}.ham{display:flex}.svc-grid{grid-template-columns:1fr}.topic-grid{grid-template-columns:1fr}}
+
+.severity-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0;max-width:750px}
+.severity-card{background:var(--black-card);border-radius:8px;padding:22px 24px;position:relative;overflow:hidden;border:1px solid var(--border)}
+.severity-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;border-radius:4px 0 0 4px}
+.severity-card.sev-critical::before{background:#E74C3C}
+.severity-card.sev-high::before{background:#E67E22}
+.severity-card.sev-medium::before{background:#F1C40F}
+.severity-card.sev-low::before{background:#27AE60}
+.severity-card .sev-icon{font-size:28px;margin-bottom:10px}
+.severity-card .sev-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
+.severity-card.sev-critical .sev-label{color:#E74C3C}
+.severity-card.sev-high .sev-label{color:#E67E22}
+.severity-card.sev-medium .sev-label{color:#F1C40F}
+.severity-card.sev-low .sev-label{color:#27AE60}
+.severity-card h4{font-family:var(--font-d);font-size:18px;color:var(--white);margin-bottom:8px;font-weight:500}
+.severity-card p{font-size:13px;color:var(--silver-light);line-height:1.6;font-weight:300}
+.process-flow{display:flex;flex-direction:column;gap:0;margin:28px 0;max-width:750px}
+.process-step{display:flex;gap:20px;padding:20px 0;position:relative}
+.process-step:not(:last-child){border-bottom:1px solid var(--border)}
+.step-num{width:44px;height:44px;min-width:44px;border-radius:50%;background:var(--gold-dim);border:1px solid var(--border-h);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:18px;color:var(--gold);font-weight:600}
+.step-content h4{font-size:15px;font-weight:600;color:var(--white);margin-bottom:4px}
+.step-content p{font-size:13px;color:var(--silver-light);font-weight:300;line-height:1.6}
+.stat-row{display:flex;gap:16px;margin:24px 0;max-width:750px;flex-wrap:wrap}
+.stat-box{flex:1;min-width:140px;background:var(--black-card);border:1px solid var(--border);border-radius:8px;padding:20px;text-align:center}
+.stat-box .stat-value{font-family:var(--font-d);font-size:28px;color:var(--gold);font-weight:600}
+.stat-box .stat-label{font-size:11px;color:var(--silver);letter-spacing:1px;text-transform:uppercase;margin-top:4px}
+.gauge-bar{width:100%;max-width:750px;height:32px;background:var(--black-card);border-radius:16px;border:1px solid var(--border);margin:20px 0;position:relative;overflow:hidden}
+.gauge-fill{height:100%;border-radius:16px;transition:width 0.8s ease}
+.gauge-labels{display:flex;justify-content:space-between;max-width:750px;font-size:11px;color:var(--silver);margin-top:4px}
+.category-card{background:var(--black-card);border:1px solid var(--border);border-radius:10px;margin:20px 0;max-width:750px;overflow:hidden}
+.category-header{padding:18px 24px;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--border)}
+.category-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.category-header h4{font-family:var(--font-d);font-size:18px;color:var(--white);font-weight:500;margin:0}
+.category-header .cat-range{font-size:12px;color:var(--silver);margin-left:auto;font-weight:300}
+.category-body{padding:20px 24px}
+.category-body h5{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.category-body .cat-danger h5{color:#E74C3C}
+.category-body .cat-solution h5{color:#27AE60}
+.category-body .cat-danger,.category-body .cat-solution{margin-bottom:16px}
+.category-body ul{list-style:none;padding:0;margin:0}
+.category-body ul li{font-size:13px;color:var(--silver-light);line-height:1.7;padding:3px 0;padding-left:18px;position:relative;font-weight:300}
+.category-body ul li::before{content:'';position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%}
+.category-body .cat-danger ul li::before{background:#E74C3C}
+.category-body .cat-solution ul li::before{background:#27AE60}
+.visual-divider{width:60px;height:2px;background:var(--gold-dim);margin:32px 0;border-radius:1px}
+.section-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:var(--gold-dim);padding:5px 14px;border-radius:20px;margin-bottom:16px}
+@media(max-width:600px){.severity-grid{grid-template-columns:1fr}.stat-row{flex-direction:column}.process-step{gap:14px}.category-header{flex-wrap:wrap}.category-header .cat-range{margin-left:0;width:100%}}
 </style>
 </head>
 <body>
@@ -1303,232 +1350,400 @@ footer a:hover{color:var(--gold)}
 <div class="container">
 <div class="idx-hero">
 <button class="idx-back" onclick="nav('pg-land')">&larr; Kembali ke Beranda</button>
-<h2>Penyeimbangan Beban <strong>(Load Balancing)</strong></h2>
-<p>Layanan identifikasi dan solusi ketidakseimbangan beban antar phase — lindungi peralatan, hemat energi, dan tingkatkan keandalan sistem kelistrikan industri Anda.</p>
+<h1>Penyeimbangan Beban <span style="color:var(--gold)">(Load Balancing)</span></h1>
+<p style="color:var(--silver-light);font-size:15px;max-width:640px;line-height:1.7;font-weight:300">Layanan identifikasi dan solusi ketidakseimbangan beban antar phase &mdash; lindungi peralatan, hemat energi, dan tingkatkan keandalan sistem kelistrikan industri Anda.</p>
+<div class="stat-row" style="margin-top:32px">
+<div class="stat-box"><div class="stat-value">3 Phase</div><div class="stat-label">Sistem Analisis</div></div>
+<div class="stat-box"><div class="stat-value">&lt;10%</div><div class="stat-label">Target Deviasi</div></div>
+<div class="stat-box"><div class="stat-value">6 Tahap</div><div class="stat-label">Proses Layanan</div></div>
 </div>
-<div class="topic-grid">
+</div>
+<div class="topic-grid" style="margin-top:36px">
 <div class="topic-card" onclick="nav('pg-lb-0')">
 <div class="topic-num">TOPIK 01</div>
-<h4>Indikator &amp; Bahaya Ketidakseimbangan Beban</h4>
-<p>Arus netral tinggi, satu phase dominan, tegangan antar phase tidak seimbang — indikator, bahaya, dan solusi lengkap.</p>
+<h3>Indikator &amp; Bahaya Ketidakseimbangan Beban</h3>
+<p>Kenali 4 indikator utama: arus netral tinggi, satu phase dominan, tegangan tidak seimbang &mdash; lengkap dengan level bahaya dan visualisasi.</p>
+</div>
+<div class="topic-card" onclick="nav('pg-lb-1')">
+<div class="topic-num">TOPIK 02</div>
+<h3>Proses &amp; Solusi Load Balancing</h3>
+<p>Langkah-langkah layanan load balancing dari pengukuran, pemetaan beban, redistribusi, hingga monitoring berkelanjutan.</p>
 </div>
 </div>
 </div>
 </div>
-<!-- ========== LB DETAIL PAGES ========== -->
 <div class="pg" id="pg-lb-0">
 <div class="container">
-<div class="article">
-<button class="back-btn" onclick="nav('pg-lb-idx')">&larr; Kembali ke Daftar Topik</button>
-<div class="art-head">
-<div class="art-num">TOPIK 01</div>
-<h2>Indikator &amp; Bahaya Ketidakseimbangan Beban</h2>
-<p class="art-sub">Ketidakseimbangan beban antar phase adalah masalah tersembunyi yang menyebabkan pemborosan energi, overheating, dan kerusakan peralatan. Layanan load balancing memastikan distribusi beban merata.</p>
+<div class="art-wrap">
+<button class="art-back" onclick="nav('pg-lb-idx')">&larr; Daftar Topik Load Balancing</button>
+<div class="art-badge">TOPIK 01 / LOAD BALANCING</div>
+<h2>Indikator &amp; Bahaya <span style="color:var(--gold)">Ketidakseimbangan Beban</span></h2>
+
+<p class="art-text">Ketidakseimbangan beban antar phase adalah masalah tersembunyi yang menyebabkan pemborosan energi, overheating, dan kerusakan peralatan. Pada sistem 3 phase yang seimbang sempurna, arus di setiap phase identik dan arus netral mendekati nol.</p>
+
+<div class="visual-divider"></div>
+<div class="section-tag">4 Indikator Utama</div>
+
+<div class="severity-grid">
+<div class="severity-card sev-critical">
+<div class="sev-icon">&#9888;</div>
+<div class="sev-label">KRITIS</div>
+<h4>Arus Netral Sangat Tinggi</h4>
+<p>Arus netral &gt;50% dari arus phase rata-rata. Risiko kebakaran dan kerusakan transformator.</p>
 </div>
-<div class="art-body">
-<h3>Indikator Ketidakseimbangan Beban</h3>
-<p>Berikut adalah indikator utama yang menunjukkan sistem kelistrikan Anda mengalami ketidakseimbangan beban:</p>
-<div class="info-box danger">
-<h4>1. Arus Netral Sangat Tinggi</h4>
-<p>Arus netral melebihi 50% dari arus phase rata-rata menunjukkan ketidakseimbangan serius. Pada sistem 3 phase seimbang sempurna, arus netral seharusnya mendekati nol.</p>
-<h4>Bahaya:</h4>
-<ul>
-<li>Kabel netral overheat dan risiko kebakaran — kabel netral sering berukuran lebih kecil dari phase</li>
-<li>Losses energi meningkat signifikan — arus netral menghasilkan rugi daya I&sup2;R di kabel netral</li>
-<li>Tegangan netral naik (neutral-to-ground voltage) menyebabkan gangguan pada peralatan sensitif</li>
-<li>Transformator overheating karena arus netral mengalir melalui belitan</li>
-<li>Potensi kegagalan isolasi dan hubung singkat</li>
-</ul>
-<h4>Solusi:</h4>
-<ul>
-<li>Redistribusi beban single phase secara merata ke ketiga phase</li>
-<li>Upgrade penampang kabel netral minimal sama dengan kabel phase</li>
-<li>Pasang monitoring arus netral real-time</li>
-<li>Gunakan zig-zag transformer untuk mengurangi arus netral harmonisa</li>
-</ul>
+<div class="severity-card sev-high">
+<div class="sev-icon">&#9650;</div>
+<div class="sev-label">TINGGI</div>
+<h4>Arus Netral Tinggi</h4>
+<p>Arus netral 20&ndash;50% dari arus phase. Rugi daya meningkat, efisiensi menurun signifikan.</p>
 </div>
-<div class="info-box danger">
-<h4>2. Arus Netral Tinggi</h4>
-<p>Arus netral antara 20-50% dari arus phase rata-rata. Meskipun belum kritis, kondisi ini memerlukan perhatian dan tindakan korektif.</p>
-<h4>Bahaya:</h4>
-<ul>
-<li>Peningkatan rugi daya (power loss) yang tidak perlu</li>
-<li>Penurunan efisiensi transformator</li>
-<li>Umur peralatan berkurang karena stress termal berulang</li>
-<li>Biaya listrik meningkat tanpa penambahan produksi</li>
-</ul>
-<h4>Solusi:</h4>
-<ul>
-<li>Audit distribusi beban per phase secara berkala</li>
-<li>Pindahkan beban single phase besar ke phase yang lebih rendah</li>
-<li>Pasang automatic phase balancer untuk beban dinamis</li>
-</ul>
+<div class="severity-card sev-medium">
+<div class="sev-icon">&#9632;</div>
+<div class="sev-label">PERHATIAN</div>
+<h4>Satu Phase Dominan</h4>
+<p>Satu phase menanggung &gt;40% total beban. Overload parsial memperpendek usia peralatan.</p>
 </div>
-<div class="info-box danger">
-<h4>3. Satu Phase Dominan</h4>
-<p>Satu phase menanggung beban lebih dari 40% dari total beban, sementara phase lain jauh lebih rendah.</p>
-<h4>Bahaya:</h4>
-<ul>
-<li>Phase dominan mengalami voltage drop lebih besar — tegangan turun 5-15%</li>
-<li>MCB/MCCB phase dominan sering trip karena overload</li>
-<li>Motor 3 phase beroperasi tidak optimal — torsi berkurang dan getaran meningkat</li>
-<li>Negative sequence current merusak bearing dan rotor motor</li>
-<li>Efisiensi motor turun 3-5% per 1% ketidakseimbangan tegangan</li>
-</ul>
-<h4>Solusi:</h4>
-<ul>
-<li>Pemetaan lengkap beban per phase per panel</li>
-<li>Redistribusi beban dengan target deviasi maksimal 10%</li>
-<li>Pisahkan beban single phase besar (AC, heater) ke phase berbeda</li>
-<li>Pasang current monitoring per phase di panel utama</li>
-</ul>
-</div>
-<div class="info-box danger">
-<h4>4. Tegangan Antar Phase Tidak Seimbang</h4>
-<p>Selisih tegangan antar phase (R-S, S-T, T-R) melebihi 2% dari rata-rata. Standar NEMA MG-1 merekomendasikan maksimal 1% voltage unbalance.</p>
-<h4>Bahaya:</h4>
-<ul>
-<li>Motor 3 phase mengalami derating — kapasitas motor harus dikurangi</li>
-<li>Pada 3.5% unbalance, motor harus di-derate hingga 75% kapasitas</li>
-<li>Peningkatan suhu motor 6-10x lipat dari persentase unbalance</li>
-<li>Negative sequence current menyebabkan torsi pulsasi dan getaran berlebih</li>
-<li>VFD mengalami ripple DC bus dan output tidak stabil</li>
-<li>Proteksi relay dapat trip palsu (nuisance tripping)</li>
-</ul>
-<h4>Solusi:</h4>
-<ul>
-<li>Seimbangkan beban single phase di semua panel distribusi</li>
-<li>Periksa dan perbaiki koneksi yang longgar atau teroksidasi</li>
-<li>Koordinasi dengan PLN jika sumber unbalance dari jaringan</li>
-<li>Pasang static VAR compensator untuk koreksi otomatis</li>
-<li>Gunakan voltage balancer transformer untuk beban kritis</li>
-</ul>
-</div>
-<h3>Proses Layanan Load Balancing</h3>
-<div class="info-box highlight">
-<ol>
-<li><strong>Pengukuran &amp; Analisis</strong> — Pengukuran arus dan tegangan per phase di semua panel selama periode operasi</li>
-<li><strong>Pemetaan Beban</strong> — Identifikasi setiap beban single phase dan distribusinya ke masing-masing phase</li>
-<li><strong>Perencanaan Redistribusi</strong> — Desain ulang distribusi beban untuk mencapai keseimbangan optimal</li>
-<li><strong>Eksekusi</strong> — Pemindahan koneksi beban sesuai rencana dengan downtime minimal</li>
-<li><strong>Verifikasi</strong> — Pengukuran ulang untuk memastikan target keseimbangan tercapai</li>
-<li><strong>Monitoring</strong> — Pemantauan berkala untuk menjaga keseimbangan saat ada perubahan beban</li>
-</ol>
+<div class="severity-card sev-low">
+<div class="sev-icon">&#8860;</div>
+<div class="sev-label">MONITORING</div>
+<h4>Tegangan Antar Phase Tidak Seimbang</h4>
+<p>Selisih tegangan R-S, S-T, T-R &gt;2% dari rata-rata. Motor mengalami derating.</p>
 </div>
 </div>
+
+<div class="visual-divider"></div>
+<div class="section-tag">Detail Indikator</div>
+
+<h3 style="font-family:var(--font-d);font-size:22px;color:var(--white);margin:20px 0 8px">1. Arus Netral Sangat Tinggi</h3>
+<p class="art-text">Arus netral melebihi 50% dari arus phase rata-rata menunjukkan ketidakseimbangan serius. Pada sistem 3 phase seimbang sempurna, arus netral seharusnya mendekati nol.</p>
+
+<div class="highlight-box" style="border-left:3px solid #E74C3C">
+<h4 style="color:#E74C3C">&#9888; Bahaya</h4>
+<p>Kabel netral overheat dan risiko kebakaran &mdash; kabel netral sering berukuran lebih kecil dari phase. Losses energi meningkat signifikan akibat rugi daya I&sup2;R. Tegangan netral naik (neutral-to-ground) mengganggu peralatan sensitif. Transformator overheating karena arus netral mengalir melalui belitan. Potensi kegagalan isolasi dan hubung singkat.</p>
+</div>
+<div class="highlight-box" style="border-left:3px solid #27AE60">
+<h4 style="color:#27AE60">&#10003; Solusi</h4>
+<p>Redistribusi beban single phase secara merata ke ketiga phase. Upgrade penampang kabel netral minimal sama dengan kabel phase. Pasang monitoring arus netral real-time. Gunakan zig-zag transformer untuk mengurangi arus netral harmonisa.</p>
+</div>
+
+<h3 style="font-family:var(--font-d);font-size:22px;color:var(--white);margin:28px 0 8px">2. Arus Netral Tinggi</h3>
+<p class="art-text">Arus netral antara 20&ndash;50% dari arus phase rata-rata. Meskipun belum kritis, kondisi ini memerlukan perhatian dan tindakan korektif.</p>
+
+<div class="highlight-box" style="border-left:3px solid #E67E22">
+<h4 style="color:#E67E22">&#9650; Bahaya</h4>
+<p>Peningkatan rugi daya (power loss) yang tidak perlu. Penurunan efisiensi transformator. Umur kabel dan koneksi berkurang akibat thermal stress. Negative sequence current merusak bearing dan rotor motor. Efisiensi motor turun 3&ndash;5% per 1% ketidakseimbangan tegangan.</p>
+</div>
+<div class="highlight-box" style="border-left:3px solid #27AE60">
+<h4 style="color:#27AE60">&#10003; Solusi</h4>
+<p>Pemetaan lengkap beban per phase per panel. Redistribusi beban dengan target deviasi maksimal 10%. Pisahkan beban single phase besar (AC, heater) ke phase berbeda. Pasang current monitoring per phase di panel utama.</p>
+</div>
+
+<h3 style="font-family:var(--font-d);font-size:22px;color:var(--white);margin:28px 0 8px">3. Satu Phase Dominan</h3>
+<p class="art-text">Satu phase menanggung beban lebih dari 40% total beban 3 phase. Sering terjadi karena penambahan beban single phase tanpa perencanaan distribusi.</p>
+
+<div class="highlight-box" style="border-left:3px solid #E67E22">
+<h4 style="color:#E67E22">&#9650; Bahaya</h4>
+<p>Circuit breaker phase yang dominan lebih cepat trip. Kabel phase dominan overheat lebih cepat. Tegangan drop lebih besar pada phase dominan. Peralatan 3 phase menerima tegangan tidak seimbang. Kapasitas sistem tidak terpakai optimal &mdash; ada phase yang underutilized.</p>
+</div>
+<div class="highlight-box" style="border-left:3px solid #27AE60">
+<h4 style="color:#27AE60">&#10003; Solusi</h4>
+<p>Identifikasi beban terbesar pada phase dominan. Redistribusi sebagian beban ke phase yang lebih ringan. Untuk beban baru, selalu rencanakan ke phase dengan beban terendah. Pertimbangkan automatic transfer switch untuk beban besar.</p>
+</div>
+
+<h3 style="font-family:var(--font-d);font-size:22px;color:var(--white);margin:28px 0 8px">4. Tegangan Antar Phase Tidak Seimbang</h3>
+<p class="art-text">Selisih tegangan antar phase (R-S, S-T, T-R) melebihi 2% dari rata-rata. Standar NEMA MG-1 merekomendasikan maksimal 1% voltage unbalance.</p>
+
+<div class="formula-box">
+<div class="ftitle">FORMULA VOLTAGE UNBALANCE</div>
+<div class="fmath">% Unbalance = (Max Deviasi dari Rata-rata / Rata-rata Tegangan) &times; 100%</div>
+<div class="fnote">Contoh: Jika tegangan R-S=398V, S-T=402V, T-R=390V, rata-rata=396.7V, deviasi max=6.7V, maka unbalance=1.69%</div>
+</div>
+
+<div class="highlight-box" style="border-left:3px solid #E74C3C">
+<h4 style="color:#E74C3C">&#9888; Bahaya</h4>
+<p>Motor 3 phase mengalami derating &mdash; kapasitas harus dikurangi. Pada 3.5% unbalance, motor harus di-derate hingga 75% kapasitas. Peningkatan suhu motor 6&ndash;10x lipat dari persentase unbalance. Negative sequence current menyebabkan torsi pulsasi dan getaran berlebih. VFD mengalami ripple DC bus dan output tidak stabil. Proteksi relay dapat trip palsu (nuisance tripping).</p>
+</div>
+<div class="highlight-box" style="border-left:3px solid #27AE60">
+<h4 style="color:#27AE60">&#10003; Solusi</h4>
+<p>Seimbangkan beban single phase di semua panel distribusi. Periksa dan perbaiki koneksi yang longgar atau teroksidasi. Koordinasi dengan PLN jika sumber unbalance dari jaringan. Pasang static VAR compensator untuk koreksi otomatis. Gunakan voltage balancer transformer untuk beban kritis.</p>
+</div>
+
 <div class="art-nav">
 <span></span>
-<span></span>
+<button class="art-nav-btn" onclick="nav('pg-lb-1')">Selanjutnya: Proses &amp; Solusi &rarr;</button>
 </div>
+</div>
+</div>
+</div>
+<div class="pg" id="pg-lb-1">
+<div class="container">
+<div class="art-wrap">
+<button class="art-back" onclick="nav('pg-lb-idx')">&larr; Daftar Topik Load Balancing</button>
+<div class="art-badge">TOPIK 02 / LOAD BALANCING</div>
+<h2>Proses &amp; Solusi <span style="color:var(--gold)">Load Balancing</span></h2>
+
+<p class="art-text">Layanan load balancing Envisor mengikuti metodologi terstruktur untuk memastikan distribusi beban optimal di seluruh sistem kelistrikan Anda. Setiap tahap dirancang untuk hasil yang terukur dan berkelanjutan.</p>
+
+<div class="stat-row">
+<div class="stat-box"><div class="stat-value">6</div><div class="stat-label">Tahap Proses</div></div>
+<div class="stat-box"><div class="stat-value">&lt;10%</div><div class="stat-label">Target Deviasi</div></div>
+<div class="stat-box"><div class="stat-value">24/7</div><div class="stat-label">Monitoring</div></div>
+</div>
+
+<div class="visual-divider"></div>
+<div class="section-tag">6 Tahap Layanan</div>
+
+<div class="process-flow">
+<div class="process-step">
+<div class="step-num">1</div>
+<div class="step-content">
+<h4>Pengukuran &amp; Analisis</h4>
+<p>Pengukuran arus dan tegangan per phase di semua panel selama periode operasi penuh. Menggunakan power analyzer untuk mendapatkan data akurat termasuk harmonisa, power factor, dan demand profile per phase.</p>
+</div>
+</div>
+<div class="process-step">
+<div class="step-num">2</div>
+<div class="step-content">
+<h4>Pemetaan Beban</h4>
+<p>Identifikasi setiap beban single phase dan distribusinya ke masing-masing phase. Pembuatan single line diagram lengkap dengan mapping beban per circuit breaker dan per panel distribusi.</p>
+</div>
+</div>
+<div class="process-step">
+<div class="step-num">3</div>
+<div class="step-content">
+<h4>Perencanaan Redistribusi</h4>
+<p>Desain ulang distribusi beban untuk mencapai keseimbangan optimal. Simulasi skenario redistribusi dengan mempertimbangkan variasi beban harian dan musiman.</p>
+</div>
+</div>
+<div class="process-step">
+<div class="step-num">4</div>
+<div class="step-content">
+<h4>Eksekusi</h4>
+<p>Pemindahan koneksi beban sesuai rencana dengan downtime minimal. Koordinasi dengan tim operasional untuk scheduling yang tidak mengganggu produksi.</p>
+</div>
+</div>
+<div class="process-step">
+<div class="step-num">5</div>
+<div class="step-content">
+<h4>Verifikasi</h4>
+<p>Pengukuran ulang untuk memastikan target keseimbangan tercapai. Validasi bahwa deviasi arus antar phase di bawah 10% dan voltage unbalance di bawah 2%.</p>
+</div>
+</div>
+<div class="process-step">
+<div class="step-num">6</div>
+<div class="step-content">
+<h4>Monitoring Berkelanjutan</h4>
+<p>Pemantauan berkala untuk menjaga keseimbangan saat ada perubahan beban. Rekomendasi pemasangan sistem monitoring real-time untuk deteksi dini ketidakseimbangan.</p>
 </div>
 </div>
 </div>
 
-<!-- ========== PAGE: OPTIMASI KAPASITAS INDEX ========== -->
+<div class="visual-divider"></div>
+<div class="section-tag">Mengapa Load Balancing Penting?</div>
+
+<div class="info-grid" style="grid-template-columns:1fr 1fr">
+<div class="info-card">
+<h5>Hemat Energi</h5>
+<p>Mengurangi losses I&sup2;R akibat arus netral berlebih. Efisiensi transformator dan motor meningkat signifikan &mdash; potensi penghematan 3&ndash;8% dari total konsumsi.</p>
+</div>
+<div class="info-card">
+<h5>Lindungi Peralatan</h5>
+<p>Mencegah overheating kabel, transformator, dan motor. Memperpanjang umur peralatan dan mengurangi biaya maintenance serta replacement.</p>
+</div>
+<div class="info-card">
+<h5>Tingkatkan Keandalan</h5>
+<p>Mengurangi risiko trip dan downtime tak terduga. Sistem yang seimbang lebih stabil dan predictable dalam operasi sehari-hari.</p>
+</div>
+<div class="info-card">
+<h5>Optimasi Kapasitas</h5>
+<p>Memaksimalkan pemanfaatan kapasitas terpasang di semua phase. Menghindari investasi upgrade yang sebenarnya tidak diperlukan.</p>
+</div>
+</div>
+
+<div class="highlight-box">
+<h4>&#128161; Tahukah Anda?</h4>
+<p>Ketidakseimbangan tegangan sebesar 3.5% menyebabkan motor harus di-derate hingga 75% kapasitas &mdash; artinya motor 100 kW hanya boleh dioperasikan pada 75 kW. Load balancing yang tepat dapat mengembalikan kapasitas penuh motor Anda.</p>
+</div>
+
+<div class="art-nav">
+<button class="art-nav-btn" onclick="nav('pg-lb-0')">&larr; Sebelumnya: Indikator &amp; Bahaya</button>
+<span></span>
+</div>
+</div>
+</div>
+</div>
 <div class="pg" id="pg-oc-idx">
 <div class="container">
 <div class="idx-hero">
 <button class="idx-back" onclick="nav('pg-land')">&larr; Kembali ke Beranda</button>
-<h2>Optimasi Kapasitas <strong>(Right-Sizing Daya Tersambung)</strong></h2>
-<p>Banyak pelanggan membayar biaya beban (demand charge) untuk daya tersambung yang jauh lebih besar dari pemakaian aktual. Downsizing = hemat biaya tetap bulanan secara signifikan.</p>
+<h1>Optimasi Kapasitas <span style="color:var(--gold)">Daya Tersambung</span></h1>
+<p style="color:var(--silver-light);font-size:15px;max-width:640px;line-height:1.7;font-weight:300">Evaluasi dan right-sizing daya tersambung PLN &mdash; downsizing untuk hemat biaya tetap, atau upgrading untuk menghindari denda. Potensi penghematan jutaan rupiah per bulan.</p>
+<div class="stat-row" style="margin-top:32px">
+<div class="stat-box"><div class="stat-value">6</div><div class="stat-label">Kategori Analisis</div></div>
+<div class="stat-box"><div class="stat-value">50-80%</div><div class="stat-label">Potensi Hemat Biaya Beban</div></div>
+<div class="stat-box"><div class="stat-value">6 Tahap</div><div class="stat-label">Proses Layanan</div></div>
 </div>
-<div class="topic-grid">
+</div>
+<div class="topic-grid" style="margin-top:36px">
 <div class="topic-card" onclick="nav('pg-oc-0')">
 <div class="topic-num">TOPIK 01</div>
-<h4>Kategori Pemanfaatan Daya &amp; Solusi</h4>
-<p>Analisis kategori pemanfaatan daya — dari sangat oversized hingga overloaded — beserta bahaya dan solusi untuk setiap kondisi.</p>
+<h3>Kategori Pemanfaatan Daya &amp; Solusi</h3>
+<p>6 kategori pemanfaatan daya tersambung dari Sangat Oversized hingga Beban Nol &mdash; lengkap dengan bahaya, solusi, dan visualisasi level.</p>
+</div>
+<div class="topic-card" onclick="nav('pg-oc-1')">
+<div class="topic-num">TOPIK 02</div>
+<h3>Proses Layanan Optimasi Kapasitas</h3>
+<p>Dari analisis tagihan 12 bulan, pengukuran demand aktual, perhitungan daya optimal, hingga pengurusan ke PLN.</p>
 </div>
 </div>
 </div>
 </div>
-<!-- ========== OC DETAIL PAGES ========== -->
 <div class="pg" id="pg-oc-0">
 <div class="container">
-<div class="article">
-<button class="back-btn" onclick="nav('pg-oc-idx')">&larr; Kembali ke Daftar Topik</button>
-<div class="art-head">
-<div class="art-num">TOPIK 01</div>
-<h2>Kategori Pemanfaatan Daya &amp; Solusi</h2>
-<p class="art-sub">Banyak pelanggan membayar biaya beban (demand charge) untuk daya tersambung yang jauh lebih besar dari pemakaian aktual. Downsizing daya tersambung = hemat biaya tetap bulanan secara signifikan.</p>
-</div>
-<div class="art-body">
-<h3>Mengapa Right-Sizing Penting?</h3>
+<div class="art-wrap">
+<button class="art-back" onclick="nav('pg-oc-idx')">&larr; Daftar Topik Optimasi Kapasitas</button>
+<div class="art-badge">TOPIK 01 / OPTIMASI KAPASITAS</div>
+<h2>Kategori Pemanfaatan Daya <span style="color:var(--gold)">&amp; Solusi</span></h2>
+
+<p class="art-text">Banyak pelanggan membayar biaya beban (demand charge) untuk daya tersambung yang jauh lebih besar dari pemakaian aktual. Downsizing daya tersambung berarti penghematan biaya tetap bulanan secara signifikan.</p>
+
+<div class="highlight-box">
+<h4>&#128161; Mengapa Right-Sizing Penting?</h4>
 <p>Biaya listrik industri terdiri dari biaya energi (kWh) dan biaya beban/demand (kVA). Biaya beban dihitung berdasarkan daya tersambung, BUKAN pemakaian aktual. Jika daya tersambung 2x lipat dari kebutuhan, Anda membayar 2x lipat biaya beban setiap bulan tanpa manfaat.</p>
-<h3>Kategori Pemanfaatan Daya</h3>
-<div class="info-box danger">
-<h4>Sangat Oversized (&lt; 5% pemanfaatan)</h4>
-<p>Daya tersambung jauh melebihi kebutuhan aktual. Pemanfaatan di bawah 5% artinya Anda membayar untuk kapasitas yang hampir seluruhnya tidak terpakai.</p>
-<h4>Bahaya:</h4>
+</div>
+
+<div class="visual-divider"></div>
+<div class="section-tag">6 Kategori Pemanfaatan</div>
+
+<div style="max-width:750px;margin:24px 0">
+<div class="gauge-bar"><div class="gauge-fill" style="width:100%;background:linear-gradient(90deg,#E74C3C 0%,#E74C3C 5%,#E67E22 5%,#E67E22 20%,#27AE60 20%,#27AE60 80%,#F1C40F 80%,#F1C40F 100%)"></div></div>
+<div class="gauge-labels"><span>&lt;5%</span><span>20%</span><span>Optimal</span><span>80%</span><span>100%+</span></div>
+</div>
+
+<div class="category-card">
+<div class="category-header">
+<div class="category-dot" style="background:#E74C3C"></div>
+<h4>Sangat Oversized</h4>
+<div class="cat-range">&lt; 5% pemanfaatan</div>
+</div>
+<div class="category-body">
+<p style="font-size:13px;color:var(--silver-light);margin-bottom:14px;font-weight:300">Daya tersambung jauh melebihi kebutuhan aktual. Pemanfaatan di bawah 5% artinya Anda membayar untuk kapasitas yang hampir seluruhnya tidak terpakai.</p>
+<div class="cat-danger">
+<h5>&#9888; Bahaya</h5>
 <ul>
-<li>Pemborosan biaya beban bulanan yang sangat besar — bisa jutaan rupiah per bulan terbuang</li>
+<li>Pemborosan biaya beban bulanan sangat besar &mdash; bisa jutaan rupiah per bulan terbuang</li>
 <li>Biaya minimum PLN tetap tinggi meskipun pemakaian rendah</li>
 <li>Modal transformator dan infrastruktur terbuang sia-sia</li>
-<li>Efisiensi transformator sangat rendah — losses no-load tetap besar</li>
+<li>Efisiensi transformator sangat rendah &mdash; losses no-load tetap besar</li>
 </ul>
-<h4>Solusi:</h4>
+</div>
+<div class="cat-solution">
+<h5>&#10003; Solusi</h5>
 <ul>
 <li>Ajukan penurunan daya tersambung (downsizing) ke PLN segera</li>
-<li>Evaluasi apakah bisa turun 2-3 level daya</li>
-<li>Potensi penghematan bisa 50-80% dari biaya beban</li>
+<li>Evaluasi apakah bisa turun 2&ndash;3 level daya</li>
+<li>Potensi penghematan bisa 50&ndash;80% dari biaya beban</li>
 </ul>
 </div>
-<div class="info-box warning">
-<h4>Oversized (5% - 20% pemanfaatan)</h4>
-<p>Daya tersambung masih terlalu besar. Ada potensi penghematan signifikan melalui penurunan daya.</p>
-<h4>Bahaya:</h4>
+</div>
+</div>
+
+<div class="category-card">
+<div class="category-header">
+<div class="category-dot" style="background:#E67E22"></div>
+<h4>Oversized</h4>
+<div class="cat-range">5% &ndash; 20% pemanfaatan</div>
+</div>
+<div class="category-body">
+<p style="font-size:13px;color:var(--silver-light);margin-bottom:14px;font-weight:300">Daya tersambung masih terlalu besar. Ada potensi penghematan signifikan melalui penurunan daya.</p>
+<div class="cat-danger">
+<h5>&#9888; Bahaya</h5>
 <ul>
 <li>Biaya beban bulanan tidak proporsional dengan pemakaian</li>
-<li>Power factor cenderung rendah karena beban terlalu ringan</li>
-<li>Denda kVARh potensial karena power factor buruk di beban ringan</li>
-</ul>
-<h4>Solusi:</h4>
-<ul>
-<li>Hitung kebutuhan daya aktual + margin 20-30%</li>
-<li>Ajukan penurunan daya tersambung ke level yang tepat</li>
-<li>Pasang kapasitor bank untuk optimasi power factor</li>
+<li>Rugi transformator (no-load loss) relatif tinggi terhadap beban</li>
+<li>Power factor cenderung rendah karena beban ringan</li>
 </ul>
 </div>
-<div class="info-box highlight">
-<h4>Normal (20% - 80% pemanfaatan)</h4>
-<p>Pemanfaatan daya dalam rentang optimal. Daya tersambung sesuai dengan kebutuhan operasional dengan margin yang wajar.</p>
-<h4>Rekomendasi:</h4>
+<div class="cat-solution">
+<h5>&#10003; Solusi</h5>
 <ul>
-<li>Pertahankan kondisi ini dan monitoring berkala</li>
-<li>Optimasi power factor untuk efisiensi maksimal</li>
-<li>Perencanaan yang baik jika ada rencana ekspansi</li>
+<li>Evaluasi penurunan 1&ndash;2 level daya tersambung</li>
+<li>Hitung payback period dari biaya downsizing vs penghematan bulanan</li>
+<li>Pertimbangkan konsolidasi beban jika ada multiple meter</li>
 </ul>
 </div>
-<div class="info-box warning">
-<h4>Mendekati Penuh (80% - 100% pemanfaatan)</h4>
-<p>Daya tersambung hampir terpakai seluruhnya. Perlu perhatian untuk menghindari overload.</p>
-<h4>Bahaya:</h4>
+</div>
+</div>
+
+<div class="category-card">
+<div class="category-header">
+<div class="category-dot" style="background:#27AE60"></div>
+<h4>Normal (Optimal)</h4>
+<div class="cat-range">20% &ndash; 80% pemanfaatan</div>
+</div>
+<div class="category-body">
+<p style="font-size:13px;color:var(--silver-light);margin-bottom:14px;font-weight:300">Daya tersambung sesuai dengan kebutuhan aktual. Masih ada headroom untuk penambahan beban tanpa risiko overload.</p>
+<div class="cat-solution">
+<h5>&#10003; Rekomendasi</h5>
+<ul>
+<li>Pertahankan kondisi ini &mdash; keseimbangan antara kapasitas dan biaya</li>
+<li>Monitoring berkala untuk memastikan tetap di range optimal</li>
+<li>Rencanakan penambahan beban dalam batas headroom yang ada</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="category-card">
+<div class="category-header">
+<div class="category-dot" style="background:#F1C40F"></div>
+<h4>Mendekati Penuh</h4>
+<div class="cat-range">80% &ndash; 100% pemanfaatan</div>
+</div>
+<div class="category-body">
+<p style="font-size:13px;color:var(--silver-light);margin-bottom:14px;font-weight:300">Daya tersambung hampir terpakai seluruhnya. Perlu perhatian untuk menghindari overload.</p>
+<div class="cat-danger">
+<h5>&#9650; Bahaya</h5>
 <ul>
 <li>Tidak ada headroom untuk penambahan beban baru</li>
 <li>Risiko kWh maximum demand melebihi daya tersambung</li>
 <li>Denda kelebihan daya (excess demand charge) dari PLN</li>
 <li>Potensi trip protection saat peak load</li>
 </ul>
-<h4>Solusi:</h4>
+</div>
+<div class="cat-solution">
+<h5>&#10003; Solusi</h5>
 <ul>
-<li>Implementasi demand management — atur jadwal operasi beban besar</li>
+<li>Implementasi demand management &mdash; atur jadwal operasi beban besar</li>
 <li>Evaluasi kebutuhan upgrading daya tersambung</li>
 <li>Pasang demand controller untuk load shedding otomatis</li>
 <li>Optimasi efisiensi energi untuk mengurangi puncak beban</li>
 </ul>
 </div>
-<div class="info-box danger">
-<h4>Overloaded (&gt; 100% pemanfaatan)</h4>
-<p>Pemakaian aktual melebihi daya tersambung. Kondisi berbahaya yang harus segera diatasi.</p>
-<h4>Bahaya:</h4>
+</div>
+</div>
+
+<div class="category-card">
+<div class="category-header">
+<div class="category-dot" style="background:#E74C3C"></div>
+<h4>Overloaded</h4>
+<div class="cat-range">&gt; 100% pemanfaatan</div>
+</div>
+<div class="category-body">
+<p style="font-size:13px;color:var(--silver-light);margin-bottom:14px;font-weight:300">Pemakaian aktual melebihi daya tersambung. Kondisi berbahaya yang harus segera diatasi.</p>
+<div class="cat-danger">
+<h5>&#9888; Bahaya</h5>
 <ul>
-<li><strong>Denda kelebihan daya dari PLN</strong> — tarif penalty bisa 2-3x lipat</li>
+<li><strong>Denda kelebihan daya dari PLN</strong> &mdash; tarif penalty bisa 2&ndash;3x lipat</li>
 <li>Transformator overheat dan risiko kegagalan</li>
 <li>Kabel distribusi overheat dan risiko kebakaran</li>
 <li>Tegangan drop signifikan saat beban puncak</li>
 <li>Pemutusan suplai oleh PLN jika terdeteksi terus-menerus</li>
 <li>Kerusakan peralatan karena undervoltage</li>
 </ul>
-<h4>Solusi:</h4>
+</div>
+<div class="cat-solution">
+<h5>&#10003; Solusi</h5>
 <ul>
 <li>Segera ajukan penambahan daya (upgrading) ke PLN</li>
 <li>Implementasi demand management darurat</li>
@@ -1536,18 +1751,29 @@ footer a:hover{color:var(--gold)}
 <li>Evaluasi penggunaan genset untuk shaving peak demand</li>
 </ul>
 </div>
-<div class="info-box danger">
+</div>
+</div>
+
+<div class="category-card">
+<div class="category-header">
+<div class="category-dot" style="background:#95A5A6"></div>
 <h4>Beban Nol / Meter Mati</h4>
-<p>Tidak ada konsumsi daya terdeteksi padahal sambungan listrik aktif. Perlu investigasi segera.</p>
-<h4>Bahaya:</h4>
+<div class="cat-range">0% pemanfaatan</div>
+</div>
+<div class="category-body">
+<p style="font-size:13px;color:var(--silver-light);margin-bottom:14px;font-weight:300">Tidak ada konsumsi daya terdeteksi padahal sambungan listrik aktif. Perlu investigasi segera.</p>
+<div class="cat-danger">
+<h5>&#9888; Bahaya</h5>
 <ul>
-<li>Biaya abonemen/beban tetap berjalan tanpa utilisasi — pemborosan total</li>
+<li>Biaya abonemen/beban tetap berjalan tanpa utilisasi &mdash; pemborosan total</li>
 <li>Potensi pencurian listrik (bypass meter) yang berisiko hukum</li>
-<li>Meter rusak sehingga konsumsi tidak tercatat — tagihan susulan besar</li>
+<li>Meter rusak sehingga konsumsi tidak tercatat &mdash; tagihan susulan besar</li>
 <li>Sambungan putus atau koneksi bermasalah</li>
 <li>Aset idle yang membebani biaya operasional</li>
 </ul>
-<h4>Solusi:</h4>
+</div>
+<div class="cat-solution">
+<h5>&#10003; Solusi</h5>
 <ul>
 <li>Investigasi kondisi meter dan sambungan</li>
 <li>Jika tidak terpakai, ajukan pemutusan sementara atau berhenti berlangganan</li>
@@ -1555,26 +1781,121 @@ footer a:hover{color:var(--gold)}
 <li>Periksa kemungkinan pencurian listrik atau bypass</li>
 </ul>
 </div>
-<h3>Proses Layanan Optimasi Kapasitas</h3>
-<div class="info-box highlight">
-<ol>
-<li><strong>Analisis Data Tagihan</strong> — Review 12 bulan terakhir tagihan PLN untuk melihat pola pemakaian</li>
-<li><strong>Pengukuran Demand Aktual</strong> — Pencatatan maximum demand selama periode operasi penuh</li>
-<li><strong>Perhitungan Daya Optimal</strong> — Menentukan daya tersambung ideal dengan margin keamanan</li>
-<li><strong>Estimasi Penghematan</strong> — Kalkulasi penghematan biaya beban per bulan dan per tahun</li>
-<li><strong>Pengurusan ke PLN</strong> — Pendampingan proses downsizing atau upgrading daya tersambung</li>
-<li><strong>Monitoring Pasca-Perubahan</strong> — Verifikasi penghematan aktual setelah perubahan daya</li>
-</ol>
 </div>
 </div>
+
 <div class="art-nav">
 <span></span>
+<button class="art-nav-btn" onclick="nav('pg-oc-1')">Selanjutnya: Proses Layanan &rarr;</button>
+</div>
+</div>
+</div>
+</div>
+<div class="pg" id="pg-oc-1">
+<div class="container">
+<div class="art-wrap">
+<button class="art-back" onclick="nav('pg-oc-idx')">&larr; Daftar Topik Optimasi Kapasitas</button>
+<div class="art-badge">TOPIK 02 / OPTIMASI KAPASITAS</div>
+<h2>Proses Layanan <span style="color:var(--gold)">Optimasi Kapasitas</span></h2>
+
+<p class="art-text">Layanan optimasi kapasitas Envisor menggunakan pendekatan data-driven untuk menentukan daya tersambung ideal. Setiap keputusan didasarkan pada data pengukuran aktual, bukan estimasi.</p>
+
+<div class="stat-row">
+<div class="stat-box"><div class="stat-value">12 Bulan</div><div class="stat-label">Data Tagihan</div></div>
+<div class="stat-box"><div class="stat-value">Rp Juta</div><div class="stat-label">Potensi Hemat/Bulan</div></div>
+<div class="stat-box"><div class="stat-value">6 Tahap</div><div class="stat-label">Proses Layanan</div></div>
+</div>
+
+<div class="visual-divider"></div>
+<div class="section-tag">6 Tahap Layanan</div>
+
+<div class="process-flow">
+<div class="process-step">
+<div class="step-num">1</div>
+<div class="step-content">
+<h4>Analisis Data Tagihan</h4>
+<p>Review 12 bulan terakhir tagihan PLN untuk melihat pola pemakaian. Identifikasi tren demand, seasonal variation, dan anomali konsumsi. Menghitung rata-rata pemanfaatan daya tersambung.</p>
+</div>
+</div>
+<div class="process-step">
+<div class="step-num">2</div>
+<div class="step-content">
+<h4>Pengukuran Demand Aktual</h4>
+<p>Pencatatan maximum demand selama periode operasi penuh menggunakan power analyzer. Pengukuran mencakup peak demand, average demand, dan load profile 24 jam selama minimal 7 hari.</p>
+</div>
+</div>
+<div class="process-step">
+<div class="step-num">3</div>
+<div class="step-content">
+<h4>Perhitungan Daya Optimal</h4>
+<p>Menentukan daya tersambung ideal dengan margin keamanan. Mempertimbangkan rencana ekspansi, seasonal peak, dan kebutuhan starting current motor-motor besar.</p>
+</div>
+</div>
+<div class="process-step">
+<div class="step-num">4</div>
+<div class="step-content">
+<h4>Estimasi Penghematan</h4>
+<p>Kalkulasi penghematan biaya beban per bulan dan per tahun. Perbandingan biaya downsizing/upgrading vs penghematan yang didapat. Perhitungan payback period investasi.</p>
+</div>
+</div>
+<div class="process-step">
+<div class="step-num">5</div>
+<div class="step-content">
+<h4>Pengurusan ke PLN</h4>
+<p>Pendampingan proses downsizing atau upgrading daya tersambung. Persiapan dokumen teknis, koordinasi dengan PLN area, dan monitoring progres permohonan.</p>
+</div>
+</div>
+<div class="process-step">
+<div class="step-num">6</div>
+<div class="step-content">
+<h4>Monitoring Pasca-Perubahan</h4>
+<p>Verifikasi penghematan aktual setelah perubahan daya. Monitoring demand selama 3 bulan pertama untuk memastikan daya baru sesuai kebutuhan operasional.</p>
+</div>
+</div>
+</div>
+
+<div class="visual-divider"></div>
+<div class="section-tag">Kapan Harus Downsizing vs Upgrading?</div>
+
+<div class="severity-grid">
+<div class="severity-card sev-low">
+<div class="sev-icon">&#8681;</div>
+<div class="sev-label">DOWNSIZING</div>
+<h4>Turunkan Daya</h4>
+<p>Pemanfaatan &lt;40% secara konsisten. Hemat biaya beban bulanan signifikan. Payback biasanya &lt;6 bulan.</p>
+</div>
+<div class="severity-card sev-critical">
+<div class="sev-icon">&#8679;</div>
+<div class="sev-label">UPGRADING</div>
+<h4>Naikkan Daya</h4>
+<p>Pemanfaatan &gt;85% atau sudah overloaded. Hindari denda PLN dan kerusakan peralatan.</p>
+</div>
+<div class="severity-card sev-medium">
+<div class="sev-icon">&#8860;</div>
+<div class="sev-label">MAINTAIN</div>
+<h4>Pertahankan</h4>
+<p>Pemanfaatan 40&ndash;80% &mdash; sudah optimal. Monitoring berkala untuk deteksi perubahan.</p>
+</div>
+<div class="severity-card sev-high">
+<div class="sev-icon">&#9881;</div>
+<div class="sev-label">DEMAND MGMT</div>
+<h4>Kelola Demand</h4>
+<p>Pemanfaatan 80&ndash;100%. Optimasi jadwal operasi sebelum memutuskan upgrading.</p>
+</div>
+</div>
+
+<div class="highlight-box">
+<h4>&#128176; Contoh Penghematan</h4>
+<p>Pelanggan dengan daya tersambung 555 kVA namun demand aktual hanya 120 kVA (pemanfaatan 22%). Setelah downsizing ke 197 kVA, penghematan biaya beban mencapai Rp 15&ndash;20 juta per bulan &mdash; atau Rp 180&ndash;240 juta per tahun. Payback period kurang dari 2 bulan.</p>
+</div>
+
+<div class="art-nav">
+<button class="art-nav-btn" onclick="nav('pg-oc-0')">&larr; Sebelumnya: Kategori &amp; Solusi</button>
 <span></span>
 </div>
 </div>
 </div>
 </div>
-<!-- ========== FOOTER ========== -->
 <footer><p>&copy; 2025 Envisor Group</p><div><a href="#">Privacy</a><a href="#">Terms</a></div></footer>
 
 <!-- Mobile Nav -->
