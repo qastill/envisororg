@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Envisor Home — Audit Energi Listrik Rumah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#0A0A0A;--black-light:#111;--black-card:#0F0F0F;--black-card2:#141414;
+  --gold:#C9A96E;--gold-light:#DBBF8C;--gold-dim:rgba(201,169,110,0.12);
+  --silver:#A8A8A8;--silver-light:#C8C8C8;--white:#F5F2ED;
+  --font-d:'Cormorant Garamond',Georgia,serif;
+  --font-b:'DM Sans',Helvetica,sans-serif;
+  --border:rgba(201,169,110,0.12);--border-h:rgba(201,169,110,0.28);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--black);color:var(--white);-webkit-font-smoothing:antialiased;line-height:1.6;position:relative}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 50% 50% at 15% 20%,rgba(201,169,110,0.04) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 85% 75%,rgba(168,168,168,0.03) 0%,transparent 70%);pointer-events:none;z-index:0}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+/* Header */
+header{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px);height:72px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(16px)}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:32px;height:32px;border:1.5px solid var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:600;font-size:16px;color:var(--gold)}
+.logo-text{font-family:var(--font-d);font-size:22px;font-weight:500;letter-spacing:1px}
+.logo-text span{color:var(--gold);font-weight:300}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);transition:color .3s}
+.nav a:hover{color:var(--gold-light)}
+.nav a.on{color:var(--gold)}
+.btn-g{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--black);background:linear-gradient(135deg,var(--gold),var(--gold-light));padding:10px 24px;border-radius:2px;display:inline-block;transition:all .3s;border:none;cursor:pointer}
+.btn-g:hover{box-shadow:0 4px 24px rgba(201,169,110,0.3);transform:translateY(-1px)}
+.container{max-width:1100px;margin:0 auto;padding:0 clamp(24px,4vw,60px);position:relative;z-index:1}
+
+/* Hero */
+.hero{padding:clamp(48px,8vh,84px) 0 clamp(28px,4vh,40px);text-align:center;position:relative;z-index:1}
+.hero-tag{display:inline-block;padding:6px 16px;border-radius:2px;border:1px solid var(--border);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.hero h1{font-family:var(--font-d);font-size:clamp(32px,5vw,56px);font-weight:300;letter-spacing:1px;line-height:1.15;margin-bottom:16px}
+.hero h1 strong{font-weight:600;color:var(--gold)}
+.hero p{font-size:16px;color:var(--silver);max-width:600px;margin:0 auto;font-weight:300;line-height:1.7}
+.divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:24px auto 0}
+
+/* Options */
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.5vw,28px);padding:clamp(28px,5vh,48px) 0 clamp(40px,7vh,72px)}
+.opt{position:relative;border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;background:var(--black-card);transition:all .5s cubic-bezier(.16,1,.3,1)}
+.opt:hover{border-color:var(--border-h);transform:translateY(-6px);box-shadow:0 24px 70px rgba(0,0,0,.55),0 0 50px rgba(201,169,110,.07)}
+.opt-img{position:relative;height:240px;overflow:hidden;flex-shrink:0;background:var(--black-light)}
+.opt-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.16,1,.3,1);filter:brightness(.5) saturate(.65)}
+.opt:hover .opt-img img{transform:scale(1.06);filter:brightness(.6) saturate(.75)}
+.opt-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(15,15,15,.65) 75%,rgba(15,15,15,.98) 100%);pointer-events:none}
+.opt-badge{position:absolute;top:18px;left:18px;z-index:2;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:rgba(10,10,10,.7);backdrop-filter:blur(8px);padding:6px 14px;border-radius:2px;border:1px solid rgba(201,169,110,.18)}
+.opt-body{padding:clamp(24px,2.5vw,34px);flex:1;display:flex;flex-direction:column}
+.opt-title{font-family:var(--font-d);font-size:clamp(26px,2.6vw,34px);font-weight:500;letter-spacing:.5px;line-height:1.15;margin-bottom:6px}
+.opt-sub{font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.opt-desc{font-size:14px;color:var(--silver);line-height:1.75;font-weight:300;flex:1}
+.opt-list{list-style:none;margin:18px 0 0}
+.opt-list li{position:relative;padding-left:22px;font-size:13px;color:var(--silver-light);font-weight:300;margin-bottom:9px;line-height:1.5}
+.opt-list li::before{content:'';position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;border:1.5px solid var(--gold)}
+.opt-cta{display:inline-flex;align-items:center;gap:8px;margin-top:26px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--black);background:linear-gradient(135deg,var(--gold),var(--gold-light));padding:13px 26px;border-radius:2px;align-self:flex-start;transition:all .3s}
+.opt-cta:hover{box-shadow:0 6px 24px rgba(201,169,110,.3);transform:translateY(-1px)}
+.opt-cta.outline{color:var(--gold);background:transparent;border:1px solid var(--gold)}
+.opt-cta.outline:hover{background:var(--gold-dim);box-shadow:none}
+
+/* Footer */
+footer{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px);height:52px;border-top:1px solid var(--border);position:relative;z-index:1}
+footer p{font-size:11px;color:rgba(168,168,168,.5)}
+footer a{font-size:11px;color:rgba(168,168,168,.4);margin-left:16px;transition:color .3s}
+footer a:hover{color:var(--gold)}
+
+/* Animation */
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.opt{animation:up .8s cubic-bezier(.16,1,.3,1) both}
+.opt:nth-child(1){animation-delay:.1s}.opt:nth-child(2){animation-delay:.25s}
+.hero-tag{animation:up .6s ease both}.hero h1{animation:up .6s ease .1s both}.hero p{animation:up .6s ease .2s both}
+
+/* Mobile */
+.ham{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.ham span{width:20px;height:1.5px;background:var(--silver);border-radius:1px}
+.mnav{display:none;position:fixed;inset:0;z-index:999;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mnav.open{display:flex}
+.mnav a{font-family:var(--font-d);font-size:22px;color:var(--silver-light);letter-spacing:2px}
+.mnav a:hover{color:var(--gold)}
+.mnav-x{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--silver);font-size:28px;cursor:pointer}
+
+@media(max-width:768px){.nav a:not(.btn-g){display:none}.ham{display:flex}.opts{grid-template-columns:1fr}.opt-img{height:200px}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo"><div class="logo-mark">E</div><div class="logo-text">ENVISOR<span>.AI</span></div></a>
+  <div class="nav">
+    <a href="home.html" class="on">Envisor Home</a>
+    <a href="advisor.html">Expert</a>
+    <a href="industries.html">Industries</a>
+    <a href="mailto:hello@envisorai.com" class="btn-g">Hubungi Kami</a>
+    <button class="ham" id="hm"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-tag">Envisor Home</div>
+    <h1>Audit Energi Listrik <strong>Rumah Anda</strong></h1>
+    <p>Dua cara untuk memahami dan menghemat konsumsi listrik rumah — audit mandiri lewat AI, atau audit profesional dengan perangkat terpasang di panel listrik Anda.</p>
+    <div class="divider"></div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="opts">
+
+    <a href="https://envisor.vercel.app/" target="_blank" class="opt">
+      <div class="opt-img">
+        <div class="opt-badge">Mandiri · AI</div>
+        <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&h=500&fit=crop&q=80" alt="Envisor OCR">
+      </div>
+      <div class="opt-body">
+        <div class="opt-title">Envisor OCR</div>
+        <div class="opt-sub">Audit Mandiri via Smartphone</div>
+        <div class="opt-desc">Cukup foto meteran dan perangkat listrik di rumah. AI mengenali perangkat, membaca angka, menghitung konsumsi, dan memberikan rekomendasi penghematan secara otomatis — langsung dari ponsel Anda.</div>
+        <ul class="opt-list">
+          <li>Scan meteran &amp; perangkat dengan kamera</li>
+          <li>Estimasi konsumsi &amp; tagihan otomatis</li>
+          <li>Rekomendasi penghematan instan</li>
+          <li>Gratis, tanpa perlu kunjungan teknisi</li>
+        </ul>
+        <span class="opt-cta">Buka Aplikasi &#8594;</span>
+      </div>
+    </a>
+
+    <a href="home-audit.html" class="opt">
+      <div class="opt-img">
+        <div class="opt-badge">Profesional · Perangkat</div>
+        <img src="https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=800&h=500&fit=crop&q=80" alt="Envisor Home Audit Energi">
+      </div>
+      <div class="opt-body">
+        <div class="opt-title">Audit Energi Rumah</div>
+        <div class="opt-sub">Jasa Profesional · Perangkat Panel</div>
+        <div class="opt-desc">Jasa audit energi menyeluruh untuk rumah Anda. Kami memasang perangkat audit langsung pada panel listrik untuk memantau konsumsi setiap rangkaian secara real-time, mengidentifikasi pemborosan, dan menyusun rencana penghematan yang terukur.</div>
+        <ul class="opt-list">
+          <li>Perangkat audit dipasang di panel listrik</li>
+          <li>Pemantauan konsumsi per rangkaian 24/7</li>
+          <li>Laporan &amp; rekomendasi oleh teknisi</li>
+          <li>Identifikasi beban boros &amp; potensi hemat</li>
+        </ul>
+        <span class="opt-cta outline">Pelajari Selengkapnya &#8594;</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 Envisor Group</p>
+  <div><a href="#">Privacy</a><a href="#">Terms</a></div>
+</footer>
+
+<div class="mnav" id="mn">
+  <button class="mnav-x" id="mx">&times;</button>
+  <a href="index.html">Beranda</a>
+  <a href="home.html">Envisor Home</a>
+  <a href="advisor.html">Expert</a>
+  <a href="industries.html">Industries</a>
+</div>
+<script>
+document.getElementById('hm').onclick=function(){document.getElementById('mn').classList.add('open')};
+document.getElementById('mx').onclick=function(){document.getElementById('mn').classList.remove('open')};
+</script>
+</body>
+</html>

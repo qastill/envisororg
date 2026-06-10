@@ -46,7 +46,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 c
 
 /* Card grid */
 .grid-wrap{flex:1;padding:0 clamp(24px,4vw,60px) clamp(16px,2vh,32px);display:flex;flex-direction:column;min-height:0}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.5vw,20px);flex:1;min-height:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.5vw,20px);flex:1;min-height:0}
 
 /* Card */
 .card{position:relative;border-radius:8px;overflow:hidden;border:1px solid var(--border);display:flex;flex-direction:column;transition:all .5s cubic-bezier(.16,1,.3,1)}
@@ -96,9 +96,8 @@ footer a:hover{color:var(--gold)}
   <header>
     <a href="index.html" class="logo"><div class="logo-mark">E</div><div class="logo-text">ENVISOR<span>.AI</span></div></a>
     <div class="nav">
-      <a href="https://envisor.vercel.app/" target="_blank">Envisor AI</a>
+      <a href="home.html">Envisor Home</a>
       <a href="advisor.html">Expert</a>
-      <a href="inspection.html">Inspection</a>
       <a href="industries.html">Industries</a>
       <a href="mailto:hello@envisorai.com" class="btn-g">Hubungi Kami</a>
       <button class="ham" id="hm"><span></span><span></span><span></span></button>
@@ -113,16 +112,16 @@ footer a:hover{color:var(--gold)}
 
   <div class="grid-wrap">
     <div class="cards">
-      <a href="https://envisor.vercel.app/" target="_blank" class="card">
+      <a href="home.html" class="card">
         <div class="card-img">
           <div class="card-num">01</div>
-          <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=600&h=400&fit=crop&q=80" alt="Envisor AI">
+          <img src="https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=600&h=400&fit=crop&q=80" alt="Envisor Home">
         </div>
         <div class="card-body">
-          <div class="card-title">Envisor AI</div>
-          <div class="card-sub">App AI Mandiri</div>
-          <div class="card-desc">Inspeksi listrik mandiri via smartphone. AI mengenali perangkat, menghitung konsumsi, dan memberikan rekomendasi penghematan otomatis.</div>
-          <div class="card-arrow">Buka Aplikasi &#8594;</div>
+          <div class="card-title">Envisor Home</div>
+          <div class="card-sub">Audit Energi Rumah</div>
+          <div class="card-desc">Audit energi listrik rumah Anda — mandiri lewat AI (Envisor OCR) atau profesional dengan perangkat audit terpasang langsung di panel listrik.</div>
+          <div class="card-arrow">Selengkapnya &#8594;</div>
         </div>
       </a>
       <a href="industries.html" class="card">
@@ -132,26 +131,14 @@ footer a:hover{color:var(--gold)}
         </div>
         <div class="card-body">
           <div class="card-title">Envisor Industries</div>
-          <div class="card-sub">Platform B2B Industri</div>
-          <div class="card-desc">Kalkulasi solar panel, estimasi tagihan industri, dan prediktif analitik 24/7 untuk pabrik dan gedung komersial.</div>
-          <div class="card-arrow">Selengkapnya &#8594;</div>
-        </div>
-      </a>
-      <a href="inspection.html" class="card">
-        <div class="card-img">
-          <div class="card-num">03</div>
-          <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=400&fit=crop&q=80" alt="Envisor Inspection">
-        </div>
-        <div class="card-body">
-          <div class="card-title">Envisor Inspection</div>
-          <div class="card-sub">Job Platform Instalatir</div>
-          <div class="card-desc">Marketplace teknisi listrik dan instalatir bersertifikat. AI mencocokkan keahlian dengan order inspeksi dari klien.</div>
+          <div class="card-sub">Konsultasi Efisiensi &amp; Audit Energi</div>
+          <div class="card-desc">Mitra efisiensi energi untuk pabrik dan gedung komersial. Audit energi dan konsultasi power factor, harmonisa, hingga optimasi kapasitas daya.</div>
           <div class="card-arrow">Selengkapnya &#8594;</div>
         </div>
       </a>
       <a href="advisor.html" class="card">
         <div class="card-img">
-          <div class="card-num">04</div>
+          <div class="card-num">03</div>
           <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=400&fit=crop&q=80" alt="Envisor Advisor">
         </div>
         <div class="card-body">
@@ -172,9 +159,8 @@ footer a:hover{color:var(--gold)}
 
 <div class="mnav" id="mn">
   <button class="mnav-x" id="mx">&times;</button>
-  <a href="https://envisor.vercel.app/" target="_blank">Envisor AI</a>
+  <a href="home.html">Envisor Home</a>
   <a href="industries.html">Industries</a>
-  <a href="inspection.html">Inspection</a>
   <a href="advisor.html">Expert Advisor</a>
 </div>
 <script>
