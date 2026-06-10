@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Envisor Industries — Konsultasi Efisiensi & Audit Energi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#0A0A0A;--black-light:#111;--black-card:#0F0F0F;--black-card2:#141414;
+  --gold:#C9A96E;--gold-light:#DBBF8C;--gold-dim:rgba(201,169,110,0.12);
+  --silver:#A8A8A8;--silver-light:#C8C8C8;--white:#F5F2ED;
+  --font-d:'Cormorant Garamond',Georgia,serif;
+  --font-b:'DM Sans',Helvetica,sans-serif;
+  --border:rgba(201,169,110,0.12);--border-h:rgba(201,169,110,0.28);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--black);color:var(--white);-webkit-font-smoothing:antialiased;line-height:1.6}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 50% 50% at 15% 20%,rgba(201,169,110,0.04) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 85% 75%,rgba(168,168,168,0.03) 0%,transparent 70%);pointer-events:none;z-index:0}
+a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
+
+header{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px);height:72px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(16px)}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:32px;height:32px;border:1.5px solid var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:600;font-size:16px;color:var(--gold)}
+.logo-text{font-family:var(--font-d);font-size:22px;font-weight:500;letter-spacing:1px}
+.logo-text span{color:var(--gold);font-weight:300}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);transition:color .3s}
+.nav a:hover{color:var(--gold-light)}.nav a.on{color:var(--gold)}
+.btn-g{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--black);background:linear-gradient(135deg,var(--gold),var(--gold-light));padding:10px 24px;border-radius:2px;display:inline-block;transition:all .3s;border:none;cursor:pointer}
+.btn-g:hover{box-shadow:0 4px 24px rgba(201,169,110,0.3);transform:translateY(-1px)}
+.btn-o{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);background:transparent;padding:10px 24px;border-radius:2px;display:inline-block;transition:all .3s;cursor:pointer}
+.btn-o:hover{background:var(--gold-dim)}
+.container{max-width:1160px;margin:0 auto;padding:0 clamp(24px,4vw,60px);position:relative;z-index:1}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.3) saturate(.6)}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.55) 0%,rgba(10,10,10,.85) 100%)}
+.hero-inner{position:relative;z-index:1;padding:clamp(60px,11vh,116px) 0 clamp(48px,8vh,88px);text-align:center}
+.hero-tag{display:inline-block;padding:6px 16px;border-radius:2px;border:1px solid var(--border-h);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;background:rgba(10,10,10,.4)}
+.hero h1{font-family:var(--font-d);font-size:clamp(34px,5.5vw,60px);font-weight:300;letter-spacing:1px;line-height:1.13;margin-bottom:18px}
+.hero h1 strong{font-weight:600;color:var(--gold)}
+.hero p{font-size:16px;color:var(--silver-light);max-width:640px;margin:0 auto 30px;font-weight:300;line-height:1.75}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-bottom:1px solid var(--border)}
+.stat{background:var(--black);padding:clamp(26px,4vh,38px) 20px;text-align:center}
+.stat .n{font-family:var(--font-d);font-size:clamp(30px,4vw,44px);font-weight:600;color:var(--gold);line-height:1}
+.stat .l{font-size:12px;color:var(--silver);margin-top:10px;font-weight:300;letter-spacing:.5px}
+
+/* Section */
+.sec{padding:clamp(52px,9vh,96px) 0;position:relative;z-index:1}
+.sec-label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.sec-title{font-family:var(--font-d);font-size:clamp(28px,4vw,46px);font-weight:400;letter-spacing:1px;line-height:1.2;margin-bottom:14px}
+.sec-title strong{font-weight:600;color:var(--gold)}
+.sec-sub{font-size:15px;color:var(--silver);max-width:600px;font-weight:300;line-height:1.75}
+.center{text-align:center}.center .sec-sub{margin-left:auto;margin-right:auto}
+
+/* Pillars (two core offerings) */
+.pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.5vw,26px);margin-top:44px}
+.pillar{position:relative;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--black-card);transition:all .5s cubic-bezier(.16,1,.3,1)}
+.pillar:hover{border-color:var(--border-h);transform:translateY(-5px);box-shadow:0 22px 60px rgba(0,0,0,.5)}
+.pillar-img{height:200px;position:relative;overflow:hidden}
+.pillar-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.65);transition:all .7s cubic-bezier(.16,1,.3,1)}
+.pillar:hover .pillar-img img{transform:scale(1.05);filter:brightness(.6) saturate(.75)}
+.pillar-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(15,15,15,.7) 80%,rgba(15,15,15,.98))}
+.pillar-badge{position:absolute;top:16px;left:16px;z-index:2;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:rgba(10,10,10,.7);backdrop-filter:blur(8px);padding:6px 14px;border-radius:2px;border:1px solid rgba(201,169,110,.18)}
+.pillar-body{padding:clamp(24px,2.5vw,32px)}
+.pillar-body h3{font-family:var(--font-d);font-size:clamp(24px,2.6vw,32px);font-weight:500;line-height:1.18;margin-bottom:12px}
+.pillar-body p{font-size:14px;color:var(--silver);font-weight:300;line-height:1.75}
+.pillar-list{list-style:none;margin-top:18px}
+.pillar-list li{position:relative;padding-left:22px;font-size:13.5px;color:var(--silver-light);font-weight:300;margin-bottom:10px;line-height:1.5}
+.pillar-list li::before{content:'';position:absolute;left:0;top:7px;width:8px;height:8px;border-radius:50%;border:1.5px solid var(--gold)}
+
+/* Scope grid (specific topics) */
+.scope{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.scard{border:1px solid var(--border);border-radius:10px;padding:30px 26px;background:var(--black-card);transition:all .4s}
+.scard:hover{border-color:var(--border-h);transform:translateY(-3px)}
+.scard-icon{font-size:24px;margin-bottom:16px;display:block}
+.scard h4{font-family:var(--font-d);font-size:22px;font-weight:500;margin-bottom:10px;line-height:1.25}
+.scard p{font-size:13.5px;color:var(--silver);font-weight:300;line-height:1.75}
+
+/* Steps */
+.bsec{background:linear-gradient(180deg,transparent,rgba(201,169,110,.025),transparent);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.step{border:1px solid var(--border);border-radius:10px;padding:30px 24px;background:var(--black-card);transition:all .5s cubic-bezier(.16,1,.3,1)}
+.step:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:0 18px 50px rgba(0,0,0,.4)}
+.step-num{font-family:var(--font-d);font-size:15px;font-weight:700;color:var(--black);width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.step h4{font-family:var(--font-d);font-size:21px;font-weight:500;margin-bottom:10px;line-height:1.25}
+.step p{font-size:13px;color:var(--silver);font-weight:300;line-height:1.7}
+
+/* CTA */
+.cta{text-align:center;padding:clamp(52px,9vh,90px) 24px;position:relative;z-index:1}
+.cta h2{font-family:var(--font-d);font-size:clamp(28px,4vw,44px);font-weight:400;margin-bottom:14px;letter-spacing:1px}
+.cta h2 strong{color:var(--gold);font-weight:600}
+.cta p{font-size:15px;color:var(--silver);margin-bottom:28px;font-weight:300;max-width:540px;margin-left:auto;margin-right:auto;line-height:1.7}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+footer{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px);height:52px;border-top:1px solid var(--border);position:relative;z-index:1}
+footer p{font-size:11px;color:rgba(168,168,168,.5)}
+footer a{font-size:11px;color:rgba(168,168,168,.4);margin-left:16px;transition:color .3s}
+footer a:hover{color:var(--gold)}
+
+.ham{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.ham span{width:20px;height:1.5px;background:var(--silver);border-radius:1px}
+.mnav{display:none;position:fixed;inset:0;z-index:999;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mnav.open{display:flex}
+.mnav a{font-family:var(--font-d);font-size:22px;color:var(--silver-light);letter-spacing:2px}
+.mnav a:hover{color:var(--gold)}
+.mnav-x{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--silver);font-size:28px;cursor:pointer}
+
+@media(max-width:980px){.scope{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.nav a:not(.btn-g){display:none}.ham{display:flex}.pillars{grid-template-columns:1fr}}
+@media(max-width:560px){.scope{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo"><div class="logo-mark">E</div><div class="logo-text">ENVISOR<span>.AI</span></div></a>
+  <div class="nav">
+    <a href="home.html">Envisor Home</a>
+    <a href="advisor.html">Expert</a>
+    <a href="industries.html" class="on">Industries</a>
+    <a href="mailto:hello@envisorai.com" class="btn-g">Konsultasi</a>
+    <button class="ham" id="hm"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1600&h=900&fit=crop&q=80" alt="Industri & efisiensi energi"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-tag">Envisor Industries</div>
+      <h1>Konsultasi Efisiensi &amp;<br><strong>Audit Energi Industri</strong></h1>
+      <p>Mitra strategis efisiensi energi untuk pabrik, gedung komersial, dan fasilitas industri. Kami mengukur, menganalisis, dan menurunkan biaya energi Anda dengan data yang akurat.</p>
+      <div class="hero-btns">
+        <a href="mailto:hello@envisorai.com?subject=Konsultasi%20Efisiensi%20Energi%20Industri" class="btn-g">Jadwalkan Konsultasi</a>
+        <a href="#layanan" class="btn-o">Lihat Layanan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat"><div class="n">15&ndash;30%</div><div class="l">Potensi penghematan biaya listrik</div></div>
+  <div class="stat"><div class="n">7&ndash;14</div><div class="l">Hari pengukuran power quality</div></div>
+  <div class="stat"><div class="n">&lt; 0.85</div><div class="l">Power factor terkena denda PLN</div></div>
+  <div class="stat"><div class="n">100%</div><div class="l">Rekomendasi berbasis data ukur</div></div>
+</div>
+
+<!-- Two core offerings -->
+<section class="sec" id="layanan">
+  <div class="container">
+    <div class="center">
+      <span class="sec-label">Layanan Inti</span>
+      <div class="sec-title">Dua Pilar <strong>Efisiensi Energi</strong></div>
+      <p class="sec-sub">Audit energi yang akurat menjadi dasar konsultasi efisiensi yang tepat sasaran.</p>
+    </div>
+    <div class="pillars">
+
+      <div class="pillar">
+        <div class="pillar-img">
+          <div class="pillar-badge">Diagnosa</div>
+          <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=900&h=500&fit=crop&q=80" alt="Audit Energi">
+        </div>
+        <div class="pillar-body">
+          <h3>Audit Energi</h3>
+          <p>Pengukuran menyeluruh atas konsumsi dan kualitas daya fasilitas Anda menggunakan power analyzer. Kami memetakan ke mana energi mengalir dan di mana terjadi pemborosan.</p>
+          <ul class="pillar-list">
+            <li>Analisis tagihan PLN &amp; profil beban</li>
+            <li>Pengukuran power quality 7&ndash;14 hari</li>
+            <li>Pemetaan konsumsi per feeder / panel</li>
+            <li>Laporan temuan &amp; baseline energi</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-img">
+          <div class="pillar-badge">Solusi</div>
+          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=900&h=500&fit=crop&q=80" alt="Konsultasi Efisiensi">
+        </div>
+        <div class="pillar-body">
+          <h3>Konsultasi Efisiensi</h3>
+          <p>Berdasarkan hasil audit, kami merancang strategi efisiensi yang terukur — mulai dari koreksi power factor hingga optimasi kapasitas — dengan estimasi ROI yang jelas.</p>
+          <ul class="pillar-list">
+            <li>Eliminasi denda kVARh &amp; koreksi cos&phi;</li>
+            <li>Rekomendasi kapasitor bank &amp; filter</li>
+            <li>Optimasi kapasitas daya tersambung</li>
+            <li>Roadmap penghematan &amp; estimasi ROI</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Scope of work -->
+<section class="sec bsec">
+  <div class="container">
+    <div class="center">
+      <span class="sec-label">Cakupan Teknis</span>
+      <div class="sec-title">Apa yang Kami <strong>Analisis</strong></div>
+      <p class="sec-sub">Cakupan konsultasi efisiensi dan audit energi yang menyeluruh.</p>
+    </div>
+    <div class="scope">
+      <div class="scard">
+        <span class="scard-icon">&#9889;</span>
+        <h4>Power Factor &amp; kVARh</h4>
+        <p>Identifikasi denda kVARh, perhitungan kapasitas kapasitor, dan koreksi cos&phi; untuk menghapus penalti daya reaktif.</p>
+      </div>
+      <div class="scard">
+        <span class="scard-icon">&#127777;</span>
+        <h4>Harmonisa &amp; Power Quality</h4>
+        <p>Pengukuran THD, deteksi resonansi, dan solusi filtering sesuai standar IEEE 519 untuk melindungi peralatan sensitif.</p>
+      </div>
+      <div class="scard">
+        <span class="scard-icon">&#9878;</span>
+        <h4>Penyeimbangan Beban</h4>
+        <p>Analisis ketidakseimbangan antar fasa, arus netral tinggi, dan tegangan tidak seimbang yang menyebabkan losses.</p>
+      </div>
+      <div class="scard">
+        <span class="scard-icon">&#128268;</span>
+        <h4>Optimasi Kapasitas Daya</h4>
+        <p>Evaluasi dan right-sizing daya tersambung PLN — identifikasi oversized atau overloaded untuk efisiensi biaya tetap.</p>
+      </div>
+      <div class="scard">
+        <span class="scard-icon">&#9728;</span>
+        <h4>Feasibility Solar Panel</h4>
+        <p>Studi kelayakan PLTS rooftop — kapasitas, estimasi produksi, ROI, dan payback period berbasis data lokasi.</p>
+      </div>
+      <div class="scard">
+        <span class="scard-icon">&#128200;</span>
+        <h4>Analisis Tagihan PLN</h4>
+        <p>Pemahaman struktur tarif, golongan daya, dan komponen biaya tersembunyi yang membebani operasional Anda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="sec">
+  <div class="container">
+    <div class="center">
+      <span class="sec-label">Cara Kerja</span>
+      <div class="sec-title">Dari Pengukuran ke <strong>Penghematan</strong></div>
+      <p class="sec-sub">Proses terstruktur yang ditangani tim engineering Envisor.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Konsultasi Awal</h4>
+        <p>Diskusi kebutuhan, tinjauan tagihan PLN, dan penentuan ruang lingkup audit fasilitas Anda.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Pengukuran Lapangan</h4>
+        <p>Pemasangan power analyzer 7&ndash;14 hari untuk merekam profil beban dan kualitas daya secara nyata.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Analisis &amp; Laporan</h4>
+        <p>Pengolahan data, identifikasi pemborosan dan denda, serta penyusunan rekomendasi dengan estimasi ROI.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h4>Implementasi</h4>
+        <p>Pendampingan eksekusi solusi efisiensi dan verifikasi penghematan setelah perbaikan diterapkan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" style="border-top:1px solid var(--border)">
+  <div class="container">
+    <h2>Kurangi Biaya Energi <strong>Fasilitas Anda</strong></h2>
+    <p>Jadwalkan konsultasi efisiensi dan audit energi. Tim Envisor akan membantu Anda menemukan penghematan yang nyata dan terukur.</p>
+    <div class="cta-btns">
+      <a href="mailto:hello@envisorai.com?subject=Konsultasi%20Efisiensi%20Energi%20Industri" class="btn-g">Jadwalkan Konsultasi</a>
+      <a href="index.html" class="btn-o">Kembali ke Beranda</a>
+    </div>
+  </div>
+</section>
+
+<footer><p>&copy; 2025 Envisor Group</p><div><a href="#">Privacy</a><a href="#">Terms</a></div></footer>
+
+<div class="mnav" id="mn"><button class="mnav-x" id="mx">&times;</button><a href="index.html">Beranda</a><a href="home.html">Envisor Home</a><a href="advisor.html">Expert</a><a href="industries.html">Industries</a></div>
+
+<script>
+document.getElementById('hm').onclick=function(){document.getElementById('mn').classList.add('open')};
+document.getElementById('mx').onclick=function(){document.getElementById('mn').classList.remove('open')};
+</script>
+</body>
+</html>
