@@ -92,6 +92,10 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 c
 .mlist{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 22px}
 .mlist.one{grid-template-columns:1fr}
 .mlist li{position:relative;padding-left:26px;font-size:14px;color:var(--ink-2);font-weight:500;line-height:1.5}
+.mlist.detail li{margin-bottom:14px}
+.mlist.detail li:last-child{margin-bottom:0}
+.mlist.detail li strong{display:block;color:var(--ink);font-weight:700;font-size:14.5px;margin-bottom:2px}
+.mlist.detail li span{display:block;color:var(--muted);font-weight:400;font-size:13px;line-height:1.55}
 .mlist li::before{content:'';position:absolute;left:0;top:3px;width:17px;height:17px;border-radius:50%;background:var(--accent-soft);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231457D6' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:11px}
 .adv li::before{background-color:#E6F7EF;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310996B' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E")}
 .modal-foot{margin-top:30px;padding-top:24px;border-top:1px solid var(--line);display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
@@ -201,7 +205,7 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft)}
       <!-- 4 -->
       <div class="svc" data-svc="efisiensi" role="button" tabindex="0">
         <div class="svc-img">
-          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=900&h=560&fit=crop&q=80" alt="Efisiensi energi dan kapasitor bank">
+          <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=900&h=560&fit=crop&q=80" alt="Efisiensi energi sistem kelistrikan">
           <div class="svc-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6M15 2v6M7 8h10v2.5a5 5 0 0 1-10 0V8z"/><path d="M12 15.5V22"/></svg></div>
         </div>
         <div class="svc-body">
@@ -249,13 +253,18 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft)}
       <p class="lead" id="mLead"></p>
 
       <div class="mblock">
-        <div class="mblock-h"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></i> Cakupan Layanan</div>
-        <ul class="mlist" id="mScope"></ul>
+        <div class="mblock-h"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></i> Cakupan Pekerjaan</div>
+        <ul class="mlist one detail" id="mScope"></ul>
       </div>
 
       <div class="mblock">
         <div class="mblock-h"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></i> Manfaat untuk Anda</div>
         <ul class="mlist one" id="mBenefit"></ul>
+      </div>
+
+      <div class="mblock">
+        <div class="mblock-h"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></svg></i> Output &amp; Laporan</div>
+        <ul class="mlist one" id="mOutput"></ul>
       </div>
 
       <div class="mblock">
@@ -278,48 +287,80 @@ var DATA={
   trafo:{
     kicker:"Transformer Diagnostics",title:"Uji Kelistrikan Trafo",
     img:"https://images.unsplash.com/photo-1620283085439-39620a1e21c4?w=1000&h=500&fit=crop&q=80",
-    lead:"Pengujian menyeluruh kondisi isolasi, belitan, dan inti transformer menggunakan instrumen diagnostik presisi — dilakukan di lokasi tanpa membongkar trafo.",
-    scope:["Tan Delta / Dissipation Factor","Turns Ratio Test (TTR)","Winding Resistance","Insulation Resistance & PI","Excitation / Magnetizing Current","SFRA & Contact Resistance"],
-    benefit:["Deteksi dini kerusakan isolasi & belitan sebelum trafo gagal","Hindari downtime dan penggantian trafo darurat yang mahal","Dasar objektif untuk keputusan pemeliharaan & anggaran"],
-    adv:["Engineer bersertifikat dengan instrumen diagnostik presisi","Pengujian non-intrusive — tanpa membongkar transformer","Laporan jelas lengkap interpretasi, bukan sekadar angka","Sesuai standar IEC & IEEE"],
+    lead:"Condition assessment transformer secara menyeluruh di lokasi menggunakan instrumen diagnostik terkalibrasi, mengacu standar IEC 60076 & IEEE C57. Seluruh pengujian bersifat non-intrusive — tanpa membongkar atau memindahkan transformer dari dudukannya.",
+    scope:[
+      {t:"Tan Delta / Dissipation Factor & Kapasitansi",d:"Pengukuran power factor isolasi belitan dan bushing pada 10 kV untuk menilai tingkat penuaan, kelembapan, dan kontaminasi sistem isolasi."},
+      {t:"Turns Ratio Test (TTR)",d:"Verifikasi rasio belitan pada seluruh posisi tap; deviasi terhadap nameplate dievaluasi pada batas maksimal 0,5%."},
+      {t:"Winding Resistance (DC)",d:"Mendeteksi sambungan longgar, kontak OLTC yang buruk, dan ketidakseimbangan tahanan antar fasa."},
+      {t:"Insulation Resistance & Polarization Index",d:"Megger 5 kV beserta nilai PI/DAR untuk menilai tingkat kekeringan dan kebersihan isolasi."},
+      {t:"Excitation / Magnetizing Current",d:"Evaluasi kondisi inti dan belitan melalui arus eksitasi untuk mendeteksi korsleting antar lilitan dan masalah inti."},
+      {t:"SFRA & Contact Resistance",d:"Sweep Frequency Response Analysis untuk mendeteksi deformasi mekanis belitan, dilengkapi uji resistansi kontak (μΩ)."}
+    ],
+    benefit:["Mengetahui kondisi riil isolasi & belitan sebelum berkembang menjadi kegagalan katastropik","Mencegah downtime tak terjadwal dan biaya penggantian trafo darurat yang berlipat","Memenuhi persyaratan commissioning, asuransi aset, dan audit keandalan"],
+    output:["Laporan teknis berisi nilai ukur tiap parameter dibandingkan batas standar","Status kondisi per parameter: Baik / Pantau / Tindak Lanjut","Rekomendasi pemeliharaan dan interval pengujian berikutnya"],
+    adv:["Engineer bersertifikat dengan instrumen terkalibrasi","Pengujian non-intrusive — aman bagi aset, tanpa pembongkaran","Interpretasi ahli, bukan sekadar angka mentah","Mengacu standar IEC 60076 & IEEE C57"],
     cta:"mailto:hello@envisorai.com?subject=Uji%20Kelistrikan%20Trafo"
   },
   oli:{
     kicker:"Lab Oil Analysis",title:"Analisa Oli Transformer",
     img:"https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1000&h=500&fit=crop&q=80",
-    lead:"Oli adalah “darah” transformer. Sampling oli secara aman lalu diuji di laboratorium untuk mengungkap kondisi internal yang tak terlihat dari luar.",
-    scope:["Dissolved Gas Analysis (DGA)","Breakdown Voltage (BDV)","Water / Moisture Content","Particle Count & Kontaminasi","Acidity, IFT & Color","Furan Analysis (opsional)"],
-    benefit:["Deteksi gangguan internal (overheating, arcing, PD) sejak dini","Estimasi sisa umur & kesehatan isolasi kertas","Perencanaan purifikasi atau penggantian oli tepat waktu"],
-    adv:["Laboratorium sesuai standar IEC & IEEE","Interpretasi DGA berbasis AI + Transformer Health Index","Trending kondisi antar periode pengujian","Rekomendasi tindakan yang konkret & terprioritas"],
+    lead:"Oli berfungsi sebagai media isolasi sekaligus pendingin, dan komposisinya menyimpan jejak setiap gangguan internal. Sampling dilakukan sesuai prosedur baku, diuji di laboratorium terstandar, lalu diinterpretasi dengan metode diagnostik internasional.",
+    scope:[
+      {t:"Dissolved Gas Analysis (DGA)",d:"Identifikasi gas terlarut (H₂, CH₄, C₂H₂, C₂H₄, CO, CO₂, dll) dengan interpretasi Duval Triangle, Rogers Ratio & IEEE C57.104."},
+      {t:"Breakdown Voltage (BDV)",d:"Uji kekuatan dielektrik oli (kV) sebagai media isolasi, sesuai IEC 60156 / ASTM D1816."},
+      {t:"Water / Moisture Content",d:"Penentuan kadar air (ppm) metode Karl Fischer (IEC 60814) — indikator utama penuaan isolasi kertas."},
+      {t:"Particle Count & Kontaminasi",d:"Penghitungan jumlah dan distribusi ukuran partikel (kelas kebersihan) yang menurunkan kekuatan isolasi."},
+      {t:"Acidity, IFT & Color",d:"Angka keasaman (mg KOH/g), tegangan antarmuka (IFT), dan warna untuk menilai laju degradasi oli."},
+      {t:"Furan Analysis (opsional)",d:"Estimasi Degree of Polymerization kertas isolasi untuk memperkirakan sisa umur transformer."}
+    ],
+    benefit:["Deteksi dini gangguan internal: overheating, arcing, dan partial discharge","Estimasi kesehatan serta sisa umur isolasi sebelum terjadi kegagalan","Dasar keputusan objektif: lanjut operasi, purifikasi oli, atau penggantian"],
+    output:["Laporan laboratorium lengkap dengan interpretasi DGA berbasis AI & Transformer Health Index","Trending kondisi antar periode pengujian untuk memproyeksikan laju degradasi","Rekomendasi tindak lanjut yang konkret dan terprioritas"],
+    adv:["Laboratorium & metode sesuai IEC / IEEE / ASTM","Diagnostik AI: Duval, Rogers Ratio, dan Health Index otomatis","Sampling sesuai prosedur — hasil akurat dan representatif","Laporan ringkas yang mudah dipahami manajemen"],
     cta:"mailto:hello@envisorai.com?subject=Analisa%20Oli%20Transformer"
   },
   audit:{
     kicker:"Energy Audit",title:"Audit Energi",
     img:"https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1000&h=500&fit=crop&q=80",
-    lead:"Pengukuran menyeluruh atas konsumsi dan kualitas daya fasilitas Anda menggunakan power analyzer — memetakan ke mana energi mengalir dan di mana terjadi pemborosan.",
-    scope:["Pengukuran power quality 7–14 hari","Analisis tagihan PLN & profil beban","Pemetaan konsumsi per panel / feeder","Harmonisa & Total Harmonic Distortion","Laporan temuan & baseline energi"],
-    benefit:["Mengetahui dengan pasti ke mana energi & biaya mengalir","Identifikasi pemborosan dan potensi penghematan nyata","Baseline terukur sebagai dasar evaluasi perbaikan"],
-    adv:["Power analyzer presisi & metodologi terstandar","Rekomendasi berbasis data ukur, bukan asumsi","Laporan yang mudah dipahami level manajemen","Pendampingan dari tim engineering Envisor"],
+    lead:"Audit energi mengukur secara objektif ke mana listrik — dan biaya — Anda mengalir. Kami memasang power quality analyzer langsung di panel selama 7–14 hari untuk merekam profil beban dan kualitas daya yang sebenarnya, bukan asumsi.",
+    scope:[
+      {t:"Pengukuran Power Quality 7–14 hari",d:"Perekaman tegangan, arus, daya (kW/kVAR/kVA), power factor, dan energi per fasa secara kontinu."},
+      {t:"Analisis Tagihan PLN & Profil Beban",d:"Pembedahan struktur tarif, golongan daya, periode WBP/LWBP, dan komponen denda kVARh."},
+      {t:"Pemetaan Konsumsi per Panel / Feeder",d:"Identifikasi beban terbesar dan pola pemborosan pada tiap area produksi."},
+      {t:"Harmonisa & THD",d:"Pengukuran THD arus dan tegangan terhadap batas IEEE 519 untuk melindungi peralatan sensitif."},
+      {t:"Ketidakseimbangan Beban & Tegangan",d:"Deteksi arus netral tinggi dan unbalance antar fasa yang menimbulkan losses."}
+    ],
+    benefit:["Kepastian data: tahu persis sumber pemborosan, bukan sekadar perkiraan","Identifikasi potensi penghematan biaya listrik hingga 15–30%","Baseline energi terukur sebagai acuan evaluasi perbaikan"],
+    output:["Laporan audit lengkap dengan baseline energi (kWh, kVARh, beban puncak)","Temuan denda kVARh, titik pemborosan, dan peluang efisiensi","Rekomendasi prioritas disertai estimasi penghematan"],
+    adv:["Power analyzer presisi dengan metodologi terstandar","Rekomendasi 100% berbasis data ukur lapangan","Laporan visual yang mudah dipahami level manajemen","Vendor-neutral — fokus pada kepentingan Anda"],
     cta:"mailto:hello@envisorai.com?subject=Audit%20Energi"
   },
   efisiensi:{
     kicker:"Energy Efficiency",title:"Efisiensi Energi",
-    img:"https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1000&h=500&fit=crop&q=80",
-    lead:"Berdasarkan hasil audit, kami merancang strategi efisiensi yang terukur — mulai dari koreksi power factor hingga optimasi kapasitas — dengan estimasi ROI yang jelas.",
-    scope:["Koreksi power factor / cosφ","Kapasitor bank & filter harmonisa","Eliminasi denda kVARh","Optimasi kapasitas daya tersambung","Roadmap penghematan & estimasi ROI"],
-    benefit:["Hapus denda kVARh & turunkan tagihan listrik bulanan","Tingkatkan kapasitas dan keandalan sistem kelistrikan","ROI jelas dengan payback period yang terukur"],
-    adv:["Solusi disesuaikan hasil audit — tepat sasaran","Pendampingan implementasi hingga verifikasi hasil","Estimasi penghematan transparan & terukur","Vendor-neutral, fokus pada kepentingan Anda"],
+    img:"https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1000&h=500&fit=crop&q=80",
+    lead:"Temuan audit kami terjemahkan menjadi solusi efisiensi yang terukur serta layak secara teknis dan finansial — dari koreksi power factor hingga optimasi kapasitas — lengkap dengan perhitungan ROI dan payback period.",
+    scope:[
+      {t:"Koreksi Power Factor (cosφ)",d:"Perhitungan kebutuhan kVAR untuk mencapai PF target ≥ 0,98 dan menghapus penalti daya reaktif."},
+      {t:"Desain Kapasitor Bank & Detuned Filter",d:"Sizing dan konfigurasi capacitor bank / APFC serta filter harmonisa (detuned reactor) sesuai karakter beban."},
+      {t:"Eliminasi Denda kVARh",d:"Penghapusan komponen denda daya reaktif yang muncul pada tagihan PLN."},
+      {t:"Optimasi Kapasitas Daya Tersambung",d:"Right-sizing daya PLN — identifikasi kondisi oversized atau overloaded untuk menekan biaya beban tetap."},
+      {t:"Roadmap Penghematan & ROI",d:"Prioritas tindakan, estimasi investasi, penghematan tahunan, dan payback period."}
+    ],
+    benefit:["Hapus denda kVARh dan turunkan tagihan listrik bulanan","Bebaskan kapasitas daya serta tingkatkan keandalan sistem kelistrikan","Keputusan investasi jelas dengan ROI dan payback yang terukur"],
+    output:["Dokumen rekomendasi teknis beserta spesifikasi solusi","Perhitungan penghematan, kebutuhan investasi, dan payback period","Pendampingan implementasi hingga verifikasi penghematan"],
+    adv:["Solusi tepat sasaran berdasarkan data audit","Vendor-neutral — rekomendasi objektif tanpa konflik kepentingan","Pendampingan end-to-end: desain → implementasi → verifikasi","Estimasi penghematan transparan dan dapat dipertanggungjawabkan"],
     cta:"mailto:hello@envisorai.com?subject=Efisiensi%20Energi"
   }
 };
 var bg=document.getElementById('modalBg');
-function fill(id,arr){var el=document.getElementById(id);el.innerHTML=arr.map(function(t){return '<li>'+t+'</li>'}).join('')}
+function fill(id,arr){var el=document.getElementById(id);el.innerHTML=arr.map(function(t){
+  return typeof t==='string'?'<li>'+t+'</li>':'<li><strong>'+t.t+'</strong><span>'+t.d+'</span></li>';
+}).join('')}
 function openModal(key){var d=DATA[key];if(!d)return;
   document.getElementById('mImg').src=d.img;
   document.getElementById('mKicker').textContent=d.kicker;
   document.getElementById('mTitle').textContent=d.title;
   document.getElementById('mLead').textContent=d.lead;
-  fill('mScope',d.scope);fill('mBenefit',d.benefit);fill('mAdv',d.adv);
+  fill('mScope',d.scope);fill('mBenefit',d.benefit);fill('mOutput',d.output);fill('mAdv',d.adv);
   document.getElementById('mCta').href=d.cta;
   bg.classList.add('open');document.body.style.overflow='hidden';
 }
