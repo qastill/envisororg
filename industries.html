@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Envisor Industries — Konsultasi Efisiensi & Audit Energi</title>
+<title>Envisor Industries — Layanan Audit & Diagnostik Energi Industri</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -34,83 +34,38 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 c
 .btn-g:hover{box-shadow:0 4px 24px rgba(201,169,110,0.3);transform:translateY(-1px)}
 .btn-o{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);background:transparent;padding:10px 24px;border-radius:2px;display:inline-block;transition:all .3s;cursor:pointer}
 .btn-o:hover{background:var(--gold-dim)}
-.container{max-width:1160px;margin:0 auto;padding:0 clamp(24px,4vw,60px);position:relative;z-index:1}
+.container{max-width:1100px;margin:0 auto;padding:0 clamp(24px,4vw,60px);position:relative;z-index:1}
 
-/* Hero */
-.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
-.hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.3) saturate(.6)}
-.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.55) 0%,rgba(10,10,10,.85) 100%)}
-.hero-inner{position:relative;z-index:1;padding:clamp(60px,11vh,116px) 0 clamp(48px,8vh,88px);text-align:center}
-.hero-tag{display:inline-block;padding:6px 16px;border-radius:2px;border:1px solid var(--border-h);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;background:rgba(10,10,10,.4)}
-.hero h1{font-family:var(--font-d);font-size:clamp(34px,5.5vw,60px);font-weight:300;letter-spacing:1px;line-height:1.13;margin-bottom:18px}
-.hero h1 strong{font-weight:600;color:var(--gold)}
-.hero p{font-size:16px;color:var(--silver-light);max-width:640px;margin:0 auto 30px;font-weight:300;line-height:1.75}
-.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+/* Compact intro */
+.intro{text-align:center;padding:clamp(40px,7vh,72px) 0 clamp(20px,3vh,30px);position:relative;z-index:1}
+.intro .tag{display:inline-block;padding:6px 16px;border-radius:2px;border:1px solid var(--border-h);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.intro h1{font-family:var(--font-d);font-size:clamp(30px,4.6vw,52px);font-weight:300;letter-spacing:1px;line-height:1.15;margin-bottom:14px}
+.intro h1 strong{font-weight:600;color:var(--gold)}
+.intro p{font-size:15px;color:var(--silver-light);max-width:600px;margin:0 auto;font-weight:300;line-height:1.7}
+.divider{width:56px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:22px auto 0}
 
-/* Stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-bottom:1px solid var(--border)}
-.stat{background:var(--black);padding:clamp(26px,4vh,38px) 20px;text-align:center}
-.stat .n{font-family:var(--font-d);font-size:clamp(30px,4vw,44px);font-weight:600;color:var(--gold);line-height:1}
-.stat .l{font-size:12px;color:var(--silver);margin-top:10px;font-weight:300;letter-spacing:.5px}
-
-/* Section */
-.sec{padding:clamp(52px,9vh,96px) 0;position:relative;z-index:1}
-.sec-label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
-.sec-title{font-family:var(--font-d);font-size:clamp(28px,4vw,46px);font-weight:400;letter-spacing:1px;line-height:1.2;margin-bottom:14px}
-.sec-title strong{font-weight:600;color:var(--gold)}
-.sec-sub{font-size:15px;color:var(--silver);max-width:600px;font-weight:300;line-height:1.75}
-.center{text-align:center}.center .sec-sub{margin-left:auto;margin-right:auto}
-
-/* Pillars (two core offerings) */
-.pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.5vw,26px);margin-top:44px}
-.pillar{position:relative;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--black-card);transition:all .5s cubic-bezier(.16,1,.3,1)}
-.pillar:hover{border-color:var(--border-h);transform:translateY(-5px);box-shadow:0 22px 60px rgba(0,0,0,.5)}
-.pillar-img{height:200px;position:relative;overflow:hidden}
-.pillar-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.65);transition:all .7s cubic-bezier(.16,1,.3,1)}
-.pillar:hover .pillar-img img{transform:scale(1.05);filter:brightness(.6) saturate(.75)}
-.pillar-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(15,15,15,.7) 80%,rgba(15,15,15,.98))}
-.pillar-badge{position:absolute;top:16px;left:16px;z-index:2;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:rgba(10,10,10,.7);backdrop-filter:blur(8px);padding:6px 14px;border-radius:2px;border:1px solid rgba(201,169,110,.18)}
-.pillar-body{padding:clamp(24px,2.5vw,32px)}
-.pillar-body h3{font-family:var(--font-d);font-size:clamp(24px,2.6vw,32px);font-weight:500;line-height:1.18;margin-bottom:12px}
-.pillar-body p{font-size:14px;color:var(--silver);font-weight:300;line-height:1.75}
-.pillar-list{list-style:none;margin-top:18px}
-.pillar-list li{position:relative;padding-left:22px;font-size:13.5px;color:var(--silver-light);font-weight:300;margin-bottom:10px;line-height:1.5}
-.pillar-list li::before{content:'';position:absolute;left:0;top:7px;width:8px;height:8px;border-radius:50%;border:1.5px solid var(--gold)}
-
-/* Scope grid (specific topics) */
-.scope{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
-.scard{border:1px solid var(--border);border-radius:10px;padding:30px 26px;background:var(--black-card);transition:all .4s}
-.scard:hover{border-color:var(--border-h);transform:translateY(-3px)}
-.scard-icon{font-size:24px;margin-bottom:16px;display:block}
-.scard h4{font-family:var(--font-d);font-size:22px;font-weight:500;margin-bottom:10px;line-height:1.25}
-.scard p{font-size:13.5px;color:var(--silver);font-weight:300;line-height:1.75}
-
-/* Featured banner */
-.feat{display:grid;grid-template-columns:1fr 1.15fr;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--black-card);transition:all .5s cubic-bezier(.16,1,.3,1)}
-.feat:hover{border-color:var(--border-h);box-shadow:0 22px 60px rgba(0,0,0,.5)}
-.feat-img{position:relative;overflow:hidden;min-height:260px}
-.feat-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.65);transition:all .7s cubic-bezier(.16,1,.3,1)}
-.feat:hover .feat-img img{transform:scale(1.05);filter:brightness(.6) saturate(.75)}
-.feat-body{padding:clamp(28px,3.5vw,46px);display:flex;flex-direction:column;justify-content:center}
-.feat-body h3{font-family:var(--font-d);font-size:clamp(24px,2.8vw,34px);font-weight:500;line-height:1.18;margin:8px 0 12px}
-.feat-body>p{font-size:14px;color:var(--silver);font-weight:300;line-height:1.75;margin-bottom:18px}
-@media(max-width:768px){.feat{grid-template-columns:1fr}.feat-img{min-height:200px}}
-
-/* Steps */
-.bsec{background:linear-gradient(180deg,transparent,rgba(201,169,110,.025),transparent);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
-.step{border:1px solid var(--border);border-radius:10px;padding:30px 24px;background:var(--black-card);transition:all .5s cubic-bezier(.16,1,.3,1)}
-.step:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:0 18px 50px rgba(0,0,0,.4)}
-.step-num{font-family:var(--font-d);font-size:15px;font-weight:700;color:var(--black);width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));display:flex;align-items:center;justify-content:center;margin-bottom:20px}
-.step h4{font-family:var(--font-d);font-size:21px;font-weight:500;margin-bottom:10px;line-height:1.25}
-.step p{font-size:13px;color:var(--silver);font-weight:300;line-height:1.7}
+/* Services */
+.svc-sec{padding:clamp(24px,4vh,44px) 0 clamp(48px,8vh,84px);position:relative;z-index:1}
+.svc-head{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:34px}
+.services{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,2vw,22px)}
+.svc{border:1px solid var(--border);border-radius:12px;padding:clamp(26px,2.6vw,36px);background:var(--black-card);transition:all .4s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column}
+.svc:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:0 20px 56px rgba(0,0,0,.45)}
+.svc-top{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.svc-icon{width:46px;height:46px;flex-shrink:0;border:1px solid var(--border-h);border-radius:10px;background:var(--gold-dim);display:flex;align-items:center;justify-content:center;font-size:22px}
+.svc h3{font-family:var(--font-d);font-size:clamp(22px,2.4vw,28px);font-weight:500;line-height:1.2}
+.svc>p{font-size:13.5px;color:var(--silver);font-weight:300;line-height:1.7;margin-bottom:18px}
+.svc-list{list-style:none;margin-top:2px;flex:1}
+.svc-list li{position:relative;padding:9px 0 9px 22px;font-size:13.5px;color:var(--silver-light);font-weight:300;line-height:1.45;border-top:1px solid var(--border)}
+.svc-list li:first-child{border-top:none}
+.svc-list li::before{content:'';position:absolute;left:2px;top:15px;width:7px;height:7px;border-radius:50%;border:1.5px solid var(--gold)}
+.svc-link{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);transition:gap .3s}
+.svc-link:hover{gap:14px}
 
 /* CTA */
-.cta{text-align:center;padding:clamp(52px,9vh,90px) 24px;position:relative;z-index:1}
-.cta h2{font-family:var(--font-d);font-size:clamp(28px,4vw,44px);font-weight:400;margin-bottom:14px;letter-spacing:1px}
+.cta{text-align:center;padding:clamp(48px,8vh,84px) 24px;position:relative;z-index:1;border-top:1px solid var(--border)}
+.cta h2{font-family:var(--font-d);font-size:clamp(26px,4vw,42px);font-weight:400;margin-bottom:12px;letter-spacing:1px}
 .cta h2 strong{color:var(--gold);font-weight:600}
-.cta p{font-size:15px;color:var(--silver);margin-bottom:28px;font-weight:300;max-width:540px;margin-left:auto;margin-right:auto;line-height:1.7}
+.cta p{font-size:15px;color:var(--silver);margin-bottom:26px;font-weight:300;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.7}
 .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
 footer{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px);height:52px;border-top:1px solid var(--border);position:relative;z-index:1}
@@ -126,9 +81,7 @@ footer a:hover{color:var(--gold)}
 .mnav a:hover{color:var(--gold)}
 .mnav-x{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--silver);font-size:28px;cursor:pointer}
 
-@media(max-width:980px){.scope{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:768px){.nav a:not(.btn-g){display:none}.ham{display:flex}.pillars{grid-template-columns:1fr}}
-@media(max-width:560px){.scope{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
+@media(max-width:768px){.nav a:not(.btn-g){display:none}.ham{display:flex}.services{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -139,198 +92,108 @@ footer a:hover{color:var(--gold)}
     <a href="home.html">Envisor Home</a>
     <a href="advisor.html">Expert</a>
     <a href="industries.html" class="on">Industries</a>
-    <a href="mailto:hello@envisorai.com" class="btn-g">Konsultasi</a>
+    <a href="mailto:hello@envisorai.com?subject=Konsultasi%20Energi%20Industri" class="btn-g">Konsultasi</a>
     <button class="ham" id="hm"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1600&h=900&fit=crop&q=80" alt="Industri & efisiensi energi"></div>
+<!-- Compact intro -->
+<section class="intro">
   <div class="container">
-    <div class="hero-inner">
-      <div class="hero-tag">Envisor Industries</div>
-      <h1>Konsultasi Efisiensi &amp;<br><strong>Audit Energi Industri</strong></h1>
-      <p>Mitra strategis efisiensi energi untuk pabrik, gedung komersial, dan fasilitas industri. Kami mengukur, menganalisis, dan menurunkan biaya energi Anda dengan data yang akurat.</p>
-      <div class="hero-btns">
-        <a href="mailto:hello@envisorai.com?subject=Konsultasi%20Efisiensi%20Energi%20Industri" class="btn-g">Jadwalkan Konsultasi</a>
-        <a href="#layanan" class="btn-o">Lihat Layanan</a>
-      </div>
-    </div>
+    <div class="tag">Envisor Industries</div>
+    <h1>Layanan <strong>Energi &amp; Diagnostik</strong> Industri</h1>
+    <p>Audit energi, efisiensi, dan diagnostik transformer untuk pabrik &amp; gedung komersial — terukur, akurat, dan berbasis data.</p>
+    <div class="divider"></div>
   </div>
 </section>
 
-<div class="stats">
-  <div class="stat"><div class="n">15&ndash;30%</div><div class="l">Potensi penghematan biaya listrik</div></div>
-  <div class="stat"><div class="n">7&ndash;14</div><div class="l">Hari pengukuran power quality</div></div>
-  <div class="stat"><div class="n">&lt; 0.85</div><div class="l">Power factor terkena denda PLN</div></div>
-  <div class="stat"><div class="n">100%</div><div class="l">Rekomendasi berbasis data ukur</div></div>
-</div>
-
-<!-- Two core offerings -->
-<section class="sec" id="layanan">
+<!-- Services — langsung ke layanan -->
+<section class="svc-sec">
   <div class="container">
-    <div class="center">
-      <span class="sec-label">Layanan Inti</span>
-      <div class="sec-title">Dua Pilar <strong>Efisiensi Energi</strong></div>
-      <p class="sec-sub">Audit energi yang akurat menjadi dasar konsultasi efisiensi yang tepat sasaran.</p>
-    </div>
-    <div class="pillars">
+    <div class="svc-head">Layanan Kami</div>
+    <div class="services">
 
-      <div class="pillar">
-        <div class="pillar-img">
-          <div class="pillar-badge">Diagnosa</div>
-          <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=900&h=500&fit=crop&q=80" alt="Audit Energi">
+      <div class="svc">
+        <div class="svc-top">
+          <div class="svc-icon">&#9889;</div>
+          <h3>Uji Kelistrikan Trafo</h3>
         </div>
-        <div class="pillar-body">
-          <h3>Audit Energi</h3>
-          <p>Pengukuran menyeluruh atas konsumsi dan kualitas daya fasilitas Anda menggunakan power analyzer. Kami memetakan ke mana energi mengalir dan di mana terjadi pemborosan.</p>
-          <ul class="pillar-list">
-            <li>Analisis tagihan PLN &amp; profil beban</li>
-            <li>Pengukuran power quality 7&ndash;14 hari</li>
-            <li>Pemetaan konsumsi per feeder / panel</li>
-            <li>Laporan temuan &amp; baseline energi</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-img">
-          <div class="pillar-badge">Solusi</div>
-          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=900&h=500&fit=crop&q=80" alt="Konsultasi Efisiensi">
-        </div>
-        <div class="pillar-body">
-          <h3>Konsultasi Efisiensi</h3>
-          <p>Berdasarkan hasil audit, kami merancang strategi efisiensi yang terukur — mulai dari koreksi power factor hingga optimasi kapasitas — dengan estimasi ROI yang jelas.</p>
-          <ul class="pillar-list">
-            <li>Eliminasi denda kVARh &amp; koreksi cos&phi;</li>
-            <li>Rekomendasi kapasitor bank &amp; filter</li>
-            <li>Optimasi kapasitas daya tersambung</li>
-            <li>Roadmap penghematan &amp; estimasi ROI</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Scope of work -->
-<section class="sec bsec">
-  <div class="container">
-    <div class="center">
-      <span class="sec-label">Cakupan Teknis</span>
-      <div class="sec-title">Apa yang Kami <strong>Analisis</strong></div>
-      <p class="sec-sub">Cakupan konsultasi efisiensi dan audit energi yang menyeluruh.</p>
-    </div>
-    <div class="scope">
-      <div class="scard">
-        <span class="scard-icon">&#9889;</span>
-        <h4>Power Factor &amp; kVARh</h4>
-        <p>Identifikasi denda kVARh, perhitungan kapasitas kapasitor, dan koreksi cos&phi; untuk menghapus penalti daya reaktif.</p>
-      </div>
-      <div class="scard">
-        <span class="scard-icon">&#127777;</span>
-        <h4>Harmonisa &amp; Power Quality</h4>
-        <p>Pengukuran THD, deteksi resonansi, dan solusi filtering sesuai standar IEEE 519 untuk melindungi peralatan sensitif.</p>
-      </div>
-      <div class="scard">
-        <span class="scard-icon">&#9878;</span>
-        <h4>Penyeimbangan Beban</h4>
-        <p>Analisis ketidakseimbangan antar fasa, arus netral tinggi, dan tegangan tidak seimbang yang menyebabkan losses.</p>
-      </div>
-      <div class="scard">
-        <span class="scard-icon">&#128268;</span>
-        <h4>Optimasi Kapasitas Daya</h4>
-        <p>Evaluasi dan right-sizing daya tersambung PLN — identifikasi oversized atau overloaded untuk efisiensi biaya tetap.</p>
-      </div>
-      <div class="scard">
-        <span class="scard-icon">&#9728;</span>
-        <h4>Feasibility Solar Panel</h4>
-        <p>Studi kelayakan PLTS rooftop — kapasitas, estimasi produksi, ROI, dan payback period berbasis data lokasi.</p>
-      </div>
-      <div class="scard">
-        <span class="scard-icon">&#128200;</span>
-        <h4>Analisis Tagihan PLN</h4>
-        <p>Pemahaman struktur tarif, golongan daya, dan komponen biaya tersembunyi yang membebani operasional Anda.</p>
-      </div>
-      <a href="transformer.html" class="scard" style="display:block">
-        <span class="scard-icon">&#128268;</span>
-        <h4>Assessment Trafo &amp; Analisa Oli</h4>
-        <p>Uji kelistrikan (tan delta, ratio, winding) &amp; analisa oli (DGA, BDV, water, partikel) dengan laporan diagnostik AI. <span style="color:var(--gold)">Selengkapnya &#8594;</span></p>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Featured: Transformer Assessment -->
-<section class="sec">
-  <div class="container">
-    <div class="feat">
-      <div class="feat-img">
-        <div class="pillar-badge">Layanan Baru</div>
-        <img src="https://images.unsplash.com/photo-1620283085439-39620a1e21c4?w=900&h=700&fit=crop&q=80" alt="Assessment transformer">
-      </div>
-      <div class="feat-body">
-        <span class="sec-label">Transformer Diagnostics</span>
-        <h3>Assessment Trafo &amp; Analisa Oli</h3>
-        <p>Pengujian kondisi transformer menyeluruh — uji kelistrikan lengkap dan analisa laboratorium oli — diterjemahkan menjadi diagnosa &amp; rekomendasi oleh laporan berbasis AI.</p>
-        <ul class="pillar-list">
-          <li>Tan Delta, Turns Ratio, Winding Resistance, SFRA</li>
-          <li>DGA, Breakdown Voltage, Water Content, Particle</li>
-          <li>Health Index &amp; rekomendasi pemeliharaan berbasis AI</li>
+        <p>Pengujian kondisi isolasi, belitan, dan inti transformer di lokasi dengan instrumen diagnostik presisi.</p>
+        <ul class="svc-list">
+          <li>Tan Delta / Dissipation Factor</li>
+          <li>Turns Ratio Test (TTR)</li>
+          <li>Winding Resistance</li>
+          <li>Insulation Resistance &amp; PI</li>
+          <li>Excitation Current</li>
+          <li>SFRA &amp; Contact Resistance</li>
         </ul>
-        <div style="margin-top:24px"><a href="transformer.html" class="btn-g">Lihat Layanan Selengkapnya</a></div>
+        <a href="transformer.html" class="svc-link">Selengkapnya &#8594;</a>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- Process -->
-<section class="sec">
-  <div class="container">
-    <div class="center">
-      <span class="sec-label">Cara Kerja</span>
-      <div class="sec-title">Dari Pengukuran ke <strong>Penghematan</strong></div>
-      <p class="sec-sub">Proses terstruktur yang ditangani tim engineering Envisor.</p>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h4>Konsultasi Awal</h4>
-        <p>Diskusi kebutuhan, tinjauan tagihan PLN, dan penentuan ruang lingkup audit fasilitas Anda.</p>
+      <div class="svc">
+        <div class="svc-top">
+          <div class="svc-icon">&#129514;</div>
+          <h3>Analisa Oli Transformer</h3>
+        </div>
+        <p>Uji laboratorium oli untuk mengungkap kondisi internal trafo yang tak terlihat dari luar.</p>
+        <ul class="svc-list">
+          <li>Dissolved Gas Analysis (DGA)</li>
+          <li>Breakdown Voltage (BDV)</li>
+          <li>Water / Moisture Content</li>
+          <li>Particle Count &amp; Kontaminasi</li>
+          <li>Acidity, IFT &amp; Color</li>
+          <li>Laporan diagnostik berbasis AI</li>
+        </ul>
+        <a href="transformer.html" class="svc-link">Selengkapnya &#8594;</a>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h4>Pengukuran Lapangan</h4>
-        <p>Pemasangan power analyzer 7&ndash;14 hari untuk merekam profil beban dan kualitas daya secara nyata.</p>
+
+      <div class="svc">
+        <div class="svc-top">
+          <div class="svc-icon">&#128202;</div>
+          <h3>Audit Energi</h3>
+        </div>
+        <p>Pengukuran menyeluruh konsumsi dan kualitas daya untuk memetakan ke mana energi mengalir.</p>
+        <ul class="svc-list">
+          <li>Pengukuran power quality 7&ndash;14 hari</li>
+          <li>Analisis tagihan PLN &amp; profil beban</li>
+          <li>Pemetaan konsumsi per panel / feeder</li>
+          <li>Harmonisa &amp; Total Harmonic Distortion</li>
+          <li>Laporan temuan &amp; baseline energi</li>
+        </ul>
       </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h4>Analisis &amp; Laporan</h4>
-        <p>Pengolahan data, identifikasi pemborosan dan denda, serta penyusunan rekomendasi dengan estimasi ROI.</p>
+
+      <div class="svc">
+        <div class="svc-top">
+          <div class="svc-icon">&#128268;</div>
+          <h3>Efisiensi Energi</h3>
+        </div>
+        <p>Strategi penghematan terukur berdasarkan hasil audit, lengkap dengan estimasi ROI.</p>
+        <ul class="svc-list">
+          <li>Koreksi power factor / cos&phi;</li>
+          <li>Kapasitor bank &amp; filter harmonisa</li>
+          <li>Eliminasi denda kVARh</li>
+          <li>Optimasi kapasitas daya tersambung</li>
+          <li>Roadmap penghematan &amp; estimasi ROI</li>
+        </ul>
       </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h4>Implementasi</h4>
-        <p>Pendampingan eksekusi solusi efisiensi dan verifikasi penghematan setelah perbaikan diterapkan.</p>
-      </div>
+
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="cta" style="border-top:1px solid var(--border)">
+<section class="cta">
   <div class="container">
-    <h2>Kurangi Biaya Energi <strong>Fasilitas Anda</strong></h2>
-    <p>Jadwalkan konsultasi efisiensi dan audit energi. Tim Envisor akan membantu Anda menemukan penghematan yang nyata dan terukur.</p>
+    <h2>Butuh <strong>Konsultasi</strong>?</h2>
+    <p>Hubungi tim Envisor untuk audit energi, efisiensi, atau assessment transformer fasilitas Anda.</p>
     <div class="cta-btns">
-      <a href="mailto:hello@envisorai.com?subject=Konsultasi%20Efisiensi%20Energi%20Industri" class="btn-g">Jadwalkan Konsultasi</a>
+      <a href="mailto:hello@envisorai.com?subject=Konsultasi%20Energi%20Industri" class="btn-g">Jadwalkan Konsultasi</a>
       <a href="index.html" class="btn-o">Kembali ke Beranda</a>
     </div>
   </div>
 </section>
 
-<footer><p>&copy; 2025 Envisor Group</p><div><a href="#">Privacy</a><a href="#">Terms</a></div></footer>
+<footer><p>&copy; 2025 Envisor Group</p><div><a href="transformer.html">Assessment Trafo</a><a href="#">Privacy</a><a href="#">Terms</a></div></footer>
 
 <div class="mnav" id="mn"><button class="mnav-x" id="mx">&times;</button><a href="index.html">Beranda</a><a href="home.html">Envisor Home</a><a href="advisor.html">Expert</a><a href="industries.html">Industries</a><a href="transformer.html">Assessment Trafo</a></div>
 
