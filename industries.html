@@ -101,6 +101,42 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 c
 .modal-foot{margin-top:30px;padding-top:24px;border-top:1px solid var(--line);display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
 .modal-foot p{font-size:13.5px;color:var(--muted)}
 
+/* Flowchart — Diagnosis Denda kVAR */
+.fc-intro{font-size:13.5px;color:var(--muted);line-height:1.65;margin-bottom:16px}
+.fc-legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.fc-lg{font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:20px;display:inline-flex;align-items:center;gap:7px}
+.fc-lg::before{content:'';width:9px;height:9px;border-radius:3px}
+.fc-lg.proc{background:#F1F4F9;color:#3F5573}.fc-lg.proc::before{background:#8497AE}
+.fc-lg.dec{background:#F2ECFB;color:#5A37A8}.fc-lg.dec::before{background:#7C4DD6}
+.fc-lg.fix{background:#FEF3E0;color:#8A5A12}.fc-lg.fix::before{background:#E8973A}
+.fc-lg.sol{background:#E6F7EF;color:#0C7A4F}.fc-lg.sol::before{background:#19A56E}
+
+.fc{display:flex;flex-direction:column;align-items:center;text-align:center;width:100%}
+.fc-node{width:100%;max-width:360px;padding:13px 16px;border-radius:12px;font-size:14px;font-weight:700;line-height:1.35;border:1.5px solid;text-align:center}
+.fc-node small{display:block;font-weight:500;font-size:11.5px;line-height:1.5;margin-top:5px;opacity:.88}
+.fc-node.proc{background:#F1F4F9;border-color:#D5DEEA;color:var(--ink)}
+.fc-node.dec{background:#F2ECFB;border-color:#D9C8F5;color:#4A2A8F;border-radius:16px}
+.fc-node.fix{background:#FEF3E0;border-color:#F3D49B;color:#7A4E12}
+.fc-node.sol{background:#E6F7EF;border-color:#B6E6CE;color:#0B6E47}
+
+.fc-down{width:2px;height:22px;background:var(--line-2);position:relative;flex:none}
+.fc-down::after{content:'';position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid var(--line-2)}
+
+.fc-row{display:flex;gap:14px;width:100%;justify-content:center;align-items:flex-start;flex-wrap:wrap;margin:0}
+.fc-col{flex:1 1 200px;min-width:190px;max-width:340px;display:flex;flex-direction:column;align-items:center}
+.fc-edge{font-size:10.5px;font-weight:800;letter-spacing:.5px;padding:3px 11px;border-radius:20px;background:var(--bg-soft);border:1px solid var(--line-2);color:var(--muted);margin-bottom:9px}
+.fc-edge.ok{background:#E6F7EF;border-color:#B6E6CE;color:#0C7A4F}
+.fc-edge.no{background:#FBECEC;border-color:#F0C9C9;color:#B23A3A}
+.fc-edge.cond{background:#F2ECFB;border-color:#D9C8F5;color:#5A37A8}
+
+.fc-hint{font-size:11.5px;color:var(--muted-2);font-weight:700;letter-spacing:.3px;margin:14px 0 0}
+.fc-note{font-size:12.5px;font-weight:600;color:var(--muted);background:var(--bg-soft);border:1px dashed var(--line-2);border-radius:10px;padding:11px 13px;line-height:1.5;max-width:340px}
+.fc-note small{display:block;font-weight:400;font-size:11.5px;margin-top:5px;color:var(--muted-2)}
+
+.fc-callout{margin-top:22px;background:#FFFBF2;border:1px solid #F3D49B;border-left:3px solid #E8973A;border-radius:10px;padding:14px 16px}
+.fc-callout strong{display:block;font-size:13px;color:#8A5A12;margin-bottom:5px}
+.fc-callout p{font-size:12.5px;color:var(--ink-2);line-height:1.6;margin:0}
+
 /* CTA */
 .cta-sec{padding:clamp(20px,3vh,40px) 0 clamp(56px,9vh,90px)}
 .cta{position:relative;overflow:hidden;border-radius:24px;background:linear-gradient(135deg,var(--accent-dark),var(--accent) 60%,#3B82F6);padding:clamp(40px,6vw,64px);text-align:center;box-shadow:0 30px 70px rgba(20,87,214,.28)}
@@ -252,6 +288,89 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft)}
     <div class="modal-body">
       <p class="lead" id="mLead"></p>
 
+      <!-- Flowchart: Diagnosis Denda kVAR (Efisiensi Energi) -->
+      <div class="mblock" id="mFlowBlock" style="display:none">
+        <div class="mblock-h"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H4v5"/><path d="M20 8V3h-5"/><path d="M4 16v5h5"/><path d="M15 21h5v-5"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg></i> Alur Diagnosis Denda kVAR</div>
+        <p class="fc-intro">Bagaimana kami menelusuri denda daya reaktif — dari memeriksa unit eksisting sampai memilih solusi yang tepat. Tujuannya satu: <strong>PF ≥ 0,92 dan denda kVAR hilang</strong>, dibuktikan lewat pengukuran ulang, bukan klaim pemasangan.</p>
+
+        <div class="fc-legend">
+          <span class="fc-lg proc">Proses</span>
+          <span class="fc-lg dec">Keputusan / Analisa</span>
+          <span class="fc-lg fix">Perbaikan &amp; Solusi Khusus</span>
+          <span class="fc-lg sol">Solusi Standar &amp; Output</span>
+        </div>
+
+        <div class="fc">
+          <div class="fc-node proc">Tagihan kena denda kVAR<small>Power factor di bawah 0,92</small></div>
+          <div class="fc-down"></div>
+          <div class="fc-node dec">Sudah ada kapasitor bank?</div>
+          <div class="fc-down"></div>
+
+          <div class="fc-row">
+            <!-- Belum ada -->
+            <div class="fc-col">
+              <span class="fc-edge">BELUM ADA</span>
+              <div class="fc-note">Langsung ke analisa beban &amp; harmonisa untuk pilih solusi baru.</div>
+            </div>
+            <!-- Sudah ada -->
+            <div class="fc-col">
+              <span class="fc-edge">SUDAH ADA</span>
+              <div class="fc-node fix">Perbaiki unit eksisting<small>Cek berurutan (termurah-tersering → termahal-terjarang):<br>1 · Fuse &amp; sel kapasitor<br>2 · Kontaktor &amp; controller<br>3 · Setpoint PF<br>4 · Kapasitas / sizing</small></div>
+              <div class="fc-down"></div>
+              <div class="fc-node proc">Ukur ulang PF</div>
+              <div class="fc-down"></div>
+              <div class="fc-node dec">PF ≥ 0,92?</div>
+              <div class="fc-down"></div>
+              <div class="fc-row">
+                <div class="fc-col">
+                  <span class="fc-edge ok">YA</span>
+                  <div class="fc-node sol">✓ Denda kVAR hilang<small>Selesai — perbaikan saja cukup. Tidak perlu beli solusi baru.</small></div>
+                </div>
+                <div class="fc-col">
+                  <span class="fc-edge no">TIDAK</span>
+                  <div class="fc-note">Lanjut ke analisa ↓<small>Sering: kapasitor lama rusak justru karena harmonisa.</small></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="fc-hint">▼ SEMUA JALUR YANG BELUM SELESAI ▼</p>
+          <div class="fc-down"></div>
+          <div class="fc-node dec">Analisa beban &amp; harmonisa<small>Ukur THD, kestabilan, dan level pembebanan</small></div>
+          <div class="fc-down"></div>
+          <div class="fc-node dec">Pilih solusi sesuai karakter beban</div>
+          <div class="fc-down"></div>
+
+          <div class="fc-row">
+            <div class="fc-col">
+              <span class="fc-edge cond">THD TINGGI</span>
+              <div class="fc-node fix">Detuned bank / filter harmonisa<small>Kapasitor polos akan resonansi &amp; terbakar</small></div>
+            </div>
+            <div class="fc-col">
+              <span class="fc-edge cond">BEBAN STABIL</span>
+              <div class="fc-node sol">Fixed capacitor bank<small>Kompensasi tetap untuk beban konstan</small></div>
+            </div>
+            <div class="fc-col">
+              <span class="fc-edge cond">BEBAN RENDAH / FLUKTUATIF</span>
+              <div class="fc-node sol">APFC — automatic PF controller<small>Fixed akan overcompensate → PF leading</small></div>
+            </div>
+          </div>
+
+          <p class="fc-hint">▼ SEMUA SOLUSI BERMUARA KE SATU TITIK ▼</p>
+          <div class="fc-down"></div>
+          <div class="fc-node proc">Pasang &amp; ukur ulang</div>
+          <div class="fc-down"></div>
+          <div class="fc-node dec">Konfirmasi PF ≥ 0,92</div>
+          <div class="fc-down"></div>
+          <div class="fc-node sol">✓ Denda kVAR hilang<small>Dibuktikan dari pengukuran ulang — bukan dari klaim pemasangan</small></div>
+        </div>
+
+        <div class="fc-callout">
+          <strong>Aturan berhenti lebih awal</strong>
+          <p>Kalau perbaikan unit eksisting saja sudah membuat PF ≥ 0,92 di langkah “ukur ulang”, kami berhenti di situ — denda hilang, tanpa perlu lanjut ke detuned / fixed / APFC. Jalur analisa baru hanya ditempuh bila denda masih ada setelah perbaikan. Itu skenario terbaik dan termurah untuk Anda.</p>
+        </div>
+      </div>
+
       <div class="mblock">
         <div class="mblock-h"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></i> Cakupan Pekerjaan</div>
         <ul class="mlist one detail" id="mScope"></ul>
@@ -361,6 +480,7 @@ function openModal(key){var d=DATA[key];if(!d)return;
   document.getElementById('mTitle').textContent=d.title;
   document.getElementById('mLead').textContent=d.lead;
   fill('mScope',d.scope);fill('mBenefit',d.benefit);fill('mOutput',d.output);fill('mAdv',d.adv);
+  document.getElementById('mFlowBlock').style.display=(key==='efisiensi')?'':'none';
   document.getElementById('mCta').href=d.cta;
   bg.classList.add('open');document.body.style.overflow='hidden';
 }
