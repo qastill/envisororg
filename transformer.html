@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Envisor Industries — Assessment Trafo & Analisa Oli Transformer</title>
+<meta name="description" content="Pengujian kondisi transformer menyeluruh — tan delta, turns ratio, winding resistance, hingga analisa oli (DGA, BDV, water content, partikel). Laporan diagnostik berbasis AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#0A0A0A;--black-light:#111;--black-card:#0F0F0F;--black-card2:#141414;
+  --gold:#C9A96E;--gold-light:#DBBF8C;--gold-dim:rgba(201,169,110,0.12);
+  --silver:#A8A8A8;--silver-light:#C8C8C8;--white:#F5F2ED;
+  --green:#7FB48A;--blue:#7FA8C9;
+  --font-d:'Cormorant Garamond',Georgia,serif;
+  --font-b:'DM Sans',Helvetica,sans-serif;
+  --border:rgba(201,169,110,0.12);--border-h:rgba(201,169,110,0.28);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--black);color:var(--white);-webkit-font-smoothing:antialiased;line-height:1.6}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 50% 50% at 15% 20%,rgba(201,169,110,0.04) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 85% 75%,rgba(168,168,168,0.03) 0%,transparent 70%);pointer-events:none;z-index:0}
+a{text-decoration:none;color:inherit}img{display:block;max-width:100%}
+
+header{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px);height:72px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(16px)}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:32px;height:32px;border:1.5px solid var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:600;font-size:16px;color:var(--gold)}
+.logo-text{font-family:var(--font-d);font-size:22px;font-weight:500;letter-spacing:1px}
+.logo-text span{color:var(--gold);font-weight:300}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);transition:color .3s}
+.nav a:hover{color:var(--gold-light)}.nav a.on{color:var(--gold)}
+.btn-g{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--black);background:linear-gradient(135deg,var(--gold),var(--gold-light));padding:10px 24px;border-radius:2px;display:inline-block;transition:all .3s;border:none;cursor:pointer}
+.btn-g:hover{box-shadow:0 4px 24px rgba(201,169,110,0.3);transform:translateY(-1px)}
+.btn-o{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);background:transparent;padding:10px 24px;border-radius:2px;display:inline-block;transition:all .3s;cursor:pointer}
+.btn-o:hover{background:var(--gold-dim)}
+.container{max-width:1160px;margin:0 auto;padding:0 clamp(24px,4vw,60px);position:relative;z-index:1}
+
+/* Breadcrumb */
+.crumb{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);padding:18px 0 0}
+.crumb a{color:var(--silver);transition:color .3s}.crumb a:hover{color:var(--gold)}
+.crumb span{color:var(--gold)}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.28) saturate(.55)}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.55) 0%,rgba(10,10,10,.88) 100%)}
+.hero-inner{position:relative;z-index:1;padding:clamp(56px,10vh,104px) 0 clamp(48px,8vh,84px);text-align:center}
+.hero-tag{display:inline-block;padding:6px 16px;border-radius:2px;border:1px solid var(--border-h);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;background:rgba(10,10,10,.4)}
+.hero h1{font-family:var(--font-d);font-size:clamp(34px,5.5vw,60px);font-weight:300;letter-spacing:1px;line-height:1.13;margin-bottom:18px}
+.hero h1 strong{font-weight:600;color:var(--gold)}
+.hero p{font-size:16px;color:var(--silver-light);max-width:660px;margin:0 auto 30px;font-weight:300;line-height:1.75}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-bottom:1px solid var(--border)}
+.stat{background:var(--black);padding:clamp(26px,4vh,38px) 20px;text-align:center}
+.stat .n{font-family:var(--font-d);font-size:clamp(28px,4vw,42px);font-weight:600;color:var(--gold);line-height:1}
+.stat .l{font-size:12px;color:var(--silver);margin-top:10px;font-weight:300;letter-spacing:.5px}
+
+/* Section */
+.sec{padding:clamp(52px,9vh,96px) 0;position:relative;z-index:1}
+.sec-label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.sec-title{font-family:var(--font-d);font-size:clamp(28px,4vw,46px);font-weight:400;letter-spacing:1px;line-height:1.2;margin-bottom:14px}
+.sec-title strong{font-weight:600;color:var(--gold)}
+.sec-sub{font-size:15px;color:var(--silver);max-width:640px;font-weight:300;line-height:1.75}
+.center{text-align:center}.center .sec-sub{margin-left:auto;margin-right:auto}
+
+.bsec{background:linear-gradient(180deg,transparent,rgba(201,169,110,.025),transparent);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+
+/* Why / problem cards */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.wcard{border:1px solid var(--border);border-radius:10px;padding:30px 26px;background:var(--black-card);transition:all .4s}
+.wcard:hover{border-color:var(--border-h);transform:translateY(-3px)}
+.wcard-icon{font-size:24px;margin-bottom:16px;display:block}
+.wcard h4{font-family:var(--font-d);font-size:22px;font-weight:500;margin-bottom:10px;line-height:1.25}
+.wcard p{font-size:13.5px;color:var(--silver);font-weight:300;line-height:1.75}
+
+/* Two service blocks */
+.blocks{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.5vw,26px);margin-top:44px}
+.block{position:relative;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--black-card);transition:all .5s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column}
+.block:hover{border-color:var(--border-h);transform:translateY(-5px);box-shadow:0 22px 60px rgba(0,0,0,.5)}
+.block-img{height:190px;position:relative;overflow:hidden}
+.block-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.65);transition:all .7s cubic-bezier(.16,1,.3,1)}
+.block:hover .block-img img{transform:scale(1.05);filter:brightness(.6) saturate(.75)}
+.block-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(15,15,15,.7) 80%,rgba(15,15,15,.98))}
+.block-badge{position:absolute;top:16px;left:16px;z-index:2;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:rgba(10,10,10,.7);backdrop-filter:blur(8px);padding:6px 14px;border-radius:2px;border:1px solid rgba(201,169,110,.18)}
+.block-body{padding:clamp(24px,2.5vw,34px);display:flex;flex-direction:column;flex:1}
+.block-body h3{font-family:var(--font-d);font-size:clamp(24px,2.6vw,32px);font-weight:500;line-height:1.18;margin-bottom:12px}
+.block-body>p{font-size:14px;color:var(--silver);font-weight:300;line-height:1.75;margin-bottom:20px}
+.tlist{list-style:none;display:flex;flex-direction:column;gap:2px}
+.tlist li{position:relative;padding:13px 0 13px 30px;font-size:13.5px;color:var(--silver-light);font-weight:300;line-height:1.5;border-top:1px solid var(--border)}
+.tlist li:first-child{border-top:none}
+.tlist li strong{display:block;color:var(--white);font-weight:500;font-size:14px;margin-bottom:2px;letter-spacing:.3px}
+.tlist li::before{content:'';position:absolute;left:4px;top:18px;width:9px;height:9px;border-radius:50%;border:1.5px solid var(--gold)}
+.tlist li small{color:var(--silver);font-size:12.5px}
+
+/* Oil parameter grid */
+.params{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+.pcard{border:1px solid var(--border);border-radius:10px;padding:26px 22px;background:var(--black-card);transition:all .4s;text-align:center}
+.pcard:hover{border-color:var(--border-h);transform:translateY(-3px)}
+.pcard-icon{font-size:22px;margin-bottom:14px;display:block}
+.pcard h4{font-family:var(--font-d);font-size:20px;font-weight:500;margin-bottom:6px;line-height:1.25}
+.pcard .code{font-size:11px;font-weight:600;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:10px}
+.pcard p{font-size:12.5px;color:var(--silver);font-weight:300;line-height:1.65}
+
+/* AI report showcase */
+.ai-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,56px);align-items:center;margin-top:44px}
+.ai-text h3{font-family:var(--font-d);font-size:clamp(26px,3vw,38px);font-weight:500;line-height:1.2;margin-bottom:16px}
+.ai-text h3 strong{color:var(--gold)}
+.ai-text p{font-size:14.5px;color:var(--silver);font-weight:300;line-height:1.8;margin-bottom:24px}
+.ai-feat{list-style:none;display:flex;flex-direction:column;gap:16px}
+.ai-feat li{position:relative;padding-left:36px;font-size:13.5px;color:var(--silver-light);font-weight:300;line-height:1.6}
+.ai-feat li strong{display:block;color:var(--white);font-weight:500;font-size:14.5px;margin-bottom:3px;font-family:var(--font-d);letter-spacing:.3px}
+.ai-feat li::before{content:'';position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;border:1px solid var(--border-h);background:var(--gold-dim)}
+.ai-feat li::after{content:'';position:absolute;left:8px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+/* Mock report card */
+.report{border:1px solid var(--border-h);border-radius:14px;background:linear-gradient(160deg,var(--black-card2),var(--black-card));padding:clamp(22px,2.5vw,30px);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.report-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-top .rt-l{font-family:var(--font-d);font-size:18px;font-weight:500}
+.report-top .rt-l span{display:block;font-family:var(--font-b);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:2px}
+.health{text-align:right}
+.health .hs{font-family:var(--font-d);font-size:34px;font-weight:600;color:var(--green);line-height:1}
+.health .hl{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver)}
+.gauge{height:7px;border-radius:4px;background:rgba(255,255,255,.06);overflow:hidden;margin-bottom:6px}
+.gauge i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.rrow{display:flex;align-items:center;justify-content:space-between;font-size:12.5px;margin-bottom:14px}
+.rrow .rn{color:var(--silver-light);font-weight:300}
+.rrow .rv{font-weight:500;letter-spacing:.3px}
+.tag-ok{color:var(--green)}.tag-watch{color:var(--gold-light)}.tag-alert{color:#D98C7F}
+.report-note{margin-top:18px;padding:14px 16px;border-radius:8px;background:var(--gold-dim);border:1px solid var(--border);font-size:12.5px;color:var(--silver-light);font-weight:300;line-height:1.65}
+.report-note b{color:var(--gold-light);font-weight:600;font-family:var(--font-d);font-size:13px;letter-spacing:.5px}
+
+/* Deliverables */
+.deliver{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.dcard{border:1px solid var(--border);border-radius:10px;padding:28px 24px;background:var(--black-card);transition:all .4s}
+.dcard:hover{border-color:var(--border-h);transform:translateY(-3px)}
+.dcard .dn{font-family:var(--font-d);font-size:13px;font-weight:700;color:var(--gold);letter-spacing:1px}
+.dcard h4{font-family:var(--font-d);font-size:21px;font-weight:500;margin:8px 0 8px;line-height:1.25}
+.dcard p{font-size:13px;color:var(--silver);font-weight:300;line-height:1.7}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.step{border:1px solid var(--border);border-radius:10px;padding:30px 24px;background:var(--black-card);transition:all .5s cubic-bezier(.16,1,.3,1)}
+.step:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:0 18px 50px rgba(0,0,0,.4)}
+.step-num{font-family:var(--font-d);font-size:15px;font-weight:700;color:var(--black);width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.step h4{font-family:var(--font-d);font-size:21px;font-weight:500;margin-bottom:10px;line-height:1.25}
+.step p{font-size:13px;color:var(--silver);font-weight:300;line-height:1.7}
+
+/* CTA */
+.cta{text-align:center;padding:clamp(52px,9vh,90px) 24px;position:relative;z-index:1}
+.cta h2{font-family:var(--font-d);font-size:clamp(28px,4vw,44px);font-weight:400;margin-bottom:14px;letter-spacing:1px}
+.cta h2 strong{color:var(--gold);font-weight:600}
+.cta p{font-size:15px;color:var(--silver);margin-bottom:28px;font-weight:300;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.7}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+footer{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px);height:52px;border-top:1px solid var(--border);position:relative;z-index:1}
+footer p{font-size:11px;color:rgba(168,168,168,.5)}
+footer a{font-size:11px;color:rgba(168,168,168,.4);margin-left:16px;transition:color .3s}
+footer a:hover{color:var(--gold)}
+
+.ham{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.ham span{width:20px;height:1.5px;background:var(--silver);border-radius:1px}
+.mnav{display:none;position:fixed;inset:0;z-index:999;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mnav.open{display:flex}
+.mnav a{font-family:var(--font-d);font-size:22px;color:var(--silver-light);letter-spacing:2px}
+.mnav a:hover{color:var(--gold)}
+.mnav-x{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--silver);font-size:28px;cursor:pointer}
+
+@media(max-width:980px){.why{grid-template-columns:1fr}.params{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.deliver{grid-template-columns:1fr}.ai-wrap{grid-template-columns:1fr}}
+@media(max-width:768px){.nav a:not(.btn-g){display:none}.ham{display:flex}.blocks{grid-template-columns:1fr}}
+@media(max-width:560px){.params{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo"><div class="logo-mark">E</div><div class="logo-text">ENVISOR<span>.AI</span></div></a>
+  <div class="nav">
+    <a href="home.html">Envisor Home</a>
+    <a href="advisor.html">Expert</a>
+    <a href="industries.html" class="on">Industries</a>
+    <a href="mailto:hello@envisorai.com?subject=Assessment%20Trafo%20%26%20Analisa%20Oli" class="btn-g">Konsultasi</a>
+    <button class="ham" id="hm"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1620283085439-39620a1e21c4?w=1600&h=900&fit=crop&q=80" alt="Transformer & gardu listrik"></div>
+  <div class="container">
+    <div class="crumb"><a href="industries.html">Industries</a> &nbsp;/&nbsp; <span>Assessment Trafo</span></div>
+    <div class="hero-inner">
+      <div class="hero-tag">Transformer Diagnostics</div>
+      <h1>Assessment Trafo &amp;<br><strong>Analisa Oli Transformer</strong></h1>
+      <p>Pengujian kondisi transformer secara menyeluruh — dari uji kelistrikan (tan delta, turns ratio, winding resistance) hingga analisa laboratorium oli (DGA, breakdown voltage, water content, partikel). Setiap data diterjemahkan menjadi diagnosa dan rekomendasi yang jelas oleh laporan berbasis AI.</p>
+      <div class="hero-btns">
+        <a href="mailto:hello@envisorai.com?subject=Assessment%20Trafo%20%26%20Analisa%20Oli" class="btn-g">Minta Penawaran</a>
+        <a href="#layanan" class="btn-o">Lihat Cakupan Uji</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat"><div class="n">9+</div><div class="l">Jenis uji kelistrikan &amp; oli</div></div>
+  <div class="stat"><div class="n">DGA</div><div class="l">Deteksi dini gangguan internal</div></div>
+  <div class="stat"><div class="n">AI</div><div class="l">Interpretasi &amp; health index otomatis</div></div>
+  <div class="stat"><div class="n">100%</div><div class="l">Sesuai standar IEC &amp; IEEE</div></div>
+</div>
+
+<!-- Why -->
+<section class="sec">
+  <div class="container">
+    <div class="center">
+      <span class="sec-label">Mengapa Penting</span>
+      <div class="sec-title">Trafo adalah Aset <strong>Paling Kritis</strong></div>
+      <p class="sec-sub">Kegagalan satu transformer dapat menghentikan seluruh produksi. Assessment berkala mengubah perawatan reaktif menjadi prediktif — sebelum kerusakan menjadi mahal.</p>
+    </div>
+    <div class="why">
+      <div class="wcard">
+        <span class="wcard-icon">&#9888;</span>
+        <h4>Deteksi Dini Gangguan</h4>
+        <p>Hot spot, partial discharge, dan degradasi isolasi terdeteksi berbulan-bulan sebelum trafo gagal — lewat jejak gas terlarut dan parameter kelistrikan.</p>
+      </div>
+      <div class="wcard">
+        <span class="wcard-icon">&#128176;</span>
+        <h4>Hindari Downtime Mahal</h4>
+        <p>Penggantian trafo darurat dan kehilangan produksi jauh lebih mahal daripada inspeksi terjadwal. Assessment menjaga keandalan pasokan daya Anda.</p>
+      </div>
+      <div class="wcard">
+        <span class="wcard-icon">&#8987;</span>
+        <h4>Perpanjang Umur Aset</h4>
+        <p>Mengetahui kondisi isolasi dan oli secara objektif memungkinkan perencanaan rekondisi, purifikasi oli, dan penggantian tepat waktu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Two core test packages -->
+<section class="sec bsec" id="layanan">
+  <div class="container">
+    <div class="center">
+      <span class="sec-label">Cakupan Pengujian</span>
+      <div class="sec-title">Dua Lini <strong>Assessment Lengkap</strong></div>
+      <p class="sec-sub">Uji kelistrikan di lokasi dan analisa oli di laboratorium — dikombinasikan menjadi satu diagnosa kondisi trafo yang utuh.</p>
+    </div>
+    <div class="blocks">
+
+      <div class="block">
+        <div class="block-img">
+          <div class="block-badge">Electrical Test</div>
+          <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=900&h=500&fit=crop&q=80" alt="Pengujian kelistrikan transformer">
+        </div>
+        <div class="block-body">
+          <h3>Uji Kelistrikan Trafo</h3>
+          <p>Pengujian menyeluruh kondisi isolasi, belitan, dan inti transformer menggunakan instrumen diagnostik presisi — dilakukan di lokasi tanpa membongkar trafo.</p>
+          <ul class="tlist">
+            <li><strong>Tan Delta / Dissipation Factor</strong><small>Mengukur kualitas isolasi belitan &amp; bushing (power factor isolasi).</small></li>
+            <li><strong>Turns Ratio Test (TTR)</strong><small>Verifikasi rasio belitan tiap tap untuk mendeteksi belitan short / kerusakan tap changer.</small></li>
+            <li><strong>Winding Resistance</strong><small>Deteksi koneksi longgar, kontak OLTC buruk, dan ketidakseimbangan belitan.</small></li>
+            <li><strong>Insulation Resistance &amp; PI</strong><small>Megger + Polarization Index untuk menilai tingkat kekeringan &amp; kebersihan isolasi.</small></li>
+            <li><strong>Magnetizing / Excitation Current</strong><small>Mengevaluasi kondisi inti dan belitan terhadap arus eksitasi.</small></li>
+            <li><strong>SFRA &amp; Contact Resistance</strong><small>Frequency Response Analysis untuk deformasi mekanis belitan &amp; uji resistansi kontak.</small></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-img">
+          <div class="block-badge">Lab Oil Analysis</div>
+          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=900&h=500&fit=crop&q=80" alt="Analisa laboratorium oli transformer">
+        </div>
+        <div class="block-body">
+          <h3>Analisa Oli Transformer</h3>
+          <p>Sampling oli secara aman lalu diuji di laboratorium terakreditasi. Oli adalah "darah" trafo — komposisinya mengungkap kondisi internal yang tak terlihat dari luar.</p>
+          <ul class="tlist">
+            <li><strong>Dissolved Gas Analysis (DGA)</strong><small>Identifikasi gangguan internal via Duval Triangle &amp; Rogers Ratio — overheating, arcing, partial discharge.</small></li>
+            <li><strong>Breakdown Voltage (BDV)</strong><small>Menguji kekuatan dielektrik oli sebagai media isolasi (kV).</small></li>
+            <li><strong>Water / Moisture Content</strong><small>Kadar air (ppm) metode Karl Fischer — indikator utama penuaan isolasi kertas.</small></li>
+            <li><strong>Particle Count &amp; Contamination</strong><small>Hitung partikel &amp; kontaminasi yang menurunkan kualitas isolasi oli.</small></li>
+            <li><strong>Acidity, IFT &amp; Color</strong><small>Tingkat keasaman, tegangan antarmuka, dan warna untuk menilai degradasi oli.</small></li>
+            <li><strong>Furan Analysis (opsional)</strong><small>Estimasi degradasi isolasi kertas &amp; sisa umur trafo (Degree of Polymerization).</small></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Oil parameters quick grid -->
+<section class="sec">
+  <div class="container">
+    <div class="center">
+      <span class="sec-label">Parameter Utama Oli</span>
+      <div class="sec-title">Apa yang Kami <strong>Ukur dari Oli</strong></div>
+      <p class="sec-sub">Empat parameter inti yang menjadi tanda vital kesehatan transformer Anda.</p>
+    </div>
+    <div class="params">
+      <div class="pcard">
+        <span class="pcard-icon">&#129514;</span>
+        <span class="code">DGA</span>
+        <h4>Dissolved Gas</h4>
+        <p>Gas terlarut (H₂, CH₄, C₂H₂, dll) sebagai sidik jari gangguan internal trafo.</p>
+      </div>
+      <div class="pcard">
+        <span class="pcard-icon">&#9889;</span>
+        <span class="code">BDV</span>
+        <h4>Breakdown Voltage</h4>
+        <p>Kekuatan dielektrik oli — seberapa baik oli menahan tegangan tinggi.</p>
+      </div>
+      <div class="pcard">
+        <span class="pcard-icon">&#128167;</span>
+        <span class="code">H₂O</span>
+        <h4>Water Content</h4>
+        <p>Kadar air (ppm) yang mempercepat penuaan isolasi &amp; menurunkan BDV.</p>
+      </div>
+      <div class="pcard">
+        <span class="pcard-icon">&#128300;</span>
+        <span class="code">PARTICLE</span>
+        <h4>Oil Particle</h4>
+        <p>Jumlah &amp; ukuran partikel kontaminan yang mengganggu isolasi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI Report showcase -->
+<section class="sec bsec">
+  <div class="container">
+    <div class="center">
+      <span class="sec-label">Laporan Berbasis AI</span>
+      <div class="sec-title">Dari Data Mentah ke <strong>Keputusan</strong></div>
+      <p class="sec-sub">Hasil uji tidak berhenti di angka. AI Envisor menerjemahkan setiap parameter menjadi diagnosa, health index, dan rekomendasi tindakan yang mudah dipahami.</p>
+    </div>
+    <div class="ai-wrap">
+      <div class="ai-text">
+        <h3>Diagnostik Otomatis &amp; <strong>Health Index</strong></h3>
+        <p>Algoritma kami menganalisa hasil DGA dengan metode Duval &amp; Rogers Ratio, menggabungkannya dengan parameter kelistrikan dan oli, lalu menghasilkan skor kesehatan trafo serta tren kondisi dari waktu ke waktu.</p>
+        <ul class="ai-feat">
+          <li><strong>Interpretasi DGA Otomatis</strong>Klasifikasi jenis gangguan (thermal, arcing, PD) lengkap dengan tingkat keparahannya.</li>
+          <li><strong>Transformer Health Index</strong>Skor tunggal 0&ndash;100 yang merangkum kondisi keseluruhan aset Anda.</li>
+          <li><strong>Trending &amp; Prediksi</strong>Bandingkan dengan hasil uji sebelumnya untuk memproyeksikan laju degradasi.</li>
+          <li><strong>Rekomendasi Tindakan</strong>Saran konkret: purifikasi oli, monitoring ketat, atau perencanaan penggantian.</li>
+        </ul>
+      </div>
+
+      <div class="report" aria-hidden="true">
+        <div class="report-top">
+          <div class="rt-l">Trafo TR-02 · 1600 kVA<span>Diagnostic Report</span></div>
+          <div class="health"><div class="hs">87</div><div class="hl">Health Index</div></div>
+        </div>
+        <div class="gauge"><i style="width:87%"></i></div>
+        <div class="rrow" style="margin-bottom:22px"><span class="rn">Kondisi keseluruhan</span><span class="rv tag-ok">BAIK · Lanjutkan operasi</span></div>
+
+        <div class="rrow"><span class="rn">DGA — Duval Triangle</span><span class="rv tag-ok">Normal (T1)</span></div>
+        <div class="rrow"><span class="rn">Breakdown Voltage</span><span class="rv tag-ok">62 kV · OK</span></div>
+        <div class="rrow"><span class="rn">Water Content</span><span class="rv tag-watch">18 ppm · Pantau</span></div>
+        <div class="rrow"><span class="rn">Tan Delta (HV)</span><span class="rv tag-ok">0.41% · OK</span></div>
+        <div class="rrow"><span class="rn">Particle Count</span><span class="rv tag-watch">Kelas 8 · Pantau</span></div>
+
+        <div class="report-note"><b>Rekomendasi AI:</b> Kondisi trafo sehat. Kadar air sedikit meningkat — jadwalkan purifikasi/dehidrasi oli dalam 3&ndash;6 bulan dan uji ulang DGA pada siklus berikutnya.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Deliverables -->
+<section class="sec">
+  <div class="container">
+    <div class="center">
+      <span class="sec-label">Yang Anda Terima</span>
+      <div class="sec-title">Output &amp; <strong>Deliverables</strong></div>
+      <p class="sec-sub">Setiap assessment menghasilkan dokumentasi lengkap yang siap dijadikan dasar keputusan teknis &amp; anggaran.</p>
+    </div>
+    <div class="deliver">
+      <div class="dcard">
+        <span class="dn">01</span>
+        <h4>Laporan Diagnostik</h4>
+        <p>Laporan lengkap hasil uji kelistrikan &amp; oli, dengan interpretasi AI, foto lapangan, dan perbandingan terhadap nilai standar.</p>
+      </div>
+      <div class="dcard">
+        <span class="dn">02</span>
+        <h4>Health Index &amp; Status</h4>
+        <p>Skor kesehatan trafo dan klasifikasi kondisi (Baik / Pantau / Tindak Lanjut) yang mudah dipahami manajemen.</p>
+      </div>
+      <div class="dcard">
+        <span class="dn">03</span>
+        <h4>Rencana Tindak Lanjut</h4>
+        <p>Rekomendasi pemeliharaan terprioritas — purifikasi oli, perbaikan, monitoring, hingga estimasi penggantian.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="sec bsec">
+  <div class="container">
+    <div class="center">
+      <span class="sec-label">Cara Kerja</span>
+      <div class="sec-title">Proses yang <strong>Sederhana</strong></div>
+      <p class="sec-sub">Empat langkah ringkas dari permintaan hingga laporan di tangan Anda.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Konsultasi &amp; Jadwal</h4>
+        <p>Pendataan spesifikasi trafo dan penjadwalan uji sesuai jendela operasi fasilitas Anda.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Uji Lapangan</h4>
+        <p>Tim engineer melakukan uji kelistrikan di lokasi dan pengambilan sampel oli secara aman &amp; terstandar.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Analisa Lab &amp; AI</h4>
+        <p>Sampel diuji di laboratorium; seluruh data diproses dan diinterpretasi oleh sistem AI Envisor.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h4>Laporan &amp; Rekomendasi</h4>
+        <p>Penyerahan laporan diagnostik beserta sesi pembahasan temuan dan rencana tindak lanjut.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" style="border-top:1px solid var(--border)">
+  <div class="container">
+    <h2>Pastikan Trafo Anda <strong>Selalu Andal</strong></h2>
+    <p>Jadwalkan assessment transformer &amp; analisa oli bersama Envisor. Dapatkan laporan diagnostik berbasis AI yang membantu Anda mengambil keputusan tepat sebelum gangguan terjadi.</p>
+    <div class="cta-btns">
+      <a href="mailto:hello@envisorai.com?subject=Assessment%20Trafo%20%26%20Analisa%20Oli" class="btn-g">Minta Penawaran</a>
+      <a href="industries.html" class="btn-o">Kembali ke Industries</a>
+    </div>
+  </div>
+</section>
+
+<footer><p>&copy; 2025 Envisor Group</p><div><a href="industries.html">Industries</a><a href="#">Privacy</a><a href="#">Terms</a></div></footer>
+
+<div class="mnav" id="mn"><button class="mnav-x" id="mx">&times;</button><a href="index.html">Beranda</a><a href="home.html">Envisor Home</a><a href="advisor.html">Expert</a><a href="industries.html">Industries</a><a href="transformer.html">Assessment Trafo</a></div>
+
+<script>
+document.getElementById('hm').onclick=function(){document.getElementById('mn').classList.add('open')};
+document.getElementById('mx').onclick=function(){document.getElementById('mn').classList.remove('open')};
+</script>
+</body>
+</html>
