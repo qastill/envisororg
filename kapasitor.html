@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cek Kapasitor Bank — Denda kVAR</title>
+<style>
+  :root{
+    --bg:#0e1318; --surface:#19212a; --surface2:#212c37; --line:#2c3947;
+    --ink:#e8eff5; --muted:#8c9bab; --faint:#5d6b78;
+    --hazard:#f5b301; --hazard-d:#caa015;
+    --pass:#2fb37a; --fail:#e5484d; --info:#46a7c9; --na:#5d6b78;
+    --r:12px;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:16px;line-height:1.5;-webkit-text-size-adjust:100%}
+  body{padding-bottom:96px}
+  h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.01em}
+  button{font-family:inherit;cursor:pointer}
+  .wrap{max-width:680px;margin:0 auto;padding:0 16px}
+
+  /* header */
+  header{position:sticky;top:0;z-index:30;background:linear-gradient(180deg,#0e1318 70%,rgba(14,19,24,.0));
+    padding-top:env(safe-area-inset-top)}
+  .bar{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line);
+    background:var(--bg)}
+  .hz{width:8px;height:34px;border-radius:3px;flex:none;
+    background:repeating-linear-gradient(45deg,var(--hazard) 0 6px,#1a1a1a 6px 12px)}
+  .ttl{font-size:15px;font-weight:800;letter-spacing:.02em;text-transform:uppercase}
+  .sub{font-size:11px;color:var(--muted);font-family:var(--mono);letter-spacing:.04em}
+  .verdict{margin-left:auto;font-family:var(--mono);font-size:11px;text-align:right;max-width:42%}
+  .verdict b{display:block;font-size:11px;letter-spacing:.03em}
+
+  /* tabs */
+  nav.tabs{position:fixed;bottom:0;left:0;right:0;z-index:40;display:flex;
+    background:#0b0f14;border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+  nav.tabs button{flex:1;background:none;border:0;color:var(--faint);padding:10px 4px 12px;
+    font-size:10.5px;font-weight:700;letter-spacing:.02em;display:flex;flex-direction:column;
+    align-items:center;gap:5px;border-top:2px solid transparent;margin-top:-1px}
+  nav.tabs button .ic{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.9}
+  nav.tabs button.on{color:var(--hazard);border-top-color:var(--hazard)}
+
+  section{display:none;padding:18px 0 8px}
+  section.on{display:block;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--hazard-d);margin-bottom:6px}
+  .lead{font-size:13.5px;color:var(--muted);margin:0 0 16px}
+
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    padding:16px;margin-bottom:14px}
+  .card.warn{border-color:var(--hazard-d);background:linear-gradient(180deg,rgba(245,179,1,.06),transparent)}
+
+  /* safety gate */
+  .lock{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:8px 0 14px}
+  .lockbadge{width:64px;height:64px;border-radius:16px;display:grid;place-items:center;
+    background:repeating-linear-gradient(45deg,var(--hazard) 0 9px,#161616 9px 18px)}
+  .lockbadge svg{width:30px;height:30px;stroke:#0e1318;fill:none;stroke-width:2.4}
+  .gatebtn{width:100%;border:0;border-radius:10px;padding:15px;font-size:15px;font-weight:800;
+    letter-spacing:.03em;background:var(--hazard);color:#1a1305;margin-top:6px;text-transform:uppercase}
+  .gatebtn:disabled{background:#36424e;color:var(--faint)}
+
+  .chk{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-top:1px solid var(--line)}
+  .chk:first-child{border-top:0}
+  .box{width:26px;height:26px;border-radius:7px;border:2px solid var(--line);flex:none;margin-top:1px;
+    display:grid;place-items:center;background:#0e1318}
+  .box svg{width:15px;height:15px;stroke:var(--pass);fill:none;stroke-width:3;opacity:0;transition:.15s}
+  .chk.done .box{border-color:var(--pass);background:rgba(47,179,122,.12)}
+  .chk.done .box svg{opacity:1}
+  .chk .t{font-size:14px;font-weight:600}
+  .chk .d{font-size:12.5px;color:var(--muted);margin-top:2px}
+
+  /* checklist item */
+  .item{border:1px solid var(--line);border-radius:var(--r);margin-bottom:11px;overflow:hidden;
+    background:var(--surface)}
+  .item .head{display:flex;align-items:center;gap:11px;padding:13px 14px}
+  .num{font-family:var(--mono);font-size:11px;color:var(--faint);flex:none;width:26px}
+  .item .name{font-size:14px;font-weight:600;flex:1}
+  .item .name small{display:block;font-weight:400;color:var(--muted);font-size:11.5px;
+    font-family:var(--mono);margin-top:1px}
+  .chev{width:18px;height:18px;stroke:var(--faint);fill:none;stroke-width:2;transition:.2s;flex:none}
+  .item.open .chev{transform:rotate(90deg)}
+  .body{display:none;padding:0 14px 14px;border-top:1px solid var(--line)}
+  .item.open .body{display:block}
+  .field{margin:12px 0 0}
+  .field .lbl{font-size:11px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;
+    color:var(--hazard-d);margin-bottom:4px}
+  .field p{margin:0;font-size:13px;color:var(--ink)}
+  .field.tj p{color:var(--muted)}
+  .seg{display:flex;gap:7px;margin-top:13px}
+  .seg button{flex:1;border:1px solid var(--line);background:#0e1318;color:var(--muted);
+    border-radius:9px;padding:11px 6px;font-size:13px;font-weight:700}
+  .seg button[data-v="ok"].on{background:rgba(47,179,122,.16);border-color:var(--pass);color:#7ee0b4}
+  .seg button[data-v="bad"].on{background:rgba(229,72,77,.16);border-color:var(--fail);color:#ff9ca0}
+  .seg button[data-v="na"].on{background:rgba(93,107,120,.18);border-color:var(--na);color:#b6c2cd}
+  textarea{width:100%;margin-top:10px;background:#0e1318;border:1px solid var(--line);border-radius:9px;
+    color:var(--ink);padding:10px;font-family:var(--sans);font-size:13px;resize:vertical;min-height:42px}
+  .pill{font-family:var(--mono);font-size:10px;padding:3px 7px;border-radius:20px;flex:none;
+    border:1px solid var(--line);color:var(--faint)}
+  .pill.ok{color:#7ee0b4;border-color:var(--pass)}
+  .pill.bad{color:#ff9ca0;border-color:var(--fail)}
+  .pill.na{color:#b6c2cd;border-color:var(--na)}
+
+  .gtitle{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);margin:20px 0 9px;display:flex;align-items:center;gap:8px}
+  .gtitle::after{content:"";height:1px;background:var(--line);flex:1}
+
+  /* calculator */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .inp label{font-size:11px;font-family:var(--mono);letter-spacing:.04em;color:var(--muted);
+    display:block;margin-bottom:4px}
+  .inp input{width:100%;background:#0e1318;border:1px solid var(--line);border-radius:9px;
+    color:var(--ink);padding:11px;font-family:var(--mono);font-size:15px}
+  .inp input:focus{outline:none;border-color:var(--hazard-d)}
+  .readout{margin-top:14px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+  .ro{display:flex;justify-content:space-between;align-items:baseline;padding:12px 14px;
+    border-top:1px solid var(--line)}
+  .ro:first-child{border-top:0}
+  .ro .k{font-size:12.5px;color:var(--muted)}
+  .ro .v{font-family:var(--mono);font-size:17px;font-weight:700}
+  .ro .v small{font-size:11px;color:var(--faint);font-weight:400}
+  .ro.big{background:#0e1318}
+  .ro.big .v{font-size:20px}
+  .vpass{color:#7ee0b4}.vfail{color:#ff9ca0}.vwarn{color:var(--hazard)}
+
+  /* diagnosis */
+  .dx{border:1px solid var(--line);border-left-width:4px;border-radius:10px;padding:13px 14px;margin-bottom:10px;
+    background:var(--surface)}
+  .dx.hi{border-left-color:var(--fail)}
+  .dx.mid{border-left-color:var(--hazard)}
+  .dx.lo{border-left-color:var(--info)}
+  .dx .rank{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+  .dx h3{font-size:14.5px;margin:3px 0 5px}
+  .dx p{margin:0;font-size:12.5px;color:var(--muted)}
+  .dx p b{color:var(--ink);font-weight:600}
+  .empty{text-align:center;color:var(--faint);font-size:13px;padding:26px 10px;font-family:var(--mono)}
+
+  .act{display:flex;gap:10px;margin-top:8px}
+  .act button{flex:1;border:1px solid var(--line);background:var(--surface2);color:var(--ink);
+    border-radius:10px;padding:13px;font-size:13px;font-weight:700}
+  .act button.primary{background:var(--hazard);color:#1a1305;border-color:var(--hazard)}
+
+  .note{font-size:11.5px;color:var(--faint);font-family:var(--mono);line-height:1.6;margin-top:14px}
+  .disc{font-size:11.5px;color:var(--muted);background:rgba(229,72,77,.07);border:1px solid #4a2a2c;
+    border-radius:10px;padding:11px 13px;margin-top:6px}
+  .backlink{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;
+    font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:4px 0}
+  .backlink svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+  @media print{nav.tabs,header,.act,.seg{display:none}body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <div class="hz"></div>
+    <div>
+      <div class="ttl">Cek Kapasitor Bank</div>
+      <div class="sub">denda kVAR · bank terpasang</div>
+    </div>
+    <div class="verdict" id="verdict"><b style="color:var(--faint)">PILIH MODE</b><span style="color:var(--faint)">sudah / belum</span></div>
+    <button id="modeswitch" onclick="pickMode()" style="display:none;margin-left:10px;background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:8px 9px;font-size:10px;font-family:var(--mono);letter-spacing:.04em">⇄</button>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- 0. PILIH MODE -->
+<section id="s-mode" class="on">
+  <a class="backlink" href="industries.html">&larr; Kembali ke Industries</a>
+  <div class="eyebrow" style="margin-top:8px">Mulai · pilih kondisi</div>
+  <h2 style="font-size:22px;margin-bottom:8px">Kapasitor bank pelanggan?</h2>
+  <p class="lead">Titik mulai menentukan alur. Yang sudah ada → cari kenapa masih kena denda. Yang belum → hitung ukuran pemasangan dari data.</p>
+
+  <button onclick="setMode('ada')" style="width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-bottom:12px;color:var(--ink);display:flex;gap:14px;align-items:center">
+    <span style="width:46px;height:46px;border-radius:11px;background:rgba(245,179,1,.12);display:grid;place-items:center;flex:none"><svg viewBox="0 0 24 24" style="width:24px;height:24px;stroke:var(--hazard);fill:none;stroke-width:1.8"><rect x="4" y="9" width="16" height="11" rx="2"/><path d="M8 9V7M16 9V7M9 13h6"/></svg></span>
+    <span style="flex:1"><b style="font-size:15px;display:block">Sudah terpasang</b><small style="color:var(--muted);font-size:12px">Masih kena denda — troubleshooting akar masalah</small></span>
+    <svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:var(--faint);fill:none;stroke-width:2;flex:none"><path d="M9 6l6 6-6 6"/></svg>
+  </button>
+
+  <button onclick="setMode('baru')" style="width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;color:var(--ink);display:flex;gap:14px;align-items:center">
+    <span style="width:46px;height:46px;border-radius:11px;background:rgba(70,167,201,.14);display:grid;place-items:center;flex:none"><svg viewBox="0 0 24 24" style="width:24px;height:24px;stroke:var(--info);fill:none;stroke-width:1.8"><path d="M9 3v6M15 3v6M7 9h10v3a5 5 0 0 1-10 0V9zM12 17v4"/></svg></span>
+    <span style="flex:1"><b style="font-size:15px;display:block">Belum terpasang</b><small style="color:var(--muted);font-size:12px">Pasang baru — hitung kVAR, step & MCCB</small></span>
+    <svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:var(--faint);fill:none;stroke-width:2;flex:none"><path d="M9 6l6 6-6 6"/></svg>
+  </button>
+</section>
+
+<!-- 1. KESELAMATAN -->
+<section id="s-safe">
+  <div class="eyebrow">Langkah 0 · wajib</div>
+  <h2 style="font-size:21px;margin-bottom:8px">Keselamatan dulu</h2>
+  <p class="lead">Kapasitor menyimpan muatan mematikan walau panel sudah mati. Resistor discharge bisa rusak diam-diam — jangan pernah berasumsi kosong. Konfirmasi semua sebelum membuka checklist.</p>
+
+  <div class="card warn">
+    <div class="lock">
+      <div class="lockbadge"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+    </div>
+    <div id="safelist"></div>
+    <button class="gatebtn" id="gate" disabled onclick="unlock()">Buka checklist</button>
+  </div>
+  <div class="disc">Jika ragu pada salah satu langkah, hentikan dan panggil pengawas. Tool ini memandu, bukan menggantikan prosedur K3 dan SOP resmi.</div>
+</section>
+
+<!-- 2. PEMERIKSAAN -->
+<section id="s-check">
+  <div class="eyebrow">Langkah 1–8 · urut dari termurah</div>
+  <h2 style="font-size:21px;margin-bottom:8px">Pemeriksaan terarah</h2>
+  <p class="lead">Periksa berurutan dari atas. Yang <b>baik</b> sama pentingnya dengan yang <b>rusak</b> — keduanya mengarahkan diagnosis. Buka tiap item untuk cara cek & tujuannya.</p>
+  <div id="checklist"></div>
+</section>
+
+<!-- 3. WIRING -->
+<section id="s-wire">
+  <div class="eyebrow">Kontrol & wiring</div>
+  <h2 style="font-size:21px;margin-bottom:8px">CT, controller & switching</h2>
+  <p class="lead">Penyebab "bank ada tapi tetap denda" yang paling sering tak terlihat: controller buta karena CT salah pasang. Cek di sini.</p>
+  <div id="wirelist"></div>
+  <div class="card">
+    <div class="field"><div class="lbl">Uji kunci CT</div>
+      <p>Bandingkan PF yang dibaca controller dengan clamp meter TRMS di incomer. Beda jauh = masalah CT/wiring controller, bukan kapasitornya.</p></div>
+    <div class="grid2" style="margin-top:12px">
+      <div class="inp"><label>PF baca controller</label><input id="pfc" type="number" step="0.01" inputmode="decimal" placeholder="0.00"></div>
+      <div class="inp"><label>PF clamp incomer</label><input id="pfm" type="number" step="0.01" inputmode="decimal" placeholder="0.00"></div>
+    </div>
+    <div class="readout" id="ctout" style="display:none"></div>
+  </div>
+</section>
+
+<!-- 4. KALKULATOR -->
+<section id="s-calc">
+  <div class="eyebrow">Sizing</div>
+  <h2 style="font-size:21px;margin-bottom:8px">Kalkulator kVAR</h2>
+  <p class="lead">Dari data kWh meter. Membuktikan apakah dendanya soal <b>ukuran</b> (kurang kapasitor) atau <b>kondisi</b> (rusak/kontrol). Konversi tegangan dihitung otomatis.</p>
+  <div class="card">
+    <div class="grid2">
+      <div class="inp"><label>kWh (periode)</label><input id="kwh" type="number" inputmode="decimal" placeholder="mis. 18000"></div>
+      <div class="inp"><label>kVARh (periode)</label><input id="kvarh" type="number" inputmode="decimal" placeholder="mis. 15000"></div>
+      <div class="inp"><label>Jam operasi</label><input id="jam" type="number" inputmode="decimal" placeholder="mis. 720"></div>
+      <div class="inp"><label>PF target</label><input id="target" type="number" step="0.01" inputmode="decimal" value="0.95"></div>
+      <div class="inp"><label>Tegangan sistem (V)</label><input id="vsys" type="number" inputmode="decimal" value="400"></div>
+      <div class="inp"><label>Tegangan nameplate (V)</label><input id="vname" type="number" inputmode="decimal" value="450"></div>
+      <div class="inp" style="grid-column:1/3"><label>Total kVAR nameplate terpasang</label><input id="qinst" type="number" inputmode="decimal" placeholder="jumlah semua step, mis. 50"></div>
+    </div>
+    <div class="readout" id="calcout" style="display:none"></div>
+    <div class="note">Catatan: ini pakai rata-rata. Bila beban fluktuatif, sizing presisi tetap butuh profil dari PQ logger.</div>
+  </div>
+</section>
+
+<!-- BARU: SIZING PASANG BARU -->
+<section id="s-baru">
+  <div class="eyebrow">Pasang baru · sizing</div>
+  <h2 style="font-size:21px;margin-bottom:8px">Hitung kapasitor bank baru</h2>
+  <p class="lead">Dari cos φ awal & daya. Keluar kebutuhan kVAR, pembagian step, arus per step, dan saran MCCB. Pilih metode basis hitungan.</p>
+
+  <div class="card">
+    <div class="lbl" style="font-size:11px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--hazard-d);margin-bottom:8px">Metode basis</div>
+    <div class="seg" id="methodseg">
+      <button data-m="S" class="on" onclick="setMethod('S')">kVA langganan (S tetap)</button>
+      <button data-m="P" onclick="setMethod('P')">Beban nyata (P tetap)</button>
+    </div>
+    <div class="grid2" style="margin-top:14px">
+      <div class="inp"><label>cos φ awal</label><input id="b_cos1" type="number" step="0.01" inputmode="decimal" placeholder="0.70"></div>
+      <div class="inp"><label>cos φ target</label><input id="b_cos2" type="number" step="0.01" inputmode="decimal" placeholder="0.95"></div>
+      <div class="inp"><label>Daya semu S (kVA)</label><input id="b_s" type="number" inputmode="decimal" placeholder="mis. 50"></div>
+      <div class="inp"><label>Tegangan sistem (V)</label><input id="b_v" type="number" inputmode="decimal" value="400"></div>
+    </div>
+    <div class="readout" id="baruout" style="display:none"></div>
+  </div>
+
+  <div class="gtitle">Pembagian step</div>
+  <div class="card" style="padding:6px 0"><div id="stepout" class="empty">Isi data untuk melihat pembagian step.</div></div>
+</section>
+
+<!-- BARU: CATATAN -->
+<section id="s-baruinfo">
+  <div class="eyebrow">Pasang baru · catatan</div>
+  <h2 style="font-size:21px;margin-bottom:8px">Cara baca & laporan</h2>
+
+  <div class="card">
+    <div class="field"><div class="lbl">Metode S tetap (kVA langganan)</div>
+      <p>Menahan daya semu = kVA langganan. Konservatif, cocok bila sizing ke kapasitas kontrak. Cenderung <b>oversize</b> bila beban nyata di bawah langganan.</p></div>
+    <div class="field"><div class="lbl">Metode P tetap (beban nyata)</div>
+      <p>Qc = P·(tan φ₁ − tan φ₂). Lebih akurat — kapasitor tak menambah daya aktif. Pakai ini bila P diukur dari kWh meter.</p></div>
+    <div class="field tj"><div class="lbl">Target cos φ</div>
+      <p>0,95 aman untuk margin denda. Mengejar 0,99 dengan step besar berisiko PF leading saat beban ringan — pilih step kecil bila target tinggi.</p></div>
+  </div>
+
+  <div class="readout" id="barurepout"></div>
+  <div class="act">
+    <button onclick="window.print()">Cetak / PDF</button>
+    <button class="primary" onclick="copyReport()">Salin laporan</button>
+  </div>
+  <div class="disc" style="margin-top:14px">Arus per step untuk sizing MCB/kontaktor step. MCCB utama disarankan ≥ arus total bank × 1,5 (faktor rangkaian kapasitor, IEC 60831). Verifikasi dengan spec pabrikan.</div>
+</section>
+
+<!-- 5. DIAGNOSIS -->
+<section id="s-dx">
+  <div class="eyebrow">RCPS · hasil</div>
+  <h2 style="font-size:21px;margin-bottom:8px">Diagnosis & laporan</h2>
+  <p class="lead">Tersangka akar masalah, diurut dari temuan paling kuat. Isi pemeriksaan & kalkulator dulu agar akurat.</p>
+  <div id="dxlist"></div>
+  <div class="act">
+    <button onclick="window.print()">Cetak / PDF</button>
+    <button class="primary" onclick="copyReport()">Salin laporan</button>
+  </div>
+  <div class="act"><button onclick="resetAll()" style="color:#ff9ca0;border-color:#4a2a2c">Reset semua data</button></div>
+  <div class="disc" style="margin-top:14px">Diagnosis ini panduan berbasis input petugas, bukan vonis final. Konfirmasi dengan pengukuran energized & data harmonisa sebelum rekomendasi ke pelanggan.</div>
+</section>
+
+</div>
+
+<nav class="tabs" id="nav"></nav>
+
+<script>
+"use strict";
+/* ---------- persistence (aman di sandbox & lapangan) ---------- */
+var mem={};
+var store={
+  get:function(k){try{var v=localStorage.getItem(k);return v==null?(k in mem?mem[k]:null):v;}catch(e){return k in mem?mem[k]:null;}},
+  set:function(k,v){mem[k]=v;try{localStorage.setItem(k,v);}catch(e){}}
+};
+function loadState(){try{return JSON.parse(store.get("cbstate")||"{}");}catch(e){return {};}}
+function saveState(){store.set("cbstate",JSON.stringify(STATE));render();}
+var STATE=loadState();
+if(!STATE.checks)STATE.checks={};
+if(!STATE.safe)STATE.safe={};
+if(!STATE.calc)STATE.calc={};
+
+/* ---------- data ---------- */
+var SAFE=[
+  ["s1","MCCB / incomer panel kapasitor sudah OFF + LOTO terpasang"],
+  ["s2","Tunggu ≥ 5 menit untuk discharge resistor internal"],
+  ["s3","Ukur tegangan tiap terminal kapasitor — terbaca ~0 V"],
+  ["s4","Discharge manual via resistor + pasang grounding sementara"],
+  ["s5","Serasah/debu/sarang dibersihkan, area kerja aman"]
+];
+
+var CHECKS=[
+  {id:"c1",g:"Proteksi & switching",n:"Fuse tiap step",sub:"kontinuitas, bukan visual",
+   cara:"Multimeter mode kontinuitas. Ukur kedua ujung tiap fuse, ketiga fasa per step. Bunyi/~0Ω = baik, OL = putus.",
+   tj:"Fuse putus = step offline = bank kurang suplai kVAR. Penyebab tersering & termurah.",
+   bad:"Fuse putus / step offline"},
+  {id:"c2",g:"Proteksi & switching",n:"Kontaktor & pre-charge",sub:"kontak, coil, resistor inrush",
+   cara:"Visual kontak utama (gosong/pitting). Ukur tahanan coil (bukan 0/OL). Pastikan resistor pre-charge tidak putus.",
+   tj:"Kontaktor rusak = step gagal masuk walau diperintah. Pre-charge putus = inrush merusak kapasitor.",
+   bad:"Kontaktor / pre-charge rusak"},
+  {id:"c3",g:"Kapasitor",n:"Fisik kapasitor",sub:"gembung, bocor, gosong, bau",
+   cara:"Inspeksi tiap unit: badan menggembung, rembesan cairan, bekas panas, bau sangit.",
+   tj:"Gembung/bocor = sel rusak, kapasitansi sudah turun jauh dari nameplate.",
+   bad:"Kapasitor gembung/bocor (degradasi)"},
+  {id:"c4",g:"Kapasitor",n:"Kapasitansi vs nameplate",sub:"capacitance meter, >±10% = ganti",
+   cara:"Discharge + isolasi unit. Ukur µF, bandingkan nameplate (mis. 157µF/10kVAR, 79µF/5kVAR). Turun >5–10% = aus.",
+   tj:"Self-healing aus kehilangan µF tanpa tanda luar — kVAR riil di bawah nameplate.",
+   bad:"Kapasitansi turun >10% (aus)"},
+  {id:"c5",g:"Kontrol",n:"Controller (RVC) ada & hidup",sub:"display PF regulator",
+   cara:"Cari PF controller di pintu panel. Ada display & switching otomatis? Atau bank fixed/manual?",
+   tj:"Tanpa controller, bank tak bisa ikuti beban → denda saat beban berubah.",
+   bad:"Tidak ada controller / fixed-manual"},
+  {id:"c6",g:"Desain & sizing",n:"Detuned reactor",sub:"induktor seri sebelum kapasitor",
+   cara:"Cari reactor (lilitan inti besi) seri tiap step. Tidak ada = bank polos. Cek detuning factor (7%/14%) bila ada.",
+   tj:"Bila beban harmonisa & tanpa reactor → kapasitor stres/resonansi, akan rusak lagi walau diganti.",
+   bad:"Tanpa reactor di beban harmonisa"},
+  {id:"c7",g:"Desain & sizing",n:"THD-I dari logger",sub:"harmonisa beban",
+   cara:"Baca THD-I dari PQ logger/power analyzer. Tinggi (>15–20%) = beban non-linear dominan (VFD/furnace).",
+   tj:"THD tinggi = sebagian PF buruk dari distorsi, bukan displacement — kapasitor tak menyelesaikan.",
+   bad:"THD tinggi (perlu detuned/filter)"},
+  {id:"c8",g:"Lingkungan",n:"Suhu & ventilasi panel",sub:"thermal, jejak gosong",
+   cara:"Thermal scan saat operasi. Cek fan, jejak gosong, sirkulasi udara. Panel panas mempercepat degradasi.",
+   tj:"Overheat memperpendek umur kapasitor & memicu kerusakan berulang.",
+   bad:"Panel overheat / ventilasi buruk"}
+];
+
+var WIRE=[
+  {id:"w1",g:"Kontrol",n:"Setpoint target PF",sub:"harus ≥ 0,95",
+   cara:"Buka menu controller, cek target PF. Bila diset 0,85 → marginal, masih kena denda.",
+   tj:"Setpoint rendah bikin controller 'puas' di PF yang masih didenda.",
+   bad:"Setpoint terlalu rendah (<0,95)"},
+  {id:"w2",g:"Kontrol",n:"Rasio & polaritas CT",sub:"baca seluruh arus beban",
+   cara:"Pastikan CT di sisi yang benar (membaca total beban), rasio sesuai setting controller, polaritas (S1/S2) tidak terbalik.",
+   tj:"CT salah/terbalik/sebagian beban = controller buta. Tersangka utama 'ada bank tapi tetap denda'.",
+   bad:"CT salah pasang/rasio/polaritas"},
+  {id:"w3",g:"Kontrol",n:"Setting C/k (sensitivitas)",sub:"switching step",
+   cara:"Cek nilai C/k controller sesuai step terkecil & CT. Salah = step tidak switching atau hunting.",
+   tj:"C/k salah bikin step tak masuk walau kapasitor & kontaktor sehat.",
+   bad:"C/k salah (step tak switching)"},
+  {id:"w4",g:"Switching",n:"Waktu reconnect antar-step",sub:"≥ 60 dtk discharge",
+   cara:"Amati di mode manual: apakah controller switch ulang sebelum kapasitor discharge (~1 menit)?",
+   tj:"Reconnect terlalu cepat = inrush merusak kontaktor & kapasitor, step bisa terblokir.",
+   bad:"Reconnect terlalu cepat (inrush)"}
+];
+
+/* ---------- icons ---------- */
+var IC={
+  safe:'<path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/>',
+  check:'<path d="M4 7h12M4 12h9M4 17h12"/><circle cx="19" cy="16" r="2"/>',
+  wire:'<path d="M5 5v6a4 4 0 0 0 4 4h6"/><circle cx="5" cy="4" r="1.6"/><circle cx="19" cy="15" r="1.6"/>',
+  calc:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h4M8 15h2M12 15h4"/>',
+  dx:'<path d="M9 3h6v4l4 8a2 2 0 0 1-2 3H7a2 2 0 0 1-2-3l4-8V3z"/><path d="M9 3h6"/>'
+};
+var TABSETS={
+  ada:[["s-safe","Aman",IC.safe],["s-check","Periksa",IC.check],["s-wire","Wiring",IC.wire],["s-calc","Hitung",IC.calc],["s-dx","Diagnosis",IC.dx]],
+  baru:[["s-baru","Hitung",IC.calc],["s-baruinfo","Catatan",IC.dx]]
+};
+
+/* ---------- build UI ---------- */
+function el(t,a,h){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(h!=null)e.innerHTML=h;return e;}
+
+function buildNav(){
+  var nav=document.getElementById("nav");nav.innerHTML="";nav.style.display="flex";
+  (TABSETS[STATE.mode]||TABSETS.ada).forEach(function(t){
+    nav.appendChild(el("button",{onclick:"go('"+t[0]+"')",id:"tab-"+t[0]},'<svg class="ic" viewBox="0 0 24 24">'+t[2]+'</svg>'+t[1]));
+  });
+}
+function setMode(m){STATE.mode=m;saveState();buildNav();document.getElementById("modeswitch").style.display="block";go(m==="ada"?"s-safe":"s-baru");}
+function pickMode(){document.querySelectorAll("section").forEach(function(s){s.classList.remove("on");});document.getElementById("s-mode").classList.add("on");document.getElementById("nav").style.display="none";document.getElementById("modeswitch").style.display="none";updateVerdict();window.scrollTo(0,0);}
+
+function go(id){
+  if(STATE.mode==="ada"&&!STATE.unlocked&&id!=="s-safe"){flashGate();return;}
+  document.querySelectorAll("section").forEach(function(s){s.classList.toggle("on",s.id===id);});
+  document.querySelectorAll("nav.tabs button").forEach(function(b){b.classList.remove("on");});
+  var tb=document.getElementById("tab-"+id);if(tb)tb.classList.add("on");
+  window.scrollTo(0,0);
+}
+function flashGate(){var g=document.getElementById("gate");g.animate([{transform:"translateX(0)"},{transform:"translateX(-6px)"},{transform:"translateX(6px)"},{transform:"translateX(0)"}],{duration:300});}
+
+/* safety */
+(function(){var c=document.getElementById("safelist");
+  SAFE.forEach(function(s){
+    var d=el("div",{class:"chk"+(STATE.safe[s[0]]?" done":""),onclick:"tglSafe('"+s[0]+"')"},
+      '<div class="box"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></div><div><div class="t">'+s[1]+'</div></div>');
+    c.appendChild(d);
+  });})();
+function tglSafe(id){STATE.safe[id]=!STATE.safe[id];saveState();}
+function unlock(){STATE.unlocked=true;saveState();go("s-check");}
+
+/* checklist + wiring renderers */
+function renderItems(arr,host){
+  var h=document.getElementById(host);h.innerHTML="";
+  var lastG=null;
+  arr.forEach(function(it,i){
+    if(it.g!==lastG){lastG=it.g;h.appendChild(el("div",{class:"gtitle"},it.g));}
+    var v=STATE.checks[it.id]||{};
+    var pill=v.val?'<span class="pill '+(v.val==="ok"?"ok":v.val==="bad"?"bad":"na")+'">'+(v.val==="ok"?"BAIK":v.val==="bad"?"RUSAK":"N/A")+'</span>':'<span class="pill">—</span>';
+    var item=el("div",{class:"item"+(v.open?" open":""),id:"it-"+it.id});
+    item.appendChild(el("div",{class:"head",onclick:"tglOpen('"+it.id+"')"},
+      '<span class="num">'+String(i+1).padStart(2,"0")+'</span><div class="name">'+it.n+'<small>'+it.sub+'</small></div>'+pill+'<svg class="chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>'));
+    var body=el("div",{class:"body"});
+    body.innerHTML='<div class="field"><div class="lbl">Cara cek</div><p>'+it.cara+'</p></div>'+
+      '<div class="field tj"><div class="lbl">Tujuan</div><p>'+it.tj+'</p></div>'+
+      '<div class="seg">'+
+        '<button data-v="ok" class="'+(v.val==="ok"?"on":"")+'" onclick="setVal(\''+it.id+'\',\'ok\')">Baik</button>'+
+        '<button data-v="bad" class="'+(v.val==="bad"?"on":"")+'" onclick="setVal(\''+it.id+'\',\'bad\')">Rusak</button>'+
+        '<button data-v="na" class="'+(v.val==="na"?"on":"")+'" onclick="setVal(\''+it.id+'\',\'na\')">N/A</button>'+
+      '</div>'+
+      '<textarea placeholder="Catatan / nilai ukur..." oninput="setNote(\''+it.id+'\',this.value)">'+(v.note||"")+'</textarea>';
+    item.appendChild(body);
+    h.appendChild(item);
+  });
+}
+function tglOpen(id){var v=STATE.checks[id]||{};v.open=!v.open;STATE.checks[id]=v;saveState();}
+function setVal(id,val){var v=STATE.checks[id]||{};v.val=(v.val===val?null:val);STATE.checks[id]=v;saveState();}
+function setNote(id,t){var v=STATE.checks[id]||{};v.note=t;STATE.checks[id]=v;mem.cbstate=JSON.stringify(STATE);try{localStorage.setItem("cbstate",mem.cbstate);}catch(e){}}
+
+/* CT compare */
+["pfc","pfm"].forEach(function(id){var e=document.getElementById(id);if(e){e.value=STATE.calc[id]||"";e.addEventListener("input",function(){STATE.calc[id]=e.value;ctCompare();persist();});}});
+function ctCompare(){
+  var a=parseFloat(STATE.calc.pfc),b=parseFloat(STATE.calc.pfm),o=document.getElementById("ctout");
+  if(isNaN(a)||isNaN(b)){o.style.display="none";return;}
+  var diff=Math.abs(a-b),bad=diff>0.05;
+  o.style.display="block";
+  o.innerHTML='<div class="ro big"><span class="k">Selisih PF controller vs clamp</span><span class="v '+(bad?"vfail":"vpass")+'">'+diff.toFixed(2)+'</span></div>'+
+    '<div class="ro"><span class="k">Indikasi</span><span class="v '+(bad?"vfail":"vpass")+'" style="font-size:13px">'+(bad?"CT/wiring controller bermasalah":"Pembacaan CT konsisten")+'</span></div>';
+}
+
+/* calculator */
+var CIN=["kwh","kvarh","jam","target","vsys","vname","qinst"];
+CIN.forEach(function(id){var e=document.getElementById(id);if(e){if(STATE.calc[id]!=null&&STATE.calc[id]!=="")e.value=STATE.calc[id];e.addEventListener("input",function(){STATE.calc[id]=e.value;calc();persist();});}});
+function num(id){var v=parseFloat(STATE.calc[id]);return isNaN(v)?null:v;}
+function calc(){
+  var o=document.getElementById("calcout");
+  var kwh=num("kwh"),kvarh=num("kvarh"),jam=num("jam"),tgt=num("target")||0.95,
+      vs=num("vsys")||400,vn=num("vname")||450,qi=num("qinst");
+  if(kwh==null||kvarh==null){o.style.display="none";STATE.calc.result=null;return;}
+  var pf=kwh/Math.sqrt(kwh*kwh+kvarh*kvarh);
+  var P=jam?kwh/jam:null;
+  var k=Math.tan(Math.acos(pf))-Math.tan(Math.acos(tgt));
+  var Qneed=(P!=null)?P*k:null;
+  var Qeff=(qi!=null)?qi*Math.pow(vs/vn,2):null;
+  var deficit=(Qneed!=null&&Qeff!=null)?(Qneed-Qeff):null;
+  STATE.calc.result={pf:pf,P:P,Qneed:Qneed,Qeff:Qeff,deficit:deficit,qi:qi};
+  var html='<div class="ro"><span class="k">PF aktual</span><span class="v '+(pf<0.85?"vfail":"vpass")+'">'+pf.toFixed(3)+'</span></div>';
+  if(P!=null)html+='<div class="ro"><span class="k">Daya aktif rata-rata</span><span class="v">'+P.toFixed(1)+' <small>kW</small></span></div>';
+  if(Qneed!=null)html+='<div class="ro"><span class="k">Kebutuhan kVAR (→'+tgt+')</span><span class="v vwarn">'+Qneed.toFixed(1)+' <small>kVAR</small></span></div>';
+  if(Qeff!=null)html+='<div class="ro"><span class="k">Terpasang efektif @'+vs+'V</span><span class="v">'+Qeff.toFixed(1)+' <small>kVAR</small></span><\/div>';
+  if(deficit!=null){
+    var und=deficit>1;
+    html+='<div class="ro big"><span class="k">'+(und?"Defisit (kurang)":"Surplus / cukup")+'</span><span class="v '+(und?"vfail":"vpass")+'">'+(deficit>0?"+":"")+deficit.toFixed(1)+' <small>kVAR</small></span></div>';
+    html+='<div class="ro"><span class="k">Vonis sizing</span><span class="v '+(und?"vfail":"vpass")+'" style="font-size:13px">'+(und?"Undersized — perlu tambah":"Ukuran cukup — cek KONDISI")+'</span></div>';
+  }
+  o.style.display="block";o.innerHTML=html;
+}
+function persist(){mem.cbstate=JSON.stringify(STATE);try{localStorage.setItem("cbstate",mem.cbstate);}catch(e){}updateVerdict();renderDx();}
+
+/* diagnosis engine (RCPS) */
+function buildDx(){
+  var all=CHECKS.concat(WIRE),out=[];
+  all.forEach(function(it){var v=STATE.checks[it.id];if(v&&v.val==="bad"){
+    var sev="mid";
+    if(["c5","w2","c4"].indexOf(it.id)>=0)sev="hi";
+    if(["c1","c2","w1"].indexOf(it.id)>=0)sev="hi";
+    if(["c8"].indexOf(it.id)>=0)sev="lo";
+    out.push({sev:sev,title:it.bad,from:it.n,note:it.tj});
+  }});
+  var r=STATE.calc&&STATE.calc.result;
+  if(r&&r.deficit!=null){
+    if(r.deficit>1)out.push({sev:"hi",title:"Undersized — kVAR kurang "+r.deficit.toFixed(1)+" kVAR",from:"Kalkulator",note:"Kebutuhan "+r.Qneed.toFixed(1)+" kVAR > terpasang efektif "+r.Qeff.toFixed(1)+" kVAR. Tambah kapasitas."});
+    else if(r.qi!=null)out.push({sev:"lo",title:"Sizing cukup — masalah di KONDISI/KONTROL",from:"Kalkulator",note:"Terpasang ("+r.Qeff.toFixed(1)+") ≥ kebutuhan ("+r.Qneed.toFixed(1)+"). Tetap denda = kapasitor/controller, bukan ukuran."});
+  }
+  var ctA=parseFloat(STATE.calc.pfc),ctB=parseFloat(STATE.calc.pfm);
+  if(!isNaN(ctA)&&!isNaN(ctB)&&Math.abs(ctA-ctB)>0.05)
+    out.push({sev:"hi",title:"CT/wiring controller bermasalah",from:"Uji CT",note:"PF controller ("+ctA+") ≠ clamp ("+ctB+"). Controller buta — perbaiki CT."});
+  var order={hi:0,mid:1,lo:2};
+  out.sort(function(a,b){return order[a.sev]-order[b.sev];});
+  return out;
+}
+function renderDx(){
+  var h=document.getElementById("dxlist");if(!h)return;var dx=buildDx();
+  if(!dx.length){h.innerHTML='<div class="empty">Belum ada temuan.<br>Tandai item "Rusak" / isi kalkulator<br>untuk memunculkan akar masalah.</div>';return;}
+  h.innerHTML="";
+  dx.forEach(function(d,i){
+    h.appendChild(el("div",{class:"dx "+d.sev},
+      '<div class="rank">Tersangka '+(i+1)+' · '+(d.sev==="hi"?"prioritas tinggi":d.sev==="mid"?"sedang":"rendah")+'</div>'+
+      '<h3>'+d.title+'</h3><p><b>'+d.from+'.</b> '+d.note+'</p>'));
+  });
+}
+
+/* verdict header */
+function updateVerdict(){
+  var v=document.getElementById("verdict");
+  if(!STATE.mode){v.innerHTML='<b style="color:var(--faint)">PILIH MODE</b><span style="color:var(--faint)">sudah / belum</span>';return;}
+  if(STATE.mode==="baru"){
+    var r=STATE.baru&&STATE.baru.result;
+    if(r)v.innerHTML='<b style="color:var(--info)">Qc '+r.Qc.toFixed(1)+' kVAr</b><span style="color:var(--muted)">MCCB ~'+r.mccb.toFixed(0)+'A</span>';
+    else v.innerHTML='<b style="color:var(--info)">PASANG BARU</b><span style="color:var(--muted)">isi data sizing</span>';
+    return;
+  }
+  if(!STATE.unlocked){v.innerHTML='<b style="color:var(--faint)">BELUM AMAN</b><span style="color:var(--faint)">gerbang terkunci</span>';return;}
+  var dx=buildDx();
+  if(!dx.length){v.innerHTML='<b style="color:var(--info)">BELUM ADA TEMUAN</b><span style="color:var(--muted)">isi pemeriksaan</span>';return;}
+  var hi=dx.filter(function(d){return d.sev==="hi";}).length;
+  v.innerHTML='<b style="color:'+(hi?"#ff9ca0":"var(--hazard)")+'">'+dx.length+' TERSANGKA</b><span style="color:var(--muted)">'+(hi?hi+" prioritas tinggi":"lihat diagnosis")+'</span>';
+}
+
+/* report */
+function copyReport(){
+  var L;
+  if(STATE.mode==="baru"){
+    var r=STATE.baru&&STATE.baru.result;
+    L=["LAPORAN SIZING KAPASITOR BANK BARU","Tanggal: "+new Date().toLocaleString("id-ID"),""];
+    if(!r){L.push("(data belum lengkap)");}
+    else{
+      L.push("Metode: "+(r.method==="S"?"kVA langganan (S tetap)":"Beban nyata (P tetap)"));
+      L.push("cos φ: "+r.c1+" → "+r.c2+"  |  S: "+r.S+" kVA  |  V: "+r.V+" V");
+      L.push("Daya aktif P: "+r.P.toFixed(1)+" kW");
+      L.push("Kebutuhan kapasitor Qc: "+r.Qc.toFixed(2)+" kVAr");
+      L.push("  (banding metode lain: "+(r.method==="S"?r.QcP:r.QcS).toFixed(2)+" kVAr)");
+      L.push("Arus total bank: "+r.Itot.toFixed(1)+" A");
+      L.push("MCCB utama disarankan (x1,5): "+r.mccb.toFixed(1)+" A");
+      L.push("","PEMBAGIAN STEP:");
+      [4,6,8,12].forEach(function(N){var per=r.Qc/N,I=per*1000/(Math.sqrt(3)*r.V);
+        L.push("  "+N+" step: "+per.toFixed(2)+" kVAr/step  ·  "+I.toFixed(1)+" A/step");});
+    }
+    finishCopy(L.join("\n"));return;
+  }
+  L=["LAPORAN CEK KAPASITOR BANK — DENDA kVAR","Tanggal: "+new Date().toLocaleString("id-ID"),""];
+  L.push("PEMERIKSAAN:");
+  CHECKS.concat(WIRE).forEach(function(it){var v=STATE.checks[it.id]||{};
+    var s=v.val==="ok"?"BAIK":v.val==="bad"?"RUSAK":v.val==="na"?"N/A":"-";
+    L.push(" ["+s+"] "+it.n+(v.note?" — "+v.note:""));});
+  var rc=STATE.calc&&STATE.calc.result;
+  if(rc){L.push("","KALKULATOR:");L.push(" PF aktual: "+rc.pf.toFixed(3));
+    if(rc.Qneed!=null)L.push(" Kebutuhan kVAR: "+rc.Qneed.toFixed(1));
+    if(rc.Qeff!=null)L.push(" Terpasang efektif: "+rc.Qeff.toFixed(1));
+    if(rc.deficit!=null)L.push(" Defisit: "+rc.deficit.toFixed(1)+" kVAR");}
+  L.push("","DIAGNOSIS (RCPS):");
+  var dx=buildDx();if(!dx.length)L.push(" (belum ada temuan)");
+  dx.forEach(function(d,i){L.push(" "+(i+1)+". ["+d.sev.toUpperCase()+"] "+d.title+" ("+d.from+")");});
+  finishCopy(L.join("\n"));
+}
+function finishCopy(txt){
+  if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){toast("Laporan disalin");},function(){fallbackCopy(txt);});}
+  else fallbackCopy(txt);
+}
+function fallbackCopy(t){var a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();try{document.execCommand("copy");toast("Laporan disalin");}catch(e){toast("Salin manual gagal");}document.body.removeChild(a);}
+function toast(m){var t=el("div",null,m);t.style.cssText="position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--hazard);color:#1a1305;padding:11px 18px;border-radius:20px;font-weight:700;font-size:13px;z-index:99";document.body.appendChild(t);setTimeout(function(){t.remove();},1600);}
+
+function resetAll(){if(confirm("Hapus semua data?")){var m=STATE.mode;STATE={checks:{},safe:{},calc:{},baru:{},mode:m,unlocked:STATE.unlocked};saveState();location.reload();}}
+
+/* ---------- sizing pasang baru ---------- */
+if(!STATE.baru)STATE.baru={};
+var BIN=["b_cos1","b_cos2","b_s","b_v"];
+BIN.forEach(function(id){var e=document.getElementById(id);if(e){if(STATE.baru[id]!=null&&STATE.baru[id]!=="")e.value=STATE.baru[id];e.addEventListener("input",function(){STATE.baru[id]=e.value;sizing();persistBaru();});}});
+function nB(id){var v=parseFloat(STATE.baru[id]);return isNaN(v)?null:v;}
+function setMethod(m){STATE.baru.method=m;document.querySelectorAll("#methodseg button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-m")===m);});sizing();persistBaru();}
+function persistBaru(){mem.cbstate=JSON.stringify(STATE);try{localStorage.setItem("cbstate",mem.cbstate);}catch(e){}updateVerdict();}
+function sizing(){
+  var c1=nB("b_cos1")||0.7,c2=nB("b_cos2")||0.95,S=nB("b_s"),V=nB("b_v")||400;
+  var method=STATE.baru.method||"S";
+  var o=document.getElementById("baruout"),st=document.getElementById("stepout");
+  if(o==null)return;
+  if(S==null||c1<=0||c1>1||c2<=0||c2>1||c2<=c1){
+    o.style.display="none";
+    if(st)st.outerHTML='<div id="stepout" class="empty">'+(S!=null&&c2<=c1?"Target harus lebih besar dari cos φ awal.":"Isi data untuk melihat pembagian step.")+'</div>';
+    STATE.baru.result=null;return;
+  }
+  var p1=Math.acos(c1),p2=Math.acos(c2),sq=Math.sqrt(3),P=S*c1,Q1d,Q2d;
+  if(method==="S"){Q1d=S*Math.sin(p1);Q2d=S*Math.sin(p2);}
+  else{Q1d=P*Math.tan(p1);Q2d=P*Math.tan(p2);}
+  var Qc=Q1d-Q2d,QcS=S*Math.sin(p1)-S*Math.sin(p2),QcP=P*(Math.tan(p1)-Math.tan(p2));
+  var Itot=Qc*1000/(sq*V),mccb=Itot*1.5;
+  STATE.baru.result={c1:c1,c2:c2,S:S,V:V,P:P,Qc:Qc,QcS:QcS,QcP:QcP,Itot:Itot,mccb:mccb,method:method};
+  var other=method==="S"?QcP:QcS,otherName=method==="S"?"P tetap":"S tetap";
+  o.style.display="block";
+  o.innerHTML=
+    '<div class="ro"><span class="k">Daya aktif P</span><span class="v">'+P.toFixed(1)+' <small>kW</small></span></div>'+
+    '<div class="ro"><span class="k">Q awal (cos φ '+c1+')</span><span class="v">'+Q1d.toFixed(2)+' <small>kVAr</small></span></div>'+
+    '<div class="ro"><span class="k">Q target (cos φ '+c2+')</span><span class="v">'+Q2d.toFixed(2)+' <small>kVAr</small></span></div>'+
+    '<div class="ro big"><span class="k">Kebutuhan kapasitor Qc</span><span class="v vwarn">'+Qc.toFixed(2)+' <small>kVAr</small></span></div>'+
+    '<div class="ro"><span class="k">Metode '+otherName+' (banding)</span><span class="v" style="font-size:13px;color:var(--muted)">'+other.toFixed(2)+' kVAr</span></div>'+
+    '<div class="ro"><span class="k">Arus total bank</span><span class="v">'+Itot.toFixed(1)+' <small>A</small></span></div>'+
+    '<div class="ro big"><span class="k">MCCB utama (×1,5)</span><span class="v vfail">'+mccb.toFixed(1)+' <small>A</small></span></div>';
+  if(st){var rows="";[4,6,8,12].forEach(function(N){var per=Qc/N,I=per*1000/(sq*V);
+    rows+='<div class="ro"><span class="k">'+N+' step</span><span class="v" style="font-size:14px">'+per.toFixed(2)+' <small>kVAr</small> · '+I.toFixed(1)+' <small>A</small></span></div>';});
+    st.outerHTML='<div id="stepout" class="readout" style="border:0">'+rows+'</div>';}
+}
+
+/* render all */
+function render(){
+  renderItems(CHECKS,"checklist");
+  renderItems(WIRE,"wirelist");
+  document.querySelectorAll("#safelist .chk").forEach(function(c,i){c.classList.toggle("done",!!STATE.safe[SAFE[i][0]]);});
+  var allSafe=SAFE.every(function(s){return STATE.safe[s[0]];});
+  var g=document.getElementById("gate");if(g)g.disabled=!allSafe;
+  document.querySelectorAll("#methodseg button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-m")===(STATE.baru.method||"S"));});
+  calc();ctCompare();sizing();renderDx();updateVerdict();
+}
+render();
+
+/* init mode */
+if(STATE.mode){document.getElementById("modeswitch").style.display="block";buildNav();go(STATE.mode==="ada"?"s-safe":"s-baru");}
+else{document.getElementById("nav").style.display="none";}
+</script>
+</body>
+</html>
