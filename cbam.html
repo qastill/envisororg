@@ -1,0 +1,1405 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Terukur CBAM — Envisor Industries</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Data emisi per fasilitas yang siap verifikasi untuk eksportir Indonesia yang terkena CBAM Uni Eropa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a mill-certificate feel — ruled data labels, a working calculator as the centrepiece, quiet sections around it */
+:root{
+  --bg:#f3f5f6; --surface:#ffffff; --ink:#14212b; --muted:#56656f; --line:#d5dde1;
+  --accent:#0d6b6e; --accent-ink:#ffffff; --accent-soft:#e1efee;
+  --warn:#b4560f; --warn-soft:#fbeee3; --good:#1d7a45;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --r:6px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f171c; --surface:#16222a; --ink:#e4ecef; --muted:#9aabb4; --line:#2a3a44;
+  --accent:#45b3ad; --accent-ink:#06201f; --accent-soft:#163a3a;
+  --warn:#f0a35e; --warn-soft:#3a2615; --good:#5fc58a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f171c; --surface:#16222a; --ink:#e4ecef; --muted:#9aabb4; --line:#2a3a44;
+  --accent:#45b3ad; --accent-ink:#06201f; --accent-soft:#163a3a;
+  --warn:#f0a35e; --warn-soft:#3a2615; --good:#5fc58a; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-stretch:75%;line-height:1.05;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.4rem,6vw,4.3rem);font-weight:800;letter-spacing:-.01em}
+h2{font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:750}
+h3{font-size:1.3rem;font-weight:700;font-stretch:85%}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.lede{font-size:1.15rem;color:var(--muted);max-width:60ch}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{font-family:var(--display);font-stretch:70%;font-weight:800;font-size:1.5rem;letter-spacing:.02em;color:var(--ink);text-decoration:none;display:flex;align-items:baseline;gap:8px}
+.back{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--muted);text-decoration:none;white-space:nowrap}
+.back:hover{color:var(--ink)}
+.brand-wrap{display:flex;align-items:center;gap:14px;min-width:0}
+.brand small{font-family:var(--mono);font-size:.68rem;font-weight:500;color:var(--muted);letter-spacing:.08em}
+nav{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+nav a{color:var(--muted);text-decoration:none;font-size:.92rem}
+nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--accent-ink);border:0;border-radius:var(--r);padding:11px 18px;font:600 .95rem var(--body);text-decoration:none;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+nav .btn{color:var(--accent-ink);padding:8px 14px}
+@media (max-width:760px){nav a:not(.btn){display:none}.brand small{display:none}}
+
+section{padding-block:72px}
+.sec-head{display:grid;gap:12px;margin-bottom:36px;max-width:720px}
+
+/* hero */
+.hero{padding-block:64px 56px}
+.hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:center}
+.hero-copy{display:grid;gap:22px;min-width:0}
+.hero-copy h1 em{font-style:normal;color:var(--warn)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+
+/* data label (mill-certificate style) */
+.tag{background:var(--surface);border:1px solid var(--ink);border-radius:2px;font-family:var(--mono);font-size:.82rem;min-width:0}
+.tag-top{display:flex;justify-content:space-between;gap:8px;padding:10px 14px;border-bottom:1px solid var(--ink);font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:.7rem}
+.tag-row{display:grid;grid-template-columns:1fr auto;gap:12px;padding:8px 14px;border-bottom:1px dashed var(--line)}
+.tag-row span:first-child{color:var(--muted)}
+.tag-row b{font-weight:500}
+.tag-cmp{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ink)}
+.tag-cmp div{padding:14px;display:grid;gap:2px}
+.tag-cmp div+div{border-left:1px solid var(--ink)}
+.tag-cmp .big{font-family:var(--display);font-stretch:75%;font-size:2.2rem;font-weight:750;line-height:1}
+.tag-cmp .def .big{color:var(--warn)}
+.tag-cmp .act .big{color:var(--accent)}
+.tag-foot{padding:8px 14px;border-top:1px solid var(--ink);color:var(--muted);font-size:.7rem}
+
+/* calculator */
+.calc-band{background:var(--surface);border-block:1px solid var(--line)}
+.calc{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:40px}
+@media (max-width:900px){.calc{grid-template-columns:1fr}}
+.fields{display:grid;gap:16px;align-content:start}
+.field{display:grid;gap:6px}
+.field label{font-size:.85rem;font-weight:600}
+.field .hint{font-size:.78rem;color:var(--muted);line-height:1.4}
+.field input,.field select{font:500 1rem var(--mono);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px;width:100%}
+.field input:focus,.field select:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 3px var(--accent-soft)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.results{display:grid;gap:24px;align-content:start;min-width:0}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+@media (max-width:560px){.kpis{grid-template-columns:1fr}}
+.kpi{background:var(--surface);padding:16px;display:grid;gap:4px}
+.kpi .k{font-size:.78rem;color:var(--muted)}
+.kpi .v{font-family:var(--display);font-stretch:75%;font-size:1.9rem;font-weight:750;line-height:1.05}
+.kpi .s{font-family:var(--mono);font-size:.76rem;color:var(--muted)}
+.kpi.def .v{color:var(--warn)} .kpi.act .v{color:var(--accent)} .kpi.save .v{color:var(--good)}
+.chart-box{border:1px solid var(--line);border-radius:var(--r);padding:16px;overflow-x:auto}
+.chart-box h3{font-size:1rem;margin-bottom:4px}
+.legend{display:flex;gap:16px;font-size:.78rem;color:var(--muted);margin-bottom:8px;flex-wrap:wrap}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+svg text{font-family:var(--mono);font-size:11px}
+.note{font-size:.8rem;color:var(--muted);line-height:1.5}
+.alert{background:var(--warn-soft);color:var(--ink);border-radius:var(--r);padding:12px 14px;font-size:.88rem}
+
+/* formula */
+.formula{font-family:var(--mono);font-size:clamp(.85rem,2vw,1.05rem);background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;overflow-x:auto;white-space:nowrap}
+.formula b{color:var(--accent);font-weight:500}
+.vars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:24px}
+@media (max-width:860px){.vars{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.vars{grid-template-columns:1fr}}
+.var{border-top:2px solid var(--line);padding-top:12px;display:grid;gap:6px}
+.var.key{border-top-color:var(--accent)}
+.var .st{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.var.key .st{color:var(--accent)}
+.var p{font-size:.92rem;color:var(--muted)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;counter-reset:s}
+@media (max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.step{display:grid;gap:8px;align-content:start}
+.step::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:.8rem;color:var(--accent);border-bottom:1px solid var(--line);padding-bottom:8px}
+.step p{font-size:.93rem;color:var(--muted)}
+
+/* deliverables */
+.deliv{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+@media (max-width:860px){.deliv{grid-template-columns:1fr}}
+.checklist{list-style:none;margin:0;padding:0;display:grid;border-top:1px solid var(--line)}
+.checklist li{display:grid;grid-template-columns:auto 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.checklist code{font-family:var(--mono);font-size:.75rem;color:var(--accent);padding-top:3px;min-width:48px}
+.checklist b{display:block;font-weight:600}
+.checklist span{color:var(--muted);font-size:.92rem}
+.not{background:var(--accent-soft);border-radius:var(--r);padding:20px;display:grid;gap:10px}
+.not h3{font-size:1.1rem}
+.not p{font-size:.93rem}
+
+/* audiences */
+.aud{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+@media (max-width:860px){.aud{grid-template-columns:1fr}}
+.aud div{background:var(--surface);padding:24px;display:grid;gap:10px;align-content:start}
+.aud .who{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.aud p{font-size:.93rem;color:var(--muted)}
+.aud ul{margin:0;padding-left:18px;font-size:.9rem;display:grid;gap:4px}
+.cn{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.cn span{font-family:var(--mono);font-size:.72rem;border:1px solid var(--line);border-radius:3px;padding:2px 6px;color:var(--muted)}
+
+/* timeline */
+.tl{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:4px;margin-top:8px}
+@media (max-width:700px){.tl{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.tl div{display:grid;gap:6px;font-family:var(--mono);font-size:.75rem}
+.tl .bar{height:80px;background:var(--bg);border-radius:3px;position:relative;overflow:hidden;border:1px solid var(--line)}
+.tl .fill{position:absolute;left:0;right:0;bottom:0;background:var(--accent)}
+.tl .y{color:var(--muted)}
+
+/* pilot form */
+.pilot{display:grid;grid-template-columns:1fr 1.1fr;gap:48px}
+@media (max-width:860px){.pilot{grid-template-columns:1fr}}
+.pilot-copy{display:grid;gap:16px;align-content:start}
+.pilot-copy ul{margin:0;padding-left:18px;color:var(--muted);display:grid;gap:6px}
+form{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:grid;gap:14px;min-width:0}
+textarea{font:400 .85rem/1.5 var(--mono);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:12px;width:100%;min-height:180px;resize:vertical}
+.out{display:grid;gap:10px}
+.contact{font-family:var(--mono);font-size:.9rem;user-select:all;background:var(--bg);padding:6px 10px;border-radius:4px;border:1px solid var(--line);justify-self:start}
+
+/* faq */
+details{border-bottom:1px solid var(--line);padding:16px 0}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--accent)}
+details[open] summary::after{content:"−"}
+details p{margin-top:10px;color:var(--muted);max-width:70ch}
+
+footer{border-top:1px solid var(--line);padding-block:32px 48px;font-size:.82rem;color:var(--muted)}
+footer .wrap{display:grid;gap:12px}
+footer ol{margin:0;padding-left:18px;display:grid;gap:4px}
+
+
+/* ===== illustrations & motion ===== */
+.flow-band{padding-block:8px 40px}
+.flow{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:16px;display:grid;gap:12px}
+.flow-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.flow-head p{font-size:.92rem;color:var(--muted);max-width:60ch}
+.flow-svg{overflow-x:auto;min-width:0}
+.flow svg{width:100%;min-width:640px;display:block}
+.flow svg text{font-family:var(--mono)}
+.f-ink{fill:var(--ink)} .f-muted{fill:var(--muted)} .f-surf{fill:var(--surface)} .f-bg{fill:var(--bg)}
+.f-acc{fill:var(--accent)} .f-warn{fill:var(--warn)} .s-line{stroke:var(--line)} .s-ink{stroke:var(--ink)} .s-muted{stroke:var(--muted)}
+.f-big{font-family:var(--display)!important;font-stretch:75%;font-weight:750}
+.smoke{fill:var(--muted);opacity:0}
+.st-def,.st-act{transition:opacity .5s ease}
+.flow svg .st-act{opacity:0}
+.flow svg.is-act .st-act{opacity:1}
+.flow svg.is-act .st-def{opacity:0}
+.flow svg.is-act .smoke{fill:var(--accent)}
+.toggle-btn{font:600 .82rem var(--body);border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:7px 14px;cursor:pointer}
+.toggle-btn[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+@media (prefers-reduced-motion:no-preference){
+  .ship{animation:sail 10s linear infinite}
+  @keyframes sail{0%{transform:translateX(0)}88%{transform:translateX(430px);opacity:1}94%{transform:translateX(450px);opacity:0}100%{transform:translateX(0);opacity:0}}
+  .smoke{animation:puff 3.2s ease-out infinite}
+  .smoke:nth-of-type(2n){animation-delay:1.1s}.smoke:nth-of-type(3n){animation-delay:2.1s}
+  @keyframes puff{0%{opacity:.55;transform:translate(0,0) scale(.6)}100%{opacity:0;transform:translate(14px,-46px) scale(1.6)}}
+  .dash-move{animation:dash 1.2s linear infinite}
+  @keyframes dash{to{stroke-dashoffset:-16}}
+  .gate-pulse{animation:gp 2.4s ease-in-out infinite}
+  @keyframes gp{50%{opacity:.35}}
+  .rv{transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+  .rv.pre{transform:translateY(28px)}
+  .bar-g{transform-box:fill-box;transform-origin:bottom;animation:grow .6s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes grow{from{transform:scaleY(0)}}
+  .seg{transition:width .7s cubic-bezier(.2,.7,.2,1)}
+  .dot{transition:transform 1s cubic-bezier(.3,.7,.2,1),fill .6s}
+  .tl-prog{transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+}
+
+/* anatomy */
+.anat{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:40px;align-items:start}
+@media (max-width:860px){.anat{grid-template-columns:1fr}}
+.opt-group{display:grid;gap:8px;border:0;padding:0;margin:0}
+.opt-group legend{font-size:.85rem;font-weight:600;margin-bottom:6px}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:var(--r);cursor:pointer;background:var(--surface);font-size:.9rem}
+.opt:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.opt input{accent-color:var(--accent);margin-top:4px}
+.opt small{display:block;color:var(--muted);font-family:var(--mono);font-size:.72rem}
+.stack-wrap{display:grid;gap:14px;min-width:0}
+.stack{position:relative;height:64px;background:var(--bg);border:1px solid var(--line);border-radius:var(--r);display:flex;overflow:visible}
+.seg{height:100%;display:flex;align-items:center;justify-content:center;font:500 .78rem var(--mono);color:#fff;overflow:hidden;white-space:nowrap}
+.seg:first-child{border-radius:var(--r) 0 0 var(--r)}
+.seg.p{background:#5b6b75}.seg.d{background:#8a6a3c}.seg.e{background:var(--accent)}
+.def-mark{position:absolute;top:-10px;bottom:-26px;width:0;border-left:2px dashed var(--warn)}
+.def-mark span{position:absolute;bottom:0;right:6px;font:500 .72rem var(--mono);color:var(--warn);white-space:nowrap}
+.scale{display:flex;justify-content:space-between;font:400 .72rem var(--mono);color:var(--muted);margin-top:16px}
+.anat-total{display:flex;gap:24px;flex-wrap:wrap;align-items:baseline}
+.anat-total .big{font-family:var(--display);font-stretch:75%;font-size:3rem;font-weight:800;line-height:1}
+.verdict{font-size:.95rem;padding:10px 14px;border-radius:var(--r)}
+.verdict.good{background:var(--accent-soft);color:var(--ink)}
+.verdict.bad{background:var(--warn-soft);color:var(--ink)}
+.legend2{display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--muted)}
+.legend2 i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+
+/* key dates */
+.dates{position:relative;padding-top:8px}
+.tl-track{position:relative;height:6px;background:var(--line);border-radius:3px;margin:28px 0 0}
+.tl-prog{position:absolute;left:0;top:0;bottom:0;background:var(--accent);border-radius:3px;width:0}
+.tl-today{position:absolute;top:-30px;transform:translateX(-50%);font:600 .7rem var(--mono);color:var(--accent);white-space:nowrap}
+.tl-today::after{content:"";position:absolute;left:50%;top:18px;height:16px;border-left:2px solid var(--accent)}
+.milestones{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:20px}
+@media (max-width:760px){.milestones{grid-template-columns:1fr 1fr}}
+.ms{display:grid;gap:4px;border-left:2px solid var(--line);padding-left:12px}
+.ms.done{border-left-color:var(--accent)}
+.ms time{font:500 .78rem var(--mono);color:var(--accent)}
+.ms b{font-family:var(--display);font-stretch:80%;font-size:1.1rem}
+.ms span{font-size:.85rem;color:var(--muted)}
+
+/* dot plot */
+.dp svg{width:100%;min-width:600px;display:block}
+.dp svg text{font-family:var(--mono);font-size:11px}
+
+
+/* ===== carbon accounting app ===== */
+.app-top{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.app-top{grid-template-columns:1fr 1fr}}
+.app-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px;align-items:start;margin-top:24px}
+@media (max-width:980px){.app-grid{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:14px;min-width:0}
+.panel-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.panel-h h3{font-size:1.15rem}
+.scope-tag{font:500 .7rem var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;color:#fff}
+.sc1{background:#8a6a3c}.sc2{background:var(--accent)}.sc3{background:#5b6b75}
+.rows{overflow-x:auto}
+.rows table{min-width:620px;font-size:.86rem}
+.rows td{padding:6px 6px}
+.rows th{padding:6px}
+.rows input,.rows select{font:500 .85rem var(--mono);padding:6px 8px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink);width:100%}
+.rows input.w{min-width:90px}
+.rows input[type="text"]{min-width:170px}
+.rows td.res{font-family:var(--mono);text-align:right;white-space:nowrap}
+.xbtn{border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:1rem;padding:4px 8px;border-radius:4px}
+.xbtn:hover{background:var(--warn-soft);color:var(--warn)}
+.add{justify-self:start;font:600 .82rem var(--body);border:1px dashed var(--line);background:transparent;color:var(--accent);padding:7px 12px;border-radius:var(--r);cursor:pointer}
+.pair3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:620px){.pair3{grid-template-columns:1fr}}
+.sticky-res{position:sticky;top:calc(env(safe-area-inset-top,0px) + 120px);display:grid;gap:16px}
+@media (max-width:980px){.sticky-res{position:static}}
+.total{display:grid;gap:2px}
+.total .big{font-family:var(--display);font-stretch:75%;font-size:3.2rem;font-weight:800;line-height:1}
+.sbar{display:grid;gap:10px}
+.sbar-row{display:grid;grid-template-columns:72px minmax(0,1fr) 92px;gap:10px;align-items:center;font-size:.82rem}
+.sbar-track{height:14px;background:var(--bg);border-radius:3px;overflow:hidden;border:1px solid var(--line)}
+.sbar-fill{height:100%;width:0}
+@media (prefers-reduced-motion:no-preference){.sbar-fill{transition:width .7s cubic-bezier(.2,.7,.2,1)}}
+.sbar-row .val{font-family:var(--mono);text-align:right}
+.mini-kpis{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.mini-kpis div{background:var(--surface);padding:12px;display:grid;gap:2px}
+.mini-kpis .k{font-size:.74rem;color:var(--muted)}
+.mini-kpis .v{font-family:var(--display);font-stretch:75%;font-size:1.5rem;font-weight:750}
+.toplist{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:.84rem}
+.toplist li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.toplist li span:last-child{font-family:var(--mono)}
+.chk{display:flex;gap:6px;align-items:center;font-size:.78rem;color:var(--muted);white-space:nowrap}
+.chk input{width:auto;accent-color:var(--accent)}
+.method{font-size:.85rem;color:var(--muted);display:grid;gap:8px}
+.method code{font-family:var(--mono);font-size:.8rem;color:var(--ink)}
+
+/* side switch */
+.switch{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface);gap:2px}
+.switch button{font:600 .82rem var(--body);border:0;background:transparent;color:var(--muted);padding:6px 14px;border-radius:999px;cursor:pointer}
+.switch button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.sidebar{border-bottom:1px solid var(--line);background:var(--bg)}
+.sidebar .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-block:10px;font-size:.85rem;color:var(--muted)}
+/* supplier table */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:.9rem}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
+th{font:500 .72rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--bg)}
+td.r,th.r{text-align:right}
+tr:last-child td{border-bottom:0}
+tr.best td{background:var(--accent-soft)}
+td input{font:500 .9rem var(--mono);width:84px;padding:6px 8px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink);text-align:right}
+td input.nm{width:140px;text-align:left;font-family:var(--body)}
+.pill{display:inline-block;font:500 .72rem var(--mono);padding:3px 8px;border-radius:999px;white-space:nowrap}
+.pill.v{background:var(--accent-soft);color:var(--accent)}
+.pill.e{background:var(--warn-soft);color:var(--warn)}
+.pill.d{background:var(--bg);color:var(--muted);border:1px solid var(--line)}
+.buyer-controls{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:20px}
+@media (max-width:760px){.buyer-controls{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (prefers-reduced-motion:no-preference){.tl .fill,.bar-r{transition:height .4s ease}}
+</style>
+<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand-wrap">
+      <a class="back" href="industries.html" aria-label="Kembali ke Envisor Industries">&larr; ENVISOR</a>
+      <a class="brand" href="#top">TERUKUR <small>CBAM DATA · ID</small></a>
+    </div>
+    <nav data-side="seller">
+      <a href="#kalkulator">Kalkulator</a>
+      <a href="#masalah">Masalahnya</a>
+      <a href="#cara">Cara kerja</a>
+      <a class="btn" href="#pilot">Ajukan pilot</a>
+    </nav>
+    <nav data-side="app" hidden>
+      <a href="#ca-input">Input</a>
+      <a href="#ca-method">Metodologi</a>
+      <a class="btn" href="#pilot" id="appCta">Minta verifikasi data</a>
+    </nav>
+    <nav data-side="buyer" hidden>
+      <a href="#compare">Compare suppliers</a>
+      <a href="#bhow">How it works</a>
+      <a href="#bfaq">FAQ</a>
+      <a class="btn" href="#brequest">Request supplier data</a>
+    </nav>
+  </div>
+</header>
+
+<div class="sidebar"><div class="wrap">
+  <div class="switch" role="group" aria-label="Pilih sisi">
+    <button type="button" id="swSeller" aria-pressed="true">Saya penjual · Eksportir RI</button>
+    <button type="button" id="swBuyer" aria-pressed="false">I'm a buyer · EU importer</button>
+    <button type="button" id="swApp" aria-pressed="false">Kalkulator karbon</button>
+  </div>
+  <span id="swNote">Tampilan untuk pabrik dan eksportir Indonesia.</span>
+</div></div>
+
+<main id="top">
+<div data-side="seller">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">Untuk eksportir besi-baja, aluminium, semen &amp; pupuk ke Uni Eropa</span>
+        <h1>Bayar CBAM dari emisi Anda sendiri, bukan dari <em>default value</em>.</h1>
+        <p class="lede">Tanpa data emisi aktual, pembeli di Eropa menghitung produk Anda dengan nilai default yang tinggi untuk Indonesia. Terukur mengukur emisi per fasilitas, termasuk listrik dan bahan baku hulu, lalu mengemasnya siap diverifikasi.</p>
+        <div class="cta-row">
+          <a class="btn" href="#kalkulator">Hitung selisih biaya</a>
+          <a class="btn ghost" href="#app" id="heroApp">Coba kalkulator karbon</a>
+        </div>
+      </div>
+      <div class="tag" aria-label="Contoh label data emisi">
+        <div class="tag-top"><span>Embedded emissions statement</span><span>Contoh</span></div>
+        <div class="tag-row"><span>Produk</span><b>Stainless cold-rolled</b></div>
+        <div class="tag-row"><span>Kode CN</span><b>7219</b></div>
+        <div class="tag-row"><span>Periode pelaporan</span><b>2027</b></div>
+        <div class="tag-row"><span>Sumber listrik</span><b>Grid + PLTS on-site</b></div>
+        <div class="tag-cmp">
+          <div class="def"><span>Default value</span><span class="big num">8,69</span><span>tCO₂e / t</span></div>
+          <div class="act"><span>Data aktual</span><span class="big num">6,00</span><span>tCO₂e / t</span></div>
+        </div>
+        <div class="tag-foot">Angka aktual adalah ilustrasi. Default value stainless Indonesia menurut analisis SMM.</div>
+      </div>
+    </div>
+  </section>
+  <section class="flow-band">
+    <div class="wrap">
+      <div class="flow rv">
+        <div class="flow-head">
+          <div style="display:grid;gap:6px"><span class="eyebrow">Alurnya</span><h3>Satu angka menentukan biaya di perbatasan Eropa.</h3><p>Barang Anda membawa angka emisi ke pelabuhan UE. Tanpa data, angka itu default value. Dengan data aktual, angkanya milik Anda.</p></div>
+          <button type="button" class="toggle-btn" id="flowSBtn" aria-pressed="false">Lihat dengan data aktual</button>
+        </div>
+        <div class="flow-svg">
+        <svg id="flowS" viewBox="0 0 1000 250" role="img" aria-label="Satu angka menentukan biaya di perbatasan Eropa.">
+          <!-- sea -->
+          <path d="M210 205 H780" class="s-line" stroke-width="2" stroke-dasharray="8 8" fill="none"/>
+          <!-- factory -->
+          <circle class="smoke" cx="78" cy="58" r="7"/><circle class="smoke" cx="78" cy="58" r="7"/><circle class="smoke" cx="78" cy="58" r="7"/><circle class="smoke" cx="118" cy="68" r="7"/><circle class="smoke" cx="118" cy="68" r="7"/><circle class="smoke" cx="118" cy="68" r="7"/>
+          <rect x="70" y="60" width="16" height="70" class="f-muted"/>
+          <rect x="110" y="70" width="16" height="60" class="f-muted"/>
+          <polygon points="40,130 40,105 75,90 75,105 110,90 110,105 145,90 145,105 180,90 180,130" class="f-ink"/>
+          <rect x="40" y="130" width="140" height="75" class="f-ink"/>
+          <rect x="58" y="150" width="20" height="16" class="f-surf"/><rect x="92" y="150" width="20" height="16" class="f-surf"/><rect x="126" y="150" width="20" height="16" class="f-surf"/>
+          <rect x="94" y="178" width="30" height="27" class="f-bg"/>
+          <text x="110" y="228" text-anchor="middle" font-size="11" class="f-muted">PABRIK · INDONESIA</text>
+          <!-- inputs into factory -->
+          <path d="M8 175 H38" class="s-muted" stroke-width="2" stroke-dasharray="4 4" fill="none" style="stroke-dashoffset:0"/>
+          <text x="6" y="168" font-size="10" class="f-muted">Bahan baku</text>
+          <path d="M8 112 C20 112 26 120 38 120" class="s-muted dash-move" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+          <text x="6" y="104" font-size="10" class="f-muted">Listrik ⚡</text>
+          <!-- connector to label -->
+          <path d="M185 95 C220 70 230 70 250 70" class="s-ink dash-move" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+          <!-- data label -->
+          <g>
+            <rect x="250" y="30" width="200" height="86" class="f-surf s-ink" stroke-width="1.5"/>
+            <line x1="250" y1="52" x2="450" y2="52" class="s-ink" stroke-width="1"/>
+            <text x="262" y="46" font-size="10" class="f-ink" letter-spacing="1">EMISI TERKANDUNG</text>
+            <g class="st-def"><text x="262" y="98" font-size="34" class="f-warn f-big">8,69</text><text x="350" y="98" font-size="11" class="f-muted">tCO₂e/t</text><text x="350" y="80" font-size="10" class="f-warn">DEFAULT</text></g>
+            <g class="st-act"><text x="262" y="98" font-size="34" class="f-acc f-big">6,00</text><text x="350" y="98" font-size="11" class="f-muted">tCO₂e/t</text><text x="350" y="80" font-size="10" class="f-acc">ACTUAL ✓</text></g>
+          </g>
+          <!-- ship -->
+          <g class="ship">
+            <polygon points="220,190 330,190 318,206 232,206" class="f-ink"/>
+            <rect x="238" y="176" width="20" height="14" class="f-warn st-def"/><rect x="238" y="176" width="20" height="14" class="f-acc st-act"/>
+            <rect x="260" y="176" width="20" height="14" class="f-muted"/>
+            <rect x="282" y="176" width="20" height="14" class="f-warn st-def"/><rect x="282" y="176" width="20" height="14" class="f-acc st-act"/>
+            <rect x="249" y="162" width="20" height="14" class="f-muted"/><rect x="271" y="162" width="20" height="14" class="f-warn st-def"/><rect x="271" y="162" width="20" height="14" class="f-acc st-act"/>
+            <rect x="306" y="166" width="10" height="24" class="f-ink"/>
+          </g>
+          <text x="495" y="232" text-anchor="middle" font-size="10" class="f-muted">Kapal ke Rotterdam →</text>
+          <!-- gate -->
+          <rect x="790" y="95" width="14" height="115" class="f-ink"/><rect x="866" y="95" width="14" height="115" class="f-ink"/>
+          <rect x="780" y="78" width="110" height="22" class="f-acc gate-pulse"/>
+          <text x="835" y="93" text-anchor="middle" font-size="10" fill="#fff" letter-spacing="1">CBAM · BATAS UE</text>
+          <!-- cost -->
+          <g class="st-def"><text x="990" y="160" text-anchor="end" font-size="44" class="f-warn f-big">€652</text></g>
+          <g class="st-act"><text x="990" y="160" text-anchor="end" font-size="44" class="f-acc f-big">€450</text></g>
+          <text x="990" y="182" text-anchor="end" font-size="10" class="f-muted">biaya per ton, 2034</text>
+          <!-- state caption -->
+          <g class="st-def"><text x="500" y="20" text-anchor="middle" font-size="12" class="f-warn">● Tanpa data: default value</text></g>
+          <g class="st-act"><text x="500" y="20" text-anchor="middle" font-size="12" class="f-acc">● Dengan data aktual terukur</text></g>
+        </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="calc-band" id="kalkulator">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Kalkulator</span>
+        <h2>Berapa yang hilang kalau Anda pakai default value?</h2>
+        <p class="lede">Isi dengan angka Anda. Semua perhitungan berjalan di browser dan tidak dikirim ke mana pun.</p>
+      </div>
+      <div class="calc">
+        <div class="fields">
+          <div class="field">
+            <label for="prod">Produk</label>
+            <select id="prod">
+              <option value="ss">Stainless flat-rolled (CN 7219/7220)</option>
+              <option value="fast">Baut, mur, sekrup baja (CN 7318)</option>
+              <option value="al">Aluminium unwrought (CN 7601)</option>
+              <option value="cem">Semen (CN 2523)</option>
+              <option value="fert">Pupuk nitrogen (CN 3102)</option>
+            </select>
+          </div>
+          <div class="pair">
+            <div class="field">
+              <label for="def">Default value</label>
+              <input id="def" type="number" step="0.01" min="0" inputmode="decimal">
+              <span class="hint" id="defHint">tCO₂e/t</span>
+            </div>
+            <div class="field">
+              <label for="act">Emisi aktual</label>
+              <input id="act" type="number" step="0.01" min="0" value="6" inputmode="decimal">
+              <span class="hint">tCO₂e/t, estimasi Anda</span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="vol">Volume ekspor ke UE</label>
+            <input id="vol" type="number" step="100" min="0" value="10000" inputmode="numeric">
+            <span class="hint">ton per tahun</span>
+          </div>
+          <div class="pair">
+            <div class="field">
+              <label for="ets">Harga sertifikat</label>
+              <input id="ets" type="number" step="1" min="0" value="75" inputmode="decimal">
+              <span class="hint">€/tCO₂e (mengikuti EU ETS)</span>
+            </div>
+            <div class="field">
+              <label for="loc">Harga karbon dibayar di RI</label>
+              <input id="loc" type="number" step="1" min="0" value="0" inputmode="decimal">
+              <span class="hint">€/tCO₂e, saat ini 0</span>
+            </div>
+          </div>
+          <div class="pair">
+            <div class="field">
+              <label for="yr">Tahun</label>
+              <select id="yr"></select>
+            </div>
+            <div class="field">
+              <label for="fx">Kurs</label>
+              <input id="fx" type="number" step="100" min="0" value="18500" inputmode="numeric">
+              <span class="hint">Rp per €, asumsi</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="results">
+          <div id="needDef" class="alert" hidden>Masukkan default value resmi UE untuk produk ini. Nilainya ada di tabel default value Komisi Eropa per negara asal.</div>
+          <div class="kpis">
+            <div class="kpi def"><span class="k">Biaya pakai default</span><span class="v num" id="kDef">–</span><span class="s num" id="kDefT">–</span></div>
+            <div class="kpi act"><span class="k">Biaya pakai data aktual</span><span class="v num" id="kAct">–</span><span class="s num" id="kActT">–</span></div>
+            <div class="kpi save"><span class="k">Selisih per tahun</span><span class="v num" id="kSave">–</span><span class="s num" id="kSaveR">–</span></div>
+          </div>
+          <div class="chart-box">
+            <h3>Biaya CBAM per tahun, 2026–2034</h3>
+            <div class="legend"><span><i style="background:var(--warn)"></i>Default value</span><span><i style="background:var(--accent)"></i>Data aktual</span><span id="cum" class="num"></span></div>
+            <svg id="chart" viewBox="0 0 640 260" width="100%" style="min-width:520px" role="img" aria-label="Grafik biaya CBAM per tahun"></svg>
+          </div>
+          <p class="note">Rumus sederhana: emisi × (harga sertifikat − harga karbon di RI) × porsi kewajiban tahun itu. Porsi kewajiban mengikuti penghapusan bertahap free allocation EU ETS (2,5% di 2026 sampai 100% di 2034). Perhitungan resmi memakai benchmark per produk dan bisa berbeda. Gunakan angka ini untuk memperkirakan besaran, bukan untuk deklarasi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="anatomi">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Anatomi emisi</span>
+        <h2>Dari mana angka emisi satu ton produk berasal?</h2>
+        <p class="lede">Pilih sumber listrik dan bahan baku. Lihat bagaimana total emisi bergerak dibanding default value.</p>
+      </div>
+      <div class="anat">
+        <div style="display:grid;gap:20px">
+          <fieldset class="opt-group">
+            <legend>Sumber listrik pabrik</legend>
+            <label class="opt"><input type="radio" name="el" value="1.05"><span>PLTU captive<small>≈1,05 tCO₂/MWh</small></span></label>
+            <label class="opt"><input type="radio" name="el" value="0.80" checked><span>Grid PLN<small>≈0,80 tCO₂/MWh</small></span></label>
+            <label class="opt"><input type="radio" name="el" value="0.56"><span>Grid PLN + PLTS 30%<small>≈0,56 tCO₂/MWh</small></span></label>
+          </fieldset>
+          <fieldset class="opt-group">
+            <legend>Bahan baku utama</legend>
+            <label class="opt"><input type="radio" name="pr" value="5.5"><span>NPI dari RKEF berbasis batubara<small>≈5,5 tCO₂e per t produk</small></span></label>
+            <label class="opt"><input type="radio" name="pr" value="3.2" checked><span>Campuran NPI + scrap<small>≈3,2 tCO₂e per t produk</small></span></label>
+            <label class="opt"><input type="radio" name="pr" value="1.8"><span>Dominan scrap stainless<small>≈1,8 tCO₂e per t produk</small></span></label>
+          </fieldset>
+        </div>
+        <div class="stack-wrap">
+          <div class="anat-total"><span class="big num" id="aTot">–</span><span class="note">tCO₂e per ton produk<br>vs default value 8,69</span></div>
+          <div>
+            <div class="stack" id="aStack">
+              <div class="seg p" id="aP"></div><div class="seg d" id="aD"></div><div class="seg e" id="aE"></div>
+              <div class="def-mark" style="left:86.9%"><span>default 8,69</span></div>
+            </div>
+            <div class="scale"><span>0</span><span>2</span><span>4</span><span>6</span><span>8</span><span>10</span></div>
+          </div>
+          <div class="legend2"><span><i style="background:#5b6b75"></i>Bahan baku hulu</span><span><i style="background:#8a6a3c"></i>Proses &amp; bahan bakar (1,3)</span><span><i style="background:var(--accent)"></i>Listrik (1,5 MWh/t × faktor emisi)</span></div>
+          <p class="verdict good" id="aVer"></p>
+          <p class="note">Semua angka di bagian ini ilustrasi untuk menunjukkan cara kerja perhitungan, bukan data pabrik atau faktor emisi resmi. Angka sebenarnya hanya bisa didapat dari pengukuran di fasilitas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="masalah">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Masalahnya</span>
+        <h2>Dari empat variabel biaya CBAM, hanya satu yang bisa Anda ubah.</h2>
+      </div>
+      <div class="formula">Biaya = <b>Emisi terkandung</b> × (Harga EU ETS − Harga karbon di RI) × Porsi kewajiban</div>
+      <div class="vars rv">
+        <div class="var key"><span class="st">Bisa Anda ubah</span><h3>Emisi terkandung</h3><p>Tanpa bukti, UE memakai default value plus markup yang naik dari 10% (2026) ke 30% (2028). Pemasok yang sebenarnya lebih bersih tetap dihitung seperti yang paling kotor.</p></div>
+        <div class="var"><span class="st">Pasar Eropa</span><h3>Harga EU ETS</h3><p>Ditentukan pasar karbon UE, sekitar €75 per ton. Tidak bisa dikontrol eksportir.</p></div>
+        <div class="var"><span class="st">Kebijakan RI</span><h3>Harga karbon di RI</h3><p>Pajak karbon sudah ada di UU HPP tetapi belum dipungut, jadi praktis nol.</p></div>
+        <div class="var"><span class="st">Jadwal UE</span><h3>Porsi kewajiban</h3><p>Naik dari 2,5% pada 2026 ke 100% pada 2034. Biaya kecil sekarang, besar saat kontrak jangka panjang Anda berjalan.</p></div>
+      </div>
+      <div class="tl" id="tl" aria-label="Porsi kewajiban CBAM per tahun"></div>
+      <p class="note" style="margin-top:16px">Porsi kewajiban CBAM per tahun. Pembeli menyusun daftar pemasok untuk 2028–2030 sekarang, jadi pemasok tanpa data tersingkir sebelum biayanya besar.</p>
+    </div>
+  </section>
+
+
+  <section class="calc-band">
+    <div class="wrap">
+      <div class="sec-head rv"><span class="eyebrow">Tanggal penting</span><h2>Waktunya lebih pendek dari kelihatannya.</h2></div>
+      <div class="dates rv">
+        <div class="tl-track"><div class="tl-prog"></div><span class="tl-today">Hari ini</span></div>
+        <div class="milestones"><div class="ms" data-d="2026-01-01"><time>1 Jan 2026</time><b>Fase definitif</b><span>CBAM berbayar mulai berlaku. Markup default 10%.</span></div><div class="ms" data-d="2027-09-30"><time>30 Sep 2027</time><b>Deklarasi pertama</b><span>Importir melaporkan impor 2026 beserta data emisi.</span></div><div class="ms" data-d="2028-01-01"><time>2028</time><b>Markup default 30%</b><span>Tanpa data makin mahal setiap tahun.</span></div><div class="ms" data-d="2030-01-01"><time>2030</time><b>Porsi 48,5%</b><span>Hampir separuh emisi terkena biaya.</span></div><div class="ms" data-d="2034-01-01"><time>2034</time><b>Porsi 100%</b><span>Free allocation habis, biaya penuh.</span></div></div>
+      </div>
+    </div>
+  </section>
+  <section id="cara">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Cara kerja</span>
+        <h2>Dari pabrik Anda ke laporan yang siap diverifikasi.</h2>
+      </div>
+      <div class="steps rv">
+        <div class="step"><h3>Ukur</h3><p>Kami memetakan batas instalasi dan mengumpulkan data bahan bakar, proses, dan bahan baku. Untuk listrik, kami membaca data meter dan memisahkan sumber: PLN, PLTU captive, atau PLTS on-site.</p></div>
+        <div class="step"><h3>Hitung</h3><p>Emisi langsung, emisi listrik, dan emisi bahan baku hulu dihitung per produk sesuai metodologi CBAM, sehingga muncul angka tCO₂e per ton untuk tiap kode CN.</p></div>
+        <div class="step"><h3>Kemas</h3><p>Data, bukti, dan asumsi disusun menjadi satu berkas yang bisa diaudit, termasuk communication template yang diminta importir Anda.</p></div>
+        <div class="step"><h3>Hubungkan</h3><p>Berkas diserahkan ke verifikator terakreditasi pilihan Anda atau importir. Kami mendampingi sampai verifikasi selesai dan memperbarui data tiap tahun.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap deliv">
+      <div>
+        <div class="sec-head">
+          <span class="eyebrow">Yang Anda terima</span>
+          <h2>Satu berkas data per instalasi.</h2>
+        </div>
+        <ul class="checklist">
+          <li><code>DIR</code><div><b>Emisi langsung</b><span>Pembakaran bahan bakar, reduktor, dan emisi proses per instalasi.</span></div></li>
+          <li><code>ELEC</code><div><b>Emisi listrik dengan bukti</b><span>Faktor emisi sesuai sumber listrik aktual, didukung data meter. Untuk klaim sambungan langsung, kami siapkan bukti teknisnya.</span></div></li>
+          <li><code>PREC</code><div><b>Bahan baku hulu</b><span>Emisi NPI, ferronikel, klinker, atau alumina dari pemasok Anda, bukan default.</span></div></li>
+          <li><code>TMPL</code><div><b>Communication template</b><span>Format data yang diminta importir UE untuk deklarasi CBAM mereka.</span></div></li>
+          <li><code>GAP</code><div><b>Peta penurunan emisi</b><span>Langkah yang paling menurunkan angka per ton, misalnya ganti sumber listrik atau perbaiki efisiensi.</span></div></li>
+        </ul>
+      </div>
+      <div class="not">
+        <span class="eyebrow">Penting</span>
+        <h3>Terukur bukan lembaga verifikasi.</h3>
+        <p>Verifikasi CBAM harus dilakukan verifikator yang terakreditasi di UE. Kapasitas mereka terbatas, sementara pemohonnya ribuan. Kunjungan lapangan bisa memakan €5.000–50.000 per fasilitas.</p>
+        <p>Peran kami menyiapkan data yang rapi dan lengkap, supaya verifikasi lebih cepat, lebih murah, dan tidak gagal karena dokumen kurang.</p>
+        <p>Kalau data aktual Anda ternyata lebih tinggi dari default value, misalnya karena PLTU captive, kami katakan terus terang dan tunjukkan opsi penurunannya.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="siapa" class="calc-band">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Untuk siapa</span>
+        <h2>Tiga pihak yang butuh angka yang sama.</h2>
+      </div>
+      <div class="aud rv">
+        <div>
+          <span class="who">Eksportir Indonesia</span>
+          <h3>Pertahankan pembeli Eropa</h3>
+          <p>Pabrik yang mengekspor barang terkena CBAM, langsung atau lewat trader.</p>
+          <div class="cn"><span>7219</span><span>7220</span><span>7318</span><span>7601</span><span>2523</span><span>3102</span></div>
+        </div>
+        <div>
+          <span class="who">Importir &amp; trader UE</span>
+          <h3>Bedakan pemasok yang baik</h3>
+          <p>Profil emisi pemasok Indonesia yang datanya terukur, untuk keputusan sourcing dan deklarasi tahunan.</p>
+          <ul><li>Data per instalasi, bukan rata-rata negara</li><li>Format siap deklarasi</li></ul>
+        </div>
+        <div>
+          <span class="who">Bank &amp; investor</span>
+          <h3>Ukur risiko karbon portofolio</h3>
+          <p>Eksposur CBAM per fasilitas untuk kredit ke smelter dan pabrik berorientasi ekspor.</p>
+          <ul><li>Skenario 2026–2034</li><li>Dampak ganti sumber listrik</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pilot">
+    <div class="wrap pilot">
+      <div class="pilot-copy">
+        <span class="eyebrow">Program pilot</span>
+        <h2>Mulai dari satu produk, satu fasilitas.</h2>
+        <p class="lede">Kami membuka pilot terbatas untuk eksportir yang ingin tahu posisi emisinya sebelum deklarasi pertama jatuh tempo 30 September 2027.</p>
+        <ul>
+          <li>Asesmen awal: batas instalasi, data yang sudah ada, dan celahnya</li>
+          <li>Perkiraan emisi aktual dibanding default value</li>
+          <li>Rencana kerja menuju berkas siap verifikasi</li>
+        </ul>
+        <p class="note">Dijalankan oleh praktisi kelistrikan dengan pengalaman lebih dari 10 tahun di utilitas nasional, mencakup metering, faktor emisi grid, dan pelanggan industri.</p>
+      </div>
+      <form id="pf" novalidate>
+        <div class="field"><label for="fName">Nama</label><input id="fName" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="fCo">Perusahaan</label><input id="fCo" type="text" autocomplete="organization" required></div>
+        <div class="pair">
+          <div class="field"><label for="fCn">Produk / kode CN</label><input id="fCn" type="text" placeholder="mis. 7318 baut"></div>
+          <div class="field"><label for="fVol">Volume ke UE (t/tahun)</label><input id="fVol" type="number" min="0" inputmode="numeric"></div>
+        </div>
+        <div class="field"><label for="fPow">Sumber listrik utama</label>
+          <select id="fPow"><option>PLN</option><option>PLTU captive</option><option>Campuran PLN + captive</option><option>PLN + PLTS on-site</option><option>Belum tahu</option></select>
+        </div>
+        <p class="alert" id="fErr" hidden>Isi nama dan perusahaan dulu.</p>
+        <button class="btn" type="submit">Buat pesan pengajuan</button>
+        <div class="out" id="fOut" hidden>
+          <label for="fMsg" class="note">Salin pesan ini dan kirim ke:</label>
+          <span class="contact">qastill@gmail.com</span>
+          <textarea id="fMsg" readonly></textarea>
+          <button class="btn ghost" type="button" id="fCopy">Salin pesan</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="calc-band">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Pertanyaan</span><h2>Yang sering ditanyakan</h2></div>
+      <details><summary>Kapan CBAM mulai benar-benar berbayar?</summary><p>Fase definitif berjalan sejak 1 Januari 2026. Importir UE menyerahkan deklarasi pertama untuk tahun 2026 paling lambat 30 September 2027. Porsi kewajiban masih kecil di awal lalu naik sampai 100% pada 2034.</p></details>
+      <details><summary>Saya tidak mengekspor langsung ke Eropa. Apakah terkena?</summary><p>Bisa. Kewajiban ada di importir UE, tetapi mereka akan meminta data emisi dari pemasok, termasuk pemasok di Indonesia yang menjual lewat trader. Tanpa data, mereka memakai default value dan biasanya meneruskan biayanya ke harga beli.</p></details>
+      <details><summary>Pabrik kami pakai PLTU captive. Apakah data aktual tetap menguntungkan?</summary><p>Belum tentu. Kalau emisi aktual di atas default value, memakai default bisa lebih murah dalam jangka pendek, meski markup default naik tiap tahun. Kami hitung keduanya dan tunjukkan langkah yang paling menurunkan angka, misalnya PLTS on-site atau pembelian listrik dari PLN.</p></details>
+      <details><summary>Bagaimana dengan kerahasiaan data produksi?</summary><p>Data hanya dibagikan ke verifikator dan importir yang Anda setujui. Communication template berisi angka emisi per produk, bukan resep proses atau data komersial.</p></details>
+      <details><summary>Apa bedanya dengan platform intelijen CBAM global?</summary><p>Platform global mengestimasi emisi fasilitas dari data publik. Untuk Indonesia data publiknya tipis, terutama di kawasan industri dengan pembangkit captive. Kami mengukur langsung di fasilitas, jadi angkanya bisa dipakai untuk deklarasi dan verifikasi.</p></details>
+    </div>
+  </section>
+</div>
+<div data-side="app" hidden>
+  <section style="padding-block:48px 72px" id="ca-input">
+    <div class="wrap">
+      <div class="sec-head" style="margin-bottom:24px">
+        <span class="eyebrow">Carbon accounting · GHG Protocol</span>
+        <h2>Hitung jejak karbon fasilitas Anda: Scope 1, 2, dan 3.</h2>
+        <p class="lede">Masukkan data aktivitas setahun. Aplikasi menghitung emisi per scope, intensitas per ton produk, dan perkiraan emisi terkandung untuk CBAM. Contoh pabrik baut baja sudah terisi; ganti dengan angka Anda. Data hanya tersimpan di browser ini.</p>
+      </div>
+
+      <div class="panel">
+        <div class="app-top">
+          <div class="field"><label for="caName">Nama fasilitas</label><input id="caName" type="text"></div>
+          <div class="field"><label for="caYear">Tahun pelaporan</label><input id="caYear" type="number" min="2020" max="2035"></div>
+          <div class="field"><label for="caProd">Produksi</label><input id="caProd" type="number" min="0" step="100"><span class="hint">ton produk per tahun</span></div>
+          <div class="field"><label for="caDef">Default value CBAM (opsional)</label><input id="caDef" type="number" min="0" step="0.01"><span class="hint">tCO₂e/t, untuk pembanding</span></div>
+        </div>
+      </div>
+
+      <div class="app-grid">
+        <div style="display:grid;gap:20px;min-width:0">
+          <div class="panel">
+            <div class="panel-h"><h3>Bahan bakar &amp; proses</h3><span class="scope-tag sc1">Scope 1 · langsung</span></div>
+            <div class="rows"><table><thead><tr><th>Sumber</th><th>Jumlah</th><th>Satuan</th><th>Faktor emisi (tCO₂/satuan)</th><th class="r">tCO₂</th><th></th></tr></thead><tbody id="s1Rows"></tbody></table></div>
+            <button type="button" class="add" id="s1Add">+ Tambah sumber</button>
+          </div>
+
+          <div class="panel">
+            <div class="panel-h"><h3>Listrik</h3><span class="scope-tag sc2">Scope 2 · tidak langsung</span></div>
+            <div class="pair3">
+              <div class="field"><label for="s2Kwh">Listrik dari grid PLN</label><input id="s2Kwh" type="number" min="0" step="1000"><span class="hint">kWh per tahun</span></div>
+              <div class="field"><label for="s2Ef">Faktor emisi grid</label><input id="s2Ef" type="number" min="0" step="0.01"><span class="hint">tCO₂/MWh · asumsi, ganti dengan angka ESDM terbaru</span></div>
+              <div class="field"><label for="s2Rec">REC / listrik hijau dibeli</label><input id="s2Rec" type="number" min="0" step="10"><span class="hint">MWh · untuk market-based</span></div>
+            </div>
+            <div class="pair3">
+              <div class="field"><label for="s2Cap">Listrik PLTU captive</label><input id="s2Cap" type="number" min="0" step="1000"><span class="hint">kWh dibeli dari pembangkit kawasan</span></div>
+              <div class="field"><label for="s2CapEf">Faktor emisi captive</label><input id="s2CapEf" type="number" min="0" step="0.01"><span class="hint">tCO₂/MWh</span></div>
+              <div class="field"><label for="s2Pv">PLTS on-site (dipakai sendiri)</label><input id="s2Pv" type="number" min="0" step="1000"><span class="hint">kWh · emisi nol</span></div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-h"><h3>Rantai pasok</h3><span class="scope-tag sc3">Scope 3 · pilihan</span></div>
+            <p class="note">Bahan baku yang dicentang "precursor" ikut dihitung dalam emisi terkandung CBAM.</p>
+            <div class="rows"><table><thead><tr><th>Bahan baku dibeli</th><th>Jumlah (t)</th><th>EF (tCO₂e/t)</th><th>Precursor</th><th class="r">tCO₂e</th><th></th></tr></thead><tbody id="s3Rows"></tbody></table></div>
+            <button type="button" class="add" id="s3Add">+ Tambah bahan baku</button>
+            <div class="rows"><table><thead><tr><th>Transportasi</th><th>Muatan (t)</th><th>Jarak (km)</th><th>EF (kgCO₂e/t·km)</th><th class="r">tCO₂e</th><th></th></tr></thead><tbody id="s3tRows"></tbody></table></div>
+            <button type="button" class="add" id="s3tAdd">+ Tambah rute</button>
+          </div>
+        </div>
+
+        <aside class="sticky-res">
+          <div class="panel">
+            <div class="total"><span class="note">Total emisi (location-based)</span><span class="big num" id="caTot">–</span><span class="note">tCO₂e per tahun</span></div>
+            <div class="sbar">
+              <div class="sbar-row"><span>Scope 1</span><div class="sbar-track"><div class="sbar-fill sc1" id="b1"></div></div><span class="val num" id="v1"></span></div>
+              <div class="sbar-row"><span>Scope 2</span><div class="sbar-track"><div class="sbar-fill sc2" id="b2"></div></div><span class="val num" id="v2"></span></div>
+              <div class="sbar-row"><span>Scope 3</span><div class="sbar-track"><div class="sbar-fill sc3" id="b3"></div></div><span class="val num" id="v3"></span></div>
+            </div>
+            <div class="mini-kpis">
+              <div><span class="k">Scope 2 market-based</span><span class="v num" id="caMkt">–</span></div>
+              <div><span class="k">Intensitas S1+S2</span><span class="v num" id="caInt">–</span></div>
+              <div><span class="k">Emisi terkandung CBAM*</span><span class="v num" id="caEmb">–</span></div>
+              <div><span class="k">vs default value</span><span class="v num" id="caVs">–</span></div>
+            </div>
+            <p class="note">* Perkiraan: (Scope 1 + Scope 2 location-based + precursor) ÷ produksi, dengan asumsi seluruh fasilitas memproduksi satu jenis barang CBAM.</p>
+          </div>
+          <div class="panel">
+            <h3 style="font-size:1rem">Sumber emisi terbesar</h3>
+            <ol class="toplist" id="caTop"></ol>
+          </div>
+          <div class="panel">
+            <div class="panel-h"><h3 style="font-size:1rem">Ringkasan</h3><div style="display:flex;gap:8px"><button type="button" class="toggle-btn" id="caCopy">Salin CSV</button><button type="button" class="toggle-btn" id="caReset">Isi contoh</button><button type="button" class="toggle-btn" id="caClear">Kosongkan</button></div></div>
+            <textarea id="caCsv" readonly style="min-height:120px"></textarea>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="calc-band" id="ca-method">
+    <div class="wrap deliv">
+      <div class="method">
+        <span class="eyebrow">Metodologi</span>
+        <h2 style="color:var(--ink)">Cara aplikasi ini menghitung</h2>
+        <p><code>Emisi = data aktivitas × faktor emisi</code>, mengikuti GHG Protocol Corporate Standard. Faktor bahan bakar memakai default IPCC 2006 (CO₂ saja, tanpa CH₄ dan N₂O).</p>
+        <p><b>Scope 1</b> mencakup pembakaran bahan bakar di fasilitas dan emisi proses seperti kalsinasi batu kapur (0,44 tCO₂/t CaCO₃).</p>
+        <p><b>Scope 2 location-based</b> memakai faktor emisi grid rata-rata. <b>Market-based</b> mengurangi MWh yang ditutup REC, lalu sisanya dikalikan faktor grid sebagai pendekatan residual mix. Listrik PLTU captive yang dibeli dari pihak lain dihitung di Scope 2 dengan faktor emisi pembangkitnya.</p>
+        <p><b>Scope 3</b> di sini hanya bahan baku dibeli (kategori 1) dan transportasi hulu (kategori 4).</p>
+      </div>
+      <div class="not">
+        <span class="eyebrow">Faktor emisi bawaan</span>
+        <div class="tbl"><table style="min-width:0"><thead><tr><th>Sumber</th><th class="r">tCO₂/satuan</th></tr></thead><tbody id="efTable"></tbody></table></div>
+        <p class="note">Faktor grid, captive, bahan baku, dan transportasi di contoh adalah asumsi yang bisa diedit. Untuk pelaporan resmi dan CBAM, gunakan faktor emisi spesifik fasilitas dan minta verifikasi pihak ketiga.</p>
+      </div>
+    </div>
+  </section>
+</div>
+<div data-side="buyer" hidden>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">For EU importers of steel, aluminium, cement &amp; fertiliser from Indonesia</span>
+        <h1>Know what your Indonesian suppliers <em>actually</em> emit.</h1>
+        <p class="lede">Without supplier data, your CBAM declaration falls back on Indonesia's default values, which are among the highest for stainless and steel. Terukur collects installation-level emissions at your suppliers' sites and delivers them in the format your declaration needs.</p>
+        <div class="cta-row">
+          <a class="btn" href="#compare">Compare suppliers</a>
+          <a class="btn ghost" href="#brequest">Request supplier data</a>
+        </div>
+      </div>
+      <div class="tag" aria-label="Example supplier comparison">
+        <div class="tag-top"><span>Supplier screen · CN 7219</span><span>Example</span></div>
+        <div class="tag-row"><span>Supplier A · grid + PV</span><b>5.60 t/t</b></div>
+        <div class="tag-row"><span>Supplier C · grid</span><b>6.80 t/t</b></div>
+        <div class="tag-row"><span>Supplier D · no data</span><b>8.69 t/t</b></div>
+        <div class="tag-row"><span>Supplier B · captive coal</span><b>9.40 t/t</b></div>
+        <div class="tag-cmp">
+          <div class="def"><span>Default, 2034</span><span class="big num">€652</span><span>per tonne</span></div>
+          <div class="act"><span>Best supplier, 2034</span><span class="big num">€420</span><span>per tonne</span></div>
+        </div>
+        <div class="tag-foot">Illustrative suppliers at €75/tCO₂e. Indonesian stainless default value per SMM analysis.</div>
+      </div>
+    </div>
+  </section>
+  <section class="flow-band">
+    <div class="wrap">
+      <div class="flow rv">
+        <div class="flow-head">
+          <div style="display:grid;gap:6px"><span class="eyebrow">The flow</span><h3>One number sets the cost at the EU border.</h3><p>Every shipment carries an emissions figure to the EU port. Without supplier data it is the default value. With installation data, it is the real one.</p></div>
+          <button type="button" class="toggle-btn" id="flowBBtn" aria-pressed="false">Show with actual data</button>
+        </div>
+        <div class="flow-svg">
+        <svg id="flowB" viewBox="0 0 1000 250" role="img" aria-label="One number sets the cost at the EU border.">
+          <!-- sea -->
+          <path d="M210 205 H780" class="s-line" stroke-width="2" stroke-dasharray="8 8" fill="none"/>
+          <!-- factory -->
+          <circle class="smoke" cx="78" cy="58" r="7"/><circle class="smoke" cx="78" cy="58" r="7"/><circle class="smoke" cx="78" cy="58" r="7"/><circle class="smoke" cx="118" cy="68" r="7"/><circle class="smoke" cx="118" cy="68" r="7"/><circle class="smoke" cx="118" cy="68" r="7"/>
+          <rect x="70" y="60" width="16" height="70" class="f-muted"/>
+          <rect x="110" y="70" width="16" height="60" class="f-muted"/>
+          <polygon points="40,130 40,105 75,90 75,105 110,90 110,105 145,90 145,105 180,90 180,130" class="f-ink"/>
+          <rect x="40" y="130" width="140" height="75" class="f-ink"/>
+          <rect x="58" y="150" width="20" height="16" class="f-surf"/><rect x="92" y="150" width="20" height="16" class="f-surf"/><rect x="126" y="150" width="20" height="16" class="f-surf"/>
+          <rect x="94" y="178" width="30" height="27" class="f-bg"/>
+          <text x="110" y="228" text-anchor="middle" font-size="11" class="f-muted">PLANT · INDONESIA</text>
+          <!-- inputs into factory -->
+          <path d="M8 175 H38" class="s-muted" stroke-width="2" stroke-dasharray="4 4" fill="none" style="stroke-dashoffset:0"/>
+          <text x="6" y="168" font-size="10" class="f-muted">Precursors</text>
+          <path d="M8 112 C20 112 26 120 38 120" class="s-muted dash-move" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+          <text x="6" y="104" font-size="10" class="f-muted">Electricity ⚡</text>
+          <!-- connector to label -->
+          <path d="M185 95 C220 70 230 70 250 70" class="s-ink dash-move" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+          <!-- data label -->
+          <g>
+            <rect x="250" y="30" width="200" height="86" class="f-surf s-ink" stroke-width="1.5"/>
+            <line x1="250" y1="52" x2="450" y2="52" class="s-ink" stroke-width="1"/>
+            <text x="262" y="46" font-size="10" class="f-ink" letter-spacing="1">EMBEDDED EMISSIONS</text>
+            <g class="st-def"><text x="262" y="98" font-size="34" class="f-warn f-big">8,69</text><text x="350" y="98" font-size="11" class="f-muted">tCO₂e/t</text><text x="350" y="80" font-size="10" class="f-warn">DEFAULT</text></g>
+            <g class="st-act"><text x="262" y="98" font-size="34" class="f-acc f-big">6,00</text><text x="350" y="98" font-size="11" class="f-muted">tCO₂e/t</text><text x="350" y="80" font-size="10" class="f-acc">ACTUAL ✓</text></g>
+          </g>
+          <!-- ship -->
+          <g class="ship">
+            <polygon points="220,190 330,190 318,206 232,206" class="f-ink"/>
+            <rect x="238" y="176" width="20" height="14" class="f-warn st-def"/><rect x="238" y="176" width="20" height="14" class="f-acc st-act"/>
+            <rect x="260" y="176" width="20" height="14" class="f-muted"/>
+            <rect x="282" y="176" width="20" height="14" class="f-warn st-def"/><rect x="282" y="176" width="20" height="14" class="f-acc st-act"/>
+            <rect x="249" y="162" width="20" height="14" class="f-muted"/><rect x="271" y="162" width="20" height="14" class="f-warn st-def"/><rect x="271" y="162" width="20" height="14" class="f-acc st-act"/>
+            <rect x="306" y="166" width="10" height="24" class="f-ink"/>
+          </g>
+          <text x="495" y="232" text-anchor="middle" font-size="10" class="f-muted">Vessel to Rotterdam →</text>
+          <!-- gate -->
+          <rect x="790" y="95" width="14" height="115" class="f-ink"/><rect x="866" y="95" width="14" height="115" class="f-ink"/>
+          <rect x="780" y="78" width="110" height="22" class="f-acc gate-pulse"/>
+          <text x="835" y="93" text-anchor="middle" font-size="10" fill="#fff" letter-spacing="1">CBAM · EU BORDER</text>
+          <!-- cost -->
+          <g class="st-def"><text x="990" y="160" text-anchor="end" font-size="44" class="f-warn f-big">€652</text></g>
+          <g class="st-act"><text x="990" y="160" text-anchor="end" font-size="44" class="f-acc f-big">€450</text></g>
+          <text x="990" y="182" text-anchor="end" font-size="10" class="f-muted">cost per tonne, 2034</text>
+          <!-- state caption -->
+          <g class="st-def"><text x="500" y="20" text-anchor="middle" font-size="12" class="f-warn">● No supplier data: default value</text></g>
+          <g class="st-act"><text x="500" y="20" text-anchor="middle" font-size="12" class="f-acc">● With measured supplier data</text></g>
+        </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="calc-band" id="compare">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Supplier comparison</span>
+        <h2>Which supplier carries the lowest CBAM cost?</h2>
+        <p class="lede">Edit any value. The rows are illustrative suppliers, not real companies. Calculations run in your browser.</p>
+      </div>
+      <div class="buyer-controls">
+        <div class="field"><label for="bVol">Annual volume</label><input id="bVol" type="number" min="0" step="100" value="5000"><span class="hint">tonnes per year</span></div>
+        <div class="field"><label for="bEts">Certificate price</label><input id="bEts" type="number" min="0" step="1" value="75"><span class="hint">€/tCO₂e</span></div>
+        <div class="field"><label for="bDef">Default value</label><input id="bDef" type="number" min="0" step="0.01" value="8.69"><span class="hint">tCO₂e/t, stainless (SMM)</span></div>
+        <div class="field"><label for="bYr">Year</label><select id="bYr"></select></div>
+      </div>
+      <div class="tbl rv">
+        <table>
+          <thead><tr><th>Supplier</th><th>Electricity</th><th>Data status</th><th class="r">Intensity tCO₂e/t</th><th class="r">CBAM €/t</th><th class="r">Annual cost</th><th class="r">vs default</th></tr></thead>
+          <tbody id="bRows"></tbody>
+        </table>
+      </div>
+      <p class="note" style="margin-top:12px">Cost = intensity × certificate price × CBAM phase-in share for the year (2.5% in 2026 rising to 100% in 2034). Suppliers without data are charged at the default value. The official method uses product benchmarks; treat this as an order-of-magnitude screen.</p>
+    </div>
+  </section>
+
+
+  <section id="spread">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Why supplier data matters</span>
+        <h2>Without data, every supplier looks the same.</h2>
+        <p class="lede">Each dot is an illustrative Indonesian supplier. With no data, all sit at the default value. Measure them, and the real spread appears: some well below default, some above.</p>
+      </div>
+      <div class="flow dp rv">
+        <div class="flow-head">
+          <div class="legend2"><span><i style="background:var(--muted)"></i>No data</span><span><i style="background:var(--accent)"></i>Below default</span><span><i style="background:var(--warn)"></i>Above default</span></div>
+          <button type="button" class="toggle-btn" id="dpBtn" aria-pressed="false">Measure suppliers</button>
+        </div>
+        <div class="flow-svg"><svg id="dp" viewBox="0 0 700 200" role="img" aria-label="Supplier emissions spread"></svg></div>
+      </div>
+    </div>
+  </section>
+  <section class="calc-band">
+    <div class="wrap">
+      <div class="sec-head rv"><span class="eyebrow">Key dates</span><h2>The runway is shorter than it looks.</h2></div>
+      <div class="dates rv">
+        <div class="tl-track"><div class="tl-prog"></div><span class="tl-today">Today</span></div>
+        <div class="milestones"><div class="ms" data-d="2026-01-01"><time>1 Jan 2026</time><b>Definitive phase</b><span>Paid CBAM begins. Default markup 10%.</span></div><div class="ms" data-d="2027-09-30"><time>30 Sep 2027</time><b>First declaration</b><span>Importers report 2026 imports with emissions data.</span></div><div class="ms" data-d="2028-01-01"><time>2028</time><b>30% default markup</b><span>Missing data costs more every year.</span></div><div class="ms" data-d="2030-01-01"><time>2030</time><b>48.5% phase-in</b><span>Nearly half of emissions are priced.</span></div><div class="ms" data-d="2034-01-01"><time>2034</time><b>100% phase-in</b><span>Free allocation ends. Full cost.</span></div></div>
+      </div>
+    </div>
+  </section>
+  <section id="bhow">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">How it works</span>
+        <h2>You name the suppliers. We go to their sites.</h2>
+      </div>
+      <div class="steps rv">
+        <div class="step"><h3>Request</h3><p>Send us your Indonesian supplier list and CN codes. We contact each supplier in Bahasa Indonesia and agree on scope and confidentiality.</p></div>
+        <div class="step"><h3>Collect</h3><p>Our team works on site: fuel, process and precursor data, plus metered electricity split by source (PLN grid, captive coal, on-site solar).</p></div>
+        <div class="step"><h3>Deliver</h3><p>You receive a completed communication template per installation and product, with evidence ready for an EU-accredited verifier.</p></div>
+        <div class="step"><h3>Update</h3><p>Data is refreshed every reporting year, and you get a note whenever a supplier changes power source or process.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="calc-band">
+    <div class="wrap deliv">
+      <div>
+        <div class="sec-head"><span class="eyebrow">What you get</span><h2>Supplier data you can declare.</h2></div>
+        <ul class="checklist">
+          <li><code>TMPL</code><div><b>Communication template per installation</b><span>Direct, indirect and precursor emissions per CN code, in the format your declaration uses.</span></div></li>
+          <li><code>EVID</code><div><b>Evidence pack</b><span>Meter data, fuel records and assumptions, organised for verification.</span></div></li>
+          <li><code>RANK</code><div><b>Supplier ranking</b><span>Your Indonesian suppliers compared on intensity and cost, 2026–2034.</span></div></li>
+          <li><code>LOCAL</code><div><b>Local presence</b><span>Site visits, Bahasa Indonesia communication and follow-up handled in Indonesia.</span></div></li>
+        </ul>
+      </div>
+      <div class="not">
+        <span class="eyebrow">Why Indonesia is different</span>
+        <h3>Public data cannot tell good suppliers from bad ones.</h3>
+        <p>Many Indonesian plants, especially in nickel-based industrial parks, run on captive coal power. Others buy from the PLN grid or have rooftop solar. Their intensities can differ widely, but public sources rarely show which is which.</p>
+        <p>Estimates from global databases are a starting point. Declarations need installation data.</p>
+        <p>Terukur is not a verification body. We prepare the data; your accredited verifier signs it off.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="brequest">
+    <div class="wrap pilot">
+      <div class="pilot-copy">
+        <span class="eyebrow">Request supplier data</span>
+        <h2>Start with your highest-volume supplier.</h2>
+        <p class="lede">The first declaration for 2026 imports is due 30 September 2027. Supplier data takes months to collect.</p>
+        <ul>
+          <li>Scoping call within one week</li>
+          <li>One supplier, one product to begin</li>
+          <li>Expand to your full Indonesian supplier base</li>
+        </ul>
+      </div>
+      <form id="bf" novalidate>
+        <div class="field"><label for="bName">Name</label><input id="bName" type="text" autocomplete="name"></div>
+        <div class="field"><label for="bCo">Company &amp; country</label><input id="bCo" type="text" autocomplete="organization" placeholder="e.g. Acme Metals GmbH, Germany"></div>
+        <div class="pair">
+          <div class="field"><label for="bCn">CN codes</label><input id="bCn" type="text" placeholder="7219, 7318"></div>
+          <div class="field"><label for="bN">Indonesian suppliers</label><input id="bN" type="number" min="1"></div>
+        </div>
+        <p class="alert" id="bErr" hidden>Please add your name and company.</p>
+        <button class="btn" type="submit">Create request message</button>
+        <div class="out" id="bOut" hidden>
+          <label for="bMsg" class="note">Copy this message and send it to:</label>
+          <span class="contact">qastill@gmail.com</span>
+          <textarea id="bMsg" readonly></textarea>
+          <button class="btn ghost" type="button" id="bCopy">Copy message</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="calc-band" id="bfaq">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Common questions</h2></div>
+      <details><summary>Will my suppliers cooperate?</summary><p>Most want to keep EU customers. We approach them locally, in their language, and explain that actual data usually lowers the price pressure they face. Data stays limited to what the CBAM template requires.</p></details>
+      <details><summary>What if a supplier's actual emissions exceed the default?</summary><p>Then you will know. You can keep using the default for that supplier, ask for a reduction plan, or shift volume. Hiding it only defers the cost as default markups rise.</p></details>
+      <details><summary>Can you buy through traders?</summary><p>Yes. We trace the producing installation behind the trader, since CBAM data is tied to the installation, not the seller.</p></details>
+      <details><summary>Do you replace our verifier?</summary><p>No. We prepare installation data and evidence. Verification stays with an EU-accredited body.</p></details>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Terukur adalah layanan dari <a href="industries.html">Envisor Industries</a>, saat ini dalam tahap awal. Angka di halaman ini ilustrasi dan bukan nasihat hukum atau pajak.</p>
+    <ol>
+      <li>Default value stainless Indonesia 8,69 tCO₂e/t, kapasitas verifikator, dan biaya verifikasi: <a href="https://news.metal.com/en/newscontent/104031152-smm-analysis-cbam-costs-are-taking-effect-verification-capacity-lags-what-stainless-steel-exporters-need-to-know" target="_blank" rel="noopener">SMM Analysis</a></li>
+      <li>Eksposur CBAM Indonesia: <a href="https://cbamguide.com/countries/indonesia/" target="_blank" rel="noopener">CBAM Guide – Indonesia</a></li>
+      <li>Status pajak karbon: <a href="https://news.ddtc.co.id/komunitas/kolaborasi/1823223/ketika-penerapan-pajak-karbon-masih-tertunda" target="_blank" rel="noopener">DDTCNews</a></li>
+    </ol>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const PHASE={2026:.025,2027:.05,2028:.10,2029:.225,2030:.485,2031:.61,2032:.735,2033:.86,2034:1};
+  const YEARS=Object.keys(PHASE).map(Number);
+  const PRESET={
+    ss:{def:8.69,hint:"tCO₂e/t · sumber: SMM"},
+    fast:{def:null,hint:"isi dari tabel default UE"},
+    al:{def:null,hint:"isi dari tabel default UE"},
+    cem:{def:null,hint:"isi dari tabel default UE"},
+    fert:{def:null,hint:"isi dari tabel default UE"}
+  };
+  const $=id=>document.getElementById(id);
+  const RM0=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const tweens={};
+  function tween(id,to,fmt){
+    const el=$(id),from=tweens[id]??0;tweens[id]=to;
+    if(RM0||!isFinite(from)){el.textContent=fmt(to);return}
+    const t0=performance.now(),dur=600;
+    const step=t=>{const k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=fmt(from+(to-from)*e);if(k<1)requestAnimationFrame(step)};
+    el.textContent=fmt(from+(to-from)*0.0001);requestAnimationFrame(step);
+  }
+
+  const yr=$("yr");
+  YEARS.forEach(y=>{const o=document.createElement("option");o.value=y;o.textContent=y+" · "+(PHASE[y]*100).toLocaleString("id-ID")+"%";yr.appendChild(o)});
+  yr.value=2030;
+
+  const eur=v=>"€"+Math.round(v).toLocaleString("id-ID");
+  const big=v=>Math.abs(v)>=1e6?"€"+(v/1e6).toLocaleString("id-ID",{maximumFractionDigits:2})+" jt":eur(v);
+  const rp=v=>{const a=Math.abs(v);return (v<0?"−":"")+"Rp"+(a>=1e12?(a/1e12).toLocaleString("id-ID",{maximumFractionDigits:2})+" T":a>=1e9?(a/1e9).toLocaleString("id-ID",{maximumFractionDigits:1})+" M":(a/1e6).toLocaleString("id-ID",{maximumFractionDigits:0})+" jt")};
+  const num=id=>{const v=parseFloat($(id).value);return isFinite(v)?v:NaN};
+
+  function applyPreset(){
+    const p=PRESET[$("prod").value];
+    $("def").value=p.def==null?"":p.def;
+    $("defHint").textContent=p.hint;
+    calc();
+  }
+
+  function calc(){
+    const d=num("def"),a=num("act"),v=num("vol")||0,ets=num("ets")||0,loc=num("loc")||0,fx=num("fx")||0,y=+yr.value;
+    const spread=Math.max(0,ets-loc);
+    const ok=isFinite(d)&&isFinite(a);
+    $("needDef").hidden=isFinite(d);
+    if(!ok){["kDef","kAct","kSave"].forEach(k=>$(k).textContent="–");["kDefT","kActT","kSaveR"].forEach(k=>$(k).textContent="");drawChart(null);return}
+    const per=e=>e*spread*PHASE[y];
+    const cd=per(d)*v, ca=per(a)*v, s=cd-ca;
+    tween("kDef",cd,big); $("kDefT").textContent=eur(per(d))+"/t · "+y;
+    tween("kAct",ca,big); $("kActT").textContent=eur(per(a))+"/t · "+y;
+    tween("kSave",s,x=>(x<0?"−":"")+big(Math.abs(x))); $("kSaveR").textContent=rp(s*fx)+(s<0?" · data aktual lebih mahal":"");
+    const series=YEARS.map(yy=>({y:yy,d:d*spread*PHASE[yy]*v,a:a*spread*PHASE[yy]*v}));
+    const cum=series.reduce((t,r)=>t+r.d-r.a,0);
+    $("cum").textContent="Selisih kumulatif 2026–2034: "+(cum<0?"−":"")+big(Math.abs(cum))+" ("+rp(cum*fx)+")";
+    drawChart(series);
+  }
+
+  function niceMax(m){if(m<=0)return 1;const p=Math.pow(10,Math.floor(Math.log10(m)));const n=m/p;return (n<=1?1:n<=2?2:n<=2.5?2.5:n<=5?5:10)*p}
+  function fmtAxis(v){return v>=1e6?(v/1e6).toLocaleString("id-ID",{maximumFractionDigits:1})+" jt":v>=1e3?(v/1e3).toLocaleString("id-ID",{maximumFractionDigits:0})+" rb":v.toLocaleString("id-ID")}
+
+  let animNext=true;
+  function drawChart(series){
+    const anim=animNext;animNext=false;
+    const svg=$("chart"),NS="http://www.w3.org/2000/svg";
+    svg.innerHTML="";
+    const W=640,H=260,L=64,R=12,T=14,B=30,iw=W-L-R,ih=H-T-B;
+    const el=(t,at,txt)=>{const e=document.createElementNS(NS,t);for(const k in at)e.setAttribute(k,at[k]);if(txt!=null)e.textContent=txt;svg.appendChild(e);return e};
+    if(!series){el("text",{x:W/2,y:H/2,"text-anchor":"middle",fill:"var(--muted)"},"Lengkapi default value untuk melihat grafik");return}
+    const max=niceMax(Math.max(...series.map(r=>Math.max(r.d,r.a))));
+    for(let i=0;i<=4;i++){
+      const v=max*i/4,yy=T+ih-ih*i/4;
+      el("line",{x1:L,x2:W-R,y1:yy,y2:yy,stroke:"var(--line)","stroke-width":1});
+      el("text",{x:L-8,y:yy+4,"text-anchor":"end",fill:"var(--muted)"},"€"+fmtAxis(v));
+    }
+    const gw=iw/series.length,bw=Math.min(22,gw*.34);
+    series.forEach((r,i)=>{
+      const cx=L+gw*i+gw/2;
+      const hd=ih*r.d/max,ha=ih*r.a/max;
+      el("rect",{x:cx-bw-1,y:T+ih-hd,width:bw,height:Math.max(0,hd),fill:"var(--warn)",rx:2,class:anim?"bar-g":"",style:"animation-delay:"+(i*40)+"ms"}).appendChild(Object.assign(document.createElementNS(NS,"title"),{textContent:r.y+" default: "+eur(r.d)}));
+      el("rect",{x:cx+1,y:T+ih-ha,width:bw,height:Math.max(0,ha),fill:"var(--accent)",rx:2,class:anim?"bar-g":"",style:"animation-delay:"+(i*40+20)+"ms"}).appendChild(Object.assign(document.createElementNS(NS,"title"),{textContent:r.y+" aktual: "+eur(r.a)}));
+      el("text",{x:cx,y:H-10,"text-anchor":"middle",fill:+yr.value===r.y?"var(--ink)":"var(--muted)","font-weight":+yr.value===r.y?"600":"400"},r.y);
+    });
+  }
+
+  // phase-in timeline
+  const tl=$("tl");
+  YEARS.forEach(y=>{const d=document.createElement("div");d.innerHTML='<div class="bar"><div class="fill" style="height:'+(PHASE[y]*100)+'%"></div></div><span class="num">'+(PHASE[y]*100).toLocaleString("id-ID")+'%</span><span class="y">'+y+'</span>';tl.appendChild(d)});
+
+  ["def","act","vol","ets","loc","fx"].forEach(id=>$(id).addEventListener("input",calc));
+  yr.addEventListener("change",()=>{animNext=true;calc()});
+  $("prod").addEventListener("change",()=>{animNext=true;applyPreset()});
+  applyPreset();
+
+  // pilot form
+  $("pf").addEventListener("submit",e=>{
+    e.preventDefault();
+    const n=$("fName").value.trim(),c=$("fCo").value.trim();
+    $("fErr").hidden=!!(n&&c);
+    if(!n||!c)return;
+    const msg="Halo Terukur,\n\nSaya ingin mengajukan pilot data emisi CBAM.\n\nNama: "+n+"\nPerusahaan: "+c+"\nProduk/kode CN: "+($("fCn").value.trim()||"-")+"\nVolume ke UE: "+($("fVol").value||"-")+" t/tahun\nSumber listrik utama: "+$("fPow").value+"\n\nMohon info langkah selanjutnya.\n\nTerima kasih.";
+    $("fMsg").value=msg;$("fOut").hidden=false;
+  });
+  $("fCopy").addEventListener("click",()=>{
+    const t=$("fMsg"),b=$("fCopy");
+    const done=()=>{b.textContent="Tersalin";setTimeout(()=>b.textContent="Salin pesan",1600)};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,()=>{t.select();b.textContent="Tekan Ctrl/Cmd+C"})}
+    else{t.select();b.textContent="Tekan Ctrl/Cmd+C"}
+  });
+
+  // ---------- buyer side ----------
+  const bYr=$("bYr");
+  YEARS.forEach(y=>{const o=document.createElement("option");o.value=y;o.textContent=y+" · "+(PHASE[y]*100)+"%";bYr.appendChild(o)});
+  bYr.value=2030;
+  const SUP=[
+    {n:"Supplier A",loc:"West Java",el:"PLN grid + rooftop PV",st:"v",i:5.6},
+    {n:"Supplier B",loc:"Sulawesi",el:"Captive coal",st:"e",i:9.4},
+    {n:"Supplier C",loc:"Banten",el:"PLN grid",st:"e",i:6.8},
+    {n:"Supplier D",loc:"Unknown",el:"Unknown",st:"d",i:null}
+  ];
+  const ST={v:["Actual, verify-ready","v"],e:["Estimate","e"],d:["No data · default","d"]};
+  const bRows=$("bRows");
+  SUP.forEach((s,k)=>{
+    const tr=document.createElement("tr");tr.id="sr"+k;
+    tr.innerHTML='<td><input class="nm" id="sn'+k+'" value="'+s.n+'" aria-label="Supplier name"><div class="note">'+s.loc+'</div></td><td>'+s.el+'</td><td><span class="pill '+ST[s.st][1]+'">'+ST[s.st][0]+'</span></td>'+
+      '<td class="r">'+(s.i==null?'<span class="num" id="si'+k+'">–</span>':'<input type="number" step="0.01" min="0" id="si'+k+'" value="'+s.i+'" aria-label="Intensity">')+'</td>'+
+      '<td class="r num" id="sc'+k+'"></td><td class="r num" id="sa'+k+'"></td><td class="r num" id="sv'+k+'"></td>';
+    bRows.appendChild(tr);
+  });
+  function bcalc(){
+    const v=parseFloat($("bVol").value)||0,ets=parseFloat($("bEts").value)||0,d=parseFloat($("bDef").value)||0,f=PHASE[+bYr.value];
+    let best=-1,bestC=Infinity;
+    SUP.forEach((s,k)=>{
+      const inp=$("si"+k);
+      const i=s.i==null?d:(parseFloat(inp.value)||0);
+      if(s.i==null)inp.textContent=d.toLocaleString("en-GB",{minimumFractionDigits:2});
+      const per=i*ets*f,ann=per*v,dv=(d-i)*ets*f*v;
+      $("sc"+k).textContent="€"+per.toLocaleString("en-GB",{maximumFractionDigits:0});
+      $("sa"+k).textContent="€"+Math.round(ann).toLocaleString("en-GB");
+      $("sv"+k).textContent=s.i==null?"—":(dv>=0?"−€":"+€")+Math.round(Math.abs(dv)).toLocaleString("en-GB");
+      $("sv"+k).style.color=s.i==null?"":dv>=0?"var(--good)":"var(--warn)";
+      if(ann<bestC){bestC=ann;best=k}
+    });
+    SUP.forEach((s,k)=>$("sr"+k).classList.toggle("best",k===best));
+  }
+  ["bVol","bEts","bDef"].forEach(id=>$(id).addEventListener("input",bcalc));
+  bYr.addEventListener("change",bcalc);
+  SUP.forEach((s,k)=>{if(s.i!=null)$("si"+k).addEventListener("input",bcalc)});
+  bcalc();
+
+  $("bf").addEventListener("submit",e=>{
+    e.preventDefault();
+    const n=$("bName").value.trim(),c=$("bCo").value.trim();
+    $("bErr").hidden=!!(n&&c);if(!n||!c)return;
+    $("bMsg").value="Hello Terukur,\n\nWe would like supplier emissions data for CBAM.\n\nName: "+n+"\nCompany: "+c+"\nCN codes: "+($("bCn").value.trim()||"-")+"\nNumber of Indonesian suppliers: "+($("bN").value||"-")+"\n\nPlease let us know the next steps.\n\nBest regards";
+    $("bOut").hidden=false;
+  });
+  $("bCopy").addEventListener("click",()=>{
+    const t=$("bMsg"),b=$("bCopy");
+    const done=()=>{b.textContent="Copied";setTimeout(()=>b.textContent="Copy message",1600)};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,()=>{t.select();b.textContent="Press Ctrl/Cmd+C"})}else{t.select();b.textContent="Press Ctrl/Cmd+C"}
+  });
+
+
+  // ---------- motion helpers ----------
+  const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // flow toggles
+  function flowCtl(id){
+    const svg=$(id),btn=$(id+"Btn");let on=false,timer=null;
+    const set=v=>{on=v;svg.classList.toggle("is-act",on);btn.setAttribute("aria-pressed",on)};
+    btn.addEventListener("click",()=>{clearInterval(timer);timer=null;set(!on)});
+    if(!RM)timer=setInterval(()=>set(!on),3600);
+  }
+  flowCtl("flowS");flowCtl("flowB");
+
+  // reveal on scroll (elements stay visible; below-fold ones slide up a little)
+  const rvs=[...document.querySelectorAll(".rv")];
+  if(!RM&&"IntersectionObserver" in window){
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove("pre");io.unobserve(e.target)}}),{threshold:.12});
+    rvs.forEach(el=>{if(el.getBoundingClientRect().top>innerHeight){el.classList.add("pre");io.observe(el)}});
+  }
+
+  // anatomy
+  const ELMWH=1.5,DIR=1.3,DEF=8.69,MAXS=10;
+  function anat(){
+    const ef=+document.querySelector('input[name="el"]:checked').value;
+    const pr=+document.querySelector('input[name="pr"]:checked').value;
+    const e=ELMWH*ef,tot=pr+DIR+e;
+    const w=(v,id)=>{const el=$(id);el.style.width=(v/MAXS*100)+"%";el.textContent=v>=.9?v.toLocaleString("id-ID",{maximumFractionDigits:2}):""};
+    w(pr,"aP");w(DIR,"aD");w(e,"aE");
+    tween("aTot",tot,x=>x.toLocaleString("id-ID",{minimumFractionDigits:2,maximumFractionDigits:2}));
+    const v=$("aVer"),diff=DEF-tot;
+    v.className="verdict "+(diff>=0?"good":"bad");
+    v.textContent=diff>=0?"Lebih rendah "+diff.toLocaleString("id-ID",{maximumFractionDigits:2})+" tCO₂e/t dari default. Data aktual menguntungkan, dan setiap ton yang dibuktikan mengurangi biaya CBAM."
+      :"Lebih tinggi "+(-diff).toLocaleString("id-ID",{maximumFractionDigits:2})+" tCO₂e/t dari default. Data aktual belum menguntungkan; mulai dari mengganti sumber listrik atau bahan baku.";
+  }
+  document.querySelectorAll('input[name="el"],input[name="pr"]').forEach(r=>r.addEventListener("change",anat));
+  anat();
+
+  // key dates timeline
+  const T0=new Date("2026-01-01"),T1=new Date("2034-12-31"),now=new Date();
+  const frac=d=>Math.min(1,Math.max(0,(d-T0)/(T1-T0)));
+  document.querySelectorAll(".dates").forEach(box=>{
+    const p=frac(now)*100;
+    const prog=box.querySelector(".tl-prog"),tod=box.querySelector(".tl-today");
+    tod.style.left=p+"%";
+    const fill=()=>{prog.style.width=p+"%"};
+    if(!RM&&"IntersectionObserver" in window){
+      prog.style.width="0%";
+      const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){fill();io.disconnect()}},{threshold:.3});io.observe(box);
+      setTimeout(fill,4000);
+    }else fill();
+    box.querySelectorAll(".ms").forEach(m=>m.classList.toggle("done",new Date(m.dataset.d)<=now));
+  });
+
+  // supplier spread dot plot
+  (function(){
+    const svg=$("dp"),NS="http://www.w3.org/2000/svg",L=40,R=20,W=700,mx=12;
+    const X=v=>L+(W-L-R)*v/mx;
+    const SUPS=[4.9,5.4,5.6,6.1,6.4,6.8,7.1,7.5,7.9,8.4,9.0,9.4,10.2,11.1];
+    const mk=(t,a,txt)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;svg.appendChild(e);return e};
+    for(let v=0;v<=mx;v+=2){mk("line",{x1:X(v),x2:X(v),y1:20,y2:160,stroke:"var(--line)"});mk("text",{x:X(v),y:180,"text-anchor":"middle",fill:"var(--muted)"},v)}
+    mk("text",{x:W-R,y:196,"text-anchor":"end",fill:"var(--muted)"},"tCO₂e per tonne");
+    mk("line",{x1:X(8.69),x2:X(8.69),y1:14,y2:162,stroke:"var(--warn)","stroke-width":2,"stroke-dasharray":"5 4"});
+    mk("text",{x:X(8.69)+6,y:24,fill:"var(--warn)"},"default 8.69");
+    const dots=SUPS.map((v,i)=>{const c=mk("circle",{cx:0,cy:40+(i%7)*17,r:8,class:"dot",fill:"var(--muted)"});c.style.transform="translateX("+X(8.69)+"px)";return {c,v}});
+    let on=false,timer=null;
+    const set=v=>{on=v;$("dpBtn").setAttribute("aria-pressed",on);$("dpBtn").textContent=on?"Back to default":"Measure suppliers";
+      dots.forEach(({c,v:val},i)=>{c.style.transitionDelay=(on?i*50:0)+"ms";c.style.transform="translateX("+X(on?val:8.69)+"px)";c.setAttribute("fill",on?(val<=8.69?"var(--accent)":"var(--warn)"):"var(--muted)")})};
+    $("dpBtn").addEventListener("click",()=>{clearInterval(timer);set(!on)});
+    if(!RM)timer=setInterval(()=>set(!on),4200);
+  })();
+
+
+  // ---------- carbon accounting app ----------
+  const FUELS={
+    diesel:{n:"Solar / diesel",u:"liter",ef:0.00268},
+    gasoline:{n:"Bensin",u:"liter",ef:0.00227},
+    coal:{n:"Batubara sub-bituminous",u:"ton",ef:1.82},
+    ng:{n:"Gas alam",u:"MMBTU",ef:0.0592},
+    lpg:{n:"LPG",u:"kg",ef:0.00298},
+    lime:{n:"Kalsinasi batu kapur (CaCO₃)",u:"ton",ef:0.44},
+    custom:{n:"Lainnya (isi faktor emisi)",u:"unit",ef:0}
+  };
+  const SAMPLE={name:"Contoh: pabrik baut baja, Jawa Barat",year:2026,prod:12000,def:"",
+    s1:[{f:"diesel",q:180000,ef:0.00268},{f:"ng",q:60000,ef:0.0592},{f:"lpg",q:20000,ef:0.00298}],
+    kwh:18000000,gef:0.80,rec:0,cap:0,capef:1.05,pv:1200000,
+    s3:[{n:"Wire rod baja",q:12600,ef:2.0,p:true},{n:"Pelumas & bahan kimia",q:150,ef:1.5,p:false}],
+    s3t:[{n:"Truk: pemasok → pabrik",t:12600,km:150,ef:0.107},{n:"Kapal: Tanjung Priok → Rotterdam",t:9000,km:16000,ef:0.016}]};
+  const EMPTY={name:"",year:2026,prod:0,def:"",s1:[{f:"diesel",q:0,ef:0.00268}],kwh:0,gef:0.80,rec:0,cap:0,capef:1.05,pv:0,s3:[],s3t:[]};
+  let CA;
+  try{CA=JSON.parse(localStorage.getItem("terukur-ca"))}catch(e){}
+  if(!CA||!CA.s1)CA=JSON.parse(JSON.stringify(SAMPLE));
+  const save=()=>{try{localStorage.setItem("terukur-ca",JSON.stringify(CA))}catch(e){}};
+  const f1=v=>v.toLocaleString("id-ID",{maximumFractionDigits:1});
+  const f0=v=>Math.round(v).toLocaleString("id-ID");
+  const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+  // EF reference table
+  $("efTable").innerHTML=Object.values(FUELS).filter(x=>x.ef).map(x=>"<tr><td>"+x.n+" <span class='note'>per "+x.u+"</span></td><td class='r num'>"+x.ef.toLocaleString("id-ID",{maximumFractionDigits:5})+"</td></tr>").join("");
+
+  function renderRows(){
+    $("s1Rows").innerHTML=CA.s1.map((r,i)=>{
+      const opts=Object.entries(FUELS).map(([k,x])=>"<option value='"+k+"'"+(k===r.f?" selected":"")+">"+x.n+"</option>").join("");
+      return "<tr><td><select data-g='s1' data-i='"+i+"' data-k='f' aria-label='Sumber'>"+opts+"</select></td>"+
+        "<td><input class='w' type='number' min='0' data-g='s1' data-i='"+i+"' data-k='q' value='"+r.q+"' aria-label='Jumlah'></td>"+
+        "<td class='note'>"+FUELS[r.f].u+"</td>"+
+        "<td><input class='w' type='number' min='0' step='0.00001' data-g='s1' data-i='"+i+"' data-k='ef' value='"+r.ef+"' aria-label='Faktor emisi'></td>"+
+        "<td class='res' id='s1r"+i+"'></td><td><button type='button' class='xbtn' data-del='s1' data-i='"+i+"' aria-label='Hapus'>×</button></td></tr>"}).join("");
+    $("s3Rows").innerHTML=CA.s3.map((r,i)=>"<tr><td><input type='text' data-g='s3' data-i='"+i+"' data-k='n' value='"+esc(r.n)+"' aria-label='Bahan'></td>"+
+        "<td><input class='w' type='number' min='0' data-g='s3' data-i='"+i+"' data-k='q' value='"+r.q+"' aria-label='Jumlah'></td>"+
+        "<td><input class='w' type='number' min='0' step='0.01' data-g='s3' data-i='"+i+"' data-k='ef' value='"+r.ef+"' aria-label='EF'></td>"+
+        "<td><label class='chk'><input type='checkbox' data-g='s3' data-i='"+i+"' data-k='p'"+(r.p?" checked":"")+">ya</label></td>"+
+        "<td class='res' id='s3r"+i+"'></td><td><button type='button' class='xbtn' data-del='s3' data-i='"+i+"' aria-label='Hapus'>×</button></td></tr>").join("");
+    $("s3tRows").innerHTML=CA.s3t.map((r,i)=>"<tr><td><input type='text' data-g='s3t' data-i='"+i+"' data-k='n' value='"+esc(r.n)+"' aria-label='Rute'></td>"+
+        "<td><input class='w' type='number' min='0' data-g='s3t' data-i='"+i+"' data-k='t' value='"+r.t+"' aria-label='Muatan'></td>"+
+        "<td><input class='w' type='number' min='0' data-g='s3t' data-i='"+i+"' data-k='km' value='"+r.km+"' aria-label='Jarak'></td>"+
+        "<td><input class='w' type='number' min='0' step='0.001' data-g='s3t' data-i='"+i+"' data-k='ef' value='"+r.ef+"' aria-label='EF'></td>"+
+        "<td class='res' id='s3tr"+i+"'></td><td><button type='button' class='xbtn' data-del='s3t' data-i='"+i+"' aria-label='Hapus'>×</button></td></tr>").join("");
+  }
+  const TOPF={caName:"name",caYear:"year",caProd:"prod",caDef:"def",s2Kwh:"kwh",s2Ef:"gef",s2Rec:"rec",s2Cap:"cap",s2CapEf:"capef",s2Pv:"pv"};
+  function fillTop(){for(const id in TOPF)$(id).value=CA[TOPF[id]]}
+
+  function caCalc(){
+    const n=v=>{v=parseFloat(v);return isFinite(v)?v:0};
+    let s1=0,s3=0,prec=0;const items=[];
+    CA.s1.forEach((r,i)=>{const e=n(r.q)*n(r.ef);s1+=e;$("s1r"+i).textContent=f1(e);items.push([FUELS[r.f].n,e])});
+    const gridMWh=n(CA.kwh)/1000,capMWh=n(CA.cap)/1000;
+    const s2grid=gridMWh*n(CA.gef),s2cap=capMWh*n(CA.capef),s2=s2grid+s2cap;
+    const s2m=Math.max(0,gridMWh-n(CA.rec))*n(CA.gef)+s2cap;
+    if(s2grid)items.push(["Listrik grid PLN",s2grid]);if(s2cap)items.push(["Listrik PLTU captive",s2cap]);
+    CA.s3.forEach((r,i)=>{const e=n(r.q)*n(r.ef);s3+=e;if(r.p)prec+=e;$("s3r"+i).textContent=f1(e);items.push([(r.n||"Bahan baku")+(r.p?" (precursor)":""),e])});
+    CA.s3t.forEach((r,i)=>{const e=n(r.t)*n(r.km)*n(r.ef)/1000;s3+=e;$("s3tr"+i).textContent=f1(e);items.push([r.n||"Transportasi",e])});
+    const tot=s1+s2+s3,prod=n(CA.prod),mx=Math.max(s1,s2,s3,1);
+    tween("caTot",tot,f0);
+    [[s1,"1"],[s2,"2"],[s3,"3"]].forEach(([v,k])=>{$("b"+k).style.width=(v/mx*100)+"%";$("v"+k).textContent=f0(v)+" t"});
+    $("caMkt").textContent=f0(s2m)+" t";
+    const int=prod?(s1+s2)/prod:NaN,emb=prod?(s1+s2+prec)/prod:NaN;
+    $("caInt").textContent=prod?int.toLocaleString("id-ID",{maximumFractionDigits:2})+" t/t":"isi produksi";
+    $("caEmb").textContent=prod?emb.toLocaleString("id-ID",{maximumFractionDigits:2})+" t/t":"isi produksi";
+    const d=n(CA.def);
+    const vs=$("caVs");
+    if(d&&prod){const diff=emb-d;vs.textContent=(diff<=0?"−":"+")+Math.abs(diff).toLocaleString("id-ID",{maximumFractionDigits:2})+" t/t";vs.style.color=diff<=0?"var(--good)":"var(--warn)"}
+    else{vs.textContent="isi default";vs.style.color=""}
+    items.sort((a,b)=>b[1]-a[1]);
+    $("caTop").innerHTML=items.filter(x=>x[1]>0).slice(0,5).map(([k,v])=>"<li><span>"+esc(k)+"</span><span>"+f0(v)+" t · "+(tot?Math.round(v/tot*100):0)+"%</span></li>").join("")||"<li><span>Belum ada data</span><span></span></li>";
+    const csv=["fasilitas,tahun,produksi_t,scope1_tco2,scope2_location_tco2,scope2_market_tco2,scope3_tco2e,total_location_tco2e,intensitas_s1s2_t_per_t,emisi_terkandung_cbam_t_per_t",
+      ['"'+String(CA.name).replace(/"/g,"'")+'"',CA.year,prod,s1.toFixed(1),s2.toFixed(1),s2m.toFixed(1),s3.toFixed(1),tot.toFixed(1),prod?int.toFixed(3):"",prod?emb.toFixed(3):""].join(",")];
+    items.forEach(([k,v])=>csv.push('"'+k.replace(/"/g,"'")+'",,,,,,,'+v.toFixed(1)+",,"));
+    $("caCsv").value=csv.join("\n");
+    save();
+  }
+  function caAll(){renderRows();fillTop();caCalc()}
+  // events
+  for(const id in TOPF)$(id).addEventListener("input",e=>{const k=TOPF[id];CA[k]=(k==="name"||k==="def")?e.target.value:e.target.value===""?0:+e.target.value;caCalc()});
+  ["s1Rows","s3Rows","s3tRows"].forEach(tb=>{
+    $(tb).addEventListener("input",e=>{const t=e.target,g=t.dataset.g;if(!g)return;const r=CA[g][+t.dataset.i],k=t.dataset.k;
+      if(k==="p")r.p=t.checked;else if(k==="n")r.n=t.value;else if(k==="f"){r.f=t.value;r.ef=FUELS[t.value].ef;renderRows();}else r[k]=t.value===""?0:+t.value;caCalc()});
+    $(tb).addEventListener("change",e=>{if(e.target.dataset.k==="f"||e.target.dataset.k==="p")return});
+    $(tb).addEventListener("click",e=>{const b=e.target.closest("[data-del]");if(!b)return;CA[b.dataset.del].splice(+b.dataset.i,1);renderRows();caCalc()});
+  });
+  $("s1Add").addEventListener("click",()=>{CA.s1.push({f:"diesel",q:0,ef:FUELS.diesel.ef});renderRows();caCalc()});
+  $("s3Add").addEventListener("click",()=>{CA.s3.push({n:"",q:0,ef:0,p:false});renderRows();caCalc()});
+  $("s3tAdd").addEventListener("click",()=>{CA.s3t.push({n:"",t:0,km:0,ef:0.107});renderRows();caCalc()});
+  $("caReset").addEventListener("click",()=>{CA=JSON.parse(JSON.stringify(SAMPLE));caAll()});
+  $("caClear").addEventListener("click",()=>{CA=JSON.parse(JSON.stringify(EMPTY));caAll()});
+  $("caCopy").addEventListener("click",()=>{const t=$("caCsv"),b=$("caCopy");
+    const done=()=>{b.textContent="Tersalin";setTimeout(()=>b.textContent="Salin CSV",1600)};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,()=>{t.select();b.textContent="Ctrl/Cmd+C"})}else{t.select();b.textContent="Ctrl/Cmd+C"}});
+  caAll();
+
+  // ---------- side switch ----------
+  function setSide(side){
+    document.querySelectorAll("[data-side]").forEach(el=>el.hidden=el.dataset.side!==side);
+    $("swSeller").setAttribute("aria-pressed",side==="seller");
+    $("swBuyer").setAttribute("aria-pressed",side==="buyer");
+    $("swApp").setAttribute("aria-pressed",side==="app");
+    $("swNote").textContent={seller:"Tampilan untuk pabrik dan eksportir Indonesia.",buyer:"View for EU importers and traders buying from Indonesia.",app:"Aplikasi carbon accounting Scope 1–3 untuk satu fasilitas."}[side];
+    document.documentElement.lang=side==="buyer"?"en":"id";
+    try{localStorage.setItem("terukur-side",side)}catch(e){}
+  }
+  $("swSeller").addEventListener("click",()=>{setSide("seller");scrollTo({top:0})});
+  $("swBuyer").addEventListener("click",()=>{setSide("buyer");scrollTo({top:0})});
+  $("heroApp").addEventListener("click",e=>{e.preventDefault();setSide("app");scrollTo({top:0})});
+  $("swApp").addEventListener("click",()=>{setSide("app");scrollTo({top:0})});
+  $("appCta").addEventListener("click",e=>{e.preventDefault();setSide("seller");setTimeout(()=>$("pilot").scrollIntoView(),30)});
+  let start="seller";
+  if(location.hash==="#buyer")start="buyer";
+  else if(location.hash==="#app"||location.hash==="#karbon")start="app";
+  else if(location.hash==="#seller"||location.hash==="#penjual")start="seller";
+  else{try{start=localStorage.getItem("terukur-side")||"seller"}catch(e){}
+  if(!["seller","buyer","app"].includes(start))start="seller";}
+  setSide(start);
+})();
+</script>
+</body>
+</html>
