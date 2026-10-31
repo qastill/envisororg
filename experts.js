@@ -81,6 +81,11 @@ window.EXPERTS = {
       { degree: 'S.T., Electrical Engineering', inst: '', period: '' }
     ],
     certifications: ['Professional Engineer'],
+    projects: [
+      { t: 'MAGNETO — Electricity-Theft Detection Ranking', loc: 'PLN distribution network', y: 'PLN', cat: 'Grid, Metering & Analytics', d: 'Machine-learning ranking system to prioritise suspected electricity theft for field inspection' },
+      { t: 'Energy Transaction & Loss Recovery', loc: 'PLN Indramayu', y: '2023–2025', cat: 'Grid, Metering & Analytics', d: 'Team leader for metering management, energy-loss recovery and billing' },
+      { t: 'AQORTA — Solar-Powered IoT Telemetry (patented)', loc: 'Indonesia', y: 'Patent', cat: 'Grid, Metering & Analytics', d: 'Solar-powered IoT system for air-quality and noise telemetry' }
+    ],
     achievements: [
       'Patent: AQORTA — solar-powered IoT air-quality and noise telemetry system',
       '7 scientific publications',
@@ -213,6 +218,11 @@ window.EXPERTS = {
       'Tools: SAP, Microsoft Office, CRM and opportunity-funnel databases'
     ],
     languages: ['Bahasa Indonesia (native)', 'English (professional)'],
+    projects: [
+      { t: 'Huaming On-Load Tap Changer After-Sales Programme', loc: 'Indonesia', y: '2024–Now', cat: 'Transformer & OLTC', d: 'After-sales service strategy, key accounts (utilities incl. PLN, transformer OEMs, industry) and service-partner network for Huaming tap changers' },
+      { t: 'MR OLTC Field Service — Multi-Country Territory', loc: 'Indonesia, Malaysia, Australia & Taiwan', y: '2019–2024', cat: 'Transformer & OLTC', d: 'Inspection, maintenance, troubleshooting, retrofit and modification of Reinhausen on-load tap changers; customer product training' },
+      { t: 'Power Transformer FAT & SAT Testing', loc: 'Indonesia', y: '2017–2019', cat: 'Transformer & OLTC', d: 'High-voltage testing and QC of power transformers from factory to site acceptance: IVPD, impulse, temperature rise, LTAC, oil breakdown, SFRA' }
+    ],
     tags: ['Power Transformers', 'On-Load Tap Changers', 'Transformer Testing (FAT/SAT)', 'SFRA & HV Testing', 'Retrofit & Maintenance', 'After-Sales Service']
   },
   ca: {

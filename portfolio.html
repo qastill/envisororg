@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Works &amp; Portfolio — Envisor</title>
+<meta name="description" content="Projects and engagements delivered by Envisor's energy experts: solar PV, floating PV, BESS and hybrid plants, wind, hydro, transformers and grid analytics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ivory:#F4EFE4;--paper:#FBF8F2;--ink:#0E1726;--muted:#5C6370;
+  --navy:#0E1726;--navy-2:#16233A;
+  --gold:#C5A15A;--champagne:#E3CB95;--gold-ink:#94713A;
+  --line:rgba(14,23,38,.10);
+  --font-d:'Cormorant Garamond',Georgia,serif;
+  --font-b:'DM Sans',Helvetica,sans-serif;
+}
+body{font-family:var(--font-b);background:var(--ivory);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse 50% 45% at 8% 0%,rgba(197,161,90,.18),transparent 70%),radial-gradient(ellipse 45% 40% at 100% 100%,rgba(197,161,90,.12),transparent 70%);z-index:0}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit}
+
+header{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;height:68px;padding:0 clamp(20px,3.6vw,56px);background:rgba(244,239,228,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:11px}
+.logo-mark{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--navy);color:var(--champagne);box-shadow:0 0 0 3px rgba(197,161,90,.25)}
+.logo-mark svg{width:16px;height:16px}
+.logo-text{font-family:var(--font-d);font-size:23px;font-weight:600;letter-spacing:2px}
+.logo-text span{color:var(--gold-ink);font-weight:500}
+.hdr-r{display:flex;align-items:center;gap:10px}
+.back{font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);padding:10px 14px;transition:color .3s}
+.back:hover{color:var(--gold-ink)}
+.wa{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;padding:11px 18px;border-radius:40px;background:var(--navy);color:var(--champagne);white-space:nowrap;transition:all .3s}
+.wa svg{width:15px;height:15px;color:#4ADE80}
+.wa:hover{background:var(--navy-2);box-shadow:0 8px 24px rgba(14,23,38,.25)}
+
+.wrap{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:clamp(28px,5vh,52px) clamp(16px,3vw,40px) 60px}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:10.5px;font-weight:700;letter-spacing:3.4px;text-transform:uppercase;color:var(--gold-ink)}
+.eyebrow::before{content:'';width:30px;height:1px;background:var(--gold)}
+h1{font-family:var(--font-d);font-size:clamp(34px,4.6vw,60px);font-weight:500;line-height:1.04;margin:12px 0 10px}
+h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
+.lede{max-width:760px;font-size:15px;color:var(--muted);line-height:1.7}
+
+.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:28px}
+.st{padding:18px 18px 16px;border-radius:14px;background:linear-gradient(160deg,var(--navy-2),var(--navy));color:#fff;position:relative;overflow:hidden}
+.st::after{content:'';position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(227,203,149,.2),transparent 70%)}
+.st b{display:block;font-family:var(--font-d);font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1;color:var(--champagne)}
+.st span{display:block;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:rgba(255,255,255,.75);margin-top:8px}
+
+.bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin:32px 0 18px}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.f{font-size:12px;font-weight:600;padding:8px 14px;border-radius:30px;border:1px solid rgba(197,161,90,.4);background:#fff;cursor:pointer;transition:all .25s}
+.f:hover{border-color:var(--gold)}
+.f.on{background:var(--navy);color:var(--champagne);border-color:var(--navy)}
+.f i{font-style:normal;opacity:.6;margin-left:4px}
+.map{font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold-ink);border:1px solid var(--gold);padding:9px 16px;border-radius:40px;transition:background .3s}
+.map:hover{background:rgba(197,161,90,.12)}
+
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.pc{display:flex;flex-direction:column;padding:18px 18px 16px;border-radius:14px;background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--gold);transition:transform .35s,box-shadow .35s;animation:rise .5s ease both}
+.pc:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(14,23,38,.1)}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.pc-top{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.cat{font-size:9.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold-ink)}
+.yr{font-size:11px;font-weight:700;color:var(--navy);background:var(--champagne);padding:2px 9px;border-radius:20px;white-space:nowrap}
+.pc h3{font-family:var(--font-d);font-size:21px;font-weight:600;line-height:1.18;margin:8px 0 4px}
+.loc{font-size:12px;font-weight:600;color:var(--muted)}
+.pc p{font-size:13px;line-height:1.55;color:#3A4150;margin-top:8px;flex:1}
+.by{display:flex;align-items:center;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;font-weight:600}
+.by img,.by .ini{width:26px;height:26px;border-radius:50%;object-fit:cover;border:1.5px solid var(--gold);flex-shrink:0}
+.by .ini{display:flex;align-items:center;justify-content:center;background:var(--navy);color:var(--champagne);font-size:10px}
+.by:hover span{color:var(--gold-ink);text-decoration:underline}
+.note{font-size:12px;color:var(--muted);margin-top:22px;max-width:820px}
+footer{position:relative;z-index:1;text-align:center;font-size:11px;color:#8A8F98;padding:0 16px 30px}
+
+@media(max-width:1000px){.grid{grid-template-columns:1fr 1fr}.stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:620px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.wa span{display:none}.wa{padding:10px 12px}.back span{display:none}.logo-text{font-size:20px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="logo"><div class="logo-mark"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></div><div class="logo-text">ENVISOR<span>.AI</span></div></a>
+  <div class="hdr-r">
+    <a class="back" href="advisor.html">&larr; <span>Experts</span></a>
+    <a class="wa" href="https://wa.me/6285121532407?text=Hello%20Envisor%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span>Discuss a Project</span></a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="eyebrow">Our Works &amp; Portfolio</div>
+  <h1>Projects delivered by <em>our experts.</em></h1>
+  <p class="lede">A combined track record of Envisor's experts across solar PV, floating PV, battery storage and hybrid plants, wind and hydro, power transformers and grid analytics &mdash; from 100 kWp rooftops to utility-scale plants in Indonesia and abroad.</p>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="bar">
+    <div class="filters" id="filters" role="tablist" aria-label="Filter by category"></div>
+    <a class="map" href="https://storymaps.arcgis.com/stories/ac01da24257946b2bc8f2ed94c90306c" target="_blank" rel="noopener">Interactive project map &#8599;</a>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <p class="note">Projects and engagements were delivered by Envisor experts in their professional roles, including with current and previous employers and as independent consultants. Select an expert's name to view their full CV.</p>
+</main>
+<footer>&copy; 2025 Envisor Group &middot; <a href="https://wa.me/6285121532407" target="_blank" rel="noopener">+62 851-2153-2407</a> &middot; <a href="mailto:hello@envisorai.com">hello@envisorai.com</a></footer>
+
+<script src="experts.js"></script>
+<script>
+(function(){
+  function esc(t){var d=document.createElement('div');d.textContent=t==null?'':String(t);return d.innerHTML}
+  function cat(x){
+    if(x.cat)return x.cat;
+    var t=x.t;
+    if(/Floating PV/i.test(t))return 'Floating PV';
+    if(/Hybrid|BESS/i.test(t))return 'Hybrid & BESS';
+    if(/Wind/i.test(t))return 'Wind';
+    if(/Hydro/i.test(t))return 'Hydro';
+    if(/Transformer/i.test(t))return 'Transformer & OLTC';
+    if(/PV/i.test(t))return 'Solar PV';
+    return 'Studies & Consulting';
+  }
+  function year(y){var m=String(y).match(/\d{4}/);return m?+m[0]:0}
+
+  var all=[];
+  EXPERT_ORDER.forEach(function(id){var e=EXPERTS[id];(e.projects||[]).forEach(function(p){all.push({p:p,id:id,e:e,c:cat(p)})})});
+  all.sort(function(a,b){return year(b.p.y)-year(a.p.y)});
+
+  // Stats
+  var pv=0,bess=0,wh=0,countries={},experts={};
+  all.forEach(function(r){var t=r.p.t,m;
+    experts[r.id]=1;
+    if((m=t.match(/([\d.]+)\s*MWp/)))pv+=+m[1];else if((m=t.match(/([\d.]+)\s*kWp/)))pv+=m[1]/1000;
+    if((m=t.match(/([\d.]+)\s*MWh/)))bess+=+m[1];
+    if(/Wind|Hydro/i.test(t)&&(m=t.match(/([\d.]+)\s*MW(?![ph])/)))wh+=+m[1];
+    String(r.p.loc).split(/,|&/).forEach(function(l){l=l.trim();if(/New Zealand|China|Malaysia|Australia|Taiwan/.test(l))countries[l]=1;else countries.Indonesia=1});
+  });
+  var stats=[[all.length,'Projects & engagements'],[(pv/1000).toFixed(1)+' GWp','Solar PV designed'],[Math.round(bess).toLocaleString('en')+' MWh','Battery storage'],[Math.round(wh).toLocaleString('en')+' MW','Wind & hydro'],[Object.keys(countries).length,'Countries']];
+  document.getElementById('stats').innerHTML=stats.map(function(s){return '<div class="st"><b>'+s[0]+'</b><span>'+s[1]+'</span></div>'}).join('');
+
+  // Filters
+  var cats=['All'];all.forEach(function(r){if(cats.indexOf(r.c)<0)cats.push(r.c)});
+  var fEl=document.getElementById('filters'),gEl=document.getElementById('grid'),cur='All';
+  function renderFilters(){fEl.innerHTML=cats.map(function(c){var n=c==='All'?all.length:all.filter(function(r){return r.c===c}).length;return '<button class="f'+(c===cur?' on':'')+'" role="tab" aria-selected="'+(c===cur)+'" data-c="'+esc(c)+'">'+esc(c)+'<i>'+n+'</i></button>'}).join('')}
+  function renderGrid(){gEl.innerHTML=all.filter(function(r){return cur==='All'||r.c===cur}).map(function(r,i){var e=r.e;
+    return '<article class="pc" style="animation-delay:'+Math.min(i*25,400)+'ms"><div class="pc-top"><span class="cat">'+esc(r.c)+'</span><span class="yr">'+esc(r.p.y)+'</span></div>'
+      +'<h3>'+esc(r.p.t)+'</h3><div class="loc">'+esc(r.p.loc)+'</div><p>'+esc(r.p.d)+'</p>'
+      +'<a class="by" href="expert.html?id='+r.id+'">'+(e.img?'<img src="'+e.img+'" alt="">':'<span class="ini">'+esc(e.ini||'')+'</span>')+'<span>'+esc(e.short)+'</span></a></article>'}).join('')}
+  fEl.addEventListener('click',function(ev){var b=ev.target.closest('.f');if(!b)return;cur=b.getAttribute('data-c');renderFilters();renderGrid()});
+  renderFilters();renderGrid();
+})();
+</script>
+</body>
+</html>
