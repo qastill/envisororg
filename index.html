@@ -10,68 +10,63 @@
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --black:#0A0A0A;--black-light:#111;--black-card:#0F0F0F;
-  --gold:#C9A96E;--gold-light:#DBBF8C;--gold-dim:rgba(201,169,110,0.12);
-  --silver:#A8A8A8;--silver-light:#C8C8C8;--white:#F5F2ED;
+  --bg:#F7F5F0;--surface:#FFFFFF;--ink:#1B1B1B;--muted:#5E5E5E;
+  --gold:#C9A96E;--gold-light:#DBBF8C;--gold-ink:#9A7533;
   --font-d:'Cormorant Garamond',Georgia,serif;
   --font-b:'DM Sans',Helvetica,sans-serif;
-  --border:rgba(201,169,110,0.12);--border-h:rgba(201,169,110,0.28);
+  --border:rgba(27,27,27,0.08);--border-h:rgba(154,117,51,0.35);
 }
 html{height:100%}
-body{font-family:var(--font-b);background:var(--black);color:var(--white);height:100vh;overflow:hidden;-webkit-font-smoothing:antialiased;position:relative}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 50% 50% at 15% 20%,rgba(201,169,110,0.04) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 85% 75%,rgba(168,168,168,0.03) 0%,transparent 70%);pointer-events:none;z-index:0}
+body{font-family:var(--font-b);background:var(--bg);color:var(--ink);height:100vh;overflow:hidden;-webkit-font-smoothing:antialiased;position:relative}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 50% 50% at 15% 15%,rgba(201,169,110,0.14) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 85% 80%,rgba(201,169,110,0.10) 0%,transparent 70%);pointer-events:none;z-index:0}
 a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%}
 
 .page{display:flex;flex-direction:column;height:100vh;position:relative;z-index:1}
 
 /* Header */
-header{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px);height:72px;border-bottom:1px solid var(--border);background:rgba(10,10,10,0.92);backdrop-filter:blur(16px);flex-shrink:0}
+header{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px);height:72px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.85);backdrop-filter:blur(16px);flex-shrink:0}
 .logo{display:flex;align-items:center;gap:12px}
-.logo-mark{width:32px;height:32px;border:1.5px solid var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:600;font-size:16px;color:var(--gold)}
-.logo-text{font-family:var(--font-d);font-size:22px;font-weight:500;letter-spacing:1px}
-.logo-text span{color:var(--gold);font-weight:300}
+.logo-mark{width:32px;height:32px;border:1.5px solid var(--gold-ink);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:600;font-size:16px;color:var(--gold-ink)}
+.logo-text{font-family:var(--font-d);font-size:22px;font-weight:600;letter-spacing:1px}
+.logo-text span{color:var(--gold-ink);font-weight:400}
 .nav{display:flex;align-items:center;gap:28px}
-.nav a{font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);transition:color .3s}
-.nav a:hover{color:var(--gold-light)}
-.btn-g{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--black);background:linear-gradient(135deg,var(--gold),var(--gold-light));padding:10px 24px;border-radius:2px;border:none;cursor:pointer;transition:all .3s;display:inline-block}
-.btn-g:hover{box-shadow:0 4px 24px rgba(201,169,110,0.3);transform:translateY(-1px)}
+.nav a{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);transition:color .3s}
+.nav a:hover{color:var(--gold-ink)}
+.btn-g{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#1B1B1B!important;background:linear-gradient(135deg,var(--gold),var(--gold-light));padding:10px 24px;border-radius:2px;border:none;cursor:pointer;transition:all .3s;display:inline-block}
+.btn-g:hover{box-shadow:0 4px 24px rgba(201,169,110,0.4);transform:translateY(-1px)}
 
 /* Hero strip */
 .hero-strip{text-align:center;padding:clamp(20px,3vh,40px) 24px clamp(14px,2vh,24px);flex-shrink:0}
-.hero-strip h1{font-family:var(--font-d);font-size:clamp(26px,4vw,52px);font-weight:300;letter-spacing:2px;line-height:1.2}
-.hero-strip h1 strong{font-weight:600;color:var(--gold)}
-.hero-strip p{font-size:clamp(12px,1.3vw,15px);color:var(--silver);margin-top:10px;font-weight:300;letter-spacing:.8px}
-.divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:14px auto 0}
+.hero-strip h1{font-family:var(--font-d);font-size:clamp(26px,4vw,52px);font-weight:400;letter-spacing:2px;line-height:1.2}
+.hero-strip h1 strong{font-weight:600;color:var(--gold-ink)}
+.hero-strip p{font-size:clamp(12px,1.3vw,15px);color:var(--muted);margin-top:10px;font-weight:400;letter-spacing:.8px}
+.divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-ink),transparent);margin:14px auto 0}
 
 /* Card grid */
 .grid-wrap{flex:1;padding:0 clamp(24px,4vw,60px) clamp(16px,2vh,32px);display:flex;flex-direction:column;min-height:0}
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.5vw,20px);flex:1;min-height:0}
 
 /* Card */
-.card{position:relative;border-radius:8px;overflow:hidden;border:1px solid var(--border);display:flex;flex-direction:column;transition:all .5s cubic-bezier(.16,1,.3,1)}
-.card:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(201,169,110,.06)}
-.card-img{position:relative;height:55%;overflow:hidden;flex-shrink:0;background:var(--black-light)}
-.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.16,1,.3,1);filter:brightness(.45) saturate(.6)}
-.card:hover .card-img img{transform:scale(1.06);filter:brightness(.55) saturate(.7)}
-.card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(10,10,10,.7) 70%,rgba(10,10,10,.95) 100%);pointer-events:none}
-.card-num{position:absolute;top:clamp(12px,1.2vw,18px);left:clamp(12px,1.2vw,18px);font-family:var(--font-d);font-size:11px;font-weight:600;letter-spacing:2px;color:var(--gold);background:rgba(10,10,10,.7);backdrop-filter:blur(8px);padding:5px 12px;border-radius:2px;border:1px solid rgba(201,169,110,.15);z-index:2}
-.card-body{padding:clamp(16px,1.5vw,24px);flex:1;display:flex;flex-direction:column;background:var(--black-card);position:relative}
-.card-body::before{content:'';position:absolute;top:0;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim),transparent)}
-.card-title{font-family:var(--font-d);font-size:clamp(18px,1.8vw,26px);font-weight:500;letter-spacing:.5px;line-height:1.2;margin-bottom:4px}
-.card-sub{font-size:clamp(10px,.8vw,12px);font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:clamp(8px,1vh,14px)}
-.card-desc{font-size:clamp(11px,.85vw,13px);color:var(--silver);line-height:1.65;font-weight:300;flex:1}
-.card-arrow{display:flex;align-items:center;gap:8px;margin-top:clamp(8px,1vh,14px);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);opacity:0;transform:translateX(-8px);transition:all .4s}
-.card:hover .card-arrow{opacity:1;transform:translateX(0)}
-.card-acad{display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse 70% 70% at 30% 30%,rgba(201,169,110,.18),transparent 70%),linear-gradient(135deg,#1a1610 0%,#111 100%)}
-.card-acad svg{width:clamp(56px,5vw,84px);height:auto;color:var(--gold);opacity:.75;transition:transform .7s cubic-bezier(.16,1,.3,1)}
-.card:hover .card-acad svg{transform:scale(1.06);opacity:.9}
+.card{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--border);background:var(--surface);display:flex;flex-direction:column;box-shadow:0 2px 14px rgba(27,27,27,.05);transition:all .5s cubic-bezier(.16,1,.3,1)}
+.card:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:0 20px 50px rgba(27,27,27,.12)}
+.card-img{position:relative;height:55%;overflow:hidden;flex-shrink:0;background:#e9e5dc}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.card:hover .card-img img{transform:scale(1.06)}
+.card-num{position:absolute;top:clamp(12px,1.2vw,18px);left:clamp(12px,1.2vw,18px);font-family:var(--font-d);font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gold-ink);background:rgba(255,255,255,.92);padding:5px 12px;border-radius:2px;z-index:2}
+.card-ext{position:absolute;top:clamp(12px,1.2vw,18px);right:clamp(12px,1.2vw,18px);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);background:rgba(255,255,255,.92);padding:5px 10px;border-radius:2px;z-index:2}
+.card-body{padding:clamp(16px,1.5vw,24px);flex:1;display:flex;flex-direction:column;position:relative}
+.card-title{font-family:var(--font-d);font-size:clamp(20px,1.8vw,27px);font-weight:600;letter-spacing:.3px;line-height:1.2;margin-bottom:4px}
+.card-sub{font-size:clamp(10px,.8vw,12px);font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-ink);margin-bottom:clamp(8px,1vh,14px)}
+.card-desc{font-size:clamp(12px,.9vw,14px);color:var(--muted);line-height:1.65;flex:1}
+.card-arrow{display:flex;align-items:center;gap:8px;margin-top:clamp(8px,1vh,14px);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-ink);transition:gap .3s}
+.card:hover .card-arrow{gap:14px}
 
 /* Footer */
 footer{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px);height:44px;border-top:1px solid var(--border);flex-shrink:0}
-footer p{font-size:11px;color:rgba(168,168,168,.5)}
-footer a{font-size:11px;color:rgba(168,168,168,.4);margin-left:16px;transition:color .3s}
-footer a:hover{color:var(--gold)}
+footer p{font-size:11px;color:#8a8a8a}
+footer a{font-size:11px;color:#8a8a8a;margin-left:16px;transition:color .3s}
+footer a:hover{color:var(--gold-ink)}
 
 /* Animation */
 @keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
@@ -81,17 +76,17 @@ footer a:hover{color:var(--gold)}
 
 /* Hamburger */
 .ham{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
-.ham span{width:20px;height:1.5px;background:var(--silver);border-radius:1px}
-.mnav{display:none;position:fixed;inset:0;z-index:999;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.ham span{width:20px;height:1.5px;background:var(--ink);border-radius:1px}
+.mnav{display:none;position:fixed;inset:0;z-index:999;background:rgba(247,245,240,.98);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:28px}
 .mnav.open{display:flex}
-.mnav a{font-family:var(--font-d);font-size:22px;color:var(--silver-light);letter-spacing:2px}
-.mnav a:hover{color:var(--gold)}
-.mnav-x{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--silver);font-size:28px;cursor:pointer}
+.mnav a{font-family:var(--font-d);font-size:24px;font-weight:600;color:var(--ink);letter-spacing:2px}
+.mnav a:hover{color:var(--gold-ink)}
+.mnav-x{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--ink);font-size:28px;cursor:pointer}
 
 /* Responsive */
 @media(max-width:1024px){.cards{grid-template-columns:repeat(2,1fr)}body{height:auto;overflow:auto}.page{height:auto;min-height:100vh}.grid-wrap{flex:none}.card-img{height:180px}}
 @media(max-width:768px){.nav a:not(.btn-g){display:none}.ham{display:flex}.cards{grid-template-columns:1fr 1fr;gap:12px}.card-img{height:140px}.card-body{padding:14px}.card-desc{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}}
-@media(max-width:480px){.cards{grid-template-columns:1fr;gap:12px}.card{flex-direction:row;height:140px}.card-img{height:100%;width:40%;flex-shrink:0}.card-body{justify-content:center}.card-arrow{display:none}.grid-wrap{padding:0 16px 16px}header{padding:0 16px}footer{padding:0 16px}}
+@media(max-width:480px){.cards{grid-template-columns:1fr;gap:12px}.card{flex-direction:row;height:140px}.card-img{height:100%;width:40%;flex-shrink:0}.card-body{justify-content:center}.card-arrow,.card-ext{display:none}.card-desc{flex:none;-webkit-line-clamp:2}.card-sub{margin-bottom:6px}.btn-g{padding:9px 14px;white-space:nowrap}.grid-wrap{padding:0 16px 16px}header{padding:0 16px}footer{padding:0 16px}}
 </style>
 </head>
 <body>
@@ -102,7 +97,7 @@ footer a:hover{color:var(--gold)}
       <a href="home.html">Envisor Home</a>
       <a href="advisor.html">Expert</a>
       <a href="industries.html">Industries</a>
-      <a href="academy.html">Academy</a>
+      <a href="https://electraacademy.com" target="_blank" rel="noopener">Academy</a>
       <a href="maps.html">World Maps</a>
       <a href="mailto:hello@envisorai.com" class="btn-g">Hubungi Kami</a>
       <button class="ham" id="hm"><span></span><span></span><span></span></button>
@@ -120,7 +115,7 @@ footer a:hover{color:var(--gold)}
       <a href="home.html" class="card">
         <div class="card-img">
           <div class="card-num">01</div>
-          <img src="https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=600&h=400&fit=crop&q=80" alt="Envisor Home">
+          <img src="card-home.webp" alt="Ilustrasi rumah hemat energi dengan panel surya dan perangkat pintar">
         </div>
         <div class="card-body">
           <div class="card-title">Envisor Home</div>
@@ -132,7 +127,7 @@ footer a:hover{color:var(--gold)}
       <a href="industries.html" class="card">
         <div class="card-img">
           <div class="card-num">02</div>
-          <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&h=400&fit=crop&q=80" alt="Envisor Industries">
+          <img src="card-industries.webp" alt="Kawasan industri dan pabrik pada senja hari">
         </div>
         <div class="card-body">
           <div class="card-title">Envisor Industries</div>
@@ -144,7 +139,7 @@ footer a:hover{color:var(--gold)}
       <a href="advisor.html" class="card">
         <div class="card-img">
           <div class="card-num">03</div>
-          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=400&fit=crop&q=80" alt="Envisor Advisor">
+          <img src="card-advisor.webp" alt="Sesi konsultasi bersama expert">
         </div>
         <div class="card-body">
           <div class="card-title">Envisor Advisor</div>
@@ -153,16 +148,17 @@ footer a:hover{color:var(--gold)}
           <div class="card-arrow">Selengkapnya &#8594;</div>
         </div>
       </a>
-      <a href="academy.html" class="card">
-        <div class="card-img card-acad">
+      <a href="https://electraacademy.com" class="card" target="_blank" rel="noopener">
+        <div class="card-img">
           <div class="card-num">04</div>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/><path d="M22 10v6"/></svg>
+          <div class="card-ext">electraacademy.com &#8599;</div>
+          <img src="card-academy.webp" alt="Praktik training kelistrikan di panel listrik">
         </div>
         <div class="card-body">
           <div class="card-title">Training &amp; Electra Academy</div>
           <div class="card-sub">Pelatihan Ketenagalistrikan</div>
           <div class="card-desc">Program training K3 listrik, distribusi, transformator, audit energi, hingga analitik data — dibawakan langsung oleh praktisi Envisor. In-house, kelas publik, atau online.</div>
-          <div class="card-arrow">Selengkapnya &#8594;</div>
+          <div class="card-arrow">Kunjungi Electra Academy &#8599;</div>
         </div>
       </a>
     </div>
@@ -179,7 +175,7 @@ footer a:hover{color:var(--gold)}
   <a href="home.html">Envisor Home</a>
   <a href="industries.html">Industries</a>
   <a href="advisor.html">Expert Advisor</a>
-  <a href="academy.html">Electra Academy</a>
+  <a href="https://electraacademy.com" target="_blank" rel="noopener">Electra Academy</a>
   <a href="maps.html">World Maps</a>
 </div>
 <script>
