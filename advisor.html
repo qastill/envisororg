@@ -51,9 +51,9 @@ h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
 
 /* Experts */
 .experts{position:relative;z-index:1;flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
-.row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(14px,2.4vw,40px);width:100%;max-width:1180px}
+.row{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(12px,1.8vw,30px);width:100%;max-width:1240px}
 .ex{display:flex;flex-direction:column;align-items:center;text-align:center;cursor:pointer;background:none;border:none;padding:8px;border-radius:16px;transition:background .4s;animation:rise .8s cubic-bezier(.16,1,.3,1) both}
-.ex:nth-child(2){animation-delay:.07s}.ex:nth-child(3){animation-delay:.14s}.ex:nth-child(4){animation-delay:.21s}.ex:nth-child(5){animation-delay:.28s}
+.ex:nth-child(2){animation-delay:.07s}.ex:nth-child(3){animation-delay:.14s}.ex:nth-child(4){animation-delay:.21s}.ex:nth-child(5){animation-delay:.28s}.ex:nth-child(6){animation-delay:.35s}
 .ex:hover{background:rgba(255,255,255,.5)}
 .ex:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .av{position:relative;width:clamp(96px,11.5vw,168px);aspect-ratio:1;border-radius:50%;padding:4px;background:conic-gradient(from 210deg,var(--gold),var(--champagne),var(--gold-ink),var(--gold));box-shadow:0 14px 34px rgba(14,23,38,.14);transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s}
@@ -151,7 +151,6 @@ h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
   .experts{padding:20px 0}
   .row{grid-template-columns:repeat(6,minmax(0,1fr))}
   .ex{grid-column:span 2}
-  .ex:nth-child(4){grid-column:2/span 2}
   .ex-more{opacity:1;transform:none}
   .links{padding-top:8px}
 }
@@ -165,8 +164,7 @@ h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
 @media(max-width:600px){
   .page{padding:0 16px}
   .row{grid-template-columns:1fr 1fr}
-  .ex,.ex:nth-child(4){grid-column:auto}
-  .ex:nth-child(5){grid-column:1/-1}
+  .ex{grid-column:auto}
   .av{width:112px}
   .links{grid-template-columns:1fr}
   .lk .go{display:none}
@@ -197,7 +195,7 @@ h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
   <section class="hero">
     <div class="eyebrow">Envisor Advisor</div>
     <h1>Talk to a certified <em>energy expert.</em></h1>
-    <p class="lede">Live online sessions with practitioners in power systems, transformers, electrical safety, energy analytics, and carbon consulting. Select an expert to view their full CV.</p>
+    <p class="lede">Live online sessions with practitioners in power systems, transformers, solar PV &amp; battery storage, electrical safety, energy analytics, and carbon consulting. Select an expert to view their full CV.</p>
   </section>
 
   <main class="experts">

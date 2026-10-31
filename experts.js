@@ -214,6 +214,94 @@ window.EXPERTS = {
     ],
     languages: ['Bahasa Indonesia (native)', 'English (professional)'],
     tags: ['Power Transformers', 'On-Load Tap Changers', 'Transformer Testing (FAT/SAT)', 'SFRA & HV Testing', 'Retrofit & Maintenance', 'After-Sales Service']
+  },
+  ca: {
+    name: 'Chaizar Ali Fachrudien, S.T.', short: 'Chaizar Ali Fachrudien',
+    role: 'Renewable Energy Technical Specialist', card: 'Solar PV, BESS & Hybrid',
+    ini: 'CA',
+    deg: 'S.T. (Electrical Power) · Universitas Indonesia',
+    specialist: 'Solar PV, Floating PV, BESS & Hybrid Power Systems',
+    headline: 'Renewable Energy Technical Specialist, Akuo Energy Indonesia · 10 years in Indonesian renewables · PVsyst · HOMER · DIgSILENT',
+    credentials: [
+      { k: 'S.T.', v: 'Electrical (Power) Engineering · Universitas Indonesia · GPA 3.72' },
+      { k: '10 Years', v: 'Solar, wind, hydro, BESS & hybrid in Indonesia' },
+      { k: '37 Projects', v: '100 kWp rooftop to 425 MWp floating PV' },
+      { k: 'BESS up to 350 MWh', v: 'Hybrid PV–BESS–genset systems' },
+      { k: '6 Publications', v: 'International conference papers on PV' }
+    ],
+    specializations: [
+      { t: 'Solar PV & Floating PV Design', d: 'Plant sizing, layout design and energy-yield simulation for ground-mounted, rooftop and floating PV, from 100 kWp rooftops to 425 MWp floating plants.', s: ['PVsyst', 'PVDesign', 'Helioscope', 'Energy yield', 'Floating PV'] },
+      { t: 'BESS & Hybrid Systems', d: 'Hybrid PV–BESS–genset modelling and sizing (BESS up to 350 MWh), cluster-based village electrification and a 1 GW wind–solar–BESS–gas pre-feasibility.', s: ['HOMER', 'BESS sizing', 'Hybrid modelling', 'Microgrids'] },
+      { t: 'Grid Interconnection & Impact Studies', d: 'Grid assessments, interconnection and impact studies with PLN for solar, wind and hydro, plus BESS integration on 20 kV distribution networks.', s: ['DIgSILENT', 'ETAP', 'Grid impact study', '20 kV distribution'] },
+      { t: 'Tender, EPC & Feasibility Support', d: 'Technical bidding documents and EPC/OEM selection under PLN RFP/PPA and lender requirements, FEED, resource assessment and feasibility studies.', s: ['Technical specifications', 'EPC selection', 'Lender requirements', 'PPA support'] }
+    ],
+    summary: 'Renewable energy technical specialist with 10 years of experience in Indonesia across solar PV, floating PV, wind, hydro, BESS and hybrid systems. Skilled in grid interconnection and impact studies, power plant design, energy-yield simulation, and technical support for EPC and OEM tenders under PLN, C&I and lender requirements.',
+    experience: [
+      { role: 'Renewable Energy Technical Specialist', org: 'Independent', period: 'Oct 2023 – Present',
+        points: ['Engineering support and deliverables for renewable energy development: hybrid system modelling, power system design and studies, energy-yield analysis, plant design and feasibility studies'] },
+      { role: 'Renewable Energy Technical Specialist', org: 'Akuo Energy Indonesia', period: 'Oct 2022 – Present',
+        points: ['Collects and analyses data for FEED, resource assessment, performance evaluation and feasibility studies', 'Defines technical specifications, scopes of work and requirements for technical bidding documents in line with PLN RFP/PPA and lender requirements', 'Coordinates technical consultants, OEMs and EPC contractors to optimise technology performance and competitiveness', 'Leads technical and ESG preparation, selection and execution of EPC contracts', 'Supports subsidiaries and project companies (SPCs); screens and recommends consultants, EPC contractors and OEMs'] },
+      { role: 'Electrical Engineer', org: 'Akuo Energy Indonesia', period: 'Sep 2016 – Oct 2022',
+        points: ['Grid assessments, grid impact studies, energy-yield assessments, power plant design and electrical engineering for solar, wind, hydro and biomass projects'] },
+      { role: 'Research Assistant', org: 'Tropical Renewable Energy Center (TREC), Universitas Indonesia', period: 'Nov 2015 – Aug 2016',
+        points: ['Research on off-grid and on-grid PV implementation in Indonesia; six papers published at international conferences'] },
+      { role: 'Electrical Energy Conversion Laboratory Assistant', org: 'Department of Electrical Engineering, Universitas Indonesia', period: 'Aug 2014 – Aug 2016',
+        points: ['Assisted power engineering and power electronics experiments; designed experiment modules and maintained equipment'] }
+    ],
+    education: [
+      { degree: 'Bachelor of Engineering, Electrical (Power) Engineering — GPA 3.72/4.00', inst: 'Universitas Indonesia · Thesis: minimum line-loss calculation for optimum PV penetration capacity and location on radial distribution systems', period: '2016' }
+    ],
+    achievements: [
+      'Six research papers published at international conferences',
+      'Best Team, Student Energy Conference',
+      '1st Place, Microcontroller Project',
+      'Lotte Foundation Scholarship; DIKTI-PPA Scholarship'
+    ],
+    projects: [
+      { t: "Cluster-Based Hybrid System Village Electrification", loc: "Indonesia", y: '2026', d: "Plant sizing, design and yield simulation; cluster-based hybrid model and sizing tool (independent)" },
+      { t: "Ground-Mounted PV 65 MWp (PLN subsidiary)", loc: "East Java", y: '2026', d: "Sizing, design, yield simulation; EPC tender support" },
+      { t: "Ground-Mounted PV 16 MWp (C&I)", loc: "Central Java", y: '2026', d: "Sizing, design, yield simulation; EPC tender support" },
+      { t: "Floating PV 130 MWp + 10 MWh BESS", loc: "West Nusa Tenggara", y: '2026', d: "Sizing, design and yield simulation" },
+      { t: "Floating PV 130 MWp", loc: "Lampung", y: '2026', d: "Sizing, design and yield simulation" },
+      { t: "Floating PV 425 MWp", loc: "Lampung", y: '2026', d: "Sizing, design and yield simulation" },
+      { t: "Hybrid PV 77 MWp + BESS 13 MWh (PLN)", loc: "Central Java", y: '2026', d: "Sizing, design, yield simulation and grid interconnection study; EPC tender support" },
+      { t: "BESS Initial Integration Study", loc: "Jakarta", y: '2026', d: "Technical sizing and initial grid analysis for BESS on a 20 kV PLN distribution system (independent)" },
+      { t: "3 Wind Farm Sites \u2014 750 MW", loc: "Java", y: '2025', d: "Grid assessment report for three potential sites" },
+      { t: "Floating PV 348 MWp", loc: "Banten", y: '2025', d: "Sizing, design and yield simulation" },
+      { t: "Floating PV 114 MWp", loc: "East Kalimantan", y: '2025', d: "Sizing, design and yield simulation" },
+      { t: "Wind Farm 60 MW + BESS 13 MWh (PLN)", loc: "West Sulawesi", y: '2025', d: "Grid interconnection study with PLN; electrical design and BESS optimisation; EPC tender support" },
+      { t: "Hybrid PV 12.8 MWp + BESS 15 MWh (PLN)", loc: "North Maluku", y: '2025', d: "Sizing, design, yield simulation and grid interconnection study; EPC tender support" },
+      { t: "Hybrid PV 6.7 MWp + BESS 4.5 MWh (PLN)", loc: "Belitung", y: '2025', d: "Sizing, design, yield simulation and grid interconnection study; EPC tender support" },
+      { t: "Hybrid Power Plant Performance Analysis", loc: "East Nusa Tenggara", y: '2025', d: "Operational analysis and input for future planning (independent)" },
+      { t: "Hybrid System Model Consultation", loc: "Jakarta", y: '2025', d: "Technical support for hybrid power plant modelling (independent)" },
+      { t: "Ground-Mounted PV 50 MWp", loc: "New Zealand", y: '2024', d: "Engineering support for development and grid connection" },
+      { t: "Transformer Factory Audit", loc: "China & Indonesia", y: '2024', d: "Complete factory audit to CIGRE standards at two manufacturers" },
+      { t: "1 GW Hybrid Plant Pre-Feasibility (Wind, Solar, BESS, Gas)", loc: "South Sulawesi", y: '2024', d: "Hybrid system model, plant and electrical system design (independent)" },
+      { t: "Hybrid PV 85 MWp + BESS 350 MWh (PLN subsidiary)", loc: "East Java", y: '2024', d: "Sizing, design, yield simulation; EPC tender support" },
+      { t: "Ground-Mounted PV 70 MWp (PLN subsidiary)", loc: "Central Java", y: '2024', d: "Sizing, design, yield simulation; EPC tender support" },
+      { t: "Wind Farm 55 MW (PLN subsidiary)", loc: "Aceh", y: '2023', d: "Electrical design and optimisation; grid impact study; EPC tender support" },
+      { t: "Hybrid PV 100 MWp + BESS 350 MWh + Genset (PLN)", loc: "Eastern Indonesia", y: '2023', d: "Sizing, design, yield simulation; EPC tender support" },
+      { t: "Floating PV 135 MWp (PLN subsidiary)", loc: "East Java", y: '2023', d: "Sizing, design, yield simulation; EPC tender support" },
+      { t: "Ground-Mounted PV 2 MWp (C&I)", loc: "West Java", y: '2022', d: "Sizing, design, yield simulation; tender support" },
+      { t: "Rooftop PV 1 MWp (C&I)", loc: "Banten", y: '2022', d: "Sizing, design, yield simulation; tender support" },
+      { t: "Floating PV 37 MWp (C&I)", loc: "East Java", y: '2021', d: "Sizing, design, yield simulation; tender support" },
+      { t: "Ground-Mounted PV 20 MWp (C&I)", loc: "South Sulawesi", y: '2021', d: "Sizing, design, yield simulation; tender support" },
+      { t: "Floating PV 60 MWp (PLN subsidiary)", loc: "West Java", y: '2020', d: "Sizing, design, yield simulation; EPC tender support" },
+      { t: "Floating PV 125 MWp (PLN subsidiary)", loc: "West Sumatra", y: '2020', d: "Sizing, design, yield simulation; EPC tender support" },
+      { t: "Mini Hydro 14 MW (PLN)", loc: "Aceh", y: '2020', d: "Grid interconnection study and electrical design" },
+      { t: "Floating PV 16 MWp (C&I)", loc: "Banten", y: '2019', d: "Grid interconnection and feasibility study; sizing, design, yield simulation; EPC tender and PPA negotiation support" },
+      { t: "Mini Hydro 4 MW (PLN)", loc: "Aceh", y: '2018', d: "Grid interconnection study and electrical design" },
+      { t: "Wind Farm 66 MW (PLN)", loc: "Central Java", y: '2018', d: "Grid interconnection study with PLN; electrical design and optimisation" },
+      { t: "Rooftop PV 100 kWp (C&I)", loc: "Banten", y: '2018', d: "Grid interconnection assessment, feasibility study and plant design" },
+      { t: "Hybrid PV 1.2 MWp + BESS 2.1 MWh", loc: "East Kalimantan", y: '2017', d: "Transformer factory acceptance test (FAT); plant operation support" },
+      { t: "Mini Hydro 4 MW (PLN)", loc: "North Sumatra", y: '2017', d: "Grid interconnection study and electrical design" }
+    ],
+    skills: [
+      'Engineering software: PVsyst, HOMER, PVDesign, Helioscope, ETAP, DIgSILENT',
+      'Design & productivity: QGIS, Google Earth, AutoCAD, CorelDRAW, Microsoft Office'
+    ],
+    languages: ['Bahasa Indonesia (native)', 'English (professional working proficiency)'],
+    tags: ['Solar PV', 'Floating PV', 'BESS', 'Hybrid Systems', 'Wind', 'Mini Hydro', 'Grid Studies', 'PVsyst', 'HOMER', 'DIgSILENT']
   }
 };
-window.EXPERT_ORDER = ['qh', 'da', 'fn', 'sd', 'rm'];
+window.EXPERT_ORDER = ['qh', 'da', 'fn', 'sd', 'rm', 'ca'];
