@@ -279,13 +279,15 @@ h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
 var EXPERTS={
   qh:{name:'Dr. Qashtalani Haramaini, S.T., M.T.',role:'Energy & Power Systems Expert',img:'avatar-qashtalani.webp',
     certs:'Unit Manager, PLN &bull; ENGIE (GDF SUEZ) alumnus &bull; Australia Awards awardee &bull; Founder, Electra Academy',
+    site:'https://qashtalani-haramaini.com',
     sections:[
       ['Education',['Doctorate in Electrical Engineering — Universitas Indonesia','M.T. Electrical Engineering — Universitas Indonesia (2017–2019)','Waste to Energy — Griffith University, Australia (Australia Awards)','S.T. Electrical Engineering — Universitas Indonesia (2012–2015)']],
       ['Experience',['Unit Manager — PLN (2021–present)','Energy Transaction Supervisor — PLN (2020–2021)','Engineering Supervisor — PLN (2019–2020)','Key Account Marketing — PLN (2018–2019)','Operations — ENGIE / GDF SUEZ (2016)']],
       ['Achievements',['Best PLN Unit Cash Recovery 2020; Best PLN Unit Losses Reduction 2019; Green Category Best Inspirator 2019','8+ IEEE / IOP / Elsevier publications on smart metering, solar PV and load forecasting','Speaker at international conferences in Kuala Lumpur, Bali, Istanbul and Nagoya']]],
     tags:['Power Systems','Distribution & Losses','Renewable Energy','Energy Policy','Data Analytics','Smart Grid','Energy Efficiency','Power Quality']},
   da:{name:'Dino Arla, S.T.',role:'Power Systems & Applied ML Expert',img:'avatar-dino.webp',
-    certs:'Professional Engineer &bull; Applied Machine Learning researcher &bull; Founder, Arla Industri Teknopatih &bull; <a href="https://dinoarla.com/" target="_blank" rel="noopener">dinoarla.com</a>',
+    certs:'Professional Engineer &bull; Applied Machine Learning researcher &bull; Founder, Arla Industri Teknopatih',
+    site:'https://dinoarla.com',
     sections:[
       ['Education',['Master of Technology Management (Business Analytics) — Institut Teknologi Sepuluh Nopember (ITS)','S.T. Electrical Engineering']],
       ['Experience',['8+ years building and deploying analytics for the national power distribution network at PLN','Team Leader, Energy Transaction — PLN Indramayu (2023–2025): metering, energy loss recovery and billing','Founder — Arla Industri Teknopatih (since 2013)']],
@@ -322,6 +324,7 @@ document.querySelectorAll('.ex').forEach(function(b){b.addEventListener('click',
   if(e.soon){h='<div class="pf-sec"><div class="pf-h">Profile</div><p class="soon">Full profile coming soon. Contact us on WhatsApp to book a session with this expert.</p></div>'}
   e.sections.forEach(function(s){h+='<div class="pf-sec"><div class="pf-h">'+s[0]+'</div><ul>'+s[1].map(function(i){return '<li>'+esc(i)+'</li>'}).join('')+'</ul></div>'});
   if(e.tags.length)h+='<div class="pf-sec"><div class="pf-h">Expertise</div><div class="tags">'+e.tags.map(function(t){return '<span>'+esc(t)+'</span>'}).join('')+'</div></div>';
+  if(e.site)h+='<div class="pf-sec"><a class="btn-o" href="'+e.site+'" target="_blank" rel="noopener">Full profile &amp; CV &#8599; '+e.site.replace(/^https?:\/\//,'')+'</a></div>';
   document.getElementById('pmBody').innerHTML=h;
   openModal(document.getElementById('pm'));
 })});
