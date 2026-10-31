@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expert CV — Envisor Advisor</title>
+<meta name="description" content="Curriculum vitae of an Envisor certified energy expert.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ivory:#F4EFE4;--paper:#FBF8F2;--ink:#0E1726;--muted:#5C6370;
+  --navy:#0E1726;--navy-2:#16233A;
+  --gold:#C5A15A;--champagne:#E3CB95;--gold-ink:#94713A;
+  --line:rgba(14,23,38,.10);
+  --font-d:'Cormorant Garamond',Georgia,serif;
+  --font-b:'DM Sans',Helvetica,sans-serif;
+}
+body{font-family:var(--font-b);background:var(--ivory);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse 50% 45% at 8% 0%,rgba(197,161,90,.18),transparent 70%),radial-gradient(ellipse 45% 40% at 100% 100%,rgba(197,161,90,.12),transparent 70%);z-index:0}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+header{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;height:68px;padding:0 clamp(20px,3.6vw,56px);background:rgba(244,239,228,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:11px}
+.logo-mark{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--navy);color:var(--champagne);box-shadow:0 0 0 3px rgba(197,161,90,.25)}
+.logo-mark svg{width:16px;height:16px}
+.logo-text{font-family:var(--font-d);font-size:23px;font-weight:600;letter-spacing:2px}
+.logo-text span{color:var(--gold-ink);font-weight:500}
+.hdr-r{display:flex;align-items:center;gap:10px}
+.back{font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-radius:40px;transition:color .3s}
+.back:hover{color:var(--gold-ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;padding:11px 18px;border-radius:40px;transition:all .3s;white-space:nowrap;cursor:pointer;border:none;font-family:inherit}
+.btn svg{width:15px;height:15px}
+.btn-wa{background:var(--navy);color:var(--champagne)}
+.btn-wa svg{color:#4ADE80}
+.btn-wa:hover{background:var(--navy-2);box-shadow:0 8px 24px rgba(14,23,38,.25)}
+.btn-gold{background:var(--champagne);color:var(--navy)}
+.btn-gold svg{color:#15803d}
+.btn-o{background:transparent;color:var(--champagne);border:1px solid rgba(227,203,149,.45)}
+.btn-o:hover{background:rgba(227,203,149,.12)}
+
+.wrap{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:clamp(24px,4vh,44px) clamp(16px,3vw,40px) 60px}
+.cv{display:grid;grid-template-columns:320px 1fr;background:var(--paper);border-radius:20px;overflow:hidden;box-shadow:0 30px 80px rgba(14,23,38,.12);border:1px solid var(--line);animation:rise .6s cubic-bezier(.16,1,.3,1)}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* Side */
+.side{background:linear-gradient(170deg,var(--navy-2),var(--navy));color:#fff;padding:40px 30px;display:flex;flex-direction:column;gap:26px}
+.av{width:180px;aspect-ratio:1;border-radius:50%;padding:4px;margin:0 auto;background:conic-gradient(from 210deg,var(--gold),var(--champagne),var(--gold-ink),var(--gold));box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.av img,.av .ini{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid var(--navy)}
+.av .ini{display:flex;align-items:center;justify-content:center;background:var(--navy-2);font-family:var(--font-d);font-size:52px;font-weight:600;color:var(--champagne)}
+.s-h{font-size:10px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:var(--champagne);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.s-h::after{content:'';flex:1;height:1px;background:rgba(227,203,149,.25)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:11px;font-weight:600;padding:5px 11px;border-radius:20px;border:1px solid rgba(227,203,149,.35);color:#F3EAD6}
+.s-list{list-style:none;font-size:13px;color:rgba(255,255,255,.8)}
+.s-list li+li{margin-top:6px}
+.s-links a{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--champagne);padding:4px 0;word-break:break-all}
+.s-links a:hover{text-decoration:underline}
+.s-cta{display:flex;flex-direction:column;gap:10px;margin-top:auto}
+.s-cta .btn{justify-content:center}
+
+/* Main */
+.main{padding:44px clamp(24px,4vw,52px) 48px}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:10.5px;font-weight:700;letter-spacing:3.2px;text-transform:uppercase;color:var(--gold-ink)}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+h1{font-family:var(--font-d);font-size:clamp(32px,4vw,48px);font-weight:600;line-height:1.05;margin:10px 0 8px}
+.role{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-ink)}
+.headline{font-size:14px;color:var(--muted);margin-top:10px;max-width:640px}
+.sec{margin-top:34px}
+.sec-h{display:flex;align-items:center;gap:14px;font-family:var(--font-d);font-size:24px;font-weight:600;margin-bottom:14px}
+.sec-h::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.summary{font-size:15px;line-height:1.75;color:#2B3240}
+.tl{position:relative;padding-left:22px}
+.tl::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:rgba(197,161,90,.45)}
+.job{position:relative}
+.job+.job{margin-top:20px}
+.job::before{content:'';position:absolute;left:-22px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--paper);border:2px solid var(--gold)}
+.job-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.job-role{font-size:15.5px;font-weight:700}
+.job-period{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold-ink);white-space:nowrap}
+.job-org{font-size:13.5px;color:var(--muted);margin-top:2px}
+.pts{list-style:none;margin-top:8px}
+.pts li{position:relative;padding-left:16px;font-size:13.5px;line-height:1.65;color:#2B3240}
+.pts li::before{content:'';position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.pts li+li{margin-top:4px}
+.edu{display:grid;gap:12px}
+.edu-i{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:12px 16px;border-radius:10px;background:#fff;border:1px solid var(--line)}
+.edu-i b{font-size:14.5px}
+.edu-i div{font-size:13px;color:var(--muted)}
+.edu-i span{font-size:11px;font-weight:700;letter-spacing:1.2px;color:var(--gold-ink);white-space:nowrap}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 34px}
+
+.notfound{text-align:center;padding:80px 20px}
+.notfound h1{margin-bottom:12px}
+.notfound a{color:var(--gold-ink);text-decoration:underline}
+
+footer{position:relative;z-index:1;text-align:center;font-size:11px;color:#8A8F98;padding:0 16px 30px}
+
+@media(max-width:900px){.cv{grid-template-columns:1fr}.side{padding:34px 24px}.s-cta{margin-top:0}.cols{grid-template-columns:1fr}}
+@media(max-width:520px){.back span{display:none}.btn-wa span{display:none}.btn-wa{padding:10px 12px}.logo-text{font-size:20px}.main{padding:30px 20px 36px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+@media print{
+  @page{margin:12mm}
+  body{background:#fff}
+  body::before,header,.s-cta,footer{display:none!important}
+  .wrap{padding:0;max-width:none}
+  .cv{box-shadow:none;border:none;border-radius:0;grid-template-columns:240px 1fr}
+  .side{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .job,.edu-i{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="logo"><div class="logo-mark"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></div><div class="logo-text">ENVISOR<span>.AI</span></div></a>
+  <div class="hdr-r">
+    <a class="back" href="advisor.html">&larr; <span>All experts</span></a>
+    <a class="btn btn-wa" id="hdrBook" href="https://wa.me/6285121532407" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span>Book a Session</span></a>
+  </div>
+</header>
+
+<div class="wrap" id="app"></div>
+<footer>&copy; 2025 Envisor Group &middot; <a href="https://wa.me/6285121532407" target="_blank" rel="noopener">+62 851-2153-2407</a> &middot; <a href="mailto:hello@envisorai.com">hello@envisorai.com</a></footer>
+
+<script src="experts.js"></script>
+<script>
+(function(){
+  function esc(t){var d=document.createElement('div');d.textContent=t==null?'':String(t);return d.innerHTML}
+  var id=new URLSearchParams(location.search).get('id');
+  var e=window.EXPERTS&&window.EXPERTS[id];
+  var app=document.getElementById('app');
+  if(!e){app.innerHTML='<div class="notfound"><h1>Expert not found</h1><p><a href="advisor.html">Back to all experts</a></p></div>';return}
+
+  document.title=e.short+' — CV · Envisor Advisor';
+  var book='https://wa.me/6285121532407?text='+encodeURIComponent('Hello Envisor, I would like to book a session with '+e.short+'.');
+  document.getElementById('hdrBook').href=book;
+
+  function list(items){return '<ul class="pts">'+items.map(function(i){return '<li>'+esc(i)+'</li>'}).join('')+'</ul>'}
+  function sec(title,body){return '<section class="sec"><div class="sec-h">'+title+'</div>'+body+'</section>'}
+
+  var side='<aside class="side">'
+    +'<div class="av">'+(e.img?'<img src="'+e.img+'" alt="'+esc(e.name)+'">':'<div class="ini">'+esc(e.ini||'')+'</div>')+'</div>'
+    +(e.tags&&e.tags.length?'<div><div class="s-h">Expertise</div><div class="tags">'+e.tags.map(function(t){return '<span>'+esc(t)+'</span>'}).join('')+'</div></div>':'')
+    +(e.languages?'<div><div class="s-h">Languages</div><ul class="s-list">'+e.languages.map(function(l){return '<li>'+esc(l)+'</li>'}).join('')+'</ul></div>':'')
+    +(e.links&&e.links.length?'<div class="s-links"><div class="s-h">Links</div>'+e.links.map(function(l){return '<a href="'+l.url+'" target="_blank" rel="noopener">&#8599; '+esc(l.label)+'</a>'}).join('')+'</div>':'')
+    +'<div class="s-cta"><a class="btn btn-gold" href="'+book+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>Book a Session</a>'
+    +'<button class="btn btn-o" onclick="window.print()">Download / Print CV</button></div>'
+    +'</aside>';
+
+  var main='<div class="main">'
+    +'<div class="eyebrow">Envisor Expert &middot; Curriculum Vitae</div>'
+    +'<h1>'+esc(e.name)+'</h1>'
+    +'<div class="role">'+esc(e.role)+'</div>'
+    +(e.headline?'<p class="headline">'+esc(e.headline)+'</p>':'');
+  if(e.summary)main+=sec('Professional Summary','<p class="summary">'+esc(e.summary)+'</p>');
+  if(e.experience)main+=sec('Experience','<div class="tl">'+e.experience.map(function(j){
+      return '<div class="job"><div class="job-top"><div class="job-role">'+esc(j.role)+'</div>'+(j.period?'<div class="job-period">'+esc(j.period)+'</div>':'')+'</div>'
+        +(j.org?'<div class="job-org">'+esc(j.org)+'</div>':'')+(j.points?list(j.points):'')+'</div>'}).join('')+'</div>');
+  if(e.education)main+=sec('Education','<div class="edu">'+e.education.map(function(d){
+      return '<div class="edu-i"><div><b>'+esc(d.degree)+'</b>'+(d.inst?'<div>'+esc(d.inst)+'</div>':'')+'</div>'+(d.period?'<span>'+esc(d.period)+'</span>':'')+'</div>'}).join('')+'</div>');
+  if(e.certifications)main+=sec('Certifications',list(e.certifications));
+  if(e.training)main+=sec('Training',list(e.training));
+  if(e.achievements)main+=sec('Achievements &amp; Publications',list(e.achievements));
+  if(e.skills)main+=sec('Key Skills',list(e.skills));
+  main+='</div>';
+
+  app.innerHTML='<article class="cv">'+side+main+'</article>';
+})();
+</script>
+</body>
+</html>
