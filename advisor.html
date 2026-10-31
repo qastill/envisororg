@@ -71,7 +71,7 @@ h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
 .ex:hover .ex-more{opacity:1;transform:none}
 
 /* Bottom links */
-.links{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1vw,16px);padding-bottom:clamp(12px,2vh,20px);flex-shrink:0;max-width:1180px;width:100%;margin:0 auto}
+.links{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,760px);justify-content:center;gap:clamp(10px,1vw,16px);padding-bottom:clamp(12px,2vh,20px);flex-shrink:0;max-width:1180px;width:100%;margin:0 auto}
 .lk{display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:14px;background:linear-gradient(160deg,var(--navy-2),var(--navy));color:#fff;border:1px solid rgba(227,203,149,.14);transition:all .4s;cursor:pointer;text-align:left}
 .lk:hover{border-color:rgba(227,203,149,.45);transform:translateY(-2px);box-shadow:0 14px 30px rgba(14,23,38,.2)}
 .lk-ico{width:42px;height:42px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:1px solid rgba(227,203,149,.35);color:var(--champagne)}
@@ -195,7 +195,7 @@ h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
   <section class="hero">
     <div class="eyebrow">Envisor Advisor</div>
     <h1>Talk to a certified <em>energy expert.</em></h1>
-    <p class="lede">Live online sessions with practitioners in power systems, transformers, solar PV &amp; battery storage, electrical safety, energy analytics, and carbon consulting. Select an expert to view their full CV.</p>
+    <p class="lede">Live online sessions with practitioners in power systems, transformers, solar PV &amp; battery storage, electrical safety and energy analytics. Select an expert to view their full CV.</p>
   </section>
 
   <main class="experts">
@@ -203,44 +203,17 @@ h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
   </main>
 
   <section class="links">
-    <a class="lk" href="cbam.html">
-      <span class="lk-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 3 6 6.5 6 10a6 6 0 0 1-12 0c0-3.5 2-7 6-10z"/><path d="M12 21v-7l-3-3"/></svg></span>
-      <span><b>Carbon &amp; CBAM Consulting</b><small>Scope 1&ndash;3 footprint and EU CBAM readiness, with calculator.</small></span>
-      <span class="go">Open &#8594;</span>
-    </a>
-    <button class="lk" id="openWorks">
+    <a class="lk" href="portfolio.html">
       <span class="lk-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg></span>
-      <span><b>Our Works &amp; Portfolio</b><small>Selected consulting engagements and our interactive project map.</small></span>
-      <span class="go">View &#8594;</span>
-    </button>
+      <span><b>Our Works &amp; Portfolio</b><small>Projects delivered by our experts &mdash; solar PV, BESS &amp; hybrid, wind, hydro, transformers and grid analytics.</small></span>
+      <span class="go">View all &#8594;</span>
+    </a>
   </section>
 
   <footer class="foot">
     <span>&copy; 2025 Envisor Group</span>
     <span><a href="https://wa.me/6285121532407" target="_blank" rel="noopener">+62 851-2153-2407</a><a href="mailto:hello@envisorai.com">hello@envisorai.com</a></span>
   </footer>
-</div>
-
-<!-- Our Works modal -->
-<div class="modal" id="wm" role="dialog" aria-modal="true" aria-labelledby="wmTitle">
-  <div class="panel">
-    <button class="x" data-close aria-label="Close">&times;</button>
-    <div class="wk">
-      <div class="pf-h">Our Works</div>
-      <h2 id="wmTitle">Consulting Engagements</h2>
-      <p class="sub">Selected advisory work delivered by Envisor experts &mdash; from power system and transformer assessments to energy efficiency and electrical safety audits.</p>
-      <div class="wk-grid">
-        <!-- To add a project: replace the text inside .wk-img with <img src="your-photo.webp" alt="...">, then fill the title, meta and description. -->
-        <article class="wk-card"><div class="wk-img">Project image</div><div class="wk-body"><h3>Project Title</h3><div class="wk-meta">Client &bull; Location &bull; Year</div><p>Short description of the scope and outcome.</p></div></article>
-        <article class="wk-card"><div class="wk-img">Project image</div><div class="wk-body"><h3>Project Title</h3><div class="wk-meta">Client &bull; Location &bull; Year</div><p>Short description of the scope and outcome.</p></div></article>
-        <article class="wk-card"><div class="wk-img">Project image</div><div class="wk-body"><h3>Project Title</h3><div class="wk-meta">Client &bull; Location &bull; Year</div><p>Short description of the scope and outcome.</p></div></article>
-      </div>
-      <div class="wk-cta">
-        <a class="btn-o" href="https://storymaps.arcgis.com/stories/ac01da24257946b2bc8f2ed94c90306c" target="_blank" rel="noopener">Interactive portfolio map &#8599;</a>
-        <a class="btn-o" href="maps.html">World Map &#8594;</a>
-      </div>
-    </div>
-  </div>
 </div>
 
 <div class="mnav" id="mn">
@@ -262,7 +235,6 @@ function openModal(m){last=document.activeElement;m.classList.add('open');docume
 function closeModals(){document.querySelectorAll('.modal.open').forEach(function(m){m.classList.remove('open')});document.body.style.overflow='';if(last)last.focus()}
 document.getElementById('experts').innerHTML=EXPERT_ORDER.map(function(id){var e=EXPERTS[id];
   return '<a class="ex" href="expert.html?id='+id+'"><div class="av">'+(e.img?'<img src="'+e.img+'" alt="'+esc(e.name)+'">':'<div class="ini">'+esc(e.ini||'')+'</div>')+'</div><div class="ex-name">'+esc(e.short)+'</div><div class="ex-deg">'+esc(e.deg||'')+'</div><div class="ex-role">'+esc(e.card)+'</div><div class="ex-chips">'+(e.specializations||[]).slice(0,2).map(function(x){return '<span>'+esc(x.t)+'</span>'}).join('')+'</div><div class="ex-more">View full CV &#8594;</div></a>'}).join('');
-document.getElementById('openWorks').addEventListener('click',function(){openModal(document.getElementById('wm'))});
 document.querySelectorAll('.modal').forEach(function(m){m.addEventListener('click',function(ev){if(ev.target===m||ev.target.hasAttribute('data-close'))closeModals()})});
 document.addEventListener('keydown',function(ev){if(ev.key==='Escape')closeModals()});
 document.getElementById('hm').onclick=function(){document.getElementById('mn').classList.add('open')};
