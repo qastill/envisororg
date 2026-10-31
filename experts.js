@@ -4,6 +4,21 @@ window.EXPERTS = {
   qh: {
     name: 'Dr. Qashtalani Haramaini, S.T., M.T.', short: 'Dr. Qashtalani Haramaini',
     role: 'Energy & Power Systems Expert', card: 'Energy & Power Systems',
+    deg: 'Dr. · M.T. · S.T.',
+    specialist: 'Power Distribution, Loss Reduction & Energy Analytics',
+    credentials: [
+      { k: 'Doctorate', v: 'Electrical Engineering · Universitas Indonesia' },
+      { k: 'M.T.', v: 'Electrical Engineering · Universitas Indonesia' },
+      { k: 'S.T.', v: 'Electrical Engineering · Universitas Indonesia' },
+      { k: 'Australia Awards', v: 'Waste to Energy · Griffith University' },
+      { k: '8+ Publications', v: 'IEEE · IOP · Elsevier' }
+    ],
+    specializations: [
+      { t: 'Power Distribution & Loss Reduction', d: 'Distribution operations and technical / non-technical loss reduction, from leading a PLN unit recognised as Best Unit for Losses Reduction and Cash Recovery.', s: ['Loss analysis', 'Energy transactions', 'Revenue recovery', 'Network operations'] },
+      { t: 'Smart Metering & Load Forecasting', d: 'Research and practice in smart metering and data-driven load forecasting, published in IEEE, IOP and Elsevier venues.', s: ['Smart metering', 'Load forecasting', 'Data analytics', 'Smart grid'] },
+      { t: 'Renewable Energy & Waste-to-Energy', d: 'Solar PV research and waste-to-energy study at Griffith University under Australia Awards, with a policy perspective on the energy transition.', s: ['Solar PV', 'Waste-to-energy', 'Energy policy'] },
+      { t: 'Utility Customer & Energy Management', d: 'Key-account, engineering and energy-transaction experience at PLN, plus operations at ENGIE (GDF SUEZ), for efficiency and power-quality advisory.', s: ['Key accounts', 'Energy efficiency', 'Power quality'] }
+    ],
     img: 'avatar-qashtalani.webp',
     headline: 'Unit Manager, PLN · ENGIE (GDF SUEZ) alumnus · Australia Awards awardee · Founder, Electra Academy',
     links: [{ label: 'qashtalani-haramaini.com', url: 'https://qashtalani-haramaini.com' }],
@@ -35,6 +50,21 @@ window.EXPERTS = {
   da: {
     name: 'Dino Arla, S.T.', short: 'Dino Arla',
     role: 'Power Systems & Applied ML Expert', card: 'Power Systems & Applied ML',
+    deg: 'M.M.T. · S.T. · Professional Engineer',
+    specialist: 'Distribution Analytics, Machine Learning & IoT Telemetry',
+    credentials: [
+      { k: 'Professional Engineer', v: 'Insinyur Profesional' },
+      { k: 'Master of Technology Mgmt.', v: 'Business Analytics · ITS' },
+      { k: 'S.T.', v: 'Electrical Engineering' },
+      { k: 'Patent', v: 'AQORTA IoT telemetry system' },
+      { k: 'Best Paper', v: 'ICoDSA 2025' }
+    ],
+    specializations: [
+      { t: 'Distribution Analytics & Loss Recovery', d: '8+ years building analytics for PLN\'s distribution network, including metering, energy-loss recovery and billing as Team Leader, Energy Transaction.', s: ['Loss recovery', 'Metering & billing', 'Energy transactions'] },
+      { t: 'Applied Machine Learning', d: 'Developer of MAGNETO, a ranking system for electricity-theft detection, with 7 scientific publications and a Best Paper award.', s: ['Theft detection', 'Anomaly ranking', 'Predictive models'] },
+      { t: 'IoT & Telemetry Systems', d: 'Inventor of AQORTA, a patented solar-powered IoT system for air-quality and noise telemetry.', s: ['IoT sensors', 'Solar-powered telemetry', 'Environmental monitoring'] },
+      { t: 'Business Analytics', d: 'Master\'s in technology management (business analytics) applied to utility operations and decision-making.', s: ['Business analytics', 'Decision support', 'Data strategy'] }
+    ],
     img: 'avatar-dino.webp',
     headline: 'Professional Engineer · Applied machine learning researcher · Founder, Arla Industri Teknopatih',
     links: [{ label: 'dinoarla.com', url: 'https://dinoarla.com' }],
@@ -62,6 +92,21 @@ window.EXPERTS = {
   fn: {
     name: 'M Farda Najih Arifani', short: 'M Farda Najih Arifani',
     role: 'Electrical Safety (K3) Expert', card: 'Electrical Safety (K3)',
+    deg: 'Ahli K3 Listrik · Ahli K3 Umum',
+    specialist: 'Electrical Safety, OHS Management & Fire Protection',
+    credentials: [
+      { k: 'Ahli K3 Listrik', v: 'Certified Electrical OHS Expert' },
+      { k: 'Ahli K3 Umum', v: 'Certified General OHS Expert' },
+      { k: 'Fire Warden Class D', v: 'Petugas Peran Kebakaran' },
+      { k: 'D3 Electrical Eng.', v: 'Universitas Diponegoro' },
+      { k: '9+ Years', v: 'Power distribution & HSE' }
+    ],
+    specializations: [
+      { t: 'Electrical Safety (K3 Listrik)', d: 'Hazard identification and control for electrical installations and distribution work, as a certified electrical OHS expert.', s: ['HIRARC', 'LOTO', 'Safe work procedures', 'Electrical installation safety'] },
+      { t: 'OHS & HSE Management', d: 'Running K3L (health, safety, security & environment) programmes and audits within a national utility.', s: ['K3L programmes', 'HSE audits', 'Incident prevention'] },
+      { t: 'Fire Protection', d: 'Certified Class D fire warden, covering fire-risk awareness and emergency roles at work sites.', s: ['Fire risk', 'Emergency response roles'] },
+      { t: 'Distribution Construction & Metering', d: 'Control of distribution-network construction and maintenance of energy-transaction metering (APP).', s: ['Construction control', 'APP metering', 'AI for reliability & safety'] }
+    ],
     img: 'avatar-farda.webp',
     headline: 'Certified General & Electrical OHS Expert · Class D Fire Warden · Co-Founder, Electra Academy',
     summary: 'Occupational health and safety specialist with 9+ years in power distribution at Indonesia\'s national utility, covering distribution-network construction control, energy-transaction metering maintenance and HSE. Actively applies artificial intelligence to improve the reliability and safety of power systems, and co-founded Electra Academy.',
@@ -81,6 +126,19 @@ window.EXPERTS = {
   sd: {
     name: 'Muhamad Hidayah Sidiq, S.T.', short: 'M. Hidayah Sidiq',
     role: 'Metering & Distribution Efficiency Expert', card: 'Metering & Distribution',
+    deg: 'S.T. (Electrical Engineering)',
+    specialist: 'Metering Systems, AMI & Distribution Loss Control',
+    credentials: [
+      { k: 'S.T.', v: 'Electrical Engineering · Institut Teknologi Telkom' },
+      { k: 'AMI Operation', v: 'PLN UPDL Pandaan (2025)' },
+      { k: '6+ Years', v: 'PLN distribution, West Java' }
+    ],
+    specializations: [
+      { t: 'Metering Systems & AMI', d: 'Meter-system control for PLN\'s West Java distribution network, trained in Advanced Metering Infrastructure operation and automatic power control for postpaid meters.', s: ['Meter system control', 'AMI', 'Postpaid metering'] },
+      { t: 'Energy Loss Control', d: 'Three years in an energy-transaction section controlling distribution losses.', s: ['Loss analysis', 'Energy transactions'] },
+      { t: 'Public Street Lighting (PJU)', d: 'Management and control of public street-lighting connections and consumption.', s: ['PJU control', 'Consumption audits'] },
+      { t: 'Distribution Performance', d: 'Unit performance monitoring and reporting for a PLN customer-service unit.', s: ['KPI monitoring', 'Performance reporting'] }
+    ],
     img: 'avatar-sidik.webp',
     headline: 'Officer, Meter System Control — PLN Distribution West Java · 6+ years at PLN',
     summary: 'Electrical engineer at PLN since 2019, specialising in metering systems, energy-loss and street-lighting control, and distribution performance in West Java. Currently responsible for meter-system control within distribution efficiency, measurement and system quality at PLN\'s West Java distribution headquarters.',
@@ -112,6 +170,21 @@ window.EXPERTS = {
   rm: {
     name: 'M. Rizky Maulanda, S.T.', short: 'M. Rizky Maulanda',
     role: 'Power Transformer & OLTC Expert', card: 'Transformer & OLTC',
+    deg: 'S.T. · Reinhausen PSP',
+    specialist: 'Power Transformers & On-Load Tap Changers (OLTC)',
+    credentials: [
+      { k: 'Reinhausen PSP', v: 'Certified Premium Service Provider, MR OLTC' },
+      { k: 'Factory Qualified', v: 'Regensburg, Germany · 2020, 2022, 2023' },
+      { k: 'BNSP', v: 'Competence in Electrical Installation' },
+      { k: 'S.T.', v: 'Electrical Engineering · Syiah Kuala University' },
+      { k: '9+ Years', v: 'Power transformer industry' }
+    ],
+    specializations: [
+      { t: 'On-Load Tap Changers (OLTC)', d: 'Inspection, maintenance, troubleshooting, retrofit and modification of MR OLTCs across Indonesia, Malaysia, Australia and Taiwan.', s: ['OILTAP M / V / R', 'VACUTAP VV / VM / VR', 'Retrofit & modification'] },
+      { t: 'Power Transformer Testing', d: 'High-voltage testing and QC from Factory Acceptance Test to Site Acceptance Test, working with customer witnesses.', s: ['FAT / SAT', 'IVPD & impulse', 'Temperature rise', 'SFRA', 'Oil breakdown'] },
+      { t: 'Voltage Regulation & Drives', d: 'Automatic voltage regulators, monitoring and motor drives for tap changers.', s: ['TAPCON AVR', 'ETOS', 'MA7 / MA9', 'TAPMOTION ED'] },
+      { t: 'After-Sales & Service Networks', d: 'After-sales strategy, key-account management and service-partner training for utilities, OEMs and industry.', s: ['Service strategy', 'Partner training', 'Key accounts'] }
+    ],
     img: 'avatar-rizky.webp',
     headline: 'After Sales Service Manager, PT Huaming Power Indonesia · Former Reinhausen (MR) certified Premium Service Provider',
     links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/mrizkymaulanda' }],

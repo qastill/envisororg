@@ -92,6 +92,24 @@ h1{font-family:var(--font-d);font-size:clamp(32px,4vw,48px);font-weight:600;line
 .edu-i div{font-size:13px;color:var(--muted)}
 .edu-i span{font-size:11px;font-weight:700;letter-spacing:1.2px;color:var(--gold-ink);white-space:nowrap}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:0 34px}
+.deg{display:inline-block;margin-top:10px;font-size:12px;font-weight:700;letter-spacing:1.6px;color:var(--navy);background:var(--champagne);padding:5px 12px;border-radius:20px}
+.spec{margin-top:22px;padding:20px 22px;border-radius:14px;background:linear-gradient(160deg,var(--navy-2),var(--navy));color:#fff;position:relative;overflow:hidden}
+.spec::after{content:'';position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(227,203,149,.22),transparent 70%)}
+.spec small{display:block;font-size:10px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;color:var(--champagne);margin-bottom:6px}
+.spec b{display:block;font-family:var(--font-d);font-size:clamp(22px,2.4vw,30px);font-weight:600;line-height:1.15}
+.creds{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;margin-top:16px}
+.cred{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:12px;background:#fff;border:1px solid rgba(197,161,90,.35)}
+.cred i{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--navy);color:var(--champagne);display:flex;align-items:center;justify-content:center;font-style:normal;font-size:12px}
+.cred b{display:block;font-size:13px;line-height:1.3}
+.cred span{display:block;font-size:11.5px;color:var(--muted);line-height:1.4;margin-top:2px}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.sp{padding:18px 18px 16px;border-radius:14px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);transition:transform .4s,box-shadow .4s}
+.sp:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(14,23,38,.08)}
+.sp-n{font-family:var(--font-d);font-size:14px;font-weight:700;color:var(--gold-ink);letter-spacing:1.5px}
+.sp h3{font-family:var(--font-d);font-size:21px;font-weight:600;line-height:1.15;margin:4px 0 6px}
+.sp p{font-size:13px;line-height:1.6;color:#3A4150}
+.sp-s{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.sp-s span{font-size:10.5px;font-weight:600;padding:4px 9px;border-radius:20px;background:var(--ivory);border:1px solid rgba(197,161,90,.3)}
 
 .notfound{text-align:center;padding:80px 20px}
 .notfound h1{margin-bottom:12px}
@@ -99,7 +117,7 @@ h1{font-family:var(--font-d);font-size:clamp(32px,4vw,48px);font-weight:600;line
 
 footer{position:relative;z-index:1;text-align:center;font-size:11px;color:#8A8F98;padding:0 16px 30px}
 
-@media(max-width:900px){.cv{grid-template-columns:1fr}.side{padding:34px 24px}.s-cta{margin-top:0}.cols{grid-template-columns:1fr}}
+@media(max-width:900px){.specs{grid-template-columns:1fr}.cv{grid-template-columns:1fr}.side{padding:34px 24px}.s-cta{margin-top:0}.cols{grid-template-columns:1fr}}
 @media(max-width:520px){.back span{display:none}.btn-wa span{display:none}.btn-wa{padding:10px 12px}.logo-text{font-size:20px}.main{padding:30px 20px 36px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
@@ -144,7 +162,7 @@ footer{position:relative;z-index:1;text-align:center;font-size:11px;color:#8A8F9
 
   var side='<aside class="side">'
     +'<div class="av">'+(e.img?'<img src="'+e.img+'" alt="'+esc(e.name)+'">':'<div class="ini">'+esc(e.ini||'')+'</div>')+'</div>'
-    +(e.tags&&e.tags.length?'<div><div class="s-h">Expertise</div><div class="tags">'+e.tags.map(function(t){return '<span>'+esc(t)+'</span>'}).join('')+'</div></div>':'')
+    +(e.tags&&e.tags.length?'<div><div class="s-h">Key Skills</div><div class="tags">'+e.tags.map(function(t){return '<span>'+esc(t)+'</span>'}).join('')+'</div></div>':'')
     +(e.languages?'<div><div class="s-h">Languages</div><ul class="s-list">'+e.languages.map(function(l){return '<li>'+esc(l)+'</li>'}).join('')+'</ul></div>':'')
     +(e.links&&e.links.length?'<div class="s-links"><div class="s-h">Links</div>'+e.links.map(function(l){return '<a href="'+l.url+'" target="_blank" rel="noopener">&#8599; '+esc(l.label)+'</a>'}).join('')+'</div>':'')
     +'<div class="s-cta"><a class="btn btn-gold" href="'+book+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>Book a Session</a>'
@@ -155,7 +173,12 @@ footer{position:relative;z-index:1;text-align:center;font-size:11px;color:#8A8F9
     +'<div class="eyebrow">Envisor Expert &middot; Curriculum Vitae</div>'
     +'<h1>'+esc(e.name)+'</h1>'
     +'<div class="role">'+esc(e.role)+'</div>'
-    +(e.headline?'<p class="headline">'+esc(e.headline)+'</p>':'');
+    +(e.deg?'<span class="deg">'+esc(e.deg)+'</span>':'')
+    +(e.headline?'<p class="headline">'+esc(e.headline)+'</p>':'')
+    +(e.specialist?'<div class="spec"><small>Specialist in</small><b>'+esc(e.specialist)+'</b></div>':'')
+    +(e.credentials?'<div class="creds">'+e.credentials.map(function(c){return '<div class="cred"><i>&#10022;</i><div><b>'+esc(c.k)+'</b><span>'+esc(c.v)+'</span></div></div>'}).join('')+'</div>':'');
+  if(e.specializations)main+=sec('Core Specializations','<div class="specs">'+e.specializations.map(function(x,i){
+      return '<div class="sp"><div class="sp-n">0'+(i+1)+'</div><h3>'+esc(x.t)+'</h3><p>'+esc(x.d)+'</p><div class="sp-s">'+x.s.map(function(t){return '<span>'+esc(t)+'</span>'}).join('')+'</div></div>'}).join('')+'</div>');
   if(e.summary)main+=sec('Professional Summary','<p class="summary">'+esc(e.summary)+'</p>');
   if(e.experience)main+=sec('Experience','<div class="tl">'+e.experience.map(function(j){
       return '<div class="job"><div class="job-top"><div class="job-role">'+esc(j.role)+'</div>'+(j.period?'<div class="job-period">'+esc(j.period)+'</div>':'')+'</div>'
