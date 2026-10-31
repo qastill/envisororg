@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electra Academy — Training Ketenagalistrikan Envisor</title>
+<meta name="description" content="Electra Academy: program training ketenagalistrikan, K3 listrik, transformator, audit energi, dan analitik energi dari praktisi Envisor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#0A0A0A;--black-light:#111;--black-card:#0F0F0F;--black-card2:#141414;
+  --gold:#C9A96E;--gold-light:#DBBF8C;--gold-dim:rgba(201,169,110,0.12);
+  --silver:#A8A8A8;--silver-light:#C8C8C8;--white:#F5F2ED;
+  --font-d:'Cormorant Garamond',Georgia,serif;
+  --font-b:'DM Sans',Helvetica,sans-serif;
+  --border:rgba(201,169,110,0.12);--border-h:rgba(201,169,110,0.28);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--black);color:var(--white);-webkit-font-smoothing:antialiased;line-height:1.6}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 50% 50% at 15% 20%,rgba(201,169,110,0.04) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 85% 75%,rgba(168,168,168,0.03) 0%,transparent 70%);pointer-events:none;z-index:0}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+/* Header */
+header{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px);height:72px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(16px)}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:32px;height:32px;border:1.5px solid var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:600;font-size:16px;color:var(--gold)}
+.logo-text{font-family:var(--font-d);font-size:22px;font-weight:500;letter-spacing:1px}
+.logo-text span{color:var(--gold);font-weight:300}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);transition:color .3s}
+.nav a:hover{color:var(--gold-light)}
+.nav a.on{color:var(--gold)}
+.btn-g{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--black);background:linear-gradient(135deg,var(--gold),var(--gold-light));padding:10px 24px;border-radius:2px;display:inline-block;transition:all .3s;border:none;cursor:pointer}
+.btn-g:hover{box-shadow:0 4px 24px rgba(201,169,110,0.3);transform:translateY(-1px)}
+.btn-o{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);background:transparent;padding:10px 24px;border-radius:2px;display:inline-block;transition:all .3s;cursor:pointer}
+.btn-o:hover{background:var(--gold-dim)}
+.container{max-width:1200px;margin:0 auto;padding:0 clamp(24px,4vw,60px);position:relative;z-index:1}
+
+/* Hero */
+.hero{padding:clamp(48px,8vh,80px) 0 clamp(36px,6vh,56px);text-align:center;border-bottom:1px solid var(--border);position:relative;z-index:1}
+.hero-tag{display:inline-block;padding:6px 16px;border-radius:2px;border:1px solid var(--border);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.hero h1{font-family:var(--font-d);font-size:clamp(32px,5vw,56px);font-weight:300;letter-spacing:1px;line-height:1.15;margin-bottom:16px}
+.hero h1 strong{font-weight:600;color:var(--gold)}
+.hero p{font-size:16px;color:var(--silver);max-width:560px;margin:0 auto;font-weight:300;line-height:1.7}
+/* Section */
+.sec{padding:clamp(48px,8vh,80px) 0;position:relative;z-index:1}
+.sec-label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.sec-title{font-family:var(--font-d);font-size:clamp(28px,4vw,48px);font-weight:400;letter-spacing:1px;line-height:1.2;margin-bottom:12px}
+.sec-title strong{font-weight:600;color:var(--gold)}
+.sec-sub{font-size:15px;color:var(--silver);max-width:560px;font-weight:300;line-height:1.7}
+
+/* Programs */
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.pc{background:var(--black-card);border:1px solid var(--border);border-radius:8px;padding:28px 24px;display:flex;flex-direction:column;transition:all .5s cubic-bezier(.16,1,.3,1)}
+.pc:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.pc-num{font-family:var(--font-d);font-size:13px;font-weight:600;letter-spacing:2px;color:var(--gold);margin-bottom:14px}
+.pc h3{font-family:var(--font-d);font-size:22px;font-weight:500;line-height:1.3;margin-bottom:10px}
+.pc p{font-size:13px;color:var(--silver);font-weight:300;line-height:1.7;margin-bottom:16px;flex:1}
+.pc-tags{display:flex;flex-wrap:wrap;gap:4px}
+.tag{display:inline-block;padding:3px 8px;font-size:10px;border:1px solid var(--border);border-radius:2px;color:var(--gold-light)}
+
+/* Formats */
+.fm{border-top:1px solid var(--border)}
+.fg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+.fc{border-top:1px solid var(--gold);padding-top:18px}
+.fc h4{font-family:var(--font-d);font-size:22px;font-weight:500;margin-bottom:8px}
+.fc p{font-size:13px;color:var(--silver);font-weight:300;line-height:1.7}
+
+/* Instructors */
+.in{border-top:1px solid var(--border)}
+.ig{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:36px}
+.ic{display:flex;gap:20px;align-items:center;background:var(--black-card);border:1px solid var(--border);border-radius:8px;padding:20px}
+.ic img{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:top center;flex-shrink:0;border:1px solid var(--border-h)}
+.ic-name{font-family:var(--font-d);font-size:20px;font-weight:500;line-height:1.3}
+.ic-role{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin:4px 0 8px}
+.ic p{font-size:12px;color:var(--silver);font-weight:300;line-height:1.6}
+
+/* CTA */
+.cta{text-align:center;padding:clamp(40px,6vh,60px) 24px;border-top:1px solid var(--border);position:relative;z-index:1}
+.cta h2{font-family:var(--font-d);font-size:clamp(24px,3vw,36px);font-weight:400;margin-bottom:12px;letter-spacing:1px}
+.cta h2 strong{color:var(--gold);font-weight:600}
+.cta p{font-size:14px;color:var(--silver);margin-bottom:24px;font-weight:300}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* Footer */
+footer{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px);height:52px;border-top:1px solid var(--border);position:relative;z-index:1}
+footer p{font-size:11px;color:rgba(168,168,168,.5)}
+footer a{font-size:11px;color:rgba(168,168,168,.4);margin-left:16px;transition:color .3s}
+footer a:hover{color:var(--gold)}
+
+/* Mobile */
+.ham{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.ham span{width:20px;height:1.5px;background:var(--silver);border-radius:1px}
+.mnav{display:none;position:fixed;inset:0;z-index:999;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mnav.open{display:flex}
+.mnav a{font-family:var(--font-d);font-size:22px;color:var(--silver-light);letter-spacing:2px}
+.mnav a:hover{color:var(--gold)}
+.mnav-x{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--silver);font-size:28px;cursor:pointer}
+
+@media(max-width:1024px){.pg{grid-template-columns:repeat(2,1fr)}.ig{grid-template-columns:1fr}}
+@media(max-width:768px){.nav a:not(.btn-g){display:none}.ham{display:flex}.fg{grid-template-columns:1fr}}
+@media(max-width:600px){.pg{grid-template-columns:1fr}.ic{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo"><div class="logo-mark">E</div><div class="logo-text">ENVISOR<span>.AI</span></div></a>
+  <div class="nav">
+    <a href="home.html">Envisor Home</a>
+    <a href="advisor.html">Expert</a>
+    <a href="industries.html">Industries</a>
+    <a href="academy.html" class="on">Academy</a>
+    <a href="maps.html">World Maps</a>
+    <a href="mailto:hello@envisorai.com?subject=Training%20Electra%20Academy" class="btn-g">Daftar Training</a>
+    <button class="ham" id="hm"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-tag">Training &amp; Electra Academy</div>
+    <h1>Belajar Langsung dari<br><strong>Praktisi Ketenagalistrikan</strong></h1>
+    <p>Electra Academy menghadirkan program training kelistrikan, keselamatan kerja, dan energi yang disusun dan dibawakan oleh praktisi Envisor &mdash; berbasis pengalaman lapangan, bukan sekadar teori.</p>
+    <div class="cta-btns" style="margin-top:28px"><a href="#program" class="btn-g">Lihat Program</a><a href="mailto:hello@envisorai.com?subject=In-house%20Training%20Electra%20Academy" class="btn-o">Ajukan In-house Training</a></div>
+  </div>
+</section>
+
+<section class="sec" id="program">
+  <div class="container">
+    <span class="sec-label">Program Training</span>
+    <div class="sec-title">Enam <strong>Topik Utama</strong></div>
+    <p class="sec-sub">Materi dapat disesuaikan dengan kebutuhan tim Anda &mdash; dari level dasar untuk teknisi hingga level lanjut untuk engineer dan manajemen.</p>
+    <div class="pg">
+      <div class="pc">
+        <div class="pc-num">01</div>
+        <h3>K3 Listrik &amp; Keselamatan Instalasi</h3>
+        <p>Identifikasi bahaya, penilaian risiko, dan prosedur kerja aman pada instalasi listrik, termasuk penerapan LOTO dan proteksi kebakaran.</p>
+        <div class="pc-tags"><span class="tag">HIRARC</span><span class="tag">LOTO</span><span class="tag">APD</span><span class="tag">Proteksi Kebakaran</span></div>
+      </div>
+      <div class="pc">
+        <div class="pc-num">02</div>
+        <h3>Sistem Distribusi Tenaga Listrik</h3>
+        <p>Konstruksi dan pemeliharaan jaringan distribusi, alat pembatas dan pengukur (APP), serta pengendalian susut energi.</p>
+        <div class="pc-tags"><span class="tag">Jaringan Distribusi</span><span class="tag">APP</span><span class="tag">Susut Energi</span></div>
+      </div>
+      <div class="pc">
+        <div class="pc-num">03</div>
+        <h3>Transformator: Operasi &amp; Diagnostik</h3>
+        <p>Prinsip kerja trafo, pembebanan dan rugi-rugi, serta interpretasi hasil uji elektrik dan analisa minyak (DGA) untuk pemeliharaan prediktif.</p>
+        <div class="pc-tags"><span class="tag">DGA</span><span class="tag">Tan Delta</span><span class="tag">Pemeliharaan Prediktif</span></div>
+      </div>
+      <div class="pc">
+        <div class="pc-num">04</div>
+        <h3>Audit &amp; Efisiensi Energi</h3>
+        <p>Metodologi audit energi industri dan gedung, kualitas daya, power factor, harmonisa, hingga menyusun rencana penghematan dengan perhitungan ROI.</p>
+        <div class="pc-tags"><span class="tag">Power Quality</span><span class="tag">Power Factor</span><span class="tag">ROI</span></div>
+      </div>
+      <div class="pc">
+        <div class="pc-num">05</div>
+        <h3>Analitik Data Energi &amp; AI</h3>
+        <p>Pemanfaatan data meter dan machine learning untuk load forecasting, deteksi anomali, dan pengambilan keputusan berbasis data.</p>
+        <div class="pc-tags"><span class="tag">Smart Metering</span><span class="tag">Machine Learning</span><span class="tag">Forecasting</span></div>
+      </div>
+      <div class="pc">
+        <div class="pc-num">06</div>
+        <h3>Jejak Karbon &amp; CBAM</h3>
+        <p>Dasar perhitungan emisi Scope 1, 2, dan 3 serta kewajiban data emisi CBAM Uni Eropa bagi eksportir Indonesia.</p>
+        <div class="pc-tags"><span class="tag">Scope 1-2-3</span><span class="tag">CBAM</span><span class="tag">Embedded Emissions</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec fm">
+  <div class="container">
+    <span class="sec-label">Format Pelaksanaan</span>
+    <div class="sec-title">Fleksibel Sesuai <strong>Kebutuhan Tim</strong></div>
+    <div class="fg">
+      <div class="fc"><h4>In-house Training</h4><p>Dilaksanakan di lokasi perusahaan Anda, dengan materi dan studi kasus yang disesuaikan dengan instalasi dan kebutuhan tim.</p></div>
+      <div class="fc"><h4>Kelas Publik</h4><p>Kelas terbuka untuk individu dan perusahaan, sarana berjejaring dengan praktisi dari berbagai industri.</p></div>
+      <div class="fc"><h4>Online / Webinar</h4><p>Sesi daring interaktif untuk tim yang tersebar di beberapa lokasi, lengkap dengan materi dan sesi tanya jawab.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec in">
+  <div class="container">
+    <span class="sec-label">Pendiri &amp; Pengajar</span>
+    <div class="sec-title">Dibangun oleh <strong>Praktisi</strong></div>
+    <div class="ig">
+      <div class="ic">
+        <img src="expert-qashtalani.png" alt="Dr. Qashtalani Haramaini">
+        <div>
+          <div class="ic-name">Dr. Qashtalani Haramaini, S.T., M.T.</div>
+          <div class="ic-role">Founder Electra Academy</div>
+          <p>Energy &amp; Power System Expert &bull; Unit Manager PLN &bull; Doktor Teknik Elektro Universitas Indonesia</p>
+        </div>
+      </div>
+      <div class="ic">
+        <img src="expert-farda.jpg" alt="M Farda Najih Arifani">
+        <div>
+          <div class="ic-name">M Farda Najih Arifani</div>
+          <div class="ic-role">Co-Founder Electra Academy</div>
+          <p>K3 &amp; Electrical Safety Expert &bull; Ahli K3 Umum &amp; K3 Listrik &bull; 9+ tahun di sektor distribusi daya</p>
+        </div>
+      </div>
+    </div>
+    <p class="sec-sub" style="margin-top:20px">Profil lengkap para pengajar dapat dilihat di halaman <a href="advisor.html" style="color:var(--gold)">Envisor Advisor</a>.</p>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Tingkatkan kompetensi <strong>tim kelistrikan Anda</strong></h2>
+  <p>Hubungi kami untuk jadwal kelas, kurikulum, dan penawaran in-house training.</p>
+  <div class="cta-btns">
+    <a href="mailto:hello@envisorai.com?subject=Training%20Electra%20Academy" class="btn-g">Daftar / Minta Penawaran</a>
+    <a href="index.html" class="btn-o">Kembali ke Beranda</a>
+  </div>
+</section>
+
+<footer><p>&copy; 2025 Envisor Group</p><div><a href="#">Privacy</a><a href="#">Terms</a></div></footer>
+
+<div class="mnav" id="mn"><button class="mnav-x" id="mx">&times;</button><a href="index.html">Beranda</a><a href="home.html">Envisor Home</a><a href="advisor.html">Expert</a><a href="industries.html">Industries</a><a href="academy.html">Academy</a><a href="maps.html">World Maps</a></div>
+<script>document.getElementById('hm').onclick=function(){document.getElementById('mn').classList.add('open')};document.getElementById('mx').onclick=function(){document.getElementById('mn').classList.remove('open')};</script>
+</body>
+</html>
