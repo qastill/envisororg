@@ -218,7 +218,8 @@ window.EXPERTS = {
   ca: {
     name: 'Chaizar Ali Fachrudien, S.T.', short: 'Chaizar Ali Fachrudien',
     role: 'Renewable Energy Technical Specialist', card: 'Solar PV, BESS & Hybrid',
-    ini: 'CA',
+    img: 'avatar-chaizar.webp',
+    links: [{ label: 'LinkedIn', url: 'https://www.linkedin.com/in/chaizar-ali-fachrudien-78720ab4/' }],
     deg: 'S.T. (Electrical Power) · Universitas Indonesia',
     specialist: 'Solar PV, Floating PV, BESS & Hybrid Power Systems',
     headline: 'Renewable Energy Technical Specialist, Akuo Energy Indonesia · 10 years in Indonesian renewables · PVsyst · HOMER · DIgSILENT',
