@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Envisor — Electrical &amp; Energy Experts for Every Need</title>
+<title>Envisor — Electrical &amp; Energy Experts</title>
 <meta name="description" content="Envisor is a network of certified electrical and energy experts: home energy audits, industrial efficiency, expert consulting, Electra Academy training, and Trafohaus EPC & transformer services.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,313 +11,223 @@
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#F6F3EB;--surface:#FFFFFF;--ink:#15181E;--muted:#5A5E66;
-  --gold:#C9A96E;--gold-light:#EAD6A8;--gold-ink:#9A7533;--gold-deep:#6F5120;
-  --night:#131720;--night-2:#1F2633;
+  --ivory:#F4EFE4;--ink:#0E1726;--muted:#5C6370;
+  --navy:#0E1726;--navy-2:#16233A;
+  --gold:#C5A15A;--champagne:#E3CB95;--gold-ink:#94713A;
+  --line:rgba(14,23,38,.10);
   --font-d:'Cormorant Garamond',Georgia,serif;
   --font-b:'DM Sans',Helvetica,sans-serif;
-  --border:rgba(21,24,30,0.08);--border-h:rgba(154,117,51,0.5);
-  --wa:#1FAF5A;
 }
-html{scroll-behavior:smooth}
-body{font-family:var(--font-b);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;position:relative}
+html,body{height:100%}
+body{font-family:var(--font-b);background:var(--ivory);color:var(--ink);-webkit-font-smoothing:antialiased;overflow:hidden}
 a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%}
 
-/* Energy backdrop */
-.bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 45% 40% at 10% 6%,rgba(201,169,110,.22) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 92% 90%,rgba(201,169,110,.18) 0%,transparent 70%)}
-.bg svg{position:absolute;left:0;top:70px;width:100%;height:260px;opacity:.6}
-.bg path{fill:none;stroke:url(#gw);stroke-width:1.2}
-.bg .flow{stroke-dasharray:5 15;animation:flow 7s linear infinite}
-.bg .spark{fill:#C9A96E;filter:drop-shadow(0 0 6px #C9A96E)}
+.page{position:relative;height:100vh;height:100dvh;display:flex;flex-direction:column;padding:0 clamp(20px,3.6vw,56px)}
+.page::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse 50% 45% at 8% 0%,rgba(197,161,90,.20),transparent 70%),radial-gradient(ellipse 45% 40% at 100% 100%,rgba(197,161,90,.14),transparent 70%)}
+
+/* Energy line */
+.wave{position:absolute;left:0;top:72px;width:100%;height:200px;pointer-events:none;opacity:.55}
+.wave path{fill:none;stroke:url(#gw);stroke-width:1.1}
+.wave .flow{stroke-dasharray:4 16;animation:flow 8s linear infinite}
+.wave circle{fill:var(--gold);filter:drop-shadow(0 0 6px var(--gold))}
 @keyframes flow{to{stroke-dashoffset:-240}}
 
-/* First screen: header + hero + services fit the viewport on desktop */
-.screen{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
-
 /* Header */
-header{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4vw,56px);height:68px;border-bottom:1px solid var(--border);background:rgba(255,255,255,.84);backdrop-filter:blur(16px);position:sticky;top:0;z-index:50;flex-shrink:0}
-header::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.7}
+header{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;height:72px;flex-shrink:0;border-bottom:1px solid var(--line)}
 .logo{display:flex;align-items:center;gap:11px}
-.logo-mark{width:34px;height:34px;border-radius:7px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--night),var(--night-2));color:var(--gold-light);box-shadow:0 4px 14px rgba(19,23,32,.2)}
-.logo-mark svg{width:17px;height:17px}
-.logo-text{font-family:var(--font-d);font-size:23px;font-weight:600;letter-spacing:1.5px}
+.logo-mark{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--navy);color:var(--champagne);box-shadow:0 0 0 3px rgba(197,161,90,.25)}
+.logo-mark svg{width:16px;height:16px}
+.logo-text{font-family:var(--font-d);font-size:24px;font-weight:600;letter-spacing:2px}
 .logo-text span{color:var(--gold-ink);font-weight:500}
-.nav{display:flex;align-items:center;gap:clamp(14px,1.7vw,26px)}
-.nav a{font-size:11.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);transition:color .3s;white-space:nowrap}
+.nav{display:flex;align-items:center;gap:clamp(16px,2vw,30px)}
+.nav a{font-size:11px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);transition:color .3s}
 .nav a:hover{color:var(--gold-ink)}
-.btn-wa{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#fff!important;background:linear-gradient(135deg,#22c55e,#15803d);padding:10px 18px;border-radius:3px;transition:all .3s;white-space:nowrap;box-shadow:0 4px 16px rgba(34,197,94,.25)}
-.btn-wa svg{width:15px;height:15px}
-.btn-wa:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(34,197,94,.4)}
+.wa{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--champagne)!important;background:var(--navy);padding:11px 18px;border-radius:40px;transition:all .3s;white-space:nowrap}
+.wa svg{width:15px;height:15px;color:#4ADE80}
+.wa:hover{background:var(--navy-2);box-shadow:0 8px 24px rgba(14,23,38,.25);transform:translateY(-1px)}
 
 /* Hero */
-.hero{text-align:center;padding:clamp(18px,3.2vh,38px) 24px clamp(12px,2vh,22px);flex-shrink:0}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-ink);margin-bottom:10px}
-.eyebrow svg{width:12px;height:12px}
-.hero h1{font-family:var(--font-d);font-size:clamp(28px,3.9vw,52px);font-weight:500;letter-spacing:.4px;line-height:1.1}
-.hero h1 strong{font-weight:700;background:linear-gradient(120deg,var(--gold-deep),var(--gold) 55%,var(--gold-ink));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{font-size:clamp(13px,1.1vw,15.5px);color:var(--muted);margin:10px auto 0;max-width:760px;line-height:1.6}
-.hero-stats{display:flex;justify-content:center;gap:clamp(18px,3vw,44px);margin-top:14px;flex-wrap:wrap}
-.stat{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--muted);letter-spacing:.3px}
-.stat b{font-family:var(--font-d);font-size:20px;font-weight:700;color:var(--gold-ink)}
+.hero{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;padding:clamp(18px,3.6vh,40px) 0 clamp(14px,2.6vh,28px);flex-shrink:0}
+.eyebrow{display:flex;align-items:center;gap:12px;font-size:10.5px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold-ink);margin-bottom:12px}
+.eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
+h1{font-family:var(--font-d);font-size:clamp(32px,4.4vw,64px);font-weight:500;line-height:1.02;letter-spacing:-.3px}
+h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
+.lede{max-width:390px;font-size:clamp(13px,1.05vw,15px);line-height:1.65;color:var(--muted);padding-bottom:6px;border-left:1px solid var(--gold);padding-left:18px}
 
-/* Services */
-.svc{flex:1;display:flex;flex-direction:column;padding:0 clamp(20px,4vw,56px) clamp(14px,2.4vh,28px);min-height:0}
-.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:12px;flex-shrink:0}
-.sec-label{font-size:10.5px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-ink);display:flex;align-items:center;gap:10px}
-.sec-label::before{content:'';width:28px;height:1px;background:var(--gold)}
-.sec-title{font-family:var(--font-d);font-size:clamp(20px,1.9vw,27px);font-weight:600;line-height:1.1;margin-top:4px}
-.sec-note{font-size:12px;color:var(--muted);max-width:420px;text-align:right}
-.cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(10px,1.2vw,18px);flex:1;min-height:0}
-.card{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--border);background:var(--surface);display:flex;flex-direction:column;box-shadow:0 2px 14px rgba(21,24,30,.05);transition:all .5s cubic-bezier(.16,1,.3,1);min-height:0}
-.card::before{content:'';position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--gold-deep),var(--gold-light),var(--gold-deep));transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.16,1,.3,1);z-index:3}
-.card:hover{border-color:var(--border-h);transform:translateY(-5px);box-shadow:0 22px 50px rgba(21,24,30,.14),0 0 0 1px rgba(201,169,110,.18)}
-.card:hover::before{transform:scaleX(1)}
-.card-img{position:relative;height:clamp(120px,26vh,240px);overflow:hidden;flex-shrink:0;background:var(--night)}
-.card-img img{width:100%;height:100%;object-fit:cover;filter:saturate(.95) contrast(1.03);transition:transform .8s cubic-bezier(.16,1,.3,1)}
-.card:hover .card-img img{transform:scale(1.07)}
-.card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(19,23,32,0) 40%,rgba(19,23,32,.6) 100%),linear-gradient(135deg,rgba(201,169,110,.12),transparent 50%);pointer-events:none}
-.card-num{position:absolute;top:12px;left:12px;font-family:var(--font-d);font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gold-ink);background:rgba(255,255,255,.94);padding:4px 10px;border-radius:2px;z-index:2}
-.card-ext{position:absolute;top:12px;right:12px;font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--night);background:rgba(255,255,255,.94);padding:5px 8px;border-radius:2px;z-index:2;max-width:calc(100% - 70px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.card-need{position:absolute;left:12px;right:64px;bottom:10px;z-index:2;color:#fff;font-size:11px;font-weight:600;line-height:1.35;text-shadow:0 1px 6px rgba(0,0,0,.6)}
-.card-need span{display:block;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);margin-bottom:2px}
-.card-body{position:relative;padding:26px clamp(14px,1.2vw,20px) clamp(12px,1.2vw,18px);flex:1;display:flex;flex-direction:column;min-height:0}
-.card-ico{position:absolute;right:14px;top:-20px;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--night),var(--night-2));color:var(--gold-light);display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 6px 18px rgba(19,23,32,.3);border:2px solid var(--surface);transition:transform .4s}
-.card:hover .card-ico{transform:rotate(-8deg) scale(1.08)}
-.card-ico svg{width:18px;height:18px}
-.card-title{font-family:var(--font-d);font-size:clamp(19px,1.5vw,24px);font-weight:600;line-height:1.12;margin-bottom:4px}
-.card-sub{font-size:9.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--gold-ink);margin-bottom:8px}
-.card-desc{font-size:clamp(11.5px,.84vw,13px);color:var(--muted);line-height:1.58;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
-.card-arrow{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:10px;border-top:1px solid var(--border);font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--gold-ink);transition:gap .3s}
-.card:hover .card-arrow{gap:14px}
+/* Service tiles */
+.tiles{position:relative;z-index:1;flex:1;min-height:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(10px,1vw,16px);padding-bottom:clamp(12px,2vh,20px)}
+.tile{position:relative;border-radius:14px;overflow:hidden;background:var(--navy);isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;box-shadow:0 10px 30px rgba(14,23,38,.12);animation:rise .9s cubic-bezier(.16,1,.3,1) both}
+.tile:nth-child(2){animation-delay:.07s}.tile:nth-child(3){animation-delay:.14s}.tile:nth-child(4){animation-delay:.21s}.tile:nth-child(5){animation-delay:.28s}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
+.tile::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(14,23,38,.45) 0%,rgba(14,23,38,0) 22%,rgba(14,23,38,.25) 50%,rgba(14,23,38,.95) 100%);transition:background .6s}
+.tile::after{content:'';position:absolute;left:22px;right:22px;bottom:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--champagne));transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.tile:hover img{transform:scale(1.08)}
+.tile:hover::before{background:linear-gradient(180deg,rgba(14,23,38,.5) 0%,rgba(14,23,38,.1) 22%,rgba(14,23,38,.5) 50%,rgba(14,23,38,.97) 100%)}
+.tile:hover::after{transform:scaleX(1)}
+.t-top{position:absolute;top:16px;left:18px;right:18px;display:flex;justify-content:space-between;align-items:center}
+.t-num{font-family:var(--font-d);font-size:13px;font-weight:700;letter-spacing:2px;color:var(--champagne);background:rgba(14,23,38,.62);backdrop-filter:blur(6px);padding:3px 10px;border-radius:20px}
+.t-ext{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);background:rgba(244,239,228,.92);padding:4px 9px;border-radius:20px}
+.t-body{padding:0 clamp(16px,1.4vw,22px) clamp(18px,2.4vh,24px)}
+.t-cat{font-size:9.5px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:var(--champagne);margin-bottom:6px}
+.t-title{font-family:var(--font-d);font-size:clamp(22px,1.9vw,30px);font-weight:600;line-height:1.05;margin-bottom:8px}
+.t-desc{font-size:clamp(11.5px,.85vw,13px);line-height:1.55;color:rgba(255,255,255,.78);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.t-go{display:inline-flex;align-items:center;gap:8px;margin-top:12px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--champagne);transition:gap .3s}
+.tile:hover .t-go{gap:14px}
 
-/* Our Works */
-.works{position:relative;z-index:1;padding:clamp(44px,7vh,76px) clamp(20px,4vw,56px);border-top:1px solid var(--border);background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0))}
-.works .sec-head{margin-bottom:22px}
-.wgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.6vw,22px)}
-.work{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--border);background:var(--surface);box-shadow:0 2px 14px rgba(21,24,30,.05);transition:all .5s cubic-bezier(.16,1,.3,1)}
-.work:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(21,24,30,.12);border-color:var(--border-h)}
-.work-img{position:relative;aspect-ratio:16/10;background:linear-gradient(135deg,var(--night),var(--night-2));display:flex;align-items:center;justify-content:center;overflow:hidden}
-.work-img img{width:100%;height:100%;object-fit:cover}
-.work-img .ph{display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--gold-light);opacity:.75;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700}
-.work-img .ph svg{width:34px;height:34px}
-.work-tag{position:absolute;top:12px;left:12px;font-size:9px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--gold-ink);background:rgba(255,255,255,.94);padding:4px 10px;border-radius:2px}
-.work-body{padding:18px 18px 20px}
-.work-body h3{font-family:var(--font-d);font-size:22px;font-weight:600;line-height:1.15;margin-bottom:4px}
-.work-meta{font-size:10px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold-ink);margin-bottom:8px}
-.work-body p{font-size:12.5px;color:var(--muted);line-height:1.6}
-.works-cta{margin-top:26px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.btn-o{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-ink);border:1px solid var(--gold);padding:11px 22px;border-radius:3px;transition:all .3s;display:inline-flex;align-items:center;gap:8px}
-.btn-o:hover{background:rgba(201,169,110,.12)}
+/* Footer strip */
+.foot{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:12px;height:40px;flex-shrink:0;border-top:1px solid var(--line);font-size:11px;color:#8A8F98}
+.foot a{margin-left:18px;transition:color .3s}
+.foot a:hover{color:var(--gold-ink)}
 
-/* Footer */
-footer{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4vw,56px);height:52px;border-top:1px solid var(--border);background:rgba(255,255,255,.55);flex-wrap:wrap;gap:8px}
-footer p{font-size:11px;color:#85878c}
-footer a{font-size:11px;color:#85878c;margin-left:16px;transition:color .3s}
-footer a:hover{color:var(--gold-ink)}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.hero>*{animation:rise .8s ease both}.lede{animation-delay:.12s}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-/* Animation */
-@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.card{animation:up .8s cubic-bezier(.16,1,.3,1) both}
-.card:nth-child(1){animation-delay:.08s}.card:nth-child(2){animation-delay:.16s}.card:nth-child(3){animation-delay:.24s}.card:nth-child(4){animation-delay:.32s}.card:nth-child(5){animation-delay:.4s}
-.hero>*{animation:up .6s ease both}.hero h1{animation-delay:.05s}.hero p{animation-delay:.15s}.hero-stats{animation-delay:.25s}
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.16,1,.3,1)}
-.reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
-
-/* Mobile nav */
+/* Mobile menu */
 .ham{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
-.ham span{width:20px;height:1.5px;background:var(--ink);border-radius:1px}
-.mnav{display:none;position:fixed;inset:0;z-index:999;background:rgba(246,243,235,.98);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.ham span{width:20px;height:1.5px;background:var(--ink)}
+.mnav{display:none;position:fixed;inset:0;z-index:99;background:rgba(244,239,228,.98);flex-direction:column;align-items:center;justify-content:center;gap:24px}
 .mnav.open{display:flex}
-.mnav a{font-family:var(--font-d);font-size:24px;font-weight:600;color:var(--ink);letter-spacing:1.5px}
-.mnav a:hover{color:var(--gold-ink)}
-.mnav-x{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--ink);font-size:28px;cursor:pointer}
+.mnav a{font-family:var(--font-d);font-size:26px;font-weight:600}
+.mnav-x{position:absolute;top:20px;right:24px;background:none;border:none;font-size:30px;cursor:pointer;color:var(--ink)}
 
-@media(max-height:780px) and (min-width:1181px){.card-img{height:clamp(110px,22vh,200px)}.card-desc{-webkit-line-clamp:3}.hero p{max-width:820px}.hero-stats{margin-top:8px}}
-/* Desktop: lock the first screen to the viewport */
-@media(min-width:1181px) and (min-height:640px){.screen{height:100vh;overflow:hidden}}
+/* Short desktop screens */
+@media(max-height:760px) and (min-width:1101px){.hero{padding:14px 0 12px}h1{font-size:clamp(30px,3.6vw,48px)}.t-desc{-webkit-line-clamp:2}.eyebrow{margin-bottom:8px}}
 
-/* Responsive */
-@media(max-width:1180px){.nav a:not(.btn-wa){display:none}.ham{display:flex}.cards{grid-template-columns:repeat(6,minmax(0,1fr))}.card{grid-column:span 2}.card:nth-child(4){grid-column:2/span 2}.card-img{height:180px}.sec-note{display:none}.card-desc{-webkit-line-clamp:3}}
-@media(max-width:820px){.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card,.card:nth-child(4){grid-column:auto}.card:nth-child(5){grid-column:1/-1}.card-img{height:160px}.wgrid{grid-template-columns:1fr 1fr}}
-@media(max-width:520px){.cards{grid-template-columns:1fr;gap:12px}.card:nth-child(5){grid-column:auto}.card{flex-direction:row;min-height:150px}.card-img{height:auto;width:38%;flex-shrink:0}.card-ico,.card-ext,.card-arrow,.card-need{display:none}.card-body{padding:14px 14px 14px 16px;justify-content:center}.card-desc{flex:none;-webkit-line-clamp:3}.svc,.works{padding-left:16px;padding-right:16px}header,footer{padding-left:16px;padding-right:16px}.btn-wa{padding:9px 12px}.btn-wa span{display:none}.logo-text{font-size:20px}.wgrid{grid-template-columns:1fr}.hero-stats{gap:14px}}
+/* Tablet & phone: let the page scroll naturally */
+@media(max-width:1100px){
+  body{overflow:auto}
+  .page{height:auto;min-height:100vh}
+  .nav a:not(.wa){display:none}.ham{display:flex}
+  .hero{flex-direction:column;align-items:flex-start;gap:16px}
+  .lede{max-width:none}
+  .tiles{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .tile{grid-column:span 2;min-height:300px}
+  .tile:nth-child(4){grid-column:2/span 2}
+}
+@media(max-width:700px){
+  .tile::before{background:linear-gradient(180deg,rgba(14,23,38,.45) 0%,rgba(14,23,38,.35) 35%,rgba(14,23,38,.95) 100%)}
+  .tiles{grid-template-columns:1fr 1fr}
+  .tile,.tile:nth-child(4){grid-column:auto;min-height:230px}
+  .tile:nth-child(5){grid-column:1/-1}
+  .t-desc{-webkit-line-clamp:2}
+}
+@media(max-width:460px){
+  .page{padding:0 16px}
+  .tiles{grid-template-columns:1fr}
+  .tile:nth-child(5){grid-column:auto}
+  .tile{min-height:190px}
+  .wa span{display:none}.wa{padding:10px 12px}
+  .logo-text{font-size:21px}
+  .foot{flex-direction:column;height:auto;padding:12px 0;align-items:flex-start}
+  .foot a{margin:0 14px 0 0}
+}
 </style>
 </head>
 <body>
-<div class="bg" aria-hidden="true">
-  <svg viewBox="0 0 1440 260" preserveAspectRatio="none">
-    <defs><linearGradient id="gw" x1="0" x2="1"><stop offset="0" stop-color="#C9A96E" stop-opacity="0"/><stop offset=".5" stop-color="#C9A96E"/><stop offset="1" stop-color="#C9A96E" stop-opacity="0"/></linearGradient></defs>
-    <path id="p1" d="M0 130 C 180 50, 360 210, 540 130 S 900 50, 1080 130 S 1350 210, 1440 130"/>
-    <path class="flow" d="M0 150 C 180 70, 360 230, 540 150 S 900 70, 1080 150 S 1350 230, 1440 150"/>
-    <path d="M0 170 C 180 90, 360 250, 540 170 S 900 90, 1080 170 S 1350 250, 1440 170" opacity=".5"/>
-    <circle class="spark" r="3"><animateMotion dur="9s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion></circle>
+<div class="page">
+  <svg class="wave" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+    <defs><linearGradient id="gw" x1="0" x2="1"><stop offset="0" stop-color="#C5A15A" stop-opacity="0"/><stop offset=".5" stop-color="#C5A15A"/><stop offset="1" stop-color="#C5A15A" stop-opacity="0"/></linearGradient></defs>
+    <path id="w1" d="M0 100 C 200 30, 400 170, 720 100 S 1240 30, 1440 100"/>
+    <path class="flow" d="M0 120 C 200 50, 400 190, 720 120 S 1240 50, 1440 120"/>
+    <circle r="2.6"><animateMotion dur="10s" repeatCount="indefinite"><mpath href="#w1"/></animateMotion></circle>
   </svg>
-</div>
 
-<div class="screen">
   <header>
     <a href="index.html" class="logo"><div class="logo-mark"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></div><div class="logo-text">ENVISOR<span>.AI</span></div></a>
-    <div class="nav">
-      <a href="home.html">Home Audit</a>
+    <nav class="nav">
+      <a href="home.html">Home</a>
       <a href="industries.html">Industries</a>
       <a href="advisor.html">Experts</a>
       <a href="https://electraacademy.com" target="_blank" rel="noopener">Academy</a>
       <a href="https://trafohausservice.com/contact/" target="_blank" rel="noopener">EPC &amp; Service</a>
-      <a href="#works">Our Works</a>
       <a href="maps.html">World Map</a>
-      <a href="https://wa.me/6285121532407?text=Hello%20Envisor%2C%20I%27d%20like%20to%20discuss%20my%20electrical%20%2F%20energy%20needs." class="btn-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span>Contact Us</span></a>
+      <a class="wa" href="https://wa.me/6285121532407?text=Hello%20Envisor%2C%20I%27d%20like%20to%20discuss%20my%20electrical%20%2F%20energy%20needs." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span>Contact Us</span></a>
       <button class="ham" id="hm" aria-label="Open menu"><span></span><span></span><span></span></button>
-    </div>
+    </nav>
   </header>
 
   <section class="hero">
-    <div class="eyebrow"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>Envisor Expert Network</div>
-    <h1>Certified Experts for <strong>Every Electrical &amp; Energy Need</strong></h1>
-    <p>From a single home to an industrial plant, from a consulting session to building a substation &mdash; Envisor brings together certified practitioners who diagnose, solve, and support your energy challenges end to end.</p>
-    <div class="hero-stats">
-      <div class="stat"><b>5</b> Service Lines</div>
-      <div class="stat"><b>4+</b> Certified Experts</div>
-      <div class="stat"><b>1</b> Point of Contact</div>
-    </div>
-  </section>
-
-  <section class="svc" id="services">
-    <div class="sec-head">
-      <div>
-        <div class="sec-label">Our Services</div>
-        <div class="sec-title">Tell us your need &mdash; we match you with the right expert.</div>
-      </div>
-      <p class="sec-note">Each service is led by a practitioner with field experience. Pick the one that fits your situation, or simply contact us and we will route you.</p>
-    </div>
-    <div class="cards">
-      <a href="home.html" class="card">
-        <div class="card-img">
-          <div class="card-num">01</div>
-          <img src="card-home.webp" alt="Energy-efficient smart home illustration">
-          <div class="card-need"><span>Your need</span>High electricity bills at home?</div>
-        </div>
-        <div class="card-body">
-          <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="m12.5 12-2 3.5h3l-2 3.5"/></svg></div>
-          <div class="card-title">Envisor Home</div>
-          <div class="card-sub">Home Energy Audit</div>
-          <div class="card-desc">Self-service audit powered by AI (Envisor OCR), or a professional audit with metering installed at your panel &mdash; clear findings and savings you can act on.</div>
-          <div class="card-arrow">Learn more &#8594;</div>
-        </div>
-      </a>
-      <a href="industries.html" class="card">
-        <div class="card-img">
-          <div class="card-num">02</div>
-          <img src="card-industries.webp" alt="Industrial plant at dusk">
-          <div class="card-need"><span>Your need</span>Power quality, losses, or penalties at your plant?</div>
-        </div>
-        <div class="card-body">
-          <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l6 4V10l6 4V5h4v16z"/><path d="M3 21h18"/></svg></div>
-          <div class="card-title">Envisor Industries</div>
-          <div class="card-sub">Industrial Audit &amp; Efficiency</div>
-          <div class="card-desc">Energy audits, power quality, power factor and harmonics, and transformer diagnostics for factories and commercial buildings.</div>
-          <div class="card-arrow">Learn more &#8594;</div>
-        </div>
-      </a>
-      <a href="advisor.html" class="card">
-        <div class="card-img">
-          <div class="card-num">03</div>
-          <img src="card-advisor.webp" alt="Consulting session with an expert">
-          <div class="card-need"><span>Your need</span>A specialist's answer, today?</div>
-        </div>
-        <div class="card-body">
-          <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M17 4.5a3.5 3.5 0 0 1 0 7"/><path d="M19 14.8c1.4.9 2.2 2.6 2.5 5.2"/></svg></div>
-          <div class="card-title">Envisor Advisor</div>
-          <div class="card-sub">Expert Consulting</div>
-          <div class="card-desc">Live sessions with certified practitioners: power systems, transformers, electrical safety (K3), regulation, ESG, and carbon &amp; CBAM consulting.</div>
-          <div class="card-arrow">Learn more &#8594;</div>
-        </div>
-      </a>
-      <a href="https://electraacademy.com" class="card" target="_blank" rel="noopener">
-        <div class="card-img">
-          <div class="card-num">04</div>
-          <div class="card-ext">electraacademy.com &#8599;</div>
-          <img src="card-academy.webp" alt="Hands-on electrical training at a distribution panel">
-          <div class="card-need"><span>Your need</span>Upskilling your electrical team?</div>
-        </div>
-        <div class="card-body">
-          <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg></div>
-          <div class="card-title">Training &amp; Electra Academy</div>
-          <div class="card-sub">Electrical Training</div>
-          <div class="card-desc">Electrical safety, distribution, transformer, and energy audit training &mdash; delivered by practitioners, in-house or online.</div>
-          <div class="card-arrow">Visit Academy &#8599;</div>
-        </div>
-      </a>
-      <a href="https://trafohausservice.com/contact/" class="card" target="_blank" rel="noopener">
-        <div class="card-img">
-          <div class="card-num">05</div>
-          <div class="card-ext">Trafohaus &#8599;</div>
-          <img src="card-epc.webp" alt="High-voltage substation with power transformers">
-          <div class="card-need"><span>Your need</span>Building or servicing a substation?</div>
-        </div>
-        <div class="card-body">
-          <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></div>
-          <div class="card-title">EPC &amp; Transformer Service</div>
-          <div class="card-sub">Trafohaus</div>
-          <div class="card-desc">Engineering, procurement, and construction of substations and transformers, plus service and maintenance for medium-voltage installations.</div>
-          <div class="card-arrow">Contact Trafohaus &#8599;</div>
-        </div>
-      </a>
-    </div>
-  </section>
-</div>
-
-<section class="works" id="works">
-  <div class="sec-head reveal">
     <div>
-      <div class="sec-label">Our Works</div>
-      <div class="sec-title">Selected projects and engagements.</div>
+      <div class="eyebrow">Envisor Expert Network</div>
+      <h1>Certified experts for<br>every <em>electrical need.</em></h1>
     </div>
-    <p class="sec-note">A snapshot of the work our experts have delivered across homes, industry, and utilities.</p>
-  </div>
-  <div class="wgrid">
-    <!-- To add a project: replace the placeholder block with <img src="..."> inside .work-img, then fill the tag, title, meta, and description. -->
-    <article class="work reveal">
-      <div class="work-img"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-8 8"/></svg>Project image</div><span class="work-tag">Category</span></div>
-      <div class="work-body"><h3>Project Title</h3><div class="work-meta">Client &bull; Location &bull; Year</div><p>Short description of the scope, what was delivered, and the outcome for the client.</p></div>
-    </article>
-    <article class="work reveal">
-      <div class="work-img"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-8 8"/></svg>Project image</div><span class="work-tag">Category</span></div>
-      <div class="work-body"><h3>Project Title</h3><div class="work-meta">Client &bull; Location &bull; Year</div><p>Short description of the scope, what was delivered, and the outcome for the client.</p></div>
-    </article>
-    <article class="work reveal">
-      <div class="work-img"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-8 8"/></svg>Project image</div><span class="work-tag">Category</span></div>
-      <div class="work-body"><h3>Project Title</h3><div class="work-meta">Client &bull; Location &bull; Year</div><p>Short description of the scope, what was delivered, and the outcome for the client.</p></div>
-    </article>
-  </div>
-  <div class="works-cta reveal">
-    <a href="maps.html" class="btn-o">View project map &#8594;</a>
-    <a href="https://wa.me/6285121532407?text=Hello%20Envisor%2C%20I%27d%20like%20to%20discuss%20my%20electrical%20%2F%20energy%20needs." class="btn-wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span>Chat on WhatsApp</span></a>
-  </div>
-</section>
+    <p class="lede">From a single home to an industrial plant, from advice to a finished substation &mdash; choose your need below and we connect you with the right practitioner.</p>
+  </section>
 
-<footer>
-  <p>&copy; 2025 Envisor Group &mdash; Electrical &amp; Energy Experts</p>
-  <div><a href="https://wa.me/6285121532407" target="_blank" rel="noopener">+62 851-2153-2407</a><a href="mailto:hello@envisorai.com">hello@envisorai.com</a><a href="#">Privacy</a><a href="#">Terms</a></div>
-</footer>
+  <main class="tiles">
+    <a class="tile" href="home.html">
+      <img src="card-home.webp" alt="Energy-efficient smart home illustration">
+      <div class="t-top"><span class="t-num">01</span></div>
+      <div class="t-body">
+        <div class="t-cat">Residential</div>
+        <div class="t-title">Home Energy Audit</div>
+        <p class="t-desc">Lower your electricity bill with an AI self-audit or a professional audit metered at your panel.</p>
+        <span class="t-go">Explore &#8594;</span>
+      </div>
+    </a>
+    <a class="tile" href="industries.html">
+      <img src="card-industries.webp" alt="Industrial plant at dusk">
+      <div class="t-top"><span class="t-num">02</span></div>
+      <div class="t-body">
+        <div class="t-cat">Industrial</div>
+        <div class="t-title">Industrial Efficiency</div>
+        <p class="t-desc">Energy audits, power quality, power factor, harmonics, and transformer diagnostics for plants and buildings.</p>
+        <span class="t-go">Explore &#8594;</span>
+      </div>
+    </a>
+    <a class="tile" href="advisor.html">
+      <img src="card-advisor.webp" style="object-position:72% 50%" alt="Consulting session with an expert">
+      <div class="t-top"><span class="t-num">03</span></div>
+      <div class="t-body">
+        <div class="t-cat">Consulting</div>
+        <div class="t-title">Expert Advisory</div>
+        <p class="t-desc">Live sessions with certified practitioners on power systems, safety, regulation, ESG, and carbon &amp; CBAM.</p>
+        <span class="t-go">Explore &#8594;</span>
+      </div>
+    </a>
+    <a class="tile" href="https://electraacademy.com" target="_blank" rel="noopener">
+      <img src="card-academy.webp" alt="Hands-on electrical training at a distribution panel">
+      <div class="t-top"><span class="t-num">04</span><span class="t-ext">Electra Academy &#8599;</span></div>
+      <div class="t-body">
+        <div class="t-cat">Training</div>
+        <div class="t-title">Electra Academy</div>
+        <p class="t-desc">Practitioner-led training in electrical safety, distribution, transformers, and energy auditing.</p>
+        <span class="t-go">Visit &#8599;</span>
+      </div>
+    </a>
+    <a class="tile" href="https://trafohausservice.com/contact/" target="_blank" rel="noopener">
+      <img src="card-epc.webp" alt="High-voltage substation with power transformers">
+      <div class="t-top"><span class="t-num">05</span><span class="t-ext">Trafohaus &#8599;</span></div>
+      <div class="t-body">
+        <div class="t-cat">EPC &amp; Service</div>
+        <div class="t-title">Substation &amp; Transformer</div>
+        <p class="t-desc">Engineering, procurement, and construction of substations, plus transformer service and maintenance.</p>
+        <span class="t-go">Contact &#8599;</span>
+      </div>
+    </a>
+  </main>
+
+  <footer class="foot">
+    <span>&copy; 2025 Envisor Group</span>
+    <span><a href="https://wa.me/6285121532407" target="_blank" rel="noopener">+62 851-2153-2407</a><a href="mailto:hello@envisorai.com">hello@envisorai.com</a></span>
+  </footer>
+</div>
 
 <div class="mnav" id="mn">
   <button class="mnav-x" id="mx" aria-label="Close menu">&times;</button>
-  <a href="home.html">Home Audit</a>
+  <a href="home.html">Home Energy Audit</a>
   <a href="industries.html">Industries</a>
   <a href="advisor.html">Experts</a>
   <a href="https://electraacademy.com" target="_blank" rel="noopener">Electra Academy</a>
   <a href="https://trafohausservice.com/contact/" target="_blank" rel="noopener">EPC &amp; Service</a>
-  <a href="#works">Our Works</a>
   <a href="maps.html">World Map</a>
   <a href="https://wa.me/6285121532407" target="_blank" rel="noopener">WhatsApp Us</a>
 </div>
 <script>
 document.getElementById('hm').onclick=function(){document.getElementById('mn').classList.add('open')};
 document.getElementById('mx').onclick=function(){document.getElementById('mn').classList.remove('open')};
-document.querySelectorAll('#mn a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('mn').classList.remove('open')})});
-if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)})}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')})}
 </script>
 </body>
 </html>
