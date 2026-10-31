@@ -67,13 +67,6 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 c
 .svc-cta{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--accent);transition:gap .25s}
 .svc:hover .svc-cta{gap:13px}
 .svc-cta svg{width:16px;height:16px}
-a.svc{color:inherit;text-decoration:none}
-.svc-wide{grid-column:1/-1}
-.svc-cbam{background:linear-gradient(135deg,#0d6b6e 0%,#14212b 100%);display:flex;align-items:center;justify-content:center}
-.svc-cbam .co2{font-weight:800;font-size:clamp(44px,6vw,72px);letter-spacing:-.02em;color:#fff;opacity:.92;transition:transform .5s cubic-bezier(.16,1,.3,1)}
-.svc-cbam .co2 sub{font-size:.45em}
-.svc:hover .svc-cbam .co2{transform:scale(1.06)}
-@media(min-width:821px){.svc-wide{flex-direction:row}.svc-wide .svc-img{flex:0 0 42%;height:auto;min-height:240px}.svc-wide .svc-body{flex:1;justify-content:center}.svc-wide .svc-chip{bottom:18px}}
 
 /* Modal */
 .modal-bg{position:fixed;inset:0;z-index:1000;background:rgba(14,34,64,.55);backdrop-filter:blur(4px);display:none;align-items:flex-start;justify-content:center;padding:clamp(16px,5vh,60px) 16px;overflow-y:auto}
@@ -193,7 +186,7 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft)}
   <div class="container">
     <span class="eyebrow">Envisor Industries</span>
     <h1>Layanan <span>Energi &amp; Diagnostik</span> Industri</h1>
-    <p>Audit energi, efisiensi, diagnostik transformer, dan data emisi CBAM untuk pabrik &amp; gedung komersial — terukur, akurat, dan berbasis data. Klik tiap layanan untuk melihat detailnya.</p>
+    <p>Audit energi, efisiensi, dan diagnostik transformer untuk pabrik &amp; gedung komersial — terukur, akurat, dan berbasis data. Klik tiap layanan untuk melihat detailnya.</p>
   </div>
 </section>
 
@@ -201,7 +194,7 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft)}
 <section class="svc-sec">
   <div class="container">
     <div class="sec-label">Layanan Kami</div>
-    <h2 class="sec-title">Lima Layanan Inti</h2>
+    <h2 class="sec-title">Empat Layanan Inti</h2>
     <div class="services" id="svcGrid">
 
       <!-- 1 -->
@@ -260,19 +253,6 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft)}
         </div>
       </div>
 
-      <!-- 5 -->
-      <a class="svc svc-wide" href="cbam.html">
-        <div class="svc-img svc-cbam">
-          <span class="co2" aria-hidden="true">CO<sub>2</sub>e</span>
-          <div class="svc-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
-        </div>
-        <div class="svc-body">
-          <h3>Terukur CBAM — Data Emisi Ekspor UE</h3>
-          <p>Data emisi per fasilitas yang siap verifikasi untuk eksportir Indonesia yang terkena CBAM Uni Eropa. Bayar CBAM dari emisi aktual Anda, bukan dari default value. Dilengkapi kalkulator biaya CBAM dan jejak karbon Scope 1, 2, dan 3.</p>
-          <div class="svc-tags"><span>CBAM</span><span>Scope 1-2-3</span><span>Embedded Emissions</span><span>Kalkulator</span></div>
-          <span class="svc-cta">Buka Layanan &amp; Kalkulator <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-        </div>
-      </a>
 
     </div>
   </div>
@@ -283,7 +263,7 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft)}
   <div class="container">
     <div class="cta">
       <h2>Butuh Konsultasi untuk Fasilitas Anda?</h2>
-      <p>Tim Envisor siap membantu audit energi, efisiensi, assessment transformer, hingga data emisi CBAM Anda — terukur dan berbasis data.</p>
+      <p>Tim Envisor siap membantu audit energi, efisiensi, hingga assessment transformer Anda — terukur dan berbasis data.</p>
       <div class="cta-btns">
         <a href="mailto:hello@envisorai.com?subject=Konsultasi%20Energi%20Industri" class="btn-w">Jadwalkan Konsultasi</a>
         <a href="index.html" class="btn-gh">Kembali ke Beranda</a>
@@ -421,7 +401,7 @@ footer{border-top:1px solid var(--line);background:var(--bg-soft)}
   </div>
 </div>
 
-<div class="mnav" id="mn"><button class="mnav-x" id="mx">&times;</button><a href="index.html">Beranda</a><a href="home.html">Envisor Home</a><a href="advisor.html">Expert</a><a href="industries.html">Industries</a><a href="cbam.html">Terukur CBAM</a><a href="maps.html">World Maps</a></div>
+<div class="mnav" id="mn"><button class="mnav-x" id="mx">&times;</button><a href="index.html">Beranda</a><a href="home.html">Envisor Home</a><a href="advisor.html">Expert</a><a href="industries.html">Industries</a><a href="maps.html">World Maps</a></div>
 
 <script>
 var DATA={
