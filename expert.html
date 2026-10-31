@@ -98,6 +98,10 @@ h1{font-family:var(--font-d);font-size:clamp(32px,4vw,48px);font-weight:600;line
 .pj-y{flex-shrink:0;font-size:11px;font-weight:700;color:var(--navy);background:var(--champagne);padding:3px 8px;border-radius:20px;height:max-content}
 .pj-i b{display:block;font-size:13.5px;line-height:1.35}
 .pj-i em{display:block;font-style:normal;font-size:11.5px;font-weight:600;color:var(--gold-ink);margin-top:2px}
+.pj-r{font-weight:600;color:var(--ink)!important}
+.pj-s{list-style:none;margin-top:4px}
+.pj-s li{position:relative;padding-left:12px;font-size:12.5px;line-height:1.5;color:var(--muted)}
+.pj-s li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
 .pj-i p{font-size:12.5px;color:var(--muted);line-height:1.5;margin-top:4px}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:0 34px}
 .deg{display:inline-block;margin-top:10px;font-size:12px;font-weight:700;letter-spacing:1.6px;color:var(--navy);background:var(--champagne);padding:5px 12px;border-radius:20px}
@@ -192,7 +196,7 @@ footer{position:relative;z-index:1;text-align:center;font-size:11px;color:#8A8F9
       return '<div class="job"><div class="job-top"><div class="job-role">'+esc(j.role)+'</div>'+(j.period?'<div class="job-period">'+esc(j.period)+'</div>':'')+'</div>'
         +(j.org?'<div class="job-org">'+esc(j.org)+'</div>':'')+(j.points?list(j.points):'')+'</div>'}).join('')+'</div>');
   if(e.projects)main+=sec('Project Experience <small class="cnt">'+e.projects.length+' projects</small>','<div class="pj">'+e.projects.map(function(x){
-      return '<div class="pj-i"><span class="pj-y">'+esc(x.y)+'</span><div><b>'+esc(x.t)+'</b><em>'+esc(x.loc)+'</em><p>'+esc(x.d)+'</p></div></div>'}).join('')+'</div>');
+      return '<div class="pj-i"><span class="pj-y">'+esc(x.y)+'</span><div><b>'+esc(x.t)+'</b><em>'+esc(x.loc)+(x.client?' &middot; '+esc(x.client):'')+'</em>'+(x.role?'<p class="pj-r">'+esc(x.role)+(x.org?' — '+esc(x.org):'')+'</p>':'')+(x.scope?'<ul class="pj-s">'+x.scope.map(function(t){return '<li>'+esc(t)+'</li>'}).join('')+'</ul>':'<p>'+esc(x.d)+'</p>')+'</div></div>'}).join('')+'</div>');
   if(e.education)main+=sec('Education','<div class="edu">'+e.education.map(function(d){
       return '<div class="edu-i"><div><b>'+esc(d.degree)+'</b>'+(d.inst?'<div>'+esc(d.inst)+'</div>':'')+'</div>'+(d.period?'<span>'+esc(d.period)+'</span>':'')+'</div>'}).join('')+'</div>');
   if(e.certifications)main+=sec('Certifications',list(e.certifications));
