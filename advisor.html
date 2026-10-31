@@ -1,375 +1,332 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Envisor Advisor — Konsultasi Energi Expert Bersertifikat</title>
+<title>Envisor Advisor — Certified Energy Experts</title>
+<meta name="description" content="Book a session with Envisor's certified electrical and energy experts: power systems, transformers, electrical safety, energy analytics, and carbon & CBAM consulting.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --black:#0A0A0A;--black-light:#111;--black-card:#0F0F0F;--black-card2:#141414;
-  --gold:#C9A96E;--gold-light:#DBBF8C;--gold-dim:rgba(201,169,110,0.12);
-  --silver:#A8A8A8;--silver-light:#C8C8C8;--white:#F5F2ED;
+  --ivory:#F4EFE4;--ink:#0E1726;--muted:#5C6370;
+  --navy:#0E1726;--navy-2:#16233A;
+  --gold:#C5A15A;--champagne:#E3CB95;--gold-ink:#94713A;
+  --line:rgba(14,23,38,.10);
   --font-d:'Cormorant Garamond',Georgia,serif;
   --font-b:'DM Sans',Helvetica,sans-serif;
-  --border:rgba(201,169,110,0.12);--border-h:rgba(201,169,110,0.28);
 }
-html{scroll-behavior:smooth}
-body{font-family:var(--font-b);background:var(--black);color:var(--white);-webkit-font-smoothing:antialiased;line-height:1.6}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 50% 50% at 15% 20%,rgba(201,169,110,0.04) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 85% 75%,rgba(168,168,168,0.03) 0%,transparent 70%);pointer-events:none;z-index:0}
+html,body{height:100%}
+body{font-family:var(--font-b);background:var(--ivory);color:var(--ink);-webkit-font-smoothing:antialiased;overflow:hidden}
 a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%}
+button{font:inherit;color:inherit}
 
-/* Header */
-header{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px);height:72px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(16px)}
-.logo{display:flex;align-items:center;gap:12px}
-.logo-mark{width:32px;height:32px;border:1.5px solid var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:600;font-size:16px;color:var(--gold)}
-.logo-text{font-family:var(--font-d);font-size:22px;font-weight:500;letter-spacing:1px}
-.logo-text span{color:var(--gold);font-weight:300}
-.nav{display:flex;align-items:center;gap:28px}
-.nav a{font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);transition:color .3s}
-.nav a:hover{color:var(--gold-light)}
-.nav a.on{color:var(--gold)}
-.btn-g{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--black);background:linear-gradient(135deg,var(--gold),var(--gold-light));padding:10px 24px;border-radius:2px;display:inline-block;transition:all .3s;border:none;cursor:pointer}
-.btn-g:hover{box-shadow:0 4px 24px rgba(201,169,110,0.3);transform:translateY(-1px)}
-.btn-o{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);background:transparent;padding:10px 24px;border-radius:2px;display:inline-block;transition:all .3s;cursor:pointer}
-.btn-o:hover{background:var(--gold-dim)}
-.container{max-width:1200px;margin:0 auto;padding:0 clamp(24px,4vw,60px);position:relative;z-index:1}
+.page{position:relative;height:100vh;height:100dvh;display:flex;flex-direction:column;padding:0 clamp(20px,3.6vw,56px)}
+.page::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse 50% 45% at 8% 0%,rgba(197,161,90,.20),transparent 70%),radial-gradient(ellipse 45% 40% at 100% 100%,rgba(197,161,90,.14),transparent 70%)}
+
+/* Header (same as landing) */
+header{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;height:72px;flex-shrink:0;border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:11px}
+.logo-mark{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--navy);color:var(--champagne);box-shadow:0 0 0 3px rgba(197,161,90,.25)}
+.logo-mark svg{width:16px;height:16px}
+.logo-text{font-family:var(--font-d);font-size:24px;font-weight:600;letter-spacing:2px}
+.logo-text span{color:var(--gold-ink);font-weight:500}
+.nav{display:flex;align-items:center;gap:clamp(16px,2vw,30px)}
+.nav a{font-size:11px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);transition:color .3s}
+.nav a:hover,.nav a.on{color:var(--gold-ink)}
+.wa{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--champagne)!important;background:var(--navy);padding:11px 18px;border-radius:40px;transition:all .3s;white-space:nowrap;border:none;cursor:pointer}
+.wa svg{width:15px;height:15px;color:#4ADE80}
+.wa:hover{background:var(--navy-2);box-shadow:0 8px 24px rgba(14,23,38,.25);transform:translateY(-1px)}
 
 /* Hero */
-.hero{padding:clamp(48px,8vh,80px) 0 clamp(36px,6vh,56px);text-align:center;border-bottom:1px solid var(--border);position:relative;z-index:1}
-.hero-tag{display:inline-block;padding:6px 16px;border-radius:2px;border:1px solid var(--border);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
-.hero h1{font-family:var(--font-d);font-size:clamp(32px,5vw,56px);font-weight:300;letter-spacing:1px;line-height:1.15;margin-bottom:16px}
-.hero h1 strong{font-weight:600;color:var(--gold)}
-.hero p{font-size:16px;color:var(--silver);max-width:560px;margin:0 auto;font-weight:300;line-height:1.7}
-/* Section */
-.sec{padding:clamp(48px,8vh,80px) 0;position:relative;z-index:1}
-.sec-label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
-.sec-title{font-family:var(--font-d);font-size:clamp(28px,4vw,48px);font-weight:400;letter-spacing:1px;line-height:1.2;margin-bottom:12px}
-.sec-title strong{font-weight:600;color:var(--gold)}
-.sec-sub{font-size:15px;color:var(--silver);max-width:560px;font-weight:300;line-height:1.7}
+.hero{position:relative;z-index:1;text-align:center;padding:clamp(18px,4vh,46px) 0 clamp(10px,2.6vh,28px);flex-shrink:0}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:10.5px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold-ink);margin-bottom:12px}
+.eyebrow::before,.eyebrow::after{content:'';width:32px;height:1px;background:var(--gold)}
+h1{font-family:var(--font-d);font-size:clamp(30px,4vw,56px);font-weight:500;line-height:1.05;letter-spacing:-.3px}
+h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
+.lede{max-width:620px;margin:12px auto 0;font-size:clamp(13px,1.05vw,15px);line-height:1.6;color:var(--muted)}
 
-/* Expert grid */
-.eg{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:40px}
-.ec{background:var(--black-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:all .5s cubic-bezier(.16,1,.3,1)}
-.ec:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
-.ec-photo{height:220px;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--black-light),var(--black-card2))}
-.ec-photo{height:260px}.ec-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:brightness(.85) saturate(.7);transition:all .6s}
-.ec:hover .ec-photo img{filter:brightness(.95) saturate(.8);transform:scale(1.04)}
-.ec-photo.ec-noimg{display:flex;align-items:center;justify-content:center}
-.ec-photo.ec-noimg .ec-big{font-family:var(--font-d);font-size:72px;font-weight:600;color:var(--gold);opacity:.35;letter-spacing:4px}
-.ec-h{color:var(--gold);font-size:11px;letter-spacing:1px;font-weight:600}
-.ec-tag{display:inline-block;padding:3px 8px;margin:2px;font-size:10px;border:1px solid var(--border);border-radius:2px;color:var(--gold-light)}
-.ec-link{color:var(--gold);font-size:12px}
-.ec-link:hover{color:var(--gold-light);text-decoration:underline}
-.ec-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,10,10,.9) 100%)}
-.ec-init{position:absolute;bottom:16px;left:20px;z-index:2;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:16px;font-weight:700;color:var(--black);box-shadow:0 4px 16px rgba(0,0,0,.4)}
-.ec-info{padding:24px 20px 28px}
-.ec-name{font-family:var(--font-d);font-size:20px;font-weight:500;margin-bottom:6px;line-height:1.3}
-.ec-role{display:inline-block;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);padding:4px 12px;border-radius:2px;background:var(--gold-dim);margin-bottom:12px}
-.ec-certs{font-size:12px;color:var(--silver);line-height:1.6;margin-bottom:16px}
-.ec-exp{font-size:12px;color:var(--silver);font-weight:300;padding-top:14px;border-top:1px solid var(--border);line-height:1.7}
-.ec-btn{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);cursor:pointer;transition:color .3s}
-.ec-btn:hover{color:var(--gold-light)}
+/* Experts */
+.experts{position:relative;z-index:1;flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(14px,2.4vw,40px);width:100%;max-width:1180px}
+.ex{display:flex;flex-direction:column;align-items:center;text-align:center;cursor:pointer;background:none;border:none;padding:8px;border-radius:16px;transition:background .4s;animation:rise .8s cubic-bezier(.16,1,.3,1) both}
+.ex:nth-child(2){animation-delay:.07s}.ex:nth-child(3){animation-delay:.14s}.ex:nth-child(4){animation-delay:.21s}.ex:nth-child(5){animation-delay:.28s}
+.ex:hover{background:rgba(255,255,255,.5)}
+.ex:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.av{position:relative;width:clamp(96px,11.5vw,168px);aspect-ratio:1;border-radius:50%;padding:4px;background:conic-gradient(from 210deg,var(--gold),var(--champagne),var(--gold-ink),var(--gold));box-shadow:0 14px 34px rgba(14,23,38,.14);transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s}
+.av img,.av .ini{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid var(--ivory);background:#e9e4d8}
+.av .ini{display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,var(--navy-2),var(--navy));font-family:var(--font-d);font-size:clamp(28px,3vw,44px);font-weight:600;letter-spacing:2px;color:var(--champagne)}
+.ex:hover .av{transform:translateY(-6px);box-shadow:0 22px 44px rgba(14,23,38,.2)}
+.av::after{content:'+';position:absolute;right:6%;bottom:6%;width:30px;height:30px;border-radius:50%;background:var(--navy);color:var(--champagne);display:flex;align-items:center;justify-content:center;font-size:18px;line-height:1;border:2px solid var(--ivory);transition:transform .4s}
+.ex:hover .av::after{transform:rotate(90deg)}
+.ex-name{font-family:var(--font-d);font-size:clamp(17px,1.4vw,22px);font-weight:600;line-height:1.15;margin-top:14px}
+.ex-role{font-size:9.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--gold-ink);margin-top:6px;line-height:1.5}
+.ex-more{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-top:8px;opacity:0;transform:translateY(-4px);transition:all .3s}
+.ex:hover .ex-more{opacity:1;transform:none}
 
+/* Bottom links */
+.links{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1vw,16px);padding-bottom:clamp(12px,2vh,20px);flex-shrink:0;max-width:1180px;width:100%;margin:0 auto}
+.lk{display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:14px;background:linear-gradient(160deg,var(--navy-2),var(--navy));color:#fff;border:1px solid rgba(227,203,149,.14);transition:all .4s;cursor:pointer;text-align:left}
+.lk:hover{border-color:rgba(227,203,149,.45);transform:translateY(-2px);box-shadow:0 14px 30px rgba(14,23,38,.2)}
+.lk-ico{width:42px;height:42px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:1px solid rgba(227,203,149,.35);color:var(--champagne)}
+.lk-ico svg{width:20px;height:20px}
+.lk b{display:block;font-family:var(--font-d);font-size:20px;font-weight:600;line-height:1.1}
+.lk small{display:block;font-size:12px;color:rgba(255,255,255,.65);margin-top:3px}
+.lk .go{margin-left:auto;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--champagne);white-space:nowrap}
 
-/* Konsultasi Carbon */
-.cc{border-top:1px solid var(--border)}
-.cc-card{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);margin-top:36px;background:var(--black-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:all .5s cubic-bezier(.16,1,.3,1)}
-.cc-card:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
-.cc-vis{min-height:260px;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse 70% 70% at 30% 30%,rgba(13,107,110,.45),transparent 70%),linear-gradient(135deg,#0d2a2b,var(--black-light))}
-.cc-vis span{font-family:var(--font-d);font-size:clamp(56px,7vw,88px);font-weight:600;color:var(--gold);opacity:.8;letter-spacing:2px;transition:transform .6s cubic-bezier(.16,1,.3,1)}
-.cc-vis sub{font-size:.45em}
-.cc-card:hover .cc-vis span{transform:scale(1.05)}
-.cc-body{padding:32px 28px}
-.cc-body h3{font-family:var(--font-d);font-size:clamp(24px,2.4vw,32px);font-weight:500;line-height:1.25;margin-bottom:10px}
-.cc-body p{font-size:14px;color:var(--silver);font-weight:300;line-height:1.7;margin-bottom:16px}
-.cc-list{list-style:none;margin:0 0 20px}
-.cc-list li{font-size:13px;color:var(--silver-light);padding:8px 0;border-top:1px solid var(--border);display:flex;gap:10px}
-.cc-list li::before{content:'\25C6';color:var(--gold);font-size:9px;line-height:2.2}
-.cc-btns{display:flex;gap:12px;flex-wrap:wrap}
+.foot{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:12px;height:40px;flex-shrink:0;border-top:1px solid var(--line);font-size:11px;color:#8A8F98}
+.foot a{margin-left:18px;transition:color .3s}
+.foot a:hover{color:var(--gold-ink)}
 
-/* Portfolio */
-.pf{border-top:1px solid var(--border)}
-.pf-wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;margin-top:36px;align-items:start}
-.pf-frame{position:relative;background:var(--black-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;height:560px}
-.pf-frame iframe{width:100%;height:100%;border:0;display:block;background:#fff}
-.pf-side{background:var(--black-card);border:1px solid var(--border);border-radius:8px;padding:28px 24px}
-.pf-side h3{font-family:var(--font-d);font-size:24px;font-weight:500;margin-bottom:10px;line-height:1.3}
-.pf-side p{font-size:13px;color:var(--silver);font-weight:300;line-height:1.7;margin-bottom:14px}
-.pf-list{list-style:none;margin:0 0 20px}
-.pf-list li{font-size:12px;color:var(--silver-light);padding:8px 0;border-top:1px solid var(--border);display:flex;gap:10px}
-.pf-list li::before{content:'\25C6';color:var(--gold);font-size:9px;line-height:2}
-.pf-note{font-size:11px;color:rgba(168,168,168,.6);margin-top:12px}
+/* Modal */
+.modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(14,23,38,.55);backdrop-filter:blur(6px)}
+.modal.open{display:flex;animation:fade .3s ease}
+.panel{position:relative;width:100%;max-width:880px;max-height:calc(100vh - 40px);overflow:auto;background:var(--ivory);border-radius:18px;box-shadow:0 30px 80px rgba(14,23,38,.35);animation:rise .45s cubic-bezier(.16,1,.3,1)}
+.x{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:20px;line-height:1;z-index:2}
+.x:hover{border-color:var(--gold)}
+.pf{display:grid;grid-template-columns:260px 1fr}
+.pf-side{background:linear-gradient(160deg,var(--navy-2),var(--navy));color:#fff;padding:36px 26px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.pf-side .av{width:150px}
+.pf-side .av::after{display:none}
+.pf-side .av img,.pf-side .av .ini{border-color:var(--navy)}
+.pf-name{font-family:var(--font-d);font-size:24px;font-weight:600;line-height:1.15;margin-top:18px}
+.pf-role{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--champagne);margin-top:8px}
+.pf-certs{font-size:12px;line-height:1.6;color:rgba(255,255,255,.72);margin-top:14px}
+.pf-certs a{color:var(--champagne);text-decoration:underline}
+.pf-side .wa{margin-top:22px;background:var(--champagne);color:var(--navy)!important}
+.pf-side .wa svg{color:#15803d}
+.pf-main{padding:34px 34px 30px}
+.pf-sec+.pf-sec{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.pf-h{font-size:10px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:var(--gold-ink);margin-bottom:8px}
+.pf-sec ul{list-style:none}
+.pf-sec li{font-size:13.5px;line-height:1.6;color:#2B3240;padding-left:16px;position:relative}
+.pf-sec li::before{content:'';position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.pf-sec li+li{margin-top:4px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:11px;font-weight:600;padding:5px 11px;border-radius:20px;background:#fff;border:1px solid rgba(197,161,90,.35);color:var(--ink)}
+.soon{font-size:13.5px;color:var(--muted);line-height:1.7}
 
-/* CTA */
-.cta{text-align:center;padding:clamp(40px,6vh,60px) 24px;border-top:1px solid var(--border);position:relative;z-index:1}
-.cta h2{font-family:var(--font-d);font-size:clamp(24px,3vw,36px);font-weight:400;margin-bottom:12px;letter-spacing:1px}
-.cta h2 strong{color:var(--gold);font-weight:600}
-.cta p{font-size:14px;color:var(--silver);margin-bottom:24px;font-weight:300}
-.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+/* Works modal */
+.wk{padding:36px 34px 30px}
+.wk h2{font-family:var(--font-d);font-size:32px;font-weight:600;line-height:1.1;margin:6px 0 8px}
+.wk p.sub{font-size:13.5px;color:var(--muted);max-width:560px;line-height:1.6}
+.wk-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px}
+.wk-card{border-radius:12px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+.wk-img{position:relative;aspect-ratio:16/10;background:linear-gradient(160deg,var(--navy-2),var(--navy));display:flex;align-items:center;justify-content:center;color:var(--champagne);font-size:9.5px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;opacity:.95}
+.wk-img img{width:100%;height:100%;object-fit:cover}
+.wk-body{padding:14px 14px 16px}
+.wk-body h3{font-family:var(--font-d);font-size:19px;font-weight:600}
+.wk-meta{font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-ink);margin:3px 0 6px}
+.wk-body p{font-size:12.5px;color:var(--muted);line-height:1.55}
+.wk-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.btn-o{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--gold-ink);border:1px solid var(--gold);padding:11px 18px;border-radius:40px;transition:all .3s}
+.btn-o:hover{background:rgba(197,161,90,.12)}
 
-/* Footer */
-footer{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,4vw,60px);height:52px;border-top:1px solid var(--border);position:relative;z-index:1}
-footer p{font-size:11px;color:rgba(168,168,168,.5)}
-footer a{font-size:11px;color:rgba(168,168,168,.4);margin-left:16px;transition:color .3s}
-footer a:hover{color:var(--gold)}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.hero>*{animation:rise .8s ease both}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-/* Mobile */
+/* Mobile menu */
 .ham{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
-.ham span{width:20px;height:1.5px;background:var(--silver);border-radius:1px}
-.mnav{display:none;position:fixed;inset:0;z-index:999;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.ham span{width:20px;height:1.5px;background:var(--ink)}
+.mnav{display:none;position:fixed;inset:0;z-index:150;background:rgba(244,239,228,.98);flex-direction:column;align-items:center;justify-content:center;gap:24px}
 .mnav.open{display:flex}
-.mnav a{font-family:var(--font-d);font-size:22px;color:var(--silver-light);letter-spacing:2px}
-.mnav a:hover{color:var(--gold)}
-.mnav-x{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--silver);font-size:28px;cursor:pointer}
+.mnav a{font-family:var(--font-d);font-size:26px;font-weight:600}
+.mnav-x{position:absolute;top:20px;right:24px;background:none;border:none;font-size:30px;cursor:pointer;color:var(--ink)}
 
-@media(max-width:1024px){.eg{grid-template-columns:repeat(2,1fr)}.pf-wrap{grid-template-columns:1fr}}
-@media(max-width:820px){.cc-card{grid-template-columns:1fr}.cc-vis{min-height:180px}.cc-body{padding:24px 20px}}
-@media(max-width:768px){.nav a:not(.btn-g){display:none}.ham{display:flex}}
-@media(max-width:600px){.eg{grid-template-columns:1fr}.ec-photo{height:200px}.pf-frame{height:420px}}
+@media(max-height:720px) and (min-width:1101px){.hero{padding:12px 0 6px}.lede{margin-top:8px}.ex-name{margin-top:10px}.lk{padding:12px 18px}}
 
-/* Our Works (placeholder project cards; replace .ow-ph with <img src="..." alt="...">) */
-.ow{padding:clamp(48px,8vh,80px) clamp(24px,4vw,60px);border-top:1px solid rgba(201,169,110,.15);position:relative;z-index:1}
-.ow-in{max-width:1200px;margin:0 auto}
-.ow-label{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#C9A96E;margin-bottom:10px}
-.ow-label::before{content:'';width:32px;height:1px;background:#C9A96E}
-.ow-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(28px,3.4vw,42px);font-weight:500;line-height:1.15;margin-bottom:8px}
-.ow-sub{font-size:14px;opacity:.7;max-width:560px;line-height:1.7}
-.ow-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:32px}
-.ow-card{border-radius:12px;overflow:hidden;border:1px solid rgba(201,169,110,.18);background:rgba(255,255,255,.03);transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s,border-color .5s}
-.ow-card:hover{transform:translateY(-4px);border-color:rgba(201,169,110,.45);box-shadow:0 18px 44px rgba(0,0,0,.25)}
-.ow-img{position:relative;aspect-ratio:16/10;background:linear-gradient(135deg,#0E1726,#16233A);display:flex;align-items:center;justify-content:center}
-.ow-img img{width:100%;height:100%;object-fit:cover}
-.ow-ph{display:flex;flex-direction:column;align-items:center;gap:8px;color:#E3CB95;opacity:.7;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase}
-.ow-ph svg{width:32px;height:32px}
-.ow-tag{position:absolute;top:12px;left:12px;font-size:9.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#0E1726;background:rgba(244,239,228,.94);padding:4px 10px;border-radius:20px}
-.ow-body{padding:18px 18px 22px}
-.ow-body h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;font-weight:600;line-height:1.2;margin-bottom:4px}
-.ow-meta{font-size:10px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#C9A96E;margin-bottom:8px}
-.ow-body p{font-size:13px;line-height:1.65;opacity:.72}
-.ow-light{border-top-color:#E3E8F0}
-.ow-light .ow-card{background:#fff;border-color:#E3E8F0;box-shadow:0 2px 14px rgba(15,23,42,.05)}
-.ow-light .ow-card:hover{box-shadow:0 18px 44px rgba(15,23,42,.12)}
-.ow-light .ow-label,.ow-light .ow-meta{color:#9A7533}
-.ow-light .ow-label::before{background:#9A7533}
-@media(max-width:900px){.ow-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.ow-grid{grid-template-columns:1fr}.ow{padding-left:16px;padding-right:16px}}
+@media(max-width:1100px){
+  body{overflow:auto}
+  .page{height:auto;min-height:100vh}
+  .nav a:not(.wa){display:none}.ham{display:flex}
+  .experts{padding:20px 0}
+  .row{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .ex{grid-column:span 2}
+  .ex:nth-child(4){grid-column:2/span 2}
+  .ex-more{opacity:1;transform:none}
+  .links{padding-top:8px}
+}
+@media(max-width:760px){
+  .pf{grid-template-columns:1fr}
+  .pf-side{padding:30px 22px}
+  .pf-main{padding:24px 22px}
+  .wk{padding:30px 22px}
+  .wk-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .page{padding:0 16px}
+  .row{grid-template-columns:1fr 1fr}
+  .ex,.ex:nth-child(4){grid-column:auto}
+  .ex:nth-child(5){grid-column:1/-1}
+  .av{width:112px}
+  .links{grid-template-columns:1fr}
+  .lk .go{display:none}
+  .wa span{display:none}.wa{padding:10px 12px}
+  .pf-side .wa span{display:inline}.pf-side .wa{padding:11px 18px}
+  .logo-text{font-size:21px}
+  .foot{flex-direction:column;height:auto;padding:12px 0;align-items:flex-start}
+  .foot a{margin:0 14px 0 0}
+}
 </style>
 </head>
 <body>
+<div class="page">
+  <header>
+    <a href="index.html" class="logo"><div class="logo-mark"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></div><div class="logo-text">ENVISOR<span>.AI</span></div></a>
+    <nav class="nav">
+      <a href="home.html">Home</a>
+      <a href="industries.html">Industries</a>
+      <a href="advisor.html" class="on">Experts</a>
+      <a href="https://electraacademy.com" target="_blank" rel="noopener">Academy</a>
+      <a href="https://trafohausservice.com/contact/" target="_blank" rel="noopener">EPC &amp; Service</a>
+      <a href="maps.html">World Map</a>
+      <a class="wa" href="https://wa.me/6285121532407?text=Hello%20Envisor%2C%20I%27d%20like%20to%20book%20an%20expert%20session." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span>Book a Session</span></a>
+      <button class="ham" id="hm" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
 
-<header>
-  <a href="index.html" class="logo"><div class="logo-mark">E</div><div class="logo-text">ENVISOR<span>.AI</span></div></a>
-  <div class="nav">
-    <a href="home.html">Envisor Home</a>
-    <a href="advisor.html" class="on">Expert</a>
-    <a href="industries.html">Industries</a>
-    <a href="maps.html">World Maps</a>
-    <a href="mailto:hello@envisorai.com" class="btn-g">Booking Sesi</a>
-    <button class="ham" id="hm"><span></span><span></span><span></span></button>
-  </div>
-</header>
+  <section class="hero">
+    <div class="eyebrow">Envisor Advisor</div>
+    <h1>Talk to a certified <em>energy expert.</em></h1>
+    <p class="lede">Live online sessions with practitioners in power systems, transformers, electrical safety, energy analytics, and carbon consulting. Select an expert to see their full profile.</p>
+  </section>
 
-<section class="hero">
-  <div class="container">
-    <div class="hero-tag">Envisor Advisor</div>
-    <h1>Konsultasi dengan<br><strong>Expert Energi</strong> Bersertifikat</h1>
-    <p>Sesi online langsung dengan praktisi berpengalaman di bidang sistem tenaga, transformator, audit energi, efisiensi, keselamatan kelistrikan (K3), analitik energi, dan konsultasi carbon.</p>
-    <div class="cta-btns" style="margin-top:28px"><a href="#expert" class="btn-g">Lihat Tim Expert</a><a href="#carbon" class="btn-o">Konsultasi Carbon</a><a href="#portofolio" class="btn-o">Portofolio Consulting</a></div>
-  </div>
-</section>
-
-<section class="sec" id="expert">
-  <div class="container">
-    <span class="sec-label">Tim Expert</span>
-    <div class="sec-title">4 Ahli <strong>Bersertifikat</strong></div>
-    <p class="sec-sub">Setiap advisor tersedia untuk sesi online 60/90 menit melalui platform Envisor &mdash; sistem tenaga, transformator, keselamatan kelistrikan (K3), dan analitik energi.</p>
-    <div class="eg">
-
-      <div class="ec">
-        <div class="ec-photo">
-          <img src="expert-qashtalani.png" alt="Dr. Qashtalani Haramaini">
-          <div class="ec-init">QH</div>
-        </div>
-        <div class="ec-info">
-          <div class="ec-name">Dr. Qashtalani Haramaini, S.T., M.T.</div>
-          <div class="ec-role">Energy &amp; Power System Expert</div>
-          <div class="ec-certs">Unit Manager PLN &bull; ENGIE (GDF SUEZ) Alumni &bull; Australia Awards Awardee &bull; Founder Electra Academy</div>
-          <div class="ec-exp"><span class="ec-h">PENDIDIKAN</span><br>
-Dr. (Doktoral) Teknik Elektro &mdash; Universitas Indonesia<br>
-M.T. Teknik Elektro &mdash; Universitas Indonesia (2017&ndash;2019)<br>
-Waste to Energy &mdash; Griffith University, Australia (Australia Awards)<br>
-S.T. Teknik Elektro &mdash; Universitas Indonesia (2012&ndash;2015)<br><br>
-<span class="ec-h">PENGALAMAN</span><br>
-Unit Manager &mdash; PLN (2021&ndash;sekarang)<br>
-Energy Transaction Supervisor &mdash; PLN (2020&ndash;2021)<br>
-Engineering Supervisor &mdash; PLN (2019&ndash;2020)<br>
-Key Account Marketing &mdash; PLN (2018&ndash;2019)<br>
-Operation &mdash; ENGIE / GDF SUEZ (2016)<br><br>
-<span class="ec-h">PENCAPAIAN</span><br>
-Best PLN Unit Cash Recovery 2020 &bull; Best PLN Unit Losses Reduction 2019 &bull; Green Category Best Inspirator 2019 &bull; 8+ publikasi IEEE/IOP/Elsevier (smart metering, solar PV, load forecasting) &bull; Pembicara konferensi internasional (Kuala Lumpur, Bali, Istanbul, Nagoya)<br><br>
-<span class="ec-h">KEAHLIAN</span><br>
-<span class="ec-tag">Power System</span><span class="ec-tag">Distribusi &amp; Susut</span><span class="ec-tag">Renewable Energy</span><span class="ec-tag">Energy Policy</span><span class="ec-tag">Data Analytics</span><span class="ec-tag">Smart Grid</span><span class="ec-tag">Energy Efficiency</span><span class="ec-tag">Power Quality</span></div>
-          <a href="mailto:hello@envisorai.com?subject=Booking%20Sesi%20-%20Dr.%20Qashtalani%20Haramaini" class="ec-btn">Booking Sesi &#8594;</a>
-        </div>
-      </div>
-
-      <div class="ec">
-        <div class="ec-photo">
-          <img src="expert-dino.png" alt="Dino Arla">
-          <div class="ec-init">DA</div>
-        </div>
-        <div class="ec-info">
-          <div class="ec-name">Dino Arla, S.T.</div>
-          <div class="ec-role">Power System &amp; Applied ML Expert</div>
-          <div class="ec-certs">Professional Engineer &bull; Applied Machine Learning Researcher &bull; Founder Arla Industri Teknopatih &bull; <a class="ec-link" href="https://dinoarla.com/" target="_blank" rel="noopener">dinoarla.com</a></div>
-          <div class="ec-exp"><span class="ec-h">PENDIDIKAN</span><br>
-Magister Manajemen Teknologi (Business Analytics) &mdash; Institut Teknologi Sepuluh Nopember (ITS)<br>
-S.T. Teknik Elektro<br><br>
-<span class="ec-h">PENGALAMAN</span><br>
-8+ tahun membangun dan menerapkan sistem analitik untuk jaringan distribusi tenaga listrik nasional di PLN<br>
-Team Leader Energy Transaction &mdash; PLN Indramayu (2023&ndash;2025): manajemen meter, pemulihan susut energi, dan billing<br>
-Founder &mdash; Arla Industri Teknopatih (sejak 2013)<br><br>
-<span class="ec-h">PENCAPAIAN</span><br>
-Pengembang MAGNETO, sistem perangkingan deteksi pencurian listrik &bull; 1 paten: AQORTA, sistem telemetri IoT kualitas udara &amp; kebisingan bertenaga surya &bull; 7 publikasi ilmiah &bull; Best Paper &amp; Best Presenter ICoDSA 2025<br><br>
-<span class="ec-h">KEAHLIAN</span><br>
-<span class="ec-tag">Distribusi Tenaga Listrik</span><span class="ec-tag">Transaksi Energi</span><span class="ec-tag">Loss Recovery</span><span class="ec-tag">Machine Learning</span><span class="ec-tag">Business Analytics</span><span class="ec-tag">IoT &amp; Telemetri</span></div>
-          <a href="mailto:hello@envisorai.com?subject=Booking%20Sesi%20-%20Dino%20Arla" class="ec-btn">Booking Sesi &#8594;</a>
-        </div>
-      </div>
-
-      <div class="ec">
-        <div class="ec-photo ec-noimg">
-          <div class="ec-big">RM</div>
-          <div class="ec-init">RM</div>
-        </div>
-        <div class="ec-info">
-          <div class="ec-name">Rizky Maulanda</div>
-          <div class="ec-role">Transformer Expert</div>
-          <div class="ec-certs">Spesialis Transformator Daya &amp; Distribusi &bull; Asesmen Kondisi &amp; Diagnostik Trafo</div>
-          <div class="ec-exp"><span class="ec-h">FOKUS KONSULTASI</span><br>
-Asesmen kondisi dan sisa umur transformator daya serta distribusi<br>
-Diagnostik minyak trafo: DGA (Dissolved Gas Analysis), furan, tegangan tembus, dan kadar air<br>
-Pengujian elektrik: tan delta, rasio belitan, tahanan belitan, tahanan isolasi, SFRA<br>
-Analisis pembebanan, rugi-rugi, dan rekomendasi perawatan/pergantian trafo<br><br>
-<span class="ec-h">KEAHLIAN</span><br>
-<span class="ec-tag">Transformer Assessment</span><span class="ec-tag">DGA &amp; Oil Diagnostics</span><span class="ec-tag">Pengujian Elektrik</span><span class="ec-tag">Pemeliharaan Prediktif</span><span class="ec-tag">Rugi-rugi &amp; Pembebanan</span></div>
-          <a href="mailto:hello@envisorai.com?subject=Booking%20Sesi%20-%20Rizky%20Maulanda%20(Trafo)" class="ec-btn">Booking Sesi &#8594;</a>
-        </div>
-      </div>
-
-      <div class="ec">
-        <div class="ec-photo">
-          <img src="expert-farda.jpg" alt="M Farda Najih Arifani">
-          <div class="ec-init">FN</div>
-        </div>
-        <div class="ec-info">
-          <div class="ec-name">M Farda Najih Arifani</div>
-          <div class="ec-role">K3 &amp; Electrical Safety Expert</div>
-          <div class="ec-certs">Ahli K3 Umum &bull; Ahli K3 Listrik &bull; Petugas Peran Kebakaran Kelas D &bull; Co-Founder Electra Academy</div>
-          <div class="ec-exp"><span class="ec-h">PENDIDIKAN</span><br>
-D3 Teknik Elektro &mdash; Universitas Diponegoro<br>
-S1 Ekonomi Akuntansi &mdash; Universitas Terbuka<br><br>
-<span class="ec-h">PENGALAMAN</span><br>
-9+ tahun di sektor distribusi daya perusahaan utilitas listrik nasional: pengendalian konstruksi jaringan distribusi, pemeliharaan Alat Pembatas dan Pengukur (APP) transaksi energi, serta K3L (Keselamatan, Kesehatan Kerja, Keamanan, dan Lingkungan)<br>
-Aktif mengembangkan penerapan kecerdasan buatan untuk keandalan dan keselamatan sistem ketenagalistrikan<br><br>
-<span class="ec-h">KEAHLIAN</span><br>
-<span class="ec-tag">K3 Umum &amp; K3 Listrik</span><span class="ec-tag">HIRARC &amp; LOTO</span><span class="ec-tag">Konstruksi Jaringan Distribusi</span><span class="ec-tag">APP &amp; Transaksi Energi</span><span class="ec-tag">Proteksi Kebakaran</span><span class="ec-tag">Audit K3L</span></div>
-          <a href="mailto:hello@envisorai.com?subject=Booking%20Sesi%20-%20Farda%20Najih%20(K3)" class="ec-btn">Booking Sesi &#8594;</a>
-        </div>
-      </div>
-
+  <main class="experts">
+    <div class="row">
+      <button class="ex" data-id="qh"><div class="av"><img src="avatar-qashtalani.webp" alt="Dr. Qashtalani Haramaini"></div><div class="ex-name">Dr. Qashtalani Haramaini</div><div class="ex-role">Energy &amp; Power Systems</div><div class="ex-more">View profile</div></button>
+      <button class="ex" data-id="da"><div class="av"><img src="avatar-dino.webp" alt="Dino Arla"></div><div class="ex-name">Dino Arla</div><div class="ex-role">Power Systems &amp; Applied ML</div><div class="ex-more">View profile</div></button>
+      <button class="ex" data-id="fn"><div class="av"><img src="avatar-farda.webp" alt="M Farda Najih Arifani"></div><div class="ex-name">M Farda Najih Arifani</div><div class="ex-role">Electrical Safety (K3)</div><div class="ex-more">View profile</div></button>
+      <button class="ex" data-id="sd"><div class="av"><img src="avatar-sidik.webp" alt="Sidik"></div><div class="ex-name">Sidik</div><div class="ex-role">Envisor Expert</div><div class="ex-more">View profile</div></button>
+      <button class="ex" data-id="rm"><div class="av"><div class="ini">RM</div></div><div class="ex-name">Rizky Maulanda</div><div class="ex-role">Transformer Specialist</div><div class="ex-more">View profile</div></button>
     </div>
-  </div>
-</section>
+  </main>
 
-<section class="sec cc" id="carbon">
-  <div class="container">
-    <span class="sec-label">Layanan Konsultasi</span>
-    <div class="sec-title">Konsultasi <strong>Carbon</strong></div>
-    <p class="sec-sub">Pendampingan perhitungan jejak karbon dan kesiapan CBAM Uni Eropa untuk pabrik dan eksportir Indonesia &mdash; dari data fasilitas hingga laporan emisi yang siap diverifikasi.</p>
-    <a class="cc-card" href="cbam.html">
-      <div class="cc-vis"><span aria-hidden="true">CO<sub>2</sub>e</span></div>
-      <div class="cc-body">
-        <h3>Jejak Karbon &amp; Kesiapan CBAM</h3>
-        <p>Bayar CBAM dari emisi aktual Anda, bukan dari default value. Kami membantu mengukur emisi per fasilitas &mdash; termasuk listrik dan bahan baku hulu &mdash; lalu mengemasnya menjadi data yang siap diverifikasi pembeli di Eropa.</p>
-        <ul class="cc-list">
-          <li>Perhitungan emisi Scope 1, 2, dan 3 per fasilitas</li>
-          <li>Embedded emissions produk untuk pelaporan CBAM</li>
-          <li>Simulasi biaya CBAM: default value vs data aktual</li>
-          <li>Penyusunan data emisi siap verifikasi untuk importir UE</li>
-        </ul>
-        <div class="cc-btns"><span class="btn-g">Buka Kalkulator &amp; Detail &#8594;</span></div>
-      </div>
+  <section class="links">
+    <a class="lk" href="cbam.html">
+      <span class="lk-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 3 6 6.5 6 10a6 6 0 0 1-12 0c0-3.5 2-7 6-10z"/><path d="M12 21v-7l-3-3"/></svg></span>
+      <span><b>Carbon &amp; CBAM Consulting</b><small>Scope 1&ndash;3 footprint and EU CBAM readiness, with calculator.</small></span>
+      <span class="go">Open &#8594;</span>
     </a>
-  </div>
-</section>
+    <button class="lk" id="openWorks">
+      <span class="lk-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg></span>
+      <span><b>Our Works &amp; Portfolio</b><small>Selected consulting engagements and our interactive project map.</small></span>
+      <span class="go">View &#8594;</span>
+    </button>
+  </section>
 
-<section class="ow" id="our-works">
-  <div class="ow-in">
-    <div class="ow-label">Our Works</div>
-    <div class="ow-title">Consulting Engagements</div>
-    <p class="ow-sub">Selected advisory work delivered by Envisor experts.</p>
-    <div class="ow-grid">
-    <!-- To add a project: replace the .ow-ph block with <img src="your-photo.webp" alt="...">, then fill the tag, title, meta and description. -->
-    <article class="ow-card">
-      <div class="ow-img"><div class="ow-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-8 8"/></svg>Project image</div><span class="ow-tag">Consulting</span></div>
-      <div class="ow-body"><h3>Project Title</h3><div class="ow-meta">Client &bull; Location &bull; Year</div><p>Short description of the scope, what was delivered, and the outcome for the client.</p></div>
-    </article>
-    <article class="ow-card">
-      <div class="ow-img"><div class="ow-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-8 8"/></svg>Project image</div><span class="ow-tag">Consulting</span></div>
-      <div class="ow-body"><h3>Project Title</h3><div class="ow-meta">Client &bull; Location &bull; Year</div><p>Short description of the scope, what was delivered, and the outcome for the client.</p></div>
-    </article>
-    <article class="ow-card">
-      <div class="ow-img"><div class="ow-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-8 8"/></svg>Project image</div><span class="ow-tag">Consulting</span></div>
-      <div class="ow-body"><h3>Project Title</h3><div class="ow-meta">Client &bull; Location &bull; Year</div><p>Short description of the scope, what was delivered, and the outcome for the client.</p></div>
-    </article>
+  <footer class="foot">
+    <span>&copy; 2025 Envisor Group</span>
+    <span><a href="https://wa.me/6285121532407" target="_blank" rel="noopener">+62 851-2153-2407</a><a href="mailto:hello@envisorai.com">hello@envisorai.com</a></span>
+  </footer>
+</div>
+
+<!-- Expert profile modal -->
+<div class="modal" id="pm" role="dialog" aria-modal="true" aria-labelledby="pmName">
+  <div class="panel">
+    <button class="x" data-close aria-label="Close">&times;</button>
+    <div class="pf">
+      <aside class="pf-side">
+        <div class="av" id="pmAv"></div>
+        <div class="pf-name" id="pmName"></div>
+        <div class="pf-role" id="pmRole"></div>
+        <div class="pf-certs" id="pmCerts"></div>
+        <a class="wa" id="pmBook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span>Book a Session</span></a>
+      </aside>
+      <div class="pf-main" id="pmBody"></div>
     </div>
   </div>
-</section>
+</div>
 
-<section class="sec pf" id="portofolio">
-  <div class="container">
-    <span class="sec-label">Portofolio Konsultasi</span>
-    <div class="sec-title">Rekam Jejak <strong>Pekerjaan Consulting</strong></div>
-    <p class="sec-sub">Dokumentasi proyek konsultasi energi dan ketenagalistrikan yang telah kami kerjakan, disajikan dalam peta interaktif ArcGIS StoryMaps.</p>
-    <div class="pf-wrap">
-      <div class="pf-frame">
-        <iframe src="https://storymaps.arcgis.com/stories/ac01da24257946b2bc8f2ed94c90306c" title="Portofolio Konsultasi Envisor" loading="lazy" allowfullscreen allow="geolocation"></iframe>
+<!-- Our Works modal -->
+<div class="modal" id="wm" role="dialog" aria-modal="true" aria-labelledby="wmTitle">
+  <div class="panel">
+    <button class="x" data-close aria-label="Close">&times;</button>
+    <div class="wk">
+      <div class="pf-h">Our Works</div>
+      <h2 id="wmTitle">Consulting Engagements</h2>
+      <p class="sub">Selected advisory work delivered by Envisor experts &mdash; from power system and transformer assessments to energy efficiency and electrical safety audits.</p>
+      <div class="wk-grid">
+        <!-- To add a project: replace the text inside .wk-img with <img src="your-photo.webp" alt="...">, then fill the title, meta and description. -->
+        <article class="wk-card"><div class="wk-img">Project image</div><div class="wk-body"><h3>Project Title</h3><div class="wk-meta">Client &bull; Location &bull; Year</div><p>Short description of the scope and outcome.</p></div></article>
+        <article class="wk-card"><div class="wk-img">Project image</div><div class="wk-body"><h3>Project Title</h3><div class="wk-meta">Client &bull; Location &bull; Year</div><p>Short description of the scope and outcome.</p></div></article>
+        <article class="wk-card"><div class="wk-img">Project image</div><div class="wk-body"><h3>Project Title</h3><div class="wk-meta">Client &bull; Location &bull; Year</div><p>Short description of the scope and outcome.</p></div></article>
       </div>
-      <div class="pf-side">
-        <h3>Portofolio Proyek Consulting</h3>
-        <p>Jelajahi lokasi, lingkup pekerjaan, dan hasil dari setiap proyek konsultasi tim expert Envisor &mdash; dari asesmen sistem tenaga dan transformator hingga audit efisiensi energi dan K3 kelistrikan.</p>
-        <ul class="pf-list">
-          <li>Asesmen sistem tenaga &amp; kualitas daya industri</li>
-          <li>Asesmen kondisi transformator daya &amp; distribusi</li>
-          <li>Audit efisiensi energi &amp; penurunan susut</li>
-          <li>Audit K3 &amp; keselamatan instalasi listrik</li>
-          <li>Analitik energi berbasis data &amp; machine learning</li>
-        </ul>
-        <a href="https://storymaps.arcgis.com/stories/ac01da24257946b2bc8f2ed94c90306c" target="_blank" rel="noopener" class="btn-g">Buka Portofolio Lengkap &#8594;</a>
-        <p class="pf-note">Jika peta tidak tampil di perangkat Anda, buka tautan di atas pada tab baru.</p>
+      <div class="wk-cta">
+        <a class="btn-o" href="https://storymaps.arcgis.com/stories/ac01da24257946b2bc8f2ed94c90306c" target="_blank" rel="noopener">Interactive portfolio map &#8599;</a>
+        <a class="btn-o" href="maps.html">World Map &#8594;</a>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<section class="cta">
-  <h2>Butuh konsultasi <strong>energi profesional?</strong></h2>
-  <p>Pilih expert sesuai kebutuhan Anda. Sesi online tersedia setiap hari kerja.</p>
-  <div class="cta-btns">
-    <a href="mailto:hello@envisorai.com" class="btn-g">Booking Sesi Sekarang</a>
-    <a href="index.html" class="btn-o">Kembali ke Beranda</a>
-  </div>
-</section>
+<div class="mnav" id="mn">
+  <button class="mnav-x" id="mx" aria-label="Close menu">&times;</button>
+  <a href="index.html">Home</a>
+  <a href="home.html">Home Energy Audit</a>
+  <a href="industries.html">Industries</a>
+  <a href="advisor.html">Experts</a>
+  <a href="https://electraacademy.com" target="_blank" rel="noopener">Electra Academy</a>
+  <a href="https://trafohausservice.com/contact/" target="_blank" rel="noopener">EPC &amp; Service</a>
+  <a href="maps.html">World Map</a>
+</div>
 
-<footer><p>&copy; 2025 Envisor Group</p><div><a href="#">Privacy</a><a href="#">Terms</a></div></footer>
-
-<div class="mnav" id="mn"><button class="mnav-x" id="mx">&times;</button><a href="index.html">Beranda</a><a href="home.html">Envisor Home</a><a href="advisor.html">Expert</a><a href="industries.html">Industries</a><a href="maps.html">World Maps</a></div>
-<script>document.getElementById('hm').onclick=function(){document.getElementById('mn').classList.add('open')};document.getElementById('mx').onclick=function(){document.getElementById('mn').classList.remove('open')};</script>
+<script>
+var EXPERTS={
+  qh:{name:'Dr. Qashtalani Haramaini, S.T., M.T.',role:'Energy & Power Systems Expert',img:'avatar-qashtalani.webp',
+    certs:'Unit Manager, PLN &bull; ENGIE (GDF SUEZ) alumnus &bull; Australia Awards awardee &bull; Founder, Electra Academy',
+    sections:[
+      ['Education',['Doctorate in Electrical Engineering — Universitas Indonesia','M.T. Electrical Engineering — Universitas Indonesia (2017–2019)','Waste to Energy — Griffith University, Australia (Australia Awards)','S.T. Electrical Engineering — Universitas Indonesia (2012–2015)']],
+      ['Experience',['Unit Manager — PLN (2021–present)','Energy Transaction Supervisor — PLN (2020–2021)','Engineering Supervisor — PLN (2019–2020)','Key Account Marketing — PLN (2018–2019)','Operations — ENGIE / GDF SUEZ (2016)']],
+      ['Achievements',['Best PLN Unit Cash Recovery 2020; Best PLN Unit Losses Reduction 2019; Green Category Best Inspirator 2019','8+ IEEE / IOP / Elsevier publications on smart metering, solar PV and load forecasting','Speaker at international conferences in Kuala Lumpur, Bali, Istanbul and Nagoya']]],
+    tags:['Power Systems','Distribution & Losses','Renewable Energy','Energy Policy','Data Analytics','Smart Grid','Energy Efficiency','Power Quality']},
+  da:{name:'Dino Arla, S.T.',role:'Power Systems & Applied ML Expert',img:'avatar-dino.webp',
+    certs:'Professional Engineer &bull; Applied Machine Learning researcher &bull; Founder, Arla Industri Teknopatih &bull; <a href="https://dinoarla.com/" target="_blank" rel="noopener">dinoarla.com</a>',
+    sections:[
+      ['Education',['Master of Technology Management (Business Analytics) — Institut Teknologi Sepuluh Nopember (ITS)','S.T. Electrical Engineering']],
+      ['Experience',['8+ years building and deploying analytics for the national power distribution network at PLN','Team Leader, Energy Transaction — PLN Indramayu (2023–2025): metering, energy loss recovery and billing','Founder — Arla Industri Teknopatih (since 2013)']],
+      ['Achievements',['Developer of MAGNETO, an electricity-theft detection ranking system','Patent: AQORTA, a solar-powered IoT air quality and noise telemetry system','7 scientific publications; Best Paper & Best Presenter, ICoDSA 2025']]],
+    tags:['Power Distribution','Energy Transactions','Loss Recovery','Machine Learning','Business Analytics','IoT & Telemetry']},
+  fn:{name:'M Farda Najih Arifani',role:'Electrical Safety (K3) Expert',img:'avatar-farda.webp',
+    certs:'Certified General OHS Expert (Ahli K3 Umum) &bull; Certified Electrical OHS Expert (Ahli K3 Listrik) &bull; Class D Fire Warden &bull; Co-Founder, Electra Academy',
+    sections:[
+      ['Education',['D3 Electrical Engineering — Universitas Diponegoro','S1 Accounting — Universitas Terbuka']],
+      ['Experience',['9+ years in power distribution at the national utility: distribution network construction control, maintenance of energy-transaction metering (APP), and HSE','Actively applying AI to improve the reliability and safety of power systems']]],
+    tags:['General & Electrical OHS','HIRARC & LOTO','Distribution Construction','Metering & Energy Transactions','Fire Protection','HSE Audits']},
+  sd:{name:'Sidik',role:'Envisor Expert',img:'avatar-sidik.webp',certs:'',sections:[],tags:[],soon:true},
+  rm:{name:'Rizky Maulanda',role:'Transformer Specialist',ini:'RM',
+    certs:'Power & distribution transformer specialist &bull; Condition assessment & transformer diagnostics',
+    sections:[
+      ['Consulting focus',['Condition and remaining-life assessment of power and distribution transformers','Oil diagnostics: dissolved gas analysis (DGA), furans, breakdown voltage and moisture','Electrical testing: tan delta, turns ratio, winding resistance, insulation resistance, SFRA','Loading and loss analysis, with maintenance or replacement recommendations']]],
+    tags:['Transformer Assessment','DGA & Oil Diagnostics','Electrical Testing','Predictive Maintenance','Loading & Losses']}
+};
+function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML}
+var last=null;
+function openModal(m){last=document.activeElement;m.classList.add('open');document.body.style.overflow='hidden';m.querySelector('.x').focus()}
+function closeModals(){document.querySelectorAll('.modal.open').forEach(function(m){m.classList.remove('open')});document.body.style.overflow='';if(last)last.focus()}
+document.querySelectorAll('.ex').forEach(function(b){b.addEventListener('click',function(){
+  var e=EXPERTS[b.dataset.id];
+  document.getElementById('pmAv').innerHTML=e.img?'<img src="'+e.img+'" alt="'+esc(e.name)+'">':'<div class="ini">'+e.ini+'</div>';
+  document.getElementById('pmName').textContent=e.name;
+  document.getElementById('pmRole').textContent=e.role;
+  document.getElementById('pmCerts').innerHTML=e.certs;
+  document.getElementById('pmBook').href='https://wa.me/6285121532407?text='+encodeURIComponent('Hello Envisor, I would like to book a session with '+e.name.split(',')[0]+'.');
+  var h='';
+  if(e.soon){h='<div class="pf-sec"><div class="pf-h">Profile</div><p class="soon">Full profile coming soon. Contact us on WhatsApp to book a session with this expert.</p></div>'}
+  e.sections.forEach(function(s){h+='<div class="pf-sec"><div class="pf-h">'+s[0]+'</div><ul>'+s[1].map(function(i){return '<li>'+esc(i)+'</li>'}).join('')+'</ul></div>'});
+  if(e.tags.length)h+='<div class="pf-sec"><div class="pf-h">Expertise</div><div class="tags">'+e.tags.map(function(t){return '<span>'+esc(t)+'</span>'}).join('')+'</div></div>';
+  document.getElementById('pmBody').innerHTML=h;
+  openModal(document.getElementById('pm'));
+})});
+document.getElementById('openWorks').addEventListener('click',function(){openModal(document.getElementById('wm'))});
+document.querySelectorAll('.modal').forEach(function(m){m.addEventListener('click',function(ev){if(ev.target===m||ev.target.hasAttribute('data-close'))closeModals()})});
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape')closeModals()});
+document.getElementById('hm').onclick=function(){document.getElementById('mn').classList.add('open')};
+document.getElementById('mx').onclick=function(){document.getElementById('mn').classList.remove('open')};
+</script>
 </body>
 </html>
