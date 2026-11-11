@@ -82,9 +82,9 @@ window.EXPERTS = {
     ],
     certifications: ['Professional Engineer'],
     projects: [
-      { t: 'MAGNETO — Electricity-Theft Detection Ranking', loc: 'PLN distribution network', y: 'PLN', cat: 'Grid, Metering & Analytics', d: 'Machine-learning ranking system to prioritise suspected electricity theft for field inspection' },
-      { t: 'Energy Transaction & Loss Recovery', loc: 'PLN Indramayu', y: '2023–2025', cat: 'Grid, Metering & Analytics', d: 'Team leader for metering management, energy-loss recovery and billing' },
-      { t: 'AQORTA — Solar-Powered IoT Telemetry (patented)', loc: 'Indonesia', y: 'Patent', cat: 'Grid, Metering & Analytics', d: 'Solar-powered IoT system for air-quality and noise telemetry' }
+      {"t": "MAGNETO — Electricity-Theft Detection Ranking", "loc": "PLN distribution network, Indonesia", "y": "PLN", "cat": "Grid, Metering & Analytics", "role": "Developer", "org": "PLN", "client": "PLN (state utility)", "tech": ["Machine learning", "Metering data"], "scope": ["Developed MAGNETO, a ranking system for electricity-theft detection, to prioritise suspected cases for field inspection."]},
+      {"t": "Energy Transaction & Loss Recovery", "loc": "Indramayu, West Java, Indonesia", "y": "2023–2025", "cat": "Grid, Metering & Analytics", "role": "Team Leader, Energy Transaction", "org": "PLN Indramayu", "client": "PLN (state utility)", "tech": ["Metering", "Billing", "Loss recovery"], "scope": ["Led metering management, energy-loss recovery and billing for the unit."]},
+      {"t": "AQORTA — Solar-Powered IoT Telemetry (Patented)", "loc": "Indonesia", "y": "Patent", "cat": "Grid, Metering & Analytics", "role": "Inventor", "org": "Arla Industri Teknopatih", "tech": ["IoT", "Solar power", "Environmental sensing"], "scope": ["Invented AQORTA, a patented solar-powered IoT telemetry system for air-quality and noise monitoring."]}
     ],
     achievements: [
       'Patent: AQORTA — solar-powered IoT air-quality and noise telemetry system',
@@ -219,9 +219,9 @@ window.EXPERTS = {
     ],
     languages: ['Bahasa Indonesia (native)', 'English (professional)'],
     projects: [
-      { t: 'Huaming On-Load Tap Changer After-Sales Programme', loc: 'Indonesia', y: '2024–Now', cat: 'Transformer & OLTC', d: 'After-sales service strategy, key accounts (utilities incl. PLN, transformer OEMs, industry) and service-partner network for Huaming tap changers' },
-      { t: 'MR OLTC Field Service — Multi-Country Territory', loc: 'Indonesia, Malaysia, Australia & Taiwan', y: '2019–2024', cat: 'Transformer & OLTC', d: 'Inspection, maintenance, troubleshooting, retrofit and modification of Reinhausen on-load tap changers; customer product training' },
-      { t: 'Power Transformer FAT & SAT Testing', loc: 'Indonesia', y: '2017–2019', cat: 'Transformer & OLTC', d: 'High-voltage testing and QC of power transformers from factory to site acceptance: IVPD, impulse, temperature rise, LTAC, oil breakdown, SFRA' }
+      {"t": "Huaming On-Load Tap Changer After-Sales Programme", "loc": "Indonesia", "y": "2024–Now", "cat": "Transformer & OLTC", "role": "After Sales Service Manager", "org": "PT Huaming Power Indonesia", "client": "Utilities (incl. PLN), transformer OEMs & industrial users", "tech": ["On-load tap changers", "Power transformers"], "scope": ["Plan and execute the after-sales service and support strategy for Huaming tap-changer products across Indonesia.", "Maintain direct contact with customer accounts — utilities (incl. PLN), transformer OEMs and industrial end users — monitoring customer satisfaction, industry trends and competitive offerings.", "Develop the local representative and service-partner network through selection, training and supervision of technical partners.", "Represent Huaming products at industry trade shows, seminars and technical conferences; deliver technical presentations and product training."]},
+      {"t": "MR OLTC Field Service — Multi-Country Territory", "loc": "Indonesia, Malaysia, Australia & Taiwan", "y": "2019–2024", "cat": "Transformer & OLTC", "role": "Field Service Engineer · Certified Premium Service Provider", "org": "PT Reinhausen Indonesia (Maschinenfabrik Reinhausen Group)", "client": "Utilities, transformer OEMs & industrial users", "tech": ["On-load tap changers", "Voltage regulators", "Motor drives"], "scope": ["Primary technical contact for customer accounts across Indonesia, Malaysia, Australia and Taiwan.", "Inspection, maintenance, troubleshooting, retrofit and modification of MR on-load tap changers (OILTAP, VACUTAP; TAPCON, ETOS; MA7/MA9, TAPMOTION ED).", "Delivered product training to local and international customers.", "Supported order processing and after-sales quotations with SAP."]},
+      {"t": "Power Transformer FAT & SAT Testing", "loc": "Indonesia", "y": "2017–2019", "cat": "Transformer & OLTC", "role": "Quality Control / Testing Engineer", "org": "PT Sintra Sinarindo Elektrik (Sintra Power)", "client": "Transformer buyers (customer witnesses)", "tech": ["Power transformers", "High-voltage testing"], "scope": ["High-voltage testing and QC of power transformers from Factory Acceptance Test (FAT) to Site Acceptance Test (SAT), interfacing directly with customer witnesses.", "Full test suites including IVPD, impulse, temperature rise (ONAN/ONAF), LTAC, oil breakdown and SFRA."]}
     ],
     tags: ['Power Transformers', 'On-Load Tap Changers', 'Transformer Testing (FAT/SAT)', 'SFRA & HV Testing', 'Retrofit & Maintenance', 'After-Sales Service']
   },
@@ -269,43 +269,43 @@ window.EXPERTS = {
       'Lotte Foundation Scholarship; DIKTI-PPA Scholarship'
     ],
     projects: [
-      { t: "Cluster-Based Hybrid System Village Electrification", loc: "Indonesia", y: '2026', d: "Plant sizing, design and yield simulation; cluster-based hybrid model and sizing tool (independent)" },
-      { t: "Ground-Mounted PV 65 MWp (PLN subsidiary)", loc: "East Java", y: '2026', d: "Sizing, design, yield simulation; EPC tender support" },
-      { t: "Ground-Mounted PV 16 MWp (C&I)", loc: "Central Java", y: '2026', d: "Sizing, design, yield simulation; EPC tender support" },
-      { t: "Floating PV 130 MWp + 10 MWh BESS", loc: "West Nusa Tenggara", y: '2026', d: "Sizing, design and yield simulation" },
-      { t: "Floating PV 130 MWp", loc: "Lampung", y: '2026', d: "Sizing, design and yield simulation" },
-      { t: "Floating PV 425 MWp", loc: "Lampung", y: '2026', d: "Sizing, design and yield simulation" },
-      { t: "Hybrid PV 77 MWp + BESS 13 MWh (PLN)", loc: "Central Java", y: '2026', d: "Sizing, design, yield simulation and grid interconnection study; EPC tender support" },
-      { t: "BESS Initial Integration Study", loc: "Jakarta", y: '2026', d: "Technical sizing and initial grid analysis for BESS on a 20 kV PLN distribution system (independent)" },
-      { t: "3 Wind Farm Sites \u2014 750 MW", loc: "Java", y: '2025', d: "Grid assessment report for three potential sites" },
-      { t: "Floating PV 348 MWp", loc: "Banten", y: '2025', d: "Sizing, design and yield simulation" },
-      { t: "Floating PV 114 MWp", loc: "East Kalimantan", y: '2025', d: "Sizing, design and yield simulation" },
-      { t: "Wind Farm 60 MW + BESS 13 MWh (PLN)", loc: "West Sulawesi", y: '2025', d: "Grid interconnection study with PLN; electrical design and BESS optimisation; EPC tender support" },
-      { t: "Hybrid PV 12.8 MWp + BESS 15 MWh (PLN)", loc: "North Maluku", y: '2025', d: "Sizing, design, yield simulation and grid interconnection study; EPC tender support" },
-      { t: "Hybrid PV 6.7 MWp + BESS 4.5 MWh (PLN)", loc: "Belitung", y: '2025', d: "Sizing, design, yield simulation and grid interconnection study; EPC tender support" },
-      { t: "Hybrid Power Plant Performance Analysis", loc: "East Nusa Tenggara", y: '2025', d: "Operational analysis and input for future planning (independent)" },
-      { t: "Hybrid System Model Consultation", loc: "Jakarta", y: '2025', d: "Technical support for hybrid power plant modelling (independent)" },
-      { t: "Ground-Mounted PV 50 MWp", loc: "New Zealand", y: '2024', d: "Engineering support for development and grid connection" },
-      { t: "Transformer Factory Audit", loc: "China & Indonesia", y: '2024', d: "Complete factory audit to CIGRE standards at two manufacturers" },
-      { t: "1 GW Hybrid Plant Pre-Feasibility (Wind, Solar, BESS, Gas)", loc: "South Sulawesi", y: '2024', d: "Hybrid system model, plant and electrical system design (independent)" },
-      { t: "Hybrid PV 85 MWp + BESS 350 MWh (PLN subsidiary)", loc: "East Java", y: '2024', d: "Sizing, design, yield simulation; EPC tender support" },
-      { t: "Ground-Mounted PV 70 MWp (PLN subsidiary)", loc: "Central Java", y: '2024', d: "Sizing, design, yield simulation; EPC tender support" },
-      { t: "Wind Farm 55 MW (PLN subsidiary)", loc: "Aceh", y: '2023', d: "Electrical design and optimisation; grid impact study; EPC tender support" },
-      { t: "Hybrid PV 100 MWp + BESS 350 MWh + Genset (PLN)", loc: "Eastern Indonesia", y: '2023', d: "Sizing, design, yield simulation; EPC tender support" },
-      { t: "Floating PV 135 MWp (PLN subsidiary)", loc: "East Java", y: '2023', d: "Sizing, design, yield simulation; EPC tender support" },
-      { t: "Ground-Mounted PV 2 MWp (C&I)", loc: "West Java", y: '2022', d: "Sizing, design, yield simulation; tender support" },
-      { t: "Rooftop PV 1 MWp (C&I)", loc: "Banten", y: '2022', d: "Sizing, design, yield simulation; tender support" },
-      { t: "Floating PV 37 MWp (C&I)", loc: "East Java", y: '2021', d: "Sizing, design, yield simulation; tender support" },
-      { t: "Ground-Mounted PV 20 MWp (C&I)", loc: "South Sulawesi", y: '2021', d: "Sizing, design, yield simulation; tender support" },
-      { t: "Floating PV 60 MWp (PLN subsidiary)", loc: "West Java", y: '2020', d: "Sizing, design, yield simulation; EPC tender support" },
-      { t: "Floating PV 125 MWp (PLN subsidiary)", loc: "West Sumatra", y: '2020', d: "Sizing, design, yield simulation; EPC tender support" },
-      { t: "Mini Hydro 14 MW (PLN)", loc: "Aceh", y: '2020', d: "Grid interconnection study and electrical design" },
-      { t: "Floating PV 16 MWp (C&I)", loc: "Banten", y: '2019', d: "Grid interconnection and feasibility study; sizing, design, yield simulation; EPC tender and PPA negotiation support" },
-      { t: "Mini Hydro 4 MW (PLN)", loc: "Aceh", y: '2018', d: "Grid interconnection study and electrical design" },
-      { t: "Wind Farm 66 MW (PLN)", loc: "Central Java", y: '2018', d: "Grid interconnection study with PLN; electrical design and optimisation" },
-      { t: "Rooftop PV 100 kWp (C&I)", loc: "Banten", y: '2018', d: "Grid interconnection assessment, feasibility study and plant design" },
-      { t: "Hybrid PV 1.2 MWp + BESS 2.1 MWh", loc: "East Kalimantan", y: '2017', d: "Transformer factory acceptance test (FAT); plant operation support" },
-      { t: "Mini Hydro 4 MW (PLN)", loc: "North Sumatra", y: '2017', d: "Grid interconnection study and electrical design" }
+      {"t": "Cluster-Based Hybrid System Village Electrification", "loc": "Indonesia", "y": "2026", "role": "Renewable Energy Technical Specialist", "org": "Independent", "tech": ["Hybrid system"], "scope": ["Developed power plant sizing, design, and yield simulation.", "Developed the cluster-based hybrid model and a simple sizing tool."], "d": "Developed power plant sizing, design, and yield simulation. Developed the cluster-based hybrid model and a simple sizing tool."},
+      {"t": "Ground-Mounted PV 65 MWp (PLN Subsidiary)", "loc": "East Java, Indonesia", "y": "2026", "role": "Renewable Energy Technical Specialist", "org": "Akuo Energy Indonesia", "client": "PLN subsidiary", "tech": ["Ground-mounted PV"], "scope": ["Developed power plant sizing, design, and yield simulation.", "Provided engineering support for the competitive bidding tender, including EPC tender selection."], "pv": 65, "d": "Developed power plant sizing, design, and yield simulation. Provided engineering support for the competitive bidding tender, including EPC tender selection."},
+      {"t": "Ground-Mounted PV 16 MWp (C&I)", "loc": "Central Java, Indonesia", "y": "2026", "role": "Renewable Energy Technical Specialist", "org": "Akuo Energy Indonesia", "client": "Commercial & industrial (C&I)", "tech": ["Ground-mounted PV"], "scope": ["Developed power plant sizing, design, and yield simulation.", "Provided engineering support for the competitive bidding tender, including EPC tender selection."], "pv": 16, "d": "Developed power plant sizing, design, and yield simulation. Provided engineering support for the competitive bidding tender, including EPC tender selection."},
+      {"t": "Floating PV 130 MWp + 10 MWh BESS", "loc": "West Nusa Tenggara, Indonesia", "y": "2026", "role": "Renewable Energy Technical Specialist", "org": "Akuo Energy Indonesia", "tech": ["Floating PV", "BESS"], "scope": ["Developed power plant sizing, design, and yield simulation."], "pv": 130, "bess": 10, "d": "Developed power plant sizing, design, and yield simulation."},
+      {"t": "Floating PV 130 MWp", "loc": "Lampung, Indonesia", "y": "2026", "role": "Renewable Energy Technical Specialist", "org": "Akuo Energy Indonesia", "tech": ["Floating PV"], "scope": ["Developed power plant sizing, design, and yield simulation."], "pv": 130, "d": "Developed power plant sizing, design, and yield simulation."},
+      {"t": "Floating PV 425 MWp", "loc": "Lampung, Indonesia", "y": "2026", "role": "Renewable Energy Technical Specialist", "org": "Akuo Energy Indonesia", "tech": ["Floating PV"], "scope": ["Developed power plant sizing, design, and yield simulation."], "pv": 425, "d": "Developed power plant sizing, design, and yield simulation."},
+      {"t": "Hybrid PV 77 MWp + BESS 13 MWh (PLN)", "loc": "Central Java, Indonesia", "y": "2026", "role": "Renewable Energy Technical Specialist", "org": "Akuo Energy Indonesia", "client": "PLN (state utility)", "tech": ["Solar PV", "BESS", "Hybrid system"], "scope": ["Developed power plant sizing, design, yield simulation, and grid interconnection study.", "Provided engineering support for the competitive bidding tender, including EPC tender selection."], "pv": 77, "bess": 13, "d": "Developed power plant sizing, design, yield simulation, and grid interconnection study. Provided engineering support for the competitive bidding tender, including EPC tender selection."},
+      {"t": "BESS Initial Integration Study Consultation", "loc": "Jakarta, Indonesia", "y": "2026", "role": "Renewable Energy Technical Specialist", "org": "Independent", "tech": ["BESS"], "scope": ["Provided technical sizing and initial grid analysis for BESS integration in a 20 kV PLN distribution system."], "d": "Provided technical sizing and initial grid analysis for BESS integration in a 20 kV PLN distribution system."},
+      {"t": "3 Wind Farm Sites – 750 MW", "loc": "Java, Indonesia", "y": "2025", "role": "Renewable Energy Technical Specialist", "org": "Akuo Energy Indonesia", "tech": ["Wind"], "scope": ["Developed the grid assessment report for three potential sites."], "mw": 750, "d": "Developed the grid assessment report for three potential sites."},
+      {"t": "Floating PV 348 MWp", "loc": "Banten, Indonesia", "y": "2025", "role": "Renewable Energy Technical Specialist", "org": "Akuo Energy Indonesia", "tech": ["Floating PV"], "scope": ["Developed power plant sizing, design, and yield simulation."], "pv": 348, "d": "Developed power plant sizing, design, and yield simulation."},
+      {"t": "Floating PV 114 MWp", "loc": "East Kalimantan, Indonesia", "y": "2025", "role": "Renewable Energy Technical Specialist", "org": "Akuo Energy Indonesia", "tech": ["Floating PV"], "scope": ["Developed power plant sizing, design, and yield simulation."], "pv": 114, "d": "Developed power plant sizing, design, and yield simulation."},
+      {"t": "Wind Farm 60 MW + BESS 13 MWh (PLN)", "loc": "West Sulawesi, Indonesia", "y": "2025", "role": "Renewable Energy Technical Specialist", "org": "Akuo Energy Indonesia", "client": "PLN (state utility)", "tech": ["Wind", "BESS"], "scope": ["Performed the grid interconnection study in collaboration with PLN.", "Developed the electrical design and optimization, including the BESS.", "Provided engineering support for the competitive bidding tender, including EPC tender selection."], "bess": 13, "mw": 60, "d": "Performed the grid interconnection study in collaboration with PLN. Developed the electrical design and optimization, including the BESS. Provided engineering support for the competitive bidding tender, including EPC tender selection."},
+      {"t": "Hybrid PV 12.8 MWp + BESS 15 MWh (PLN)", "loc": "North Maluku, Indonesia", "y": "2025", "role": "Renewable Energy Technical Specialist", "org": "Akuo Energy Indonesia", "client": "PLN (state utility)", "tech": ["Solar PV", "BESS", "Hybrid system"], "scope": ["Developed power plant sizing, design, yield simulation, and grid interconnection study.", "Provided engineering support for the competitive bidding tender, including EPC tender selection."], "pv": 12.8, "bess": 15, "d": "Developed power plant sizing, design, yield simulation, and grid interconnection study. Provided engineering support for the competitive bidding tender, including EPC tender selection."},
+      {"t": "Hybrid PV 6.7 MWp + BESS 4.5 MWh (PLN)", "loc": "Belitung, Indonesia", "y": "2025", "role": "Renewable Energy Technical Specialist", "org": "Akuo Energy Indonesia", "client": "PLN (state utility)", "tech": ["Solar PV", "BESS", "Hybrid system"], "scope": ["Developed power plant sizing, design, yield simulation, and grid interconnection study.", "Provided engineering support for the competitive bidding tender, including EPC tender selection."], "pv": 6.7, "bess": 4.5, "d": "Developed power plant sizing, design, yield simulation, and grid interconnection study. Provided engineering support for the competitive bidding tender, including EPC tender selection."},
+      {"t": "System Performance Analysis of Hybrid Power Plant", "loc": "East Nusa Tenggara, Indonesia", "y": "2025", "role": "Renewable Energy Technical Specialist", "org": "Independent", "tech": ["Hybrid system"], "scope": ["Analyzed hybrid power plant operation and provided input for future planning."], "d": "Analyzed hybrid power plant operation and provided input for future planning."},
+      {"t": "Hybrid System Model Consultation", "loc": "Jakarta, Indonesia", "y": "2025", "role": "Renewable Energy Technical Specialist", "org": "Independent", "tech": ["Hybrid system"], "scope": ["Provided technical support and assistance for hybrid power plant modelling."], "d": "Provided technical support and assistance for hybrid power plant modelling."},
+      {"t": "Ground-Mounted PV 50 MWp", "loc": "New Zealand", "y": "2024", "role": "Renewable Energy Technical Specialist", "org": "Akuo Energy Indonesia", "tech": ["Ground-mounted PV"], "scope": ["Provided engineering support for project development and the grid connection process."], "pv": 50, "d": "Provided engineering support for project development and the grid connection process."},
+      {"t": "Transformer Factory Audit", "loc": "China & Indonesia", "y": "2024", "role": "Renewable Energy Technical Specialist", "org": "Akuo Energy Indonesia", "tech": ["Power transformers"], "scope": ["Supported a complete transformer factory audit in accordance with CIGRE standards at two manufacturers' facilities (China and Indonesia)."], "d": "Supported a complete transformer factory audit in accordance with CIGRE standards at two manufacturers' facilities (China and Indonesia)."},
+      {"t": "Pre-Feasibility Study of 1 GW Hybrid Plant (Wind, Solar, BESS, Gas)", "loc": "South Sulawesi, Indonesia", "y": "2024", "role": "Renewable Energy Technical Specialist", "org": "Independent", "tech": ["Wind", "BESS", "Thermal (genset/gas)", "Hybrid system", "Solar PV"], "scope": ["Developed the hybrid system model, power plant design, and electrical system design."], "d": "Developed the hybrid system model, power plant design, and electrical system design."},
+      {"t": "Hybrid PV 85 MWp + BESS 350 MWh (PLN Subsidiary)", "loc": "East Java, Indonesia", "y": "2024", "role": "Renewable Energy Technical Specialist", "org": "Akuo Energy Indonesia", "client": "PLN subsidiary", "tech": ["Solar PV", "BESS", "Hybrid system"], "scope": ["Developed power plant sizing, design, and yield simulation.", "Provided engineering support for the competitive bidding tender, including EPC tender selection."], "pv": 85, "bess": 350, "d": "Developed power plant sizing, design, and yield simulation. Provided engineering support for the competitive bidding tender, including EPC tender selection."},
+      {"t": "Ground-Mounted PV 70 MWp (PLN Subsidiary)", "loc": "Central Java, Indonesia", "y": "2024", "role": "Renewable Energy Technical Specialist", "org": "Akuo Energy Indonesia", "client": "PLN subsidiary", "tech": ["Ground-mounted PV"], "scope": ["Developed power plant sizing, design, and yield simulation.", "Provided engineering support for the competitive bidding tender, including EPC tender selection."], "pv": 70, "d": "Developed power plant sizing, design, and yield simulation. Provided engineering support for the competitive bidding tender, including EPC tender selection."},
+      {"t": "Wind Farm 55 MW (PLN Subsidiary)", "loc": "Aceh, Indonesia", "y": "2023", "role": "Renewable Energy Technical Specialist", "org": "Akuo Energy Indonesia", "client": "PLN subsidiary", "tech": ["Wind"], "scope": ["Developed the electrical design and optimization and supported the grid impact study process.", "Provided engineering support for the competitive bidding tender, including EPC tender selection."], "mw": 55, "d": "Developed the electrical design and optimization and supported the grid impact study process. Provided engineering support for the competitive bidding tender, including EPC tender selection."},
+      {"t": "Hybrid PV 100 MWp + BESS 350 MWh + Genset (PLN)", "loc": "Eastern Indonesia", "y": "2023", "role": "Renewable Energy Technical Specialist", "org": "Akuo Energy Indonesia", "client": "PLN (state utility)", "tech": ["Solar PV", "BESS", "Thermal (genset/gas)", "Hybrid system"], "scope": ["Developed power plant sizing, design, and yield simulation.", "Provided engineering support for the competitive bidding tender, including EPC tender selection."], "pv": 100, "bess": 350, "d": "Developed power plant sizing, design, and yield simulation. Provided engineering support for the competitive bidding tender, including EPC tender selection."},
+      {"t": "Floating PV 135 MWp (PLN Subsidiary)", "loc": "East Java, Indonesia", "y": "2023", "role": "Renewable Energy Technical Specialist", "org": "Akuo Energy Indonesia", "client": "PLN subsidiary", "tech": ["Floating PV"], "scope": ["Developed power plant sizing, design, and yield simulation.", "Provided engineering support for the competitive bidding tender, including EPC tender selection."], "pv": 135, "d": "Developed power plant sizing, design, and yield simulation. Provided engineering support for the competitive bidding tender, including EPC tender selection."},
+      {"t": "Ground-Mounted PV 2 MWp (C&I)", "loc": "West Java, Indonesia", "y": "2022", "role": "Electrical Engineer", "org": "Akuo Energy Indonesia", "client": "Commercial & industrial (C&I)", "tech": ["Ground-mounted PV"], "scope": ["Developed power plant sizing, design, and yield simulation.", "Provided engineering support for the competitive bidding tender."], "pv": 2, "d": "Developed power plant sizing, design, and yield simulation. Provided engineering support for the competitive bidding tender."},
+      {"t": "Rooftop PV 1 MWp (C&I)", "loc": "Banten, Indonesia", "y": "2022", "role": "Electrical Engineer", "org": "Akuo Energy Indonesia", "client": "Commercial & industrial (C&I)", "tech": ["Rooftop PV"], "scope": ["Developed power plant sizing, design, and yield simulation.", "Provided engineering support for the competitive bidding tender."], "pv": 1, "d": "Developed power plant sizing, design, and yield simulation. Provided engineering support for the competitive bidding tender."},
+      {"t": "Floating PV 37 MWp (C&I)", "loc": "East Java, Indonesia", "y": "2021", "role": "Electrical Engineer", "org": "Akuo Energy Indonesia", "client": "Commercial & industrial (C&I)", "tech": ["Floating PV"], "scope": ["Developed power plant sizing, design, and yield simulation.", "Provided engineering support for the competitive bidding tender."], "pv": 37, "d": "Developed power plant sizing, design, and yield simulation. Provided engineering support for the competitive bidding tender."},
+      {"t": "Ground-Mounted PV 20 MWp (C&I)", "loc": "South Sulawesi, Indonesia", "y": "2021", "role": "Electrical Engineer", "org": "Akuo Energy Indonesia", "client": "Commercial & industrial (C&I)", "tech": ["Ground-mounted PV"], "scope": ["Developed power plant sizing, design, and yield simulation.", "Provided engineering support for the competitive bidding tender."], "pv": 20, "d": "Developed power plant sizing, design, and yield simulation. Provided engineering support for the competitive bidding tender."},
+      {"t": "Floating PV 60 MWp (PLN Subsidiary)", "loc": "West Java, Indonesia", "y": "2020", "role": "Electrical Engineer", "org": "Akuo Energy Indonesia", "client": "PLN subsidiary", "tech": ["Floating PV"], "scope": ["Developed power plant sizing, design, and yield simulation.", "Provided engineering support for the competitive bidding tender, including EPC tender selection."], "pv": 60, "d": "Developed power plant sizing, design, and yield simulation. Provided engineering support for the competitive bidding tender, including EPC tender selection."},
+      {"t": "Floating PV 125 MWp (PLN Subsidiary)", "loc": "West Sumatra, Indonesia", "y": "2020", "role": "Electrical Engineer", "org": "Akuo Energy Indonesia", "client": "PLN subsidiary", "tech": ["Floating PV"], "scope": ["Developed power plant sizing, design, and yield simulation.", "Provided engineering support for the competitive bidding tender, including EPC tender selection."], "pv": 125, "d": "Developed power plant sizing, design, and yield simulation. Provided engineering support for the competitive bidding tender, including EPC tender selection."},
+      {"t": "Mini Hydro 14 MW (PLN)", "loc": "Aceh, Indonesia", "y": "2020", "role": "Electrical Engineer", "org": "Akuo Energy Indonesia", "client": "PLN (state utility)", "tech": ["Mini hydro"], "scope": ["Performed the grid interconnection study and electrical design."], "mw": 14, "d": "Performed the grid interconnection study and electrical design."},
+      {"t": "Floating PV 16 MWp (C&I)", "loc": "Banten, Indonesia", "y": "2019", "role": "Electrical Engineer", "org": "Akuo Energy Indonesia", "client": "Commercial & industrial (C&I)", "tech": ["Floating PV"], "scope": ["Developed the grid interconnection and feasibility study.", "Developed power plant sizing, design, and yield simulation.", "Provided engineering support for the competitive bidding tender, including EPC tender selection.", "Provided engineering support for the PPA negotiation."], "pv": 16, "d": "Developed the grid interconnection and feasibility study. Developed power plant sizing, design, and yield simulation. Provided engineering support for the competitive bidding tender, including EPC tender selection. Provided engineering support for the PPA negotiation."},
+      {"t": "Mini Hydro 4 MW (PLN)", "loc": "Aceh, Indonesia", "y": "2018", "role": "Electrical Engineer", "org": "Akuo Energy Indonesia", "client": "PLN (state utility)", "tech": ["Mini hydro"], "scope": ["Performed the grid interconnection study and electrical design."], "mw": 4, "d": "Performed the grid interconnection study and electrical design."},
+      {"t": "Wind Farm 66 MW (PLN)", "loc": "Central Java, Indonesia", "y": "2018", "role": "Electrical Engineer", "org": "Akuo Energy Indonesia", "client": "PLN (state utility)", "tech": ["Wind"], "scope": ["Performed the grid interconnection study in collaboration with PLN.", "Developed the electrical design and optimization."], "mw": 66, "d": "Performed the grid interconnection study in collaboration with PLN. Developed the electrical design and optimization."},
+      {"t": "Rooftop PV 100 kWp (C&I)", "loc": "Banten, Indonesia", "y": "2018", "role": "Electrical Engineer", "org": "Akuo Energy Indonesia", "client": "Commercial & industrial (C&I)", "tech": ["Rooftop PV"], "scope": ["Performed the grid interconnection assessment and feasibility study.", "Developed the power plant design."], "pv": 0.1, "d": "Performed the grid interconnection assessment and feasibility study. Developed the power plant design."},
+      {"t": "Hybrid PV 1.2 MWp + BESS 2.1 MWh", "loc": "East Kalimantan, Indonesia", "y": "2017", "role": "Electrical Engineer", "org": "Akuo Energy Indonesia", "tech": ["Solar PV", "BESS", "Hybrid system"], "scope": ["Supported the transformer factory acceptance test (FAT).", "Provided engineering support for plant operation."], "pv": 1.2, "bess": 2.1, "d": "Supported the transformer factory acceptance test (FAT). Provided engineering support for plant operation."},
+      {"t": "Mini Hydro 4 MW (PLN)", "loc": "North Sumatra, Indonesia", "y": "2017", "role": "Electrical Engineer", "org": "Akuo Energy Indonesia", "client": "PLN (state utility)", "tech": ["Mini hydro"], "scope": ["Performed the grid interconnection study and electrical design."], "mw": 4, "d": "Performed the grid interconnection study and electrical design."}
     ],
     skills: [
       'Engineering software: PVsyst, HOMER, PVDesign, Helioscope, ETAP, DIgSILENT',
@@ -313,6 +313,157 @@ window.EXPERTS = {
     ],
     languages: ['Bahasa Indonesia (native)', 'English (professional working proficiency)'],
     tags: ['Solar PV', 'Floating PV', 'BESS', 'Hybrid Systems', 'Wind', 'Mini Hydro', 'Grid Studies', 'PVsyst', 'HOMER', 'DIgSILENT']
+  },
+  ma: {
+    name: 'Mokhammad Ardafillah, S.H., LL.M.', short: 'Mokhammad Ardafillah',
+    role: 'Energy & Climate Policy and Regulatory Expert', card: 'Energy Law & Climate Policy',
+    ini: 'MA',
+    deg: 'LL.M. (ANU) · S.H. (UGM) · LPDP Awardee',
+    specialist: 'Energy & Climate Policy, Regulation and Low-Emission Investment',
+    headline: 'Expert Staff, House of Representatives of Indonesia (DPR RI) · Former Government Consultant to the Ministry of Finance (Tetra Tech) · Former Legal Analyst, WRI Indonesia',
+    credentials: [
+      { k: 'LL.M.', v: 'International Law · The Australian National University · GPA 5.375/7' },
+      { k: 'S.H.', v: 'Law & Government · Universitas Gadjah Mada · GPA 3.91' },
+      { k: 'LPDP Scholar', v: 'Indonesia Endowment Fund for Education, Ministry of Finance' },
+      { k: 'Legislative Advisor', v: 'Expert Staff, DPR RI (2024 – present)' },
+      { k: 'Best Research Paper', v: 'IV OIC Youth Scientific Congress, Kazan (2026)' }
+    ],
+    specializations: [
+      { t: 'Energy & Climate Policy and Regulation', d: 'Policy, regulatory and incentive frameworks for low-emission growth in the energy and infrastructure sectors, supporting the Government of Indonesia through Tetra Tech.', s: ['Low-emission growth', 'Regulatory frameworks', 'Fiscal incentives', 'Energy infrastructure'] },
+      { t: 'Legislative Drafting & Review', d: 'Providing expertise, analysis and support to members of the House of Representatives in crafting, reviewing and refining proposed bills.', s: ['Bill drafting', 'Legal analysis', 'Policy review', 'Parliamentary support'] },
+      { t: 'Climate Finance & Green Investment', d: 'Legal and regulatory analysis of financial frameworks for a sustainable endowment fund (WRI Indonesia), investment-policy research (Jakarta Investment Center) and climate-funding research (Rumah Energi).', s: ['Climate finance', 'Endowment fund design', 'Investment policy', 'Public & private investment'] },
+      { t: 'International & Regional Climate Diplomacy', d: 'International-law training and extensive ASEAN, Asia–Europe and UN engagement on climate change, human rights and sustainable development.', s: ['International law', 'ASEAN', 'Climate negotiations', 'Public diplomacy'] }
+    ],
+    summary: 'Lawyer and policy specialist focused on energy, climate and investment regulation. Holds an LL.M. in International Law from The Australian National University (LPDP scholarship) and a law degree from Universitas Gadjah Mada. Currently Expert Staff to the Indonesian House of Representatives, supporting the drafting and review of bills; previously a government consultant to the Ministry of Finance through Tetra Tech on policy, regulatory and incentive frameworks for low-emission growth in the energy and infrastructure sectors, and a legal analyst at WRI Indonesia on sustainable financing. Began in energy research at the Center for Energy Studies, Universitas Gadjah Mada.',
+    experience: [
+      { role: 'Expert Staff', org: 'House of Representatives of the Republic of Indonesia (DPR RI)', period: 'Nov 2024 – Present',
+        points: ['Provides expertise, analysis and support to members of the legislature in crafting, reviewing and refining proposed bills'] },
+      { role: 'Founder & Academy Director', org: 'Yakhero Academy', period: 'Apr 2026 – Present',
+        points: ['Develops curricula in academic writing, research methodology and English; builds cross-sector partnerships and operational frameworks'] },
+      { role: 'Korea–ASEAN Online Supporter', org: 'Mission of the Republic of Korea to ASEAN', period: 'Jun 2026 – Present',
+        points: ['Promotes ASEAN–ROK relations through digital content and coverage of diplomatic events and regional initiatives'] },
+      { role: 'Government Consultant for the Ministry of Finance', org: 'Tetra Tech', period: 'Jan 2024 – Aug 2024',
+        points: ['Assisted the Government of Indonesia in establishing an effective policy, regulatory and incentive environment for low-emission growth in the energy and infrastructure sectors', 'Supported efforts to attract public and private investment into those sectors'] },
+      { role: 'Expert Staff, Information Materials & Investment Policy', org: 'Jakarta Investment Center', period: 'Oct 2023 – Mar 2024',
+        points: ['Researched investment policies worldwide and developed economics articles', 'Ensured the accuracy of the institution\'s press releases and media promotions'] },
+      { role: 'Climate Policy Researcher', org: 'Rumah Energi', period: '2023',
+        points: ['Synthesised insights on climate change, climate funding and cooperatives in Indonesia'] },
+      { role: 'Fellow, ASEAN Youth Climate Leaders Programme', org: 'ASEAN Foundation', period: '2022',
+        points: ['Co-created community-based climate adaptation and mitigation strategies tailored to Southeast Asian contexts'] },
+      { role: 'Consultant — Legal Analyst', org: 'World Resources Institute (WRI) Indonesia', period: 'Jul 2021 – Dec 2021',
+        points: ['Legal and regulatory analysis of financial frameworks to design a sustainable endowment fund model supporting ecological development in Papua'] },
+      { role: 'Researcher', org: 'Forbil Institute', period: '2017',
+        points: ['Research on the relationship between government as policy maker and business as main actor in improving Indonesia\'s competitiveness'] },
+      { role: 'Research Assistant', org: 'Center for Energy Studies, Universitas Gadjah Mada', period: '2015 – 2016',
+        points: ['Assisted the centre\'s energy research projects'] }
+    ],
+    education: [
+      { degree: 'Master of Laws (LL.M.), International Law Specialisation — GPA 5.375', inst: 'The Australian National University · LPDP Overseas Master Degree Program (Batch 144); ANU College of Law International Excellence', period: '' },
+      { degree: 'Bachelor of Law (S.H.), Law & Government Concentration — GPA 3.91', inst: 'Universitas Gadjah Mada · Pembangunan Jaya and PPA scholarships', period: '' }
+    ],
+    achievements: [
+      'Best Research Paper Award, IV OIC Youth Scientific Congress, Kazan, Russia (2026)',
+      'Selected participant and presenter, ASEFInnoLab6, Shanghai — Asia-Europe Foundation (2025)',
+      'Most Outstanding Delegate, 5th Model ASEAN Inter-Parliamentary Assembly (2025)',
+      'Selected participant, Asia-Pacific Youth Climathon — UN ESCAP (2024)',
+      'Delegate, 21st ASEM Seminar on Human Rights: "Human Rights and Climate Change", Luxembourg (2022)',
+      'Delegate, 3rd Asia Pacific Environmental Human Rights Defenders Forum — OHCHR & UNEP (2023)',
+      'Finalist, Falling Walls Lab Indonesia — DAAD (2021)',
+      'Gold Medal, National Undergraduate Student Scientific Week (PIMNAS XXIX), research field (2016)'
+    ],
+    training: [
+      'Workshop & Policy Forum: Indonesia\'s Oil and Gas Methane Management Landscape — Energy Academy Indonesia (2026)',
+      'Nature-based Solutions Capacity Building Series — EU & ASEAN Centre for Biodiversity (2026)',
+      'Global Youth Climate Training Programme — University of Oxford & Global Youth Coalition (2025)',
+      '[RE]POWER Energy Policy Bootcamp — New Energy Nexus Indonesia (2024)',
+      'Collaborative Governance Bootcamp — Pijar Foundation (2024)',
+      '9th ASEF Public Diplomacy Training: Climate Change Negotiations — Asia-Europe Foundation (2021)',
+      'Freedom and Climate Change Workshop — Friedrich-Naumann-Stiftung (2021)'
+    ],
+    projects: [
+      {"t":"Low-Emission Growth Policy & Incentives — Ministry of Finance","loc":"Jakarta, Indonesia","y":"2024","cat":"Policy, Regulation & ESG","role":"Government Consultant","org":"Tetra Tech","client":"Ministry of Finance of Indonesia","tech":["Energy policy","Infrastructure","Fiscal incentives"],"scope":["Assisted the Government of Indonesia in establishing an effective policy, regulatory and incentive environment for low-emission growth in the energy and infrastructure sectors.","Supported efforts to attract public and private sector investment in those sectors."]},
+      {"t":"Sustainable Endowment Fund for Ecological Development in Papua","loc":"Papua, Indonesia","y":"2021","cat":"Policy, Regulation & ESG","role":"Consultant — Legal Analyst","org":"WRI Indonesia","tech":["Climate finance","Legal & regulatory analysis"],"scope":["Conducted legal and regulatory analysis of financial frameworks to design a sustainable endowment fund model that supports ecological development in Papua."]},
+      {"t":"Legislative Support — Drafting & Review of Bills","loc":"Jakarta, Indonesia","y":"2024–Now","cat":"Policy, Regulation & ESG","role":"Expert Staff","org":"House of Representatives (DPR RI)","client":"Members of the legislature","tech":["Legislation","Policy analysis"],"scope":["Providing expertise, analysis and support to members of the legislature in crafting, reviewing and refining proposed bills."]},
+      {"t":"Climate Funding & Cooperatives Research","loc":"Indonesia","y":"2023","cat":"Policy, Regulation & ESG","role":"Climate Policy Researcher","org":"Rumah Energi","tech":["Climate finance","Community energy"],"scope":["Synthesized insights on climate change, climate funding, and cooperatives in Indonesia."]}
+    ],
+    languages: ['Bahasa Indonesia (native)', 'English (professional)', 'Arabic'],
+    tags: ['Energy Law', 'Climate Policy', 'Regulatory Frameworks', 'Climate Finance', 'Investment Policy', 'Legislative Drafting', 'International Law', 'ASEAN']
+  },
+
+  am: {
+    name: 'Ario Maulana, B.Sc.', short: 'Ario Maulana',
+    role: 'Energy Engineer & ESG Consultant (Scope 2/3)', card: 'Geothermal, O&G & ESG',
+    img: 'avatar-ario.webp',
+    deg: 'B.Sc. Petroleum Eng. (Summa Cum Laude) · PhD Candidate, KFUPM',
+    specialist: 'Geothermal & Oil-and-Gas Energy Economics, ESG and GHG Accounting',
+    headline: 'ESG & Sustainability Associate, DARA (Aurion Group) · Former Chevron, Pertamina, Ministry of Energy (ESDM) and UNDP · IPTC 2025 World Winner',
+    links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/ariomaulana' }],
+    credentials: [
+      { k: 'B.Sc. Petroleum Engineering', v: 'Summa Cum Laude, GPA 3.96 · Valedictorian · Minor in Management' },
+      { k: 'PhD Candidate', v: 'Oil & Gas Business (Operations & Supply Chain) · KFUPM, Saudi Arabia' },
+      { k: 'IPTC 2025', v: '1st World Winner, Best Project Presentation, Kuala Lumpur' },
+      { k: 'Exchange GPA 4.00', v: 'UT Austin & ITB — Petroleum and Geosciences Engineering' },
+      { k: '2 Peer-Reviewed Papers', v: 'Blue hydrogen & supply-chain optimisation' }
+    ],
+    specializations: [
+      { t: 'Geothermal Investment & Development', d: 'Pre-FS and FS feasibility analysis and partnership studies (BOT, JV, Joint Operation) for geothermal working areas at the Ministry of Energy (ESDM), plus machine-learning production optimisation on geothermal well data.', s: ['Pre-FS / FS', 'BOT · JV · JO schemes', 'Investment appraisal', 'Well performance ML'] },
+      { t: 'ESG, GHG & Sustainability Analytics', d: 'GHG emissions analytics and ESG research for upstream oil & gas and petrochemical clients (DARA, Switzerland), and sustainability KPI and portfolio analysis across six Pertamina business units.', s: ['Scope 2/3 accounting', 'GHG analytics', 'ESG research', 'Sustainability KPIs'] },
+      { t: 'Energy Transition Economics', d: 'Techno-economic and total-cost-of-ownership analysis for clean energy investments: hydrogen, CCS/CCUS, gas-to-power and geothermal, including published research on blue hydrogen for Indonesia\'s net-zero target.', s: ['Hydrogen & CCUS', 'TCO analysis', 'Techno-economics', 'Gas to power'] },
+      { t: 'Upstream O&G Operations & Supply Chain', d: 'Drilling operations and supply-chain support at Chevron for a Permian Basin campaign: contractor assessment, AFE tracking and operational dashboards.', s: ['Drilling operations', 'Contractor evaluation', 'AFE budget tracking', 'Value stream mapping'] }
+    ],
+    summary: 'Energy engineer and ESG consultant with a petroleum engineering background (B.Sc., Summa Cum Laude, valedictorian) and a PhD candidacy in Oil & Gas Business at King Fahd University of Petroleum & Minerals. Professional exposure spans upstream drilling support at Chevron (Houston), sustainability strategy and business portfolio at Pertamina, geothermal investment and partnership analysis at the Ministry of Energy and Mineral Resources, ESG and GHG analytics at DARA (Switzerland), and regional clean-energy programme work with UNDP and FAO. Published researcher in energy-transition economics and supply-chain optimisation, and winner of the IPTC 2025 Best Project Presentation.',
+    experience: [
+      { role: 'ESG & Sustainability Associate (Management Trainee)', org: 'DARA – Digital Asset Rating Agency GmbH (Aurion Group), Zug, Switzerland', period: 'Dec 2025 – Present',
+        points: ['ESG and sustainability research for international energy clients including upstream O&G and petrochemical companies', 'Built analytical dashboards for GHG emissions data and total-cost-of-ownership analyses for energy-transition investment decisions', 'Supply-chain and operational-efficiency analysis of client energy asset portfolios across European, Asian and Middle Eastern markets'] },
+      { role: 'Drilling Engineer Support', org: 'Chevron Corporation, Houston, Texas', period: 'Oct 2025 – Dec 2025',
+        points: ['Supported an active Permian Basin drilling engagement, building a consolidated operational dashboard that cut report preparation from 3 days to 1', 'Applied total-cost-of-ownership analysis to drilling service provider selection and analysed workflows for non-productive-time reduction', 'Coordinated equipment and service schedules across four external drilling contractors and tracked milestones against AFE budgets'] },
+      { role: 'Program & Coordination, Secretariat Office', org: 'Ministry of Investment and Downstream Industry / BKPM', period: 'Jul 2025 – Aug 2025',
+        points: ['Coordinated an industrial investment programme involving 40+ government and private-sector partners in the energy sector', 'Market research and analysis on Indonesia\'s industrial investment and energy-sector dynamics'] },
+      { role: 'Sustainability Strategy & Business Portfolio', org: 'PT Pertamina (Persero)', period: 'Feb 2025 – Jun 2025',
+        points: ['Analysed clean energy and business portfolio programmes including hydrogen, CCS/CCUS, gas-to-power and geothermal', 'Built sustainability KPI dashboards across six business units and total-cost-of-ownership analyses for clean energy investments'] },
+      { role: 'Geothermal Investment & Partnership Analyst (Intern)', org: 'Ministry of Energy and Mineral Resources (ESDM)', period: 'Sep 2024 – Dec 2024',
+        points: ['Pre-FS and FS feasibility analyses for geothermal working areas (WKP)', 'Partnership studies evaluating BOT, JV and Joint Operation schemes with multi-criteria decision frameworks', 'Analysed geothermal investment supply chains: equipment procurement, service-provider selection and operating cost structures'] },
+      { role: 'Geothermal Development Specialist (MSIB Intern)', org: 'PT Anugerah Indonesia Lima (AILIMA)', period: 'Sep 2024 – Dec 2024',
+        points: ['Applied machine learning to geothermal well performance data (JIWA system) to build predictive models for field capacity estimation and production optimisation, within a 7-member technical team'] },
+      { role: 'Project Management Consultant, Climate Community Directory', org: 'UNDP Asia & the Pacific (with Microsoft)', period: 'Apr 2026 – May 2026',
+        points: ['Regional clean-energy programme delivery and market research on clean energy supply chains and green finance across Asia-Pacific partners'] },
+      { role: 'Asia-Pacific Lead Research Assistant, Integrated Policy Review', org: 'Food and Agriculture Organization (FAO)', period: 'Jan 2023 – Mar 2026',
+        points: ['Led research for a UN-funded Integrated Policy Review on food systems, energy and rural development in Indonesia'] },
+      { role: 'Founder & Director', org: 'Climate Chapter Indonesia', period: 'Dec 2020 – Present',
+        points: ['Leads a 3,600+ member climate organisation across 15 regions, delivering 29+ programmes with 40+ government, corporate and international partners including UNDP and Microsoft'] }
+    ],
+    education: [
+      { degree: 'PhD Candidate, Oil and Gas Business (Operations & Supply Chain Management)', inst: 'King Fahd University of Petroleum & Minerals, Saudi Arabia', period: 'Present' },
+      { degree: 'B.Sc. Petroleum Engineering (Minor: Management) — Summa Cum Laude, GPA 3.96', inst: 'Balikpapan College of Oil and Gas Technology · Final project: economic analysis of the government drilling model to enhance geothermal development in WKP X, Maluku', period: '' },
+      { degree: 'Fall Exchange, Petroleum and Geosciences Engineering — GPA 4.00', inst: 'University of Texas at Austin', period: 'Aug 2025 – Dec 2025' },
+      { degree: 'Summer Exchange, FTTM — GPA 4.00', inst: 'Bandung Institute of Technology (ITB)', period: 'Feb 2024 – Jun 2024' },
+      { degree: 'Leadership Program on Natural Resources Management and Policy (YSEALI)', inst: 'University of Hawai\'i at Mānoa', period: 'Apr 2025 – May 2025' }
+    ],
+    achievements: [
+      '1st World Winner, Best Project Presentation — 17th International Petroleum Technology Conference (IPTC) 2025, Kuala Lumpur',
+      'Student paper invitation, Stanford University Geothermal Workshop (2026)',
+      'Climate Catalyst Fellow — UNDP & Microsoft, Asia-Pacific (2026); beVisioneers Fellow — Mercedes-Benz (2026)',
+      'YSEALI Academic Fellow — U.S. Department of State, selected from 10,000+ applicants (2025)',
+      'Most Outstanding Student, LLDIKTI Region XI; 1st place, East Kalimantan National Outstanding Student Competition (2025)',
+      'Publication: "The Role of Blue Hydrogen in Supporting Indonesia\'s Net Zero Emissions Target and Electric Vehicle Development Policy" — ISEJOU (2025)',
+      'Publication: "Total Cost of Ownership and Value Stream Mapping for Cost Optimization in Sunflower Supply Chains" — Countable (2025)',
+      'UNFCCC observer and Indonesian youth delegate at COP28, COP29 and COP30; SPE Scholarship recipient'
+    ],
+    projects: [
+      {"t":"Geothermal Working Area Investment & Partnership Study","loc":"Indonesia","y":"2024","cat":"Geothermal & O&G","role":"Geothermal Investment & Partnership Analyst (Intern)","org":"Ministry of Energy and Mineral Resources (ESDM)","client":"Government of Indonesia","tech":["Geothermal","Investment appraisal"],"scope":["Conducted Pre-FS and FS feasibility analyses for geothermal working areas (WKP) using quantitative investment appraisal.","Developed partnership studies evaluating BOT, JV and Joint Operation schemes with multi-criteria decision frameworks.","Analysed geothermal investment supply chains, including equipment procurement, service provider selection and operating cost structures."]},
+      {"t":"Geothermal Well Performance — Machine-Learning Optimisation","loc":"Indonesia","y":"2024","cat":"Geothermal & O&G","role":"Geothermal Development Specialist (Intern)","org":"PT Anugerah Indonesia Lima","tech":["Geothermal","Machine learning"],"scope":["Applied machine-learning algorithms to geothermal well performance data from the JIWA data management system.","Developed predictive models for field capacity estimation and production optimisation with a 7-member technical team."]},
+      {"t":"Permian Basin Drilling Campaign — Operations & Supply Chain Support","loc":"Texas, United States","y":"2025","cat":"Geothermal & O&G","role":"Drilling Engineer Support","org":"Chevron Corporation","client":"Chevron (upstream drilling)","tech":["Upstream oil & gas","Drilling operations"],"scope":["Built a consolidated operational dashboard that cut report preparation from 3 days to 1.","Applied total-cost-of-ownership analysis to drilling service provider selection and mapped workflows to identify NPT reduction.","Coordinated equipment and service schedules across four external drilling contractors, tracked against AFE budgets."]},
+      {"t":"Clean Energy & Sustainability Portfolio Analysis","loc":"Jakarta, Indonesia","y":"2025","cat":"Policy, Regulation & ESG","role":"Sustainability Strategy & Business Portfolio","org":"PT Pertamina (Persero)","client":"Pertamina business units","tech":["Hydrogen","CCS/CCUS","Gas to power","Geothermal"],"scope":["Analysed clean energy and business portfolio programmes covering hydrogen, CCS/CCUS, gas-to-power and geothermal.","Built sustainability KPI dashboards across six business units and total-cost-of-ownership analyses for clean energy investment decisions."]},
+      {"t":"ESG & GHG Analytics for International Energy Clients","loc":"Zug, Switzerland (remote)","y":"2025–Now","cat":"Policy, Regulation & ESG","role":"ESG & Sustainability Associate","org":"DARA (Aurion Group)","client":"Upstream O&G and petrochemical companies","tech":["ESG","GHG accounting"],"scope":["ESG and sustainability research for international energy-sector clients across Europe, Asia and the Middle East.","Developed analytical dashboards for GHG emissions data and TCO analyses for energy-transition investment decisions."]},
+      {"t":"Integrated Policy Review — Food Systems, Energy & Rural Development","loc":"Indonesia","y":"2023–2026","cat":"Policy, Regulation & ESG","role":"Asia-Pacific Lead Research Assistant","org":"Food and Agriculture Organization (FAO)","client":"United Nations","tech":["Policy research","Energy & food systems"],"scope":["Led research for a UN-funded Integrated Policy Review on food systems, energy and rural development in Indonesia across five research domains."]}
+    ],
+    skills: [
+      'Analysis: techno-economic feasibility, total cost of ownership (TCO), value stream mapping, multi-criteria decision-making, econometrics',
+      'Tools: advanced Excel dashboards and modelling, Power BI (basic), Python (basic), JIWA geothermal data system',
+      'Domains: upstream O&G and geothermal supply chains, hydrogen value chains, GHG accounting, government energy investment and partnerships'
+    ],
+    languages: ['English (IELTS 8.5, CEFR C2)', 'Bahasa Indonesia (fluent)', 'Malay (fluent)', 'Arabic, French, Spanish (intermediate)', 'Chinese (basic)'],
+    tags: ['Geothermal', 'Petroleum Engineering', 'ESG (Scope 2/3)', 'GHG Accounting', 'Hydrogen & CCUS', 'Techno-Economics', 'Supply Chain', 'Energy Investment']
   }
 };
-window.EXPERT_ORDER = ['qh', 'da', 'fn', 'sd', 'rm', 'ca'];
+window.EXPERT_ORDER = ['qh', 'da', 'fn', 'sd', 'rm', 'ca', 'ma', 'am'];
