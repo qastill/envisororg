@@ -165,7 +165,7 @@ footer{position:relative;z-index:1;text-align:center;font-size:11px;color:#8A8F9
   // Stats
   var pv=0,bess=0,wh=0,countries={},experts={};
   all.forEach(function(r){var p=r.p;experts[r.id]=1;pv+=p.pv||0;bess+=p.bess||0;wh+=p.mw||0;
-    String(p.loc).split(/,|&/).forEach(function(l){l=l.trim();if(/New Zealand|China|Malaysia|Australia|Taiwan/.test(l))countries[l]=1;else countries.Indonesia=1});
+    String(p.loc).split(/,|&/).forEach(function(l){l=l.trim();var m=l.match(/New Zealand|China|Malaysia|Australia|Taiwan|United States|Switzerland/);if(m)countries[m[0]]=1;else if(!/remote/i.test(l))countries.Indonesia=1});
   });
   var stats=[[all.length,'Projects & engagements'],[(pv/1000).toFixed(1)+' GWp','Solar PV designed'],[Math.round(bess).toLocaleString('en')+' MWh','Battery storage'],[Math.round(wh).toLocaleString('en')+' MW','Wind & hydro'],[Object.keys(countries).length,'Countries']];
   document.getElementById('stats').innerHTML=stats.map(function(s){return '<div class="st"><b>'+s[0]+'</b><span>'+s[1]+'</span></div>'}).join('');
