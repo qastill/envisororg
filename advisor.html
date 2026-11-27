@@ -50,13 +50,24 @@ h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
 .lede{max-width:620px;margin:12px auto 0;font-size:clamp(13px,1.05vw,15px);line-height:1.6;color:var(--muted)}
 
 /* Experts */
-.experts{position:relative;z-index:1;flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
-.row{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:clamp(6px,.9vw,16px);width:100%;max-width:1400px}
+.experts{position:relative;z-index:1;flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(8px,2vh,22px)}
+.row .ex-chips,.row .ex-more{display:none}
+.row{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:clamp(8px,1.2vw,22px);width:100%;max-width:1240px}
+.lead{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.6vw,26px);width:100%;max-width:900px}
+.lead .ex{flex-direction:row;align-items:center;text-align:left;gap:clamp(14px,1.4vw,22px);padding:10px 18px 10px 10px;background:rgba(255,255,255,.55);border:1px solid rgba(197,161,90,.3)}
+.lead .ex:hover{background:rgba(255,255,255,.8)}
+.lead .av{width:clamp(88px,min(7.6vw,13vh),118px);flex-shrink:0}
+.lead .ex-txt{min-width:0}
+.lead .ex-name{font-size:clamp(19px,1.6vw,24px);margin-top:0}
+.lead .ex-chips{flex-direction:row;flex-wrap:wrap;justify-content:flex-start}
+.lead .ex-chips span:nth-child(2){display:inline-block}
+.lead .ex-more{opacity:1;transform:none;margin-top:6px;color:var(--gold-ink)}
+.lead .lead-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--champagne);background:var(--navy);padding:3px 9px;border-radius:20px;margin-bottom:6px}
 .ex{display:flex;flex-direction:column;align-items:center;text-align:center;cursor:pointer;background:none;border:none;padding:8px;border-radius:16px;transition:background .4s;animation:rise .8s cubic-bezier(.16,1,.3,1) both}
 .ex:nth-child(2){animation-delay:.07s}.ex:nth-child(3){animation-delay:.14s}.ex:nth-child(4){animation-delay:.21s}.ex:nth-child(5){animation-delay:.28s}.ex:nth-child(6){animation-delay:.35s}
 .ex:hover{background:rgba(255,255,255,.5)}
 .ex:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-.av{position:relative;width:clamp(82px,7.8vw,132px);aspect-ratio:1;border-radius:50%;padding:4px;background:conic-gradient(from 210deg,var(--gold),var(--champagne),var(--gold-ink),var(--gold));box-shadow:0 14px 34px rgba(14,23,38,.14);transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s}
+.av{position:relative;width:clamp(74px,min(7vw,12vh),112px);aspect-ratio:1;border-radius:50%;padding:4px;background:conic-gradient(from 210deg,var(--gold),var(--champagne),var(--gold-ink),var(--gold));box-shadow:0 14px 34px rgba(14,23,38,.14);transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s}
 .av img,.av .ini{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid var(--ivory);background:#e9e4d8}
 .av .ini{display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,var(--navy-2),var(--navy));font-family:var(--font-d);font-size:clamp(28px,3vw,44px);font-weight:600;letter-spacing:2px;color:var(--champagne)}
 .ex:hover .av{transform:translateY(-6px);box-shadow:0 22px 44px rgba(14,23,38,.2)}
@@ -142,7 +153,7 @@ h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
 .mnav a{font-family:var(--font-d);font-size:26px;font-weight:600}
 .mnav-x{position:absolute;top:20px;right:24px;background:none;border:none;font-size:30px;cursor:pointer;color:var(--ink)}
 
-@media(max-height:820px) and (min-width:1101px){.av{width:min(7.8vw,16vh)}.ex-chips{display:none}}
+@media(max-height:820px) and (min-width:1101px){.lead .ex-chips span:nth-child(2){display:none}.row .ex{padding:4px}.row .ex-deg{display:none}.hero{padding:14px 0 8px}h1{font-size:clamp(28px,3.4vw,44px)}}
 @media(max-height:720px) and (min-width:1101px){.hero{padding:12px 0 6px}.lede{margin-top:8px}.ex-name{margin-top:10px}.lk{padding:12px 18px}}
 
 @media(max-width:1100px){
@@ -150,7 +161,8 @@ h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
   .page{height:auto;min-height:100vh}
   .nav a:not(.wa){display:none}.ham{display:flex}
   .experts{padding:20px 0}
-  .row{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .row{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .lead{max-width:none}
   .ex{grid-column:auto}
   .av{width:clamp(96px,16vw,140px)}
   .ex-more{opacity:1;transform:none}
@@ -166,6 +178,7 @@ h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
 @media(max-width:600px){
   .page{padding:0 16px}
   .row{grid-template-columns:1fr 1fr}
+  .lead{grid-template-columns:1fr}
   .ex{grid-column:auto}
   .av{width:112px}
   .links{grid-template-columns:1fr}
@@ -197,10 +210,11 @@ h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
   <section class="hero">
     <div class="eyebrow">Envisor Advisor</div>
     <h1>Talk to a certified <em>energy expert.</em></h1>
-    <p class="lede">Live online sessions with practitioners in power systems &amp; planning, transformers, solar PV &amp; battery storage, geothermal &amp; ESG, energy policy, electrical safety and energy analytics. Select an expert to view their full CV.</p>
+    <p class="lede">Practitioners in power systems, transformers, solar PV &amp; storage, geothermal, ESG and energy policy. Select an expert to view their full CV.</p>
   </section>
 
   <main class="experts">
+    <div class="lead" id="lead"></div>
     <div class="row" id="experts"></div>
   </main>
 
@@ -235,8 +249,13 @@ function esc(t){var d=document.createElement('div');d.textContent=t;return d.inn
 var last=null;
 function openModal(m){last=document.activeElement;m.classList.add('open');document.body.style.overflow='hidden';m.querySelector('.x').focus()}
 function closeModals(){document.querySelectorAll('.modal.open').forEach(function(m){m.classList.remove('open')});document.body.style.overflow='';if(last)last.focus()}
-document.getElementById('experts').innerHTML=EXPERT_ORDER.map(function(id){var e=EXPERTS[id];
-  return '<a class="ex" href="expert.html?id='+id+'"><div class="av">'+(e.img?'<img src="'+e.img+'" alt="'+esc(e.name)+'">':'<div class="ini">'+esc(e.ini||'')+'</div>')+'</div><div class="ex-name">'+esc(e.short)+'</div><div class="ex-deg">'+esc(e.deg||'')+'</div><div class="ex-role">'+esc(e.card)+'</div><div class="ex-chips">'+(e.specializations||[]).slice(0,2).map(function(x){return '<span>'+esc(x.t)+'</span>'}).join('')+'</div><div class="ex-more">View full CV &#8594;</div></a>'}).join('');
+var LEAD=['qh','rm'];
+function card(id,lead){var e=EXPERTS[id];
+  var av='<div class="av">'+(e.img?'<img src="'+e.img+'" alt="'+esc(e.name)+'">':'<div class="ini">'+esc(e.ini||'')+'</div>')+'</div>';
+  var txt='<div class="ex-name">'+esc(e.short)+'</div><div class="ex-deg">'+esc(e.deg||'')+'</div><div class="ex-role">'+esc(e.card)+'</div><div class="ex-chips">'+(e.specializations||[]).slice(0,2).map(function(x){return '<span>'+esc(x.t)+'</span>'}).join('')+'</div><div class="ex-more">View full CV &#8594;</div>';
+  return '<a class="ex" href="expert.html?id='+id+'">'+av+(lead?'<div class="ex-txt">'+txt+'</div>':txt)+'</a>'}
+document.getElementById('lead').innerHTML=LEAD.map(function(id){return card(id,true)}).join('');
+document.getElementById('experts').innerHTML=EXPERT_ORDER.filter(function(id){return LEAD.indexOf(id)<0}).map(function(id){return card(id,false)}).join('');
 document.querySelectorAll('.modal').forEach(function(m){m.addEventListener('click',function(ev){if(ev.target===m||ev.target.hasAttribute('data-close'))closeModals()})});
 document.addEventListener('keydown',function(ev){if(ev.key==='Escape')closeModals()});
 document.getElementById('hm').onclick=function(){document.getElementById('mn').classList.add('open')};
