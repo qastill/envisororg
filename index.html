@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Envisor — Electrical &amp; Energy Experts</title>
 <meta name="description" content="Envisor is a network of certified electrical and energy experts: home energy audits, industrial efficiency, expert consulting, Electra Academy training, and Trafohaus EPC & transformer services.">
@@ -147,6 +148,18 @@ h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
   .foot{flex-direction:column;height:auto;padding:12px 0;align-items:flex-start}
   .foot a{margin:0 14px 0 0}
 }
+
+/* Envisor brand mark (shared) */
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.env-mark{width:36px;height:36px;flex-shrink:0;display:block;border-radius:50%;box-shadow:0 4px 14px rgba(14,23,38,.22)}
+.env-mark svg{width:100%;height:100%;display:block}
+.env-wave{stroke-dasharray:14;stroke-dashoffset:0}
+.logo:hover .env-wave{animation:envflow 1.2s linear infinite}
+.env-spark{transform-origin:27.6px 20px;animation:envglow 3s ease-in-out infinite}
+@keyframes envflow{to{stroke-dashoffset:-28}}
+@keyframes envglow{0%,100%{opacity:.7}50%{opacity:1}}
+.logo .logo-text{letter-spacing:4px!important}
+@media(prefers-reduced-motion:reduce){.env-wave,.env-spark{animation:none!important}}
 </style>
 </head>
 <body>
@@ -159,7 +172,7 @@ h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
   </svg>
 
   <header>
-    <a href="index.html" class="logo"><div class="logo-mark"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></div><div class="logo-text">ENVISOR<span>.AI</span></div></a>
+    <a href="index.html" class="logo" aria-label="Envisor home"><span class="env-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><defs><linearGradient id="envg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F1DDAE"/><stop offset="1" stop-color="#C5A15A"/></linearGradient></defs><circle cx="20" cy="20" r="19" fill="#0E1726"/><circle cx="20" cy="20" r="17.2" fill="none" stroke="url(#envg)" stroke-width="1.2" opacity=".55"/><g fill="none" stroke="url(#envg)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M27 11.5H13.5v17H27"/><path class="env-wave" d="M13.5 20c2-3.2 4-3.2 5.5 0s3.6 3.2 5.5 0"/></g><circle class="env-spark" cx="27.6" cy="20" r="1.9" fill="#F1DDAE"/></svg></span><span class="logo-text">ENVISOR</span></a>
     <nav class="nav">
       <a href="home.html">Home</a>
       <a href="industries.html">Industries</a>

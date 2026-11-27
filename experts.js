@@ -3,7 +3,8 @@
 window.EXPERTS = {
   qh: {
     name: 'Dr. Qashtalani Haramaini, S.T., M.T.', short: 'Dr. Qashtalani Haramaini',
-    role: 'Energy & Power Systems Expert', card: 'Energy & Power Systems',
+    role: 'Energy & Power Systems Expert', card: 'Energy & Power Systems Expert',
+    brief: 'Power distribution, loss reduction and energy analytics for utilities and industry.',
     deg: 'Dr. · M.T. · S.T.',
     specialist: 'Power Distribution, Loss Reduction & Energy Analytics',
     credentials: [
@@ -49,7 +50,8 @@ window.EXPERTS = {
 
   da: {
     name: 'Dino Arla, S.T.', short: 'Dino Arla',
-    role: 'Power Systems & Applied ML Expert', card: 'Power Systems & Applied ML',
+    role: 'Power Systems & Applied ML Expert', card: 'Power Systems & ML Expert',
+    brief: 'Machine-learning analytics, IoT telemetry and data-driven distribution grid planning.',
     deg: 'M.M.T. · S.T. · Professional Engineer',
     specialist: 'Distribution Analytics, Machine Learning & IoT Telemetry',
     credentials: [
@@ -96,7 +98,8 @@ window.EXPERTS = {
 
   fn: {
     name: 'M Farda Najih Arifani', short: 'M Farda Najih Arifani',
-    role: 'Electrical Safety (K3) Expert', card: 'Electrical Safety (K3)',
+    role: 'Electrical Safety (K3) Expert', card: 'Electrical Safety (K3) Expert',
+    brief: 'Electrical OHS, HIRARC & LOTO, safety audits and fire protection for power assets.',
     deg: 'Ahli K3 Listrik · Ahli K3 Umum',
     specialist: 'Electrical Safety, OHS Management & Fire Protection',
     credentials: [
@@ -128,53 +131,10 @@ window.EXPERTS = {
     tags: ['General & Electrical OHS', 'HIRARC & LOTO', 'Distribution Construction', 'Metering & Energy Transactions', 'Fire Protection', 'HSE Audits']
   },
 
-  sd: {
-    name: 'Muhamad Hidayah Sidiq, S.T.', short: 'M. Hidayah Sidiq',
-    role: 'Metering & Distribution Efficiency Expert', card: 'Metering & Distribution',
-    deg: 'S.T. (Electrical Engineering)',
-    specialist: 'Metering Systems, AMI & Distribution Loss Control',
-    credentials: [
-      { k: 'S.T.', v: 'Electrical Engineering · Institut Teknologi Telkom' },
-      { k: 'AMI Operation', v: 'PLN UPDL Pandaan (2025)' },
-      { k: '6+ Years', v: 'PLN distribution, West Java' }
-    ],
-    specializations: [
-      { t: 'Metering Systems & AMI', d: 'Meter-system control for PLN\'s West Java distribution network, trained in Advanced Metering Infrastructure operation and automatic power control for postpaid meters.', s: ['Meter system control', 'AMI', 'Postpaid metering'] },
-      { t: 'Energy Loss Control', d: 'Three years in an energy-transaction section controlling distribution losses.', s: ['Loss analysis', 'Energy transactions'] },
-      { t: 'Public Street Lighting (PJU)', d: 'Management and control of public street-lighting connections and consumption.', s: ['PJU control', 'Consumption audits'] },
-      { t: 'Distribution Performance', d: 'Unit performance monitoring and reporting for a PLN customer-service unit.', s: ['KPI monitoring', 'Performance reporting'] }
-    ],
-    img: 'avatar-sidik.webp',
-    headline: 'Officer, Meter System Control — PLN Distribution West Java · 6+ years at PLN',
-    summary: 'Electrical engineer at PLN since 2019, specialising in metering systems, energy-loss and street-lighting control, and distribution performance in West Java. Currently responsible for meter-system control within distribution efficiency, measurement and system quality at PLN\'s West Java distribution headquarters.',
-    experience: [
-      { role: 'Officer, Meter System Control', org: 'PLN UID Jawa Barat — Distribution Efficiency, Measurement & System Quality', period: 'Aug 2024 – Present',
-        points: ['Meter-system control for the West Java distribution network'] },
-      { role: 'Performance Officer', org: 'PLN ULP Cikedung, UP3 Indramayu', period: 'Dec 2022 – Jul 2024',
-        points: ['Unit performance monitoring and reporting'] },
-      { role: 'Assistant Engineer, Losses & Street Lighting (PJU) Control', org: 'PLN ULP Indramayu — Energy Transaction Section', period: 'Dec 2019 – Nov 2022',
-        points: ['Energy-loss control and public street-lighting (PJU) management'] }
-    ],
-    education: [
-      { degree: 'S.T., Electrical Engineering', inst: 'Institut Teknologi Telkom', period: '2012 – 2016' }
-    ],
-    training: [
-      'Introduction to Design Thinking — PLN (2026)',
-      'Advanced Metering Infrastructure (AMI) operation — PLN UPDL Pandaan (2025)',
-      'IPMS100 application for PLN makers — Pandaan (2025)',
-      'Innovation dissemination: SCADA-integrated portable automatic transfer switch for backup supply (2025)',
-      'Innovation dissemination: APCS-PM automatic power control for postpaid meters (2025)',
-      'Innovation dissemination: SUNTIC (MVTIC bypass) for MV cable branching (2025)',
-      'Innovation dissemination: optimised disconnector placement on distribution networks using DSMF (2025)',
-      'CSR and community development programme implementation — PLN UPDL Semarang (2020)',
-      'Pre-service certification — PLN UPDL Semarang (2019)'
-    ],
-    tags: ['Metering Systems', 'Advanced Metering (AMI)', 'Loss Reduction', 'Energy Transactions', 'Street Lighting (PJU)', 'Distribution Efficiency']
-  },
-
   rm: {
     name: 'M. Rizky Maulanda, S.T.', short: 'M. Rizky Maulanda',
-    role: 'Power Transformer & OLTC Expert', card: 'Transformer & OLTC',
+    role: 'Power Transformer & OLTC Expert', card: 'Transformer & OLTC Expert',
+    brief: 'Commissioning, diagnostics, repair and lifetime service of power transformers and tap changers.',
     deg: 'S.T. · Reinhausen PSP',
     specialist: 'Power Transformers & On-Load Tap Changers (OLTC)',
     credentials: [
@@ -227,7 +187,8 @@ window.EXPERTS = {
   },
   ca: {
     name: 'Chaizar Ali Fachrudien, S.T.', short: 'Chaizar Ali Fachrudien',
-    role: 'Renewable Energy Technical Specialist', card: 'Solar PV, BESS & Hybrid',
+    role: 'Solar PV, BESS & Hybrid Systems Specialist', card: 'Solar PV & BESS Specialist',
+    brief: 'Utility-scale and floating PV, battery storage and hybrid plant design with PVsyst & HOMER.',
     img: 'avatar-chaizar.webp',
     links: [{ label: 'LinkedIn', url: 'https://www.linkedin.com/in/chaizar-ali-fachrudien-78720ab4/' }],
     deg: 'S.T. (Electrical Power) · Universitas Indonesia',
@@ -316,7 +277,8 @@ window.EXPERTS = {
   },
   ma: {
     name: 'Mokhammad Ardafillah, S.H., LL.M.', short: 'Mokhammad Ardafillah',
-    role: 'Energy & Climate Policy and Regulatory Expert', card: 'Energy Law & Climate Policy',
+    role: 'Energy & Climate Policy and Regulatory Expert', card: 'Energy & Climate Policy Expert',
+    brief: 'Energy law, carbon regulation and low-emission investment policy in Indonesia.',
     img: 'avatar-ardafillah.webp',
     deg: 'LL.M. (ANU) · S.H. (UGM) · LPDP Awardee',
     specialist: 'Energy & Climate Policy, Regulation and Low-Emission Investment',
@@ -392,7 +354,8 @@ window.EXPERTS = {
 
   am: {
     name: 'Ario Maulana, B.Sc.', short: 'Ario Maulana',
-    role: 'Energy Engineer & ESG Consultant (Scope 2/3)', card: 'Geothermal, O&G & ESG',
+    role: 'Energy Economics & ESG Specialist', card: 'ESG & Energy Economics Specialist',
+    brief: 'Geothermal and oil-and-gas economics, Scope 1–3 GHG accounting and ESG reporting.',
     img: 'avatar-ario.webp',
     deg: 'B.Sc. Petroleum Eng. (Summa Cum Laude) · PhD Candidate, KFUPM',
     specialist: 'Geothermal & Oil-and-Gas Energy Economics, ESG and GHG Accounting',
@@ -467,7 +430,8 @@ window.EXPERTS = {
   },
   dh: {
     name: 'Daryl Haris Antoni, S.T., M.P.E.', short: 'Daryl Haris Antoni',
-    role: 'Power System Planning Engineer', card: 'Power System Planning',
+    role: 'Power System Planning Expert', card: 'Power System Planning Expert',
+    brief: 'Generation & transmission expansion planning, renewable integration and grid studies (PLEXOS, DIgSILENT).',
     img: 'avatar-daryl.webp',
     deg: 'M.P.E. (Curtin, Distinction) · S.T. (ITB, Cum Laude)',
     specialist: 'Power System & Generation Expansion Planning, Renewable Integration and Microgrid Optimisation',
@@ -535,4 +499,4 @@ window.EXPERTS = {
     tags: ['System Planning', 'RUPTL', 'PLEXOS', 'DIgSILENT', 'Renewable Integration', 'Microgrids', 'Reliability (LOLP/LOLE)', 'Loss Reduction']
   }
 };
-window.EXPERT_ORDER = ['qh', 'da', 'fn', 'sd', 'rm', 'dh', 'ca', 'ma', 'am'];
+window.EXPERT_ORDER = ['qh', 'da', 'fn', 'rm', 'dh', 'ca', 'ma', 'am'];
