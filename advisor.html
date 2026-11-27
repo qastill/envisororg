@@ -239,6 +239,18 @@ h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
 @media(min-width:1101px){.experts{padding:0 40px}}
 @media(min-width:1600px){.row{max-width:1520px}.lead{max-width:1000px}}
 @media(max-height:820px) and (min-width:1101px){.lede{display:none}.hero{padding:10px 0 4px}.row .ex-brief{-webkit-line-clamp:2}}
+
+/* Uniform 3 x 4 grid & leadership badge */
+.row{grid-template-columns:repeat(4,minmax(0,1fr))!important;max-width:1240px}
+.row .ex{padding:10px 14px 10px 10px}
+.row .av{width:clamp(60px,min(5.4vw,10vh),84px)!important}
+.row .ex-name{font-size:17px}
+.row .ex-brief{font-size:11px}
+.ex-pos{display:inline-block;white-space:nowrap;font-size:8px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--champagne);background:var(--navy);padding:3px 8px;border-radius:20px;margin-bottom:4px}
+.row .ex:has(.ex-pos){background:rgba(255,255,255,.72);border-color:rgba(197,161,90,.5)}
+@media(min-width:1600px){.row{max-width:1440px!important}}
+@media(max-width:1100px){.row{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:600px){.row{grid-template-columns:1fr!important}}
 </style>
 </head>
 <body>
@@ -265,7 +277,7 @@ h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
   </section>
 
   <main class="experts">
-    <div class="lead" id="lead"></div>
+    <div class="row" id="r1"></div>
     <div class="row" id="r2"></div>
     <div class="row" id="r3"></div>
   </main>
@@ -296,14 +308,14 @@ function esc(t){var d=document.createElement('div');d.textContent=t;return d.inn
 var last=null;
 function openModal(m){last=document.activeElement;m.classList.add('open');document.body.style.overflow='hidden';m.querySelector('.x').focus()}
 function closeModals(){document.querySelectorAll('.modal.open').forEach(function(m){m.classList.remove('open')});document.body.style.overflow='';if(last)last.focus()}
-var LEAD=['qh','rm'],R2=['da','dh','ca','nz','ab'],R3=['fn','ma','am','yg','pp'];
+var R1=['qh','rm','nz','ab'],R2=['da','dh','ca','pp'],R3=['fn','ma','am','yg'];
 var NAT={ID:'Indonesia',MY:'Malaysia',PH:'Philippines',KH:'Cambodia'};
 function card(id,lead){var e=EXPERTS[id];if(!e)return '';var c=e.country||'ID';
   var av='<div class="av">'+(e.img?'<img src="'+e.img+'" alt="'+esc(e.name)+'">':'<div class="ini">'+esc(e.ini||'')+'</div>')+'</div>';
-  var txt='<div class="ex-name">'+esc(e.short)+'</div><div class="ex-ctry" title="Expert from '+NAT[c]+'"><img src="flags/'+c.toLowerCase()+'.svg" alt="">'+(lead?'Expert from ':'')+NAT[c]+'</div><div class="ex-deg">'+esc(e.deg||'')+'</div><div class="ex-role">'+esc(e.card)+'</div><div class="ex-brief">'+esc(e.brief||'')+'</div><div class="ex-more">View full CV &#8594;</div>';
+  var txt=(e.pos?'<div class="ex-pos">'+esc(e.pos)+'</div>':'')+'<div class="ex-name">'+esc(e.short)+'</div><div class="ex-ctry" title="Expert from '+NAT[c]+'"><img src="flags/'+c.toLowerCase()+'.svg" alt="">'+''+NAT[c]+'</div><div class="ex-deg">'+esc(e.deg||'')+'</div><div class="ex-role">'+esc(e.card)+'</div><div class="ex-brief">'+esc(e.brief||'')+'</div><div class="ex-more">View full CV &#8594;</div>';
   return '<a class="ex" href="expert.html?id='+id+'">'+av+'<div class="ex-txt">'+txt+'</div></a>'}
 function fill(el,ids){document.getElementById(el).innerHTML=ids.map(function(id){return card(id,el==='lead')}).join('')}
-fill('lead',LEAD);fill('r2',R2);fill('r3',R3);
+fill('r1',R1);fill('r2',R2);fill('r3',R3);
 document.querySelectorAll('.modal').forEach(function(m){m.addEventListener('click',function(ev){if(ev.target===m||ev.target.hasAttribute('data-close'))closeModals()})});
 document.addEventListener('keydown',function(ev){if(ev.key==='Escape')closeModals()});
 document.getElementById('hm').onclick=function(){document.getElementById('mn').classList.add('open')};
