@@ -5,7 +5,7 @@ window.EXPERTS = {
     name: 'Dr. Qashtalani Haramaini, S.T., M.T.', short: 'Dr. Qashtalani Haramaini',
     role: 'Energy & Power Systems Expert', card: 'Energy & Power Systems Expert',
     brief: 'Power distribution, loss reduction and energy analytics for utilities and industry.',
-    deg: 'Dr. · M.T. · S.T.',
+    pos: 'Founder & Managing Partner',
     specialist: 'Power Distribution, Loss Reduction & Energy Analytics',
     credentials: [
       { k: 'Doctorate', v: 'Electrical Engineering · Universitas Indonesia' },
@@ -135,7 +135,7 @@ window.EXPERTS = {
     name: 'M. Rizky Maulanda, S.T.', short: 'M. Rizky Maulanda',
     role: 'Power Transformer & OLTC Expert', card: 'Transformer & OLTC Expert',
     brief: 'Commissioning, diagnostics, repair and lifetime service of power transformers and tap changers.',
-    deg: 'S.T. · Reinhausen PSP',
+    pos: 'Deputy Managing Partner',
     specialist: 'Power Transformers & On-Load Tap Changers (OLTC)',
     credentials: [
       { k: 'Reinhausen PSP', v: 'Certified Premium Service Provider, MR OLTC' },

@@ -158,6 +158,7 @@ footer{position:relative;z-index:1;text-align:center;font-size:11px;color:#8A8F9
 .brief{margin:8px 0 0;font-size:15px;line-height:1.55;opacity:.85;max-width:640px}
 .ctry{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.4px;color:#5C6370;margin:2px 0 10px}
 .ctry img{width:22px;height:14px;object-fit:cover;border-radius:2px;box-shadow:0 0 0 1px rgba(14,23,38,.12)}
+.pos{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#E3CB95;background:#0E1726;padding:6px 14px;border-radius:30px;margin:4px 0 10px}
 </style>
 </head>
 <body>
@@ -199,7 +200,7 @@ footer{position:relative;z-index:1;text-align:center;font-size:11px;color:#8A8F9
 
   var main='<div class="main">'
     +'<div class="eyebrow">Envisor Expert &middot; Curriculum Vitae</div>'
-    +'<h1>'+esc(e.name)+'</h1>'
+    +(e.pos?'<div class="pos">'+esc(e.pos)+' &middot; Envisor</div>':'')+'<h1>'+esc(e.name)+'</h1>'
     +'<div class="ctry"><img src="flags/'+(e.country||'ID').toLowerCase()+'.svg" alt="">Expert from '+({ID:'Indonesia',MY:'Malaysia',PH:'Philippines',KH:'Cambodia'})[e.country||'ID']+'</div>'+'<div class="role">'+esc(e.role)+'</div>'+(e.brief?'<p class="brief">'+esc(e.brief)+'</p>':'')
     +(e.deg?'<span class="deg">'+esc(e.deg)+'</span>':'')
     +(e.headline?'<p class="headline">'+esc(e.headline)+'</p>':'')
