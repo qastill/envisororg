@@ -317,7 +317,7 @@ window.EXPERTS = {
   ma: {
     name: 'Mokhammad Ardafillah, S.H., LL.M.', short: 'Mokhammad Ardafillah',
     role: 'Energy & Climate Policy and Regulatory Expert', card: 'Energy Law & Climate Policy',
-    ini: 'MA',
+    img: 'avatar-ardafillah.webp',
     deg: 'LL.M. (ANU) · S.H. (UGM) · LPDP Awardee',
     specialist: 'Energy & Climate Policy, Regulation and Low-Emission Investment',
     headline: 'Expert Staff, House of Representatives of Indonesia (DPR RI) · Former Government Consultant to the Ministry of Finance (Tetra Tech) · Former Legal Analyst, WRI Indonesia',
@@ -464,6 +464,75 @@ window.EXPERTS = {
     ],
     languages: ['English (IELTS 8.5, CEFR C2)', 'Bahasa Indonesia (fluent)', 'Malay (fluent)', 'Arabic, French, Spanish (intermediate)', 'Chinese (basic)'],
     tags: ['Geothermal', 'Petroleum Engineering', 'ESG (Scope 2/3)', 'GHG Accounting', 'Hydrogen & CCUS', 'Techno-Economics', 'Supply Chain', 'Energy Investment']
+  },
+  dh: {
+    name: 'Daryl Haris Antoni, S.T., M.P.E.', short: 'Daryl Haris Antoni',
+    role: 'Power System Planning Engineer', card: 'Power System Planning',
+    img: 'avatar-daryl.webp',
+    deg: 'M.P.E. (Curtin, Distinction) · S.T. (ITB, Cum Laude)',
+    specialist: 'Power System & Generation Expansion Planning, Renewable Integration and Microgrid Optimisation',
+    headline: 'System Planning Engineer, PT PLN (Persero) Head Office · RUPTL 2025–2034 Drafting Committee (Eastern Indonesia) · IEEE author · Elsevier peer reviewer',
+    credentials: [
+      { k: 'M.P.E. — Distinction', v: 'Emerging Power Systems · Curtin University · WAM 87.73/100' },
+      { k: 'S.T. — Cum Laude', v: 'Electrical Engineering · Institut Teknologi Bandung · GPA 3.83' },
+      { k: 'RUPTL 2025–2034', v: 'Drafting Committee Member, Eastern Indonesia' },
+      { k: '2 IEEE Papers', v: 'Pumped hydro storage & hybrid microgrid optimisation' },
+      { k: 'Peer Reviewer', v: 'Elsevier — Computers & Electrical Engineering' }
+    ],
+    specializations: [
+      { t: 'Generation & Transmission Expansion Planning', d: 'Long-term generation expansion plans using demand forecasting and scenario-based simulation at PLN Head Office, including drafting the national electricity supply plan (RUPTL 2025–2034) for Eastern Indonesia.', s: ['RUPTL', 'Demand forecasting', 'Scenario simulation', 'PLEXOS'] },
+      { t: 'Renewable Integration & Grid Studies', d: 'Renewable integration strategies and grid modernisation, and evaluation of smelter loads and variable renewable generation on system stability and quality, including compensator and BESS modelling.', s: ['DIgSILENT PowerFactory', 'ETAP', 'Load flow & stability', 'Smelter & BESS modelling'] },
+      { t: 'Hybrid Microgrid & Island System Optimisation', d: 'Optimisation of islanded hybrid microgrids for emission reduction and cost minimisation using evolutionary computation, with techno-economic and multi-scenario studies (Nusa Penida, Semau Island).', s: ['Evolutionary computation', 'Techno-economics', 'Emission reduction', 'Islanded systems'] },
+      { t: 'Distribution Efficiency, Metering & Reliability', d: 'Loss-reduction and efficiency studies on medium- and low-voltage networks in Bali, electronic meter testing and early AMI work, and reliability assessment methods.', s: ['Loss reduction', 'AMI & metering', 'LOLP / LOLE', 'Monte Carlo'] }
+    ],
+    summary: 'Power system planning engineer at PT PLN (Persero) Head Office with nearly a decade at the national utility, spanning metering, distribution efficiency, asset management, performance control and system planning. Develops long-term generation expansion plans, renewable integration strategies and feasibility studies, and served on the drafting committee of RUPTL 2025–2034 for Eastern Indonesia. Holds a Master of Professional Engineering in Emerging Power Systems from Curtin University (Distinction, PLN scholarship), with research on AI-based optimisation of island power systems, and a cum laude electrical engineering degree from ITB.',
+    experience: [
+      { role: 'System Planning Engineer', org: 'PT PLN (Persero) Head Office, Jakarta', period: 'Jul 2024 – Present',
+        points: ['Develops and supports renewable integration strategies and grid modernisation efforts', 'Develops long-term generation expansion plans using demand forecasting and scenario-based simulations', 'Conducts technical and financial feasibility studies for future power system projects'] },
+      { role: 'Performance Control Engineer', org: 'PT PLN (Persero) Head Office, Jakarta', period: 'Jul 2021 – Jul 2022',
+        points: ['Designed and implemented performance improvement frameworks for grid operations', 'Performed analytical assessments and troubleshooting for operational issues'] },
+      { role: 'Asset Management Engineer', org: 'PT PLN (Persero) Head Office, Jakarta', period: 'Jul 2020 – Jul 2021',
+        points: ['Ensured quality and accuracy of asset databases, data warehouses and materials management', 'Maintained standardisation and reliability improvement of asset records'] },
+      { role: 'Distribution Grid Efficiency Engineer', org: 'PT PLN (Persero) Distribution Unit of Bali, Denpasar', period: 'Jun 2017 – Jul 2020',
+        points: ['Conducted loss-reduction studies and grid efficiency optimisation in medium- and low-voltage networks', 'Analysed distribution system issues and developed corrective action strategies'] },
+      { role: 'Electronic Meter Engineer', org: 'PT PLN (Persero) Distribution Unit of Bali, Denpasar', period: 'Jan 2017 – Jun 2017',
+        points: ['Tested, evaluated and verified electronic energy meters', 'Supported early smart metering and Advanced Metering Infrastructure (AMI) activities'] },
+      { role: 'Research — Master\'s Design Project', org: 'Curtin University, Australia', period: '2023 – 2024',
+        points: ['Developed optimisation models for hybrid microgrids using evolutionary computation', 'Conducted techno-economic and emission-reduction studies and multi-scenario simulations for islanded power systems'] }
+    ],
+    education: [
+      { degree: 'Master of Professional Engineering, Emerging Power Systems — Distinction (WAM 87.73/100)', inst: 'Curtin University, Australia · PLN full scholarship · Project: optimisation of the Nusa Penida island power system for emission reduction and cost minimisation using evolutionary-computation AI', period: '2022 – 2024' },
+      { degree: 'Bachelor of Science (S.T.), Electrical Engineering — Cum Laude (GPA 3.83/4.00)', inst: 'Institut Teknologi Bandung · Thesis: Google Glass-based digital assistant system for hospitals', period: '2012 – 2016' }
+    ],
+    achievements: [
+      'Publication: "Pumped Hydro Energy Storage for Load Shifting in the Sulawesi Power System" — IEEE ICT-PEP 2025',
+      'Publication: "Multi-objective Optimization of Hybrid Microgrid System of Semau Island in Indonesia: Minimising Energy Cost and Carbon Emission Using Evolutionary Computation" — IEEE PREE 2024',
+      'Presenter: Nusa Penida island power system optimisation — 9th COIA-2024, Istanbul',
+      'Peer Reviewer, Elsevier — Computers & Electrical Engineering (2026)',
+      'Winner, Energy Communication Hackathon — Australian Institute of Energy, Perth (2022)',
+      'PT PLN (Persero) full Master\'s scholarship (2022)'
+    ],
+    training: [
+      'PLEXOS Intermediate Training — Energy Exemplar, Adelaide (2026)',
+      'Smelter Load, Compensators and BESS Modelling using DIgSILENT PowerFactory — ITB (2026)',
+      'Energy Management, Strategic Planning & Integration for Renewable Energy — PT PLN (2025)'
+    ],
+    projects: [
+      {"t":"RUPTL 2025–2034 — National Electricity Supply Business Plan","loc":"Eastern Indonesia","y":"2025","cat":"Grid, Metering & Analytics","role":"Drafting Committee Member, Eastern Region","org":"PT PLN (Persero)","client":"Ministry of Energy and Mineral Resources / PLN","tech":["Generation expansion planning","Transmission planning"],"scope":["Drafting committee member for the Eastern Indonesia region of the national electricity supply business plan (RUPTL 2025–2034), issued by the Ministry of Energy and Mineral Resources and drafted by PT PLN (Persero)."]},
+      {"t":"Power System Modelling for Nickel Smelter Load in Southern Sulawesi","loc":"South Sulawesi, Indonesia","y":"2025","cat":"Grid, Metering & Analytics","role":"Evaluator and Reviewer","org":"PT PLN (Persero) × Institut Teknologi Bandung","client":"PT PLN (Persero)","tech":["Smelter loads","Variable renewables","Reactive compensation"],"scope":["Evaluated the impact of smelter customers with various processing technologies and VRE intermittency on system stability and quality.","Assessed mitigation for smelter customers and the selection of compensators considering technical and economic aspects."]},
+      {"t":"Master Plan for Eastern Indonesia Power Systems","loc":"Eastern Indonesia","y":"2025–2026","cat":"Grid, Metering & Analytics","role":"Evaluator and Reviewer","org":"PT PLN (Persero) × Universitas Gadjah Mada","client":"PT PLN (Persero)","tech":["Generation expansion planning","Transmission planning"],"scope":["Reviewed power system planning studies and technical recommendations for Eastern Indonesia power system development.","Evaluated generation and transmission expansion scenarios to support long-term electricity demand growth."]},
+      {"t":"Energy Transition Management Master Plan — Sulawesi Generation Expansion","loc":"Sulawesi, Indonesia","y":"2025–2026","cat":"Grid, Metering & Analytics","role":"Member, Generation Expansion Planning Working Group (Sulawesi)","org":"PT PLN (Persero) × JICA","client":"PT PLN (Persero)","tech":["Generation expansion planning","Decarbonisation pathways"],"scope":["Participated in generation expansion planning studies for the Sulawesi power system under Indonesia's energy transition roadmap.","Contributed to technical discussions on decarbonisation pathways and sustainable power system development."]},
+      {"t":"Nusa Penida Island Power System Optimisation","loc":"Bali, Indonesia","y":"2023–2024","cat":"Hybrid & BESS","role":"Researcher","org":"Curtin University","tech":["Hybrid microgrid","Evolutionary computation AI"],"scope":["Developed optimisation models for the hybrid microgrid using evolutionary computation to reduce emissions and cost.","Conducted techno-economic and emission-reduction studies with multi-scenario simulations for the islanded system."]},
+      {"t":"Bali Distribution Grid Loss Reduction","loc":"Bali, Indonesia","y":"2017–2020","cat":"Grid, Metering & Analytics","role":"Distribution Grid Efficiency Engineer","org":"PT PLN (Persero) Distribution Unit of Bali","client":"PT PLN (Persero)","tech":["Distribution networks","Loss reduction"],"scope":["Conducted loss-reduction studies and grid efficiency optimisation in medium- and low-voltage networks.","Analysed distribution system issues and developed corrective action strategies."]}
+    ],
+    skills: [
+      'Power system analysis & modelling: MATLAB/Simulink, ETAP, DIgSILENT PowerFactory; load flow, short circuit and stability analysis',
+      'Generation & transmission expansion planning: PLEXOS; electricity market and energy system planning',
+      'Reliability assessment: LOLP, LOLE, Monte Carlo simulation; renewable integration and smart-grid analysis',
+      'Data analysis: Python, Excel; basic C/C++; technical research and scientific writing'
+    ],
+    languages: ['Bahasa Indonesia (native)', 'English (fluent, IELTS 7.0)', 'Turkish (basic)'],
+    tags: ['System Planning', 'RUPTL', 'PLEXOS', 'DIgSILENT', 'Renewable Integration', 'Microgrids', 'Reliability (LOLP/LOLE)', 'Loss Reduction']
   }
 };
-window.EXPERT_ORDER = ['qh', 'da', 'fn', 'sd', 'rm', 'ca', 'ma', 'am'];
+window.EXPERT_ORDER = ['qh', 'da', 'fn', 'sd', 'rm', 'dh', 'ca', 'ma', 'am'];
