@@ -497,6 +497,75 @@ window.EXPERTS = {
     ],
     languages: ['Bahasa Indonesia (native)', 'English (fluent, IELTS 7.0)', 'Turkish (basic)'],
     tags: ['System Planning', 'RUPTL', 'PLEXOS', 'DIgSILENT', 'Renewable Integration', 'Microgrids', 'Reliability (LOLP/LOLE)', 'Loss Reduction']
+  },
+
+  yg: {
+    name: 'Yohan Binsar Hasoloan Gultom, S.T.', short: 'Yohan B. H. Gultom',
+    role: 'Energy Strategy & Business Transformation Expert', card: 'Energy Strategy & Transformation Expert',
+    brief: 'Downstream oil & gas strategy, portfolio optimisation and corporate transformation (PMO, RJPP/RKAP, value creation).',
+    img: 'avatar-yohan.webp',
+    deg: 'S.T. (Electrical, Universitas Indonesia) · Professional Engineer Programme (UGM)',
+    specialist: 'Downstream Energy Strategy, Portfolio Optimisation and Corporate Transformation',
+    headline: 'Sr. Analyst, Business & Portfolio Optimization — Directorate of Transformation, PT Pertamina (Persero) · PMO for the ±USD 18 bn downstream restructuring · 9+ years at Pertamina',
+    credentials: [
+      { k: '±USD 18 bn Restructuring', v: 'PMO member — integration of Patra Niaga, KPI and PIS' },
+      { k: '9+ Years at Pertamina', v: 'From fuel-terminal operations to Board-level strategy' },
+      { k: 'S.T. — Electrical Engineering', v: 'Universitas Indonesia · PPA, Unggulan & Tanoto Foundation scholar' },
+      { k: 'Professional Engineer Programme', v: 'Electrical Engineering · Universitas Gadjah Mada (2025 – 2026)' },
+      { k: '7 CIP Awards', v: 'Pertamina Continuous Improvement Program — Gold & Silver' }
+    ],
+    specializations: [
+      { t: 'Corporate Transformation & PMO', d: 'Project Management Office for the restructuring of Pertamina\'s downstream business (±USD 18 bn), integrating PT Pertamina Patra Niaga, PT Kilang Pertamina Internasional and PT Pertamina International Shipping — mapping synergies and value-creation initiatives and monitoring their realisation.', s: ['PMO', 'Synergy mapping', 'Value creation', 'Monitoring & evaluation'] },
+      { t: 'Portfolio & Strategic Initiative Management', d: 'Managed the strategic-initiative portfolio of Subholding Commercial & Trading from RKAP planning and initiative design through execution monitoring, with recommendations on priority programmes such as Non-Fuel Retail and MyPertamina.', s: ['Strategic initiatives', 'RKAP', 'Portfolio review', 'Non-Fuel Retail'] },
+      { t: 'Corporate Planning & Downstream Value Chain', d: 'Reviewed long-term (RJPP) and annual (RKAP) corporate plans for the Board, prepared executive briefs and policy recommendations, evaluated fuel pricing across economics, competitiveness and subsidy policy, and contributed to the Downstream Business Value Chain study.', s: ['RJPP & RKAP', 'Executive briefs', 'Pricing policy', 'Value-chain optimisation'] },
+      { t: 'Fuel Terminal Operations, Contracts & Partnerships', d: 'Hands-on fuel-terminal experience in receiving, storage and stock accounting, maintenance planning and customer services, plus end-to-end management of strategic procurement contracts and partner-led project development.', s: ['Receiving & storage', 'Maintenance planning', 'Contract management', 'Partnership development'] }
+    ],
+    summary: 'Strategy and transformation professional in the energy industry with more than nine years at PT Pertamina (Persero), spanning fuel-terminal operations, strategic contract management, business development and corporate initiative portfolios. Now in Business & Portfolio Optimization under the Directorate of Transformation, serving on the PMO for the ±USD 18 billion restructuring of Pertamina\'s downstream business. Previously managed the strategic-initiative portfolio of Subholding Commercial & Trading and supported the Director of Business Planning & Development on RJPP, RKAP and pricing policy — bringing an end-to-end view of the energy value chain from terminal operations to Board-level strategy.',
+    experience: [
+      { role: 'Sr. Analyst I — Business & Portfolio Optimization, Directorate of Transformation', org: 'PT Pertamina (Persero)', period: 'Mar 2026 – Present',
+        points: ['PMO member for the restructuring of Pertamina\'s downstream business across PT Pertamina Patra Niaga, PT Kilang Pertamina Internasional and PT Pertamina International Shipping (transaction value ±USD 18 bn)', 'Maps initiatives and value synergies in the restructured entities and monitors and evaluates their realisation'] },
+      { role: 'Analyst II — Portfolio Management II, Directorate SPPU', org: 'PT Pertamina (Persero)', period: 'Jul 2024 – Feb 2026',
+        points: ['Managed the strategic-initiative portfolio of Subholding Commercial & Trading from RKAP planning and initiative design to execution monitoring', 'Provided analysis and improvement recommendations on priority initiatives, including Non-Fuel Retail and the MyPertamina app', 'Member of the Pertamina Downstream Business Value Chain study team — integration of the downstream value chain and market-position optimisation'] },
+      { role: 'Officer I — Partnership & Project Development', org: 'PT Pertamina Patra Niaga', period: 'May 2024 – Jun 2024',
+        points: ['Supported strategic partner exploration and new project development, including feasibility analysis and partnership structuring'] },
+      { role: 'Assistant to the Director of Business Planning & Development', org: 'PT Pertamina Patra Niaga', period: 'Oct 2023 – Apr 2024',
+        points: ['Supported the Director in reviewing RJPP, RKAP and strategic programmes of the holding and subholdings', 'Prepared executive briefs, strategic studies and business-development policy recommendations', 'Contributed to pricing-policy evaluation integrating economics, competitiveness and subsidy policy', 'Coordinated cross-functional teams to accelerate the Board\'s priority programmes'] },
+      { role: 'Officer I — Contract Manager', org: 'PT Pertamina Patra Niaga', period: 'Feb 2023 – Oct 2023',
+        points: ['Managed strategic procurement contracts end to end, including negotiation, vendor evaluation and implementation effectiveness'] },
+      { role: 'Supervisor, Sales Service & General Affairs / Sr. Supervisor, Maintenance Planning & Services', org: 'Pertamina Patra Niaga — Integrated Terminal Makassar', period: 'Jan 2021 – Jun 2023',
+        points: ['Managed customer-service operations and general facility needs of the terminal'] },
+      { role: 'Sr. Supervisor, Maintenance Planning & Services', org: 'Pertamina — Fuel Terminal Baubau', period: 'Mar 2020 – May 2021',
+        points: ['Planned and executed maintenance of fuel-terminal facilities and utilities'] },
+      { role: 'Supervisor, Receiving & Storage — Loading/Discharge Master', org: 'Pertamina — Fuel Terminal Bitung', period: 'Nov 2017 – Feb 2020',
+        points: ['Handled receipt, storage and accurate, efficient stock accounting of fuels'] }
+    ],
+    education: [
+      { degree: 'Professional Engineer Programme (Program Studi Program Profesi Insinyur), Electrical Engineering', inst: 'Universitas Gadjah Mada', period: '2025 – 2026' },
+      { degree: 'Bachelor of Engineering (S.T.), Electrical Engineering', inst: 'Universitas Indonesia · Scholarships: PPA, Beasiswa Unggulan Teknologi Kreatif, Tanoto Foundation', period: '2012 – 2016' }
+    ],
+    achievements: [
+      'Pertamina Continuous Improvement Program — Gold: Pertamax BOS (2019), FT Mesran (2019), Pump Line Modification (2020), SIKMP (2020), Oil Boom (2020), Kinclong APQ (2023)',
+      'Pertamina Continuous Improvement Program — Silver: Bentena Wolio, Contract Management',
+      'National Chief Agent of Change, PT Pertamina Patra Niaga (2022 – 2024)'
+    ],
+    training: [
+      'Valuation', 'Corporate Strategy', 'Negotiation Fundamentals', 'Business Presentation', 'Value-Based Development Program', 'Supply Loss Mitigation', 'Mind Mapping'
+    ],
+    projects: [
+      {"t":"Pertamina Downstream Business Restructuring — PMO (±USD 18 bn)","loc":"Indonesia","y":"2026","cat":"Strategy & Transformation","role":"PMO Member — Business & Portfolio Optimization","org":"PT Pertamina (Persero)","client":"PT Pertamina (Persero)","tech":["Corporate restructuring","Synergy & value creation"],"scope":["Project Management Office for the integration of PT Pertamina Patra Niaga, PT Kilang Pertamina Internasional and PT Pertamina International Shipping (transaction value ±USD 18 bn).","Mapped initiatives and value synergies in the restructured entities and monitored and evaluated their realisation."]},
+      {"t":"Downstream Business Value Chain Study","loc":"Indonesia","y":"2024–2025","cat":"Strategy & Transformation","role":"Study Team Member","org":"PT Pertamina (Persero)","client":"PT Pertamina (Persero)","tech":["Value-chain integration","Market positioning"],"scope":["Comprehensive analysis of downstream value-chain integration and market-position optimisation for Pertamina's downstream business."]},
+      {"t":"Subholding Commercial & Trading Strategic Initiative Portfolio","loc":"Indonesia","y":"2024–2026","cat":"Strategy & Transformation","role":"Portfolio Analyst","org":"PT Pertamina (Persero)","client":"Subholding Commercial & Trading","tech":["RKAP","Strategic initiatives","Non-Fuel Retail","MyPertamina"],"scope":["Managed the strategic-initiative portfolio from RKAP planning and initiative design to execution monitoring.","Analysed priority initiatives such as Non-Fuel Retail development and the MyPertamina app and recommended improvements."]},
+      {"t":"Corporate Planning & Fuel Pricing Policy Review","loc":"Indonesia","y":"2023–2024","cat":"Strategy & Transformation","role":"Assistant to the Director of Business Planning & Development","org":"PT Pertamina Patra Niaga","client":"PT Pertamina Patra Niaga","tech":["RJPP & RKAP","Pricing policy","Subsidy policy"],"scope":["Reviewed long-term and annual corporate plans and strategic programmes of the holding and subholdings.","Evaluated pricing policy integrating economics, competitiveness and subsidy policy; prepared executive briefs and policy recommendations."]},
+      {"t":"Fuel Terminal Operations — Bitung, Baubau & Makassar","loc":"North Sulawesi, Southeast Sulawesi & South Sulawesi, Indonesia","y":"2017–2023","cat":"Geothermal & O&G","role":"Supervisor — Receiving & Storage; Maintenance Planning; Sales Service","org":"Pertamina Patra Niaga","client":"Pertamina Patra Niaga","tech":["Fuel receiving & storage","Maintenance planning","Terminal services"],"scope":["Receiving, storage and stock accounting of fuels as Loading/Discharge Master at FT Bitung.","Maintenance planning of terminal facilities and utilities at FT Baubau and IT Makassar, and customer-service and general-affairs operations at IT Makassar."]}
+    ],
+    skills: [
+      'Corporate strategy, transformation and PMO for large restructurings',
+      'Portfolio and strategic-initiative management; RJPP and RKAP corporate planning',
+      'Downstream oil & gas value chain, fuel pricing and subsidy-policy analysis',
+      'Valuation, feasibility analysis, partnership structuring and contract negotiation',
+      'Fuel-terminal operations: receiving, storage, stock accounting and maintenance planning'
+    ],
+    tags: ['Corporate Transformation', 'PMO', 'Portfolio Optimisation', 'RJPP & RKAP', 'Downstream O&G', 'Value Chain', 'Pricing Policy', 'Contract Management']
   }
 };
-window.EXPERT_ORDER = ['qh', 'da', 'fn', 'rm', 'dh', 'ca', 'ma', 'am'];
+window.EXPERT_ORDER = ['qh', 'da', 'fn', 'rm', 'dh', 'ca', 'ma', 'am', 'yg'];
