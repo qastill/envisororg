@@ -566,6 +566,209 @@ window.EXPERTS = {
       'Fuel-terminal operations: receiving, storage, stock accounting and maintenance planning'
     ],
     tags: ['Corporate Transformation', 'PMO', 'Portfolio Optimisation', 'RJPP & RKAP', 'Downstream O&G', 'Value Chain', 'Pricing Policy', 'Contract Management']
+  },
+
+  pp: {
+    name: 'Pet Panhavisal, CEM', short: 'Pet Panhavisal', country: 'KH',
+    role: 'Energy Efficiency & Energy Audit Specialist', card: 'Energy Efficiency & Audit Specialist',
+    brief: 'Industrial energy audits, resource efficiency and GHG reduction for garment, manufacturing and agro-processing plants.',
+    ini: 'PP',
+    deg: 'Certified Energy Manager (CEM) · M. Power Engineering Mgmt (CTU Prague) · B.Eng. Electrical (ITC)',
+    specialist: 'Industrial Energy Efficiency, Energy & Water Auditing, Resource Efficiency and GHG Reduction',
+    headline: 'Energy Consultant, Green Move Consulting (Cambodia) · Certified Energy Manager · Projects with UNIDO, CAPRED, ADB, GIZ, EU and WWF',
+    links: [{ label: 'LinkedIn', url: 'https://www.linkedin.com/in/pet-panhavisal' }],
+    credentials: [
+      { k: 'Certified Energy Manager', v: 'CEM · Institute of Technology of Cambodia (2025 – 2030)' },
+      { k: 'Master — Power Engineering', v: 'Management of Power Engineering & Electrotechnics · Czech Technical University in Prague' },
+      { k: '35+ Factories Assessed', v: 'Energy, water and resource audits across Cambodian industry' },
+      { k: 'Development Partners', v: 'UNIDO · CAPRED · ADB · GIZ · EU · WWF' },
+      { k: 'Trainer & Mentor', v: 'Energy-efficiency module, Women in Clean Energy (CAPRED / Sevea)' }
+    ],
+    specializations: [
+      { t: 'Industrial Energy Audits & Investment-Grade Assessments', d: 'Level 2 and investment-grade energy audits for agro-processing, ice-making, hotel and garment facilities: baselines, on-site measurement, energy modelling, savings, investment, payback and GHG estimates, and investment-ready reports.', s: ['Level 2 / IGA audits', 'Energy baselines', 'M&V', 'Cost-benefit'] },
+      { t: 'Resource Efficiency & Circular Economy', d: 'Resource-efficiency assessments covering energy, materials, water and waste in garment factories, with factory action plans and circular-economy workshops under UNIDO\'s PAGE initiative.', s: ['RECP', 'Circular economy', 'Factory action plans', 'UNIDO PAGE'] },
+      { t: 'Water Audits & Wastewater Performance', d: 'Water audits benchmarking specific water consumption, assessing wastewater treatment performance and identifying water-efficiency and recycling opportunities for WWF Cambodia.', s: ['Specific water consumption', 'Wastewater', 'Water recycling'] },
+      { t: 'Sustainable Biomass, Renewables & Capacity Building', d: 'Sustainable biomass sourcing for garment-industry boilers (GIZ), solar project development training, and energy-efficiency training and mentoring for young engineers.', s: ['Biomass supply chains', 'Solar PV', 'ESCO coaching', 'Training'] }
+    ],
+    summary: 'Cambodian energy professional and Certified Energy Manager with experience in energy efficiency, energy auditing, energy management, resource efficiency and renewable energy across Cambodia\'s garment, manufacturing and agro-processing sectors. Conducts factory-level assessments, identifies energy- and resource-saving opportunities, develops practical sustainability solutions and delivers technical training, on projects with UNIDO, CAPRED, ADB, GIZ, the EU and WWF. Holds a Master\'s in Management of Power Engineering and Electrotechnics from the Czech Technical University in Prague and a Bachelor of Electrical and Electronic Engineering from the Institute of Technology of Cambodia.',
+    experience: [
+      { role: 'Energy Consultant', org: 'Green Move Consulting, Phnom Penh', period: 'Oct 2024 – Oct 2026',
+        points: ['Collects and analyses energy consumption, utility and operational data for energy performance assessments', 'Conducts on-site energy audits to identify savings, operational improvements and efficiency measures', 'Applies energy modelling tools to evaluate performance and improvement scenarios', 'Writes technical reports with recommended measures, implementation considerations and cost-benefit analyses'] },
+      { role: 'Energy Efficiency Specialist — SWITCH Garment Project', org: 'Geres Cambodia, Phnom Penh', period: 'Feb 2022 – Aug 2022',
+        points: ['Prepared 20 garment factories for international energy audits', 'Analysed audit findings and benchmarked energy-efficient technologies for utilities and production systems', 'Mentored factory teams on implementation planning and capacity building'] },
+      { role: 'Electrical Design Engineer', org: 'GGear Group, Phnom Penh', period: 'Jun 2021 – Jan 2022',
+        points: ['Developed electrical layouts, schematics, load calculations, cable sizing and protection design for building and infrastructure projects', 'Coordinated with architectural, structural and mechanical teams to integrate electrical systems'] },
+      { role: 'Co-Founder & Capacity and Leadership Development Lead', org: 'Cambodia Energy Transition Youth Network (CETYN)', period: 'Feb 2026 – Present',
+        points: ['Led the first Clean Energy Youth Ambassador Program (16 ambassadors) and co-organised the National Clean Energy Youth Forum 2026'] }
+    ],
+    education: [
+      { degree: 'Master of Economics', inst: 'National University of Management, Phnom Penh', period: '2026 – 2028' },
+      { degree: 'InteRussia Fellowship Program for Energy Specialists from ASEAN', inst: 'St Petersburg State University of Economics', period: 'Nov – Dec 2026' },
+      { degree: 'Master of Management of Power Engineering and Electrotechnics', inst: 'Czech Technical University in Prague', period: '2022 – 2024' },
+      { degree: 'Professional Training in Renewable Energy Technologies', inst: 'Yunnan Normal University, China', period: '2025' },
+      { degree: 'Bachelor of Engineering, Electrical and Electronic Engineering', inst: 'Institute of Technology of Cambodia', period: '2016 – 2021' }
+    ],
+    certifications: ['Certified Energy Manager (CEM) — Institute of Technology of Cambodia (2025 – 2030)'],
+    training: [
+      'German Training Week — Solar Project Development, GIZ (2025)',
+      'Climate-Economics Modelling: NDC 3.0 Energy Sector Scenario Analysis, ADB (2025)',
+      'Asia Low Carbon Building Transition (ALCBT), ITC & GGGI (2025)',
+      'Green Productivity, Asian Productivity Organization (2024)'
+    ],
+    achievements: [
+      'Energy Efficiency Trainer & Mentor — Women in Clean Energy Internship Program, CAPRED / Sevea (2026 – 2027)',
+      'Cambodian delegate — Southeast Asia Youth Energy Forum (SAYEF) 2026, HELIX Energy Council Track, Manila'
+    ],
+    projects: [
+      {"t":"Energy Audit and ESCO Capacity Building","loc":"Cambodia","y":"2026–2027","cat":"Energy Efficiency & Audit","role":"Energy Consultant","org":"CAPRED","client":"CAPRED","tech":["Level 2 energy audits","ESCO coaching","GHG reduction"],"scope":["Level 2 energy audits for up to five agro-processing, ice-making and hotel facilities with on-the-job coaching of CAPRED's ESCO partners.","Energy baselines, on-site measurements, savings, investment, payback and GHG estimates, and investment-ready audit reports."]},
+      {"t":"Circular Economy in the Garment Value Chain","loc":"Cambodia","y":"2026","cat":"Energy Efficiency & Audit","role":"Energy Consultant","org":"UNIDO (PAGE Initiative)","client":"UNIDO","tech":["Resource efficiency","Circular economy"],"scope":["Resource-efficiency assessments in 10 garment factories covering energy, materials, water and waste.","Stakeholder consultations, factory action plans, capacity building and circular-economy workshops."]},
+      {"t":"Water Audits of Garment Factories","loc":"Cambodia","y":"2025–2026","cat":"Energy Efficiency & Audit","role":"Water Audit Consultant","org":"WWF Cambodia","client":"WWF Cambodia","tech":["Water audits","Wastewater treatment"],"scope":["Water audits across 5 garment factories, benchmarking specific water consumption and wastewater treatment performance.","Identified water-efficiency and recycling opportunities."]},
+      {"t":"Investment Grade Audits of Agro-Processors","loc":"Cambodia","y":"2024–2025","cat":"Energy Efficiency & Audit","role":"Energy Consultant","org":"CAPRED","client":"CAPRED","tech":["Investment-grade audits","Energy modelling"],"scope":["Energy, production and equipment data analysis, on-site measurements and baseline modelling to evaluate efficiency opportunities.","Technical and financial analysis, audit reports, client presentations and quality control."]},
+      {"t":"Sustainable Biomass for the Garment Industry","loc":"Cambodia","y":"2024–2025","cat":"Energy Efficiency & Audit","role":"Team Leader Assistant","org":"GIZ","client":"GIZ","tech":["Biomass boilers","Supply-chain assessment"],"scope":["Assessed plantation-wood supply chains, supplier capacity, sourcing gaps and boiler compatibility for responsible biomass sourcing.","Traceability documentation, feasibility and cost-benefit analysis, KPI development and stakeholder engagement."]},
+      {"t":"SWITCH Garment — Factory Energy Audit Preparation","loc":"Cambodia","y":"2022","cat":"Energy Efficiency & Audit","role":"Energy Efficiency Specialist","org":"Geres Cambodia","client":"EU SWITCH-Asia","tech":["Energy audits","Benchmarking"],"scope":["Prepared 20 garment factories for international energy audits and benchmarked energy-efficient technologies.","Supported implementation planning and follow-up of recommended measures."]}
+    ],
+    skills: [
+      'Energy auditing (Level 2 and investment-grade), baselines, energy modelling and M&V',
+      'Resource, water and waste efficiency; circular economy; GHG emissions reduction',
+      'Electrical design: load calculation, cable sizing and protection',
+      'Technical training, mentoring and stakeholder engagement'
+    ],
+    tags: ['Energy Audits', 'Certified Energy Manager', 'Resource Efficiency', 'Water Audits', 'GHG Reduction', 'Biomass', 'Garment & Agro-Industry', 'Training']
+  },
+
+  nz: {
+    name: 'Nurul Ilyani Zaharudin, M.Sc.', short: 'Nurul Ilyani Zaharudin', country: 'MY',
+    role: 'Nuclear Security & Safeguards Expert', card: 'Nuclear Security & Safeguards Expert',
+    brief: 'Nuclear security, safeguards and nuclear forensics, plus occupational safety training for the energy sector.',
+    img: 'avatar-nurul.webp',
+    deg: 'PhD candidate (Universiti Malaya) · M.Sc. Nuclear Technology (Chulalongkorn) · B.Sc. (Hons) Nuclear Science (UKM)',
+    specialist: 'Nuclear Security, Safeguards, Nuclear Forensics and Security Culture',
+    headline: 'PhD researcher in Nuclear Security, Universiti Malaya · Editorial Board, International Journal of Nuclear Security · WINS Academy Ambassador · Associate Consultant, NIOSH Malaysia',
+    credentials: [
+      { k: 'M.Sc. Nuclear Technology', v: 'Nuclear Security & Safeguards · Chulalongkorn University, Bangkok' },
+      { k: 'PhD (ongoing)', v: 'Nuclear Security · Universiti Malaya' },
+      { k: 'Editorial Board', v: 'International Journal of Nuclear Security, University of Tennessee' },
+      { k: 'WINS Academy', v: 'Ambassador · Certified in Nuclear Security Incident Management' },
+      { k: 'Certified Trainer', v: 'HRDCorp Malaysia · NIOSH OSH Train-the-Trainer' }
+    ],
+    specializations: [
+      { t: 'Nuclear Security & Incident Management', d: 'Nuclear security programmes, insider-threat mitigation, cybersecurity at nuclear facilities and security-incident management, with certifications from the World Institute for Nuclear Security (WINS) Academy.', s: ['Security culture', 'Insider threat', 'Nuclear cybersecurity', 'Incident management'] },
+      { t: 'Safeguards & Non-Proliferation', d: 'Nuclear safeguards and non-proliferation (ESARDA course), physical protection under IAEA INFCIRC/225 Rev. 5, and radiation detection and response at borders.', s: ['Safeguards', 'INFCIRC/225 Rev. 5', 'Radiation detection', 'CBRN'] },
+      { t: 'Nuclear Forensics Capability', d: 'Research on national nuclear forensics capability in Malaysia and Southeast Asia — maturity-based assessment, self-evaluation tools and data-collection tools.', s: ['Nuclear forensics', 'Capability assessment', 'Bibliometrics', 'Southeast Asia'] },
+      { t: 'Occupational Safety & Health Training', d: 'Associate consultant and coordinator for the National Institute of Occupational Safety and Health (NIOSH) Malaysia; certified trainer and psychological first aider.', s: ['OSH training', 'NIOSH-TNB Safety Passport', 'Train-the-Trainer'] }
+    ],
+    summary: 'Malaysian PhD researcher in nuclear security at Universiti Malaya with academic and professional experience in nuclear security, safeguards, nuclear forensics and nuclear security incident management. Active contributor to international nuclear security initiatives through WINS, CRDF Global and IYNC, and editorial board member of the International Journal of Nuclear Security. Experienced in research, technical training, STEM engagement and capacity building, and an associate consultant to NIOSH Malaysia.',
+    experience: [
+      { role: 'Associate Consultant', org: 'National Institute of Occupational Safety and Health (NIOSH) Malaysia', period: 'Jul 2026 – Present', points: ['Occupational safety and health consulting and training'] },
+      { role: 'Associate Coordinator', org: 'National Institute of Occupational Safety and Health (NIOSH) Malaysia', period: 'Nov 2021 – Nov 2024', points: ['Coordinated occupational safety and health programmes and training'] },
+      { role: 'International Contributions', org: 'IJNS · WINS Academy · WINS–SIPRI', period: '',
+        points: ['Editorial Board Member, International Journal of Nuclear Security (University of Tennessee, Knoxville)', 'Focus Group Member, Nuclear Security Certification Module Review — WINS Academy', 'External Reference Group, Human Resource Sustainability in Nuclear Security — WINS–SIPRI'] }
+    ],
+    education: [
+      { degree: 'PhD (ongoing), Nuclear Security', inst: 'Universiti Malaya, Kuala Lumpur', period: '' },
+      { degree: 'M.Sc. in Nuclear Technology (Nuclear Security Safeguards)', inst: 'Chulalongkorn University, Bangkok', period: '' },
+      { degree: 'B.Sc. (Hons) Nuclear Science', inst: 'Universiti Kebangsaan Malaysia, Bangi', period: '' }
+    ],
+    certifications: [
+      'Certified Trainer — HRDCorp Malaysia',
+      'OSH Train-the-Trainer — NIOSH Malaysia',
+      'Occupational Psychological First Aider — NIOSH Malaysia',
+      'NIOSH-TNB Safety Passport — NIOSH Malaysia',
+      'Nuclear Security Incident Management — WINS Academy',
+      'Nuclear Security for Scientists, Technicians and Engineers — WINS Academy'
+    ],
+    training: [
+      'Joint ICTP-IAEA International School on Nuclear Security',
+      'WINS International Training Course on Cybersecurity in the Nuclear Industry',
+      '2nd International Symposium on Insider Threat Mitigation',
+      'ESARDA Course on Nuclear Safeguards and Non-Proliferation',
+      'IAEA Regional Workshop (INFCIRC/225/Revision 5)',
+      'MTV Nuclear Engineering Summer School',
+      'AES-2006 VVER technology — operating principles and technological aspects',
+      'Basic Reactor Engineering follow-up course (TINT-JAEA)'
+    ],
+    achievements: [
+      'Robin Copeland Memorial Fellow (RCMF), CRDF Global',
+      'Ambassador and Scholar, WINS Academy · Scholar, EU CBRN CoE · Leaders4Nuclear, IYNC',
+      'Presenter, WiN Global Conference 2025 — "Empowering the Next Generation: Fostering Innovation and Inclusion in Nuclear Education"',
+      'Publication: Assessing Nuclear Forensic Capability in Malaysia — a National Maturity-Based Assessment and Development Priorities',
+      'Publication: Global Research Trends in Nuclear Forensics — a Bibliometric Review',
+      'Publication: A Self-Evaluation Tool for the Assessment of National Nuclear Forensics Capability'
+    ],
+    skills: [
+      'Nuclear security, safeguards and non-proliferation',
+      'Nuclear forensics capability assessment and research',
+      'Occupational safety and health training',
+      'Technical training, STEM engagement and capacity building'
+    ],
+    tags: ['Nuclear Security', 'Safeguards', 'Nuclear Forensics', 'Security Culture', 'IAEA / WINS', 'OSH Training']
+  },
+
+  ab: {
+    name: 'Dan Kenard C. Abriol, M.Sc.', short: 'Dan Kenard Abriol', country: 'PH',
+    role: 'Energy Policy & Electricity Market Expert', card: 'Energy Policy & Electricity Market Expert',
+    brief: 'Electricity market design, utility regulation and rate-setting, and energy-economics research for the Philippines and ASEAN.',
+    ini: 'DA',
+    deg: 'M.Sc. Energy Policy & Engineering (KINGS, Korea) · B.S. Industrial Engineering (UP Diliman)',
+    specialist: 'Electricity Market Design, Energy Policy & Economics, and Utility Regulation',
+    headline: 'Supervising Research Specialist, Philippine Institute for Development Studies · Former Supervising Economist, National Electrification Administration · Former Department of Energy (Power Market Development)',
+    credentials: [
+      { k: 'M.Sc. Energy Policy & Engineering', v: 'KEPCO International Nuclear Graduate School, South Korea' },
+      { k: 'Department of Energy (PH)', v: 'Power Market Development Division, 2019 – 2025' },
+      { k: 'ASEAN Power Grid', v: 'DOE representative to the APG Consultative Committee Secretariat' },
+      { k: '5 Publications', v: 'Electricity markets, oil price shock, carbon policy' },
+      { k: 'B.S. Industrial Engineering', v: 'University of the Philippines — Diliman' }
+    ],
+    specializations: [
+      { t: 'Electricity Market Design & Policy', d: 'Policy studies on spot, capacity and derivatives markets, the causer-pays mechanism for ancillary-services pricing, retail competition and open access, and EPIRA implementation at the Philippine Department of Energy.', s: ['WESM', 'Ancillary services', 'Retail competition (RCOA)', 'EPIRA'] },
+      { t: 'Utility Regulation & Rate-Setting', d: 'Supervision of electric cooperatives on power supply contracting, market participation and rate-setting, and evaluation of cost-of-service rate studies at the National Electrification Administration.', s: ['Electric cooperatives', 'Power supply contracts', 'Cost of service', 'CAPEX / OPEX'] },
+      { t: 'Energy Economics & Macroeconomic Research', d: 'Research programme management on macroeconomics and energy at PIDS, including fiscal responses to oil price shocks, carbon policy and well-being, and econometric analysis.', s: ['Econometrics', 'Policy impact assessment', 'Oil price shock', 'Carbon policy'] },
+      { t: 'Power System Planning & Nuclear SMRs', d: 'Financial and operational feasibility of integrating small modular reactors into the Philippine power system, plus microgrid and off-grid solar electrification analysis.', s: ['SMR integration', 'HOMER', 'Off-grid solar', 'Microgrids'] }
+    ],
+    summary: 'Filipino research engineer and economist specialising in energy policy and electricity markets. Supervising Research Specialist in the Macroeconomics Unit of the Philippine Institute for Development Studies; previously Supervising Economist at the National Electrification Administration overseeing electric cooperatives\' supply contracting and rate-setting, and six years at the Department of Energy\'s Power Market Development Division working on electricity market design, EPIRA implementation and ASEAN Power Grid coordination. Holds an M.Sc. in Energy Policy and Engineering from KEPCO International Nuclear Graduate School, with a thesis on integrating small modular reactors into the Philippine power system.',
+    experience: [
+      { role: 'Supervising Research Specialist — Macroeconomics Unit', org: 'Philippine Institute for Development Studies (PIDS)', period: 'Mar 2026 – Present',
+        points: ['Administers the research programme and supervises staff and fieldwork', 'Participates in project conceptualisation and planning', 'Co-authors research papers and presents results to clients'] },
+      { role: 'Supervising Economist — Corporate Planning / Regulatory Affairs', org: 'National Electrification Administration (NEA)', period: 'Jan 2025 – Mar 2026',
+        points: ['Supervised and evaluated electric cooperatives on power supply contracting, WESM participation, retail supply and retail competition and open access', 'Supervised electric cooperatives\' rate-setting and evaluated cost-of-service rate studies'] },
+      { role: 'Science Research Specialist I–II — Power Market Development Division', org: 'Department of Energy, Philippines', period: 'Feb 2019 – Jan 2025',
+        points: ['Led research and policy recommendations for EPIRA implementation and the retail electricity market', 'Lead staff on the causer-pays mechanism for the ancillary-services market price methodology', 'Policy studies on electricity market design: spot, capacity market and market derivatives', 'Represented DOE to the ASEAN Power Grid Consultative Committee Secretariat and the Electricity Market Audit Committee', 'Technical recommendations on bills from the Senate and House of Representatives'] },
+      { role: 'Project Assistant III', org: 'National Institutes of Health, University of the Philippines — Manila', period: 'Sep 2018 – Jan 2019',
+        points: ['Research and scenario simulation for a DOST-funded disaster-risk simulation laboratory'] }
+    ],
+    education: [
+      { degree: 'M.Sc. Energy Policy and Engineering', inst: 'KEPCO International Nuclear Graduate School (KINGS), Ulsan, South Korea · Thesis: integration of small modular reactors into the Philippines\' future power system', period: '2022 – 2024' },
+      { degree: 'B.S. Industrial Engineering', inst: 'University of the Philippines — Diliman', period: '2014 – 2018' }
+    ],
+    training: [
+      'InteRussia Fellowship Program in Energy (ASEAN), Moscow (2026)',
+      'Distribution Utility Regulation: CAPEX, OPEX and Rate Setting of Electric Cooperatives (EPIRA 202), National Engineering Center (2025)',
+      'Wheeling Charge Methodology Workshop, HAPUA / TRANSCO (2024)',
+      'Capacity Building Exchange on Electricity Markets, US Energy Association (2024)',
+      'Reactor Training Program, Philippine Nuclear Research Institute (2023)',
+      'Philippines-Japan Renewable Energy & Energy Resiliency Workshop, IEEJ (2021)'
+    ],
+    achievements: [
+      'Publication: Navigating the 2026 Oil Price Shock — Toward a Resilient and Countercyclical Fiscal Response in the Philippines (PIDS Policy Note, 2026)',
+      'Publication: A Comparative Analysis on the Captive and Retail Electricity Market of the Philippines (KIEE, 2022)',
+      'Publication: An Overview of the Off-grid Solar PV Electrification Program in the Philippines (KIEE, 2022)',
+      'Publication: Carbon Consumption, Climate Change Policies and Life Satisfaction — Hierarchical Panel Data Analysis (2024)',
+      'Certificate of Recognition for contributions to science, arts and culture — Embassy of the Philippines to the Republic of Korea (2024)',
+      'KINGS Global Scholarship'
+    ],
+    projects: [
+      {"t":"Causer-Pays Mechanism for Ancillary Services Pricing","loc":"Philippines","y":"2019–2025","cat":"Policy, Regulation & ESG","role":"Lead Staff","org":"Department of Energy, Philippines","client":"Department of Energy","tech":["Ancillary services","Market price methodology"],"scope":["Led the design of the causer-pays mechanism for the ancillary-services market price methodology."]},
+      {"t":"Electricity Market Design & EPIRA Implementation Studies","loc":"Philippines","y":"2019–2025","cat":"Policy, Regulation & ESG","role":"Science Research Specialist","org":"Department of Energy, Philippines","client":"Department of Energy","tech":["Spot market","Capacity market","Retail competition"],"scope":["Policy studies on spot, capacity and derivatives markets and the retail electricity market.","Reviewed policies and proposed bills in support of EPIRA implementation."]},
+      {"t":"Electric Cooperative Supply Contracting & Rate Oversight","loc":"Philippines","y":"2025–2026","cat":"Policy, Regulation & ESG","role":"Supervising Economist","org":"National Electrification Administration","client":"NEA","tech":["Power supply contracts","Cost-of-service rates"],"scope":["Supervised electric cooperatives on supply contracting, WESM participation and retail competition.","Evaluated cost-of-service rate studies and rate-setting."]},
+      {"t":"Small Modular Reactor Integration into the Philippine Power System","loc":"Philippines","y":"2022–2024","cat":"Grid, Metering & Analytics","role":"Researcher (M.Sc. thesis)","org":"KEPCO International Nuclear Graduate School","tech":["SMR","Generation expansion","Financial feasibility"],"scope":["Simulated the financial and operational feasibility of SMRs within the Philippine grid expansion."]}
+    ],
+    skills: [
+      'Electricity market design, utility regulation and rate-setting',
+      'Energy economics, econometrics, cost-benefit and policy impact analysis',
+      'Tools: Python, RStudio, HOMER, @RISK, Minitab, ArcGIS (basic)',
+      'Research management, policy writing and public speaking'
+    ],
+    tags: ['Electricity Markets', 'Energy Policy', 'Utility Regulation', 'Rate Setting', 'Energy Economics', 'ASEAN Power Grid', 'SMRs']
   }
 };
-window.EXPERT_ORDER = ['qh', 'da', 'fn', 'rm', 'dh', 'ca', 'ma', 'am', 'yg'];
+window.EXPERT_ORDER = ['qh', 'da', 'fn', 'rm', 'dh', 'ca', 'ma', 'am', 'yg', 'ab', 'nz', 'pp'];
