@@ -19,18 +19,14 @@
   --font-d:'Cormorant Garamond',Georgia,serif;
   --font-b:'DM Sans',Helvetica,sans-serif;
 }
-body{font-family:var(--font-b);background:var(--ivory);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse 50% 45% at 8% 0%,rgba(197,161,90,.18),transparent 70%),radial-gradient(ellipse 45% 40% at 100% 100%,rgba(197,161,90,.12),transparent 70%);z-index:0}
+html,body{height:100%}
+body{font-family:var(--font-b);background:var(--ivory);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5;overflow:hidden;display:flex;flex-direction:column;height:100vh;height:100dvh}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse 50% 45% at 8% 0%,rgba(197,161,90,.18),transparent 70%),radial-gradient(ellipse 45% 40% at 100% 100%,rgba(197,161,90,.12),transparent 70%)}
 a{text-decoration:none;color:inherit}
-img{display:block;max-width:100%}
-button{font:inherit;color:inherit}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 
-header{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;height:68px;padding:0 clamp(20px,3.6vw,56px);background:rgba(244,239,228,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.logo{display:flex;align-items:center;gap:11px}
-.logo-mark{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--navy);color:var(--champagne);box-shadow:0 0 0 3px rgba(197,161,90,.25)}
-.logo-mark svg{width:16px;height:16px}
+header{position:relative;z-index:20;display:flex;align-items:center;justify-content:space-between;height:64px;flex-shrink:0;padding:0 clamp(20px,3.6vw,56px);border-bottom:1px solid var(--line)}
 .logo-text{font-family:var(--font-d);font-size:23px;font-weight:600;letter-spacing:2px}
-.logo-text span{color:var(--gold-ink);font-weight:500}
 .hdr-r{display:flex;align-items:center;gap:10px}
 .back{font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);padding:10px 14px;transition:color .3s}
 .back:hover{color:var(--gold-ink)}
@@ -38,80 +34,169 @@ header{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-
 .wa svg{width:15px;height:15px;color:#4ADE80}
 .wa:hover{background:var(--navy-2);box-shadow:0 8px 24px rgba(14,23,38,.25)}
 
-.wrap{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:clamp(28px,5vh,52px) clamp(16px,3vw,40px) 60px}
-.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:10.5px;font-weight:700;letter-spacing:3.4px;text-transform:uppercase;color:var(--gold-ink)}
-.eyebrow::before{content:'';width:30px;height:1px;background:var(--gold)}
-h1{font-family:var(--font-d);font-size:clamp(34px,4.6vw,60px);font-weight:500;line-height:1.04;margin:12px 0 10px}
+.stage{position:relative;z-index:1;flex:1;min-height:0;display:flex;flex-direction:column;width:100%;max-width:1320px;margin:0 auto;padding:clamp(12px,2.2vh,24px) clamp(16px,3vw,40px) 10px}
+.top{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-shrink:0}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:10px;font-weight:700;letter-spacing:3.2px;text-transform:uppercase;color:var(--gold-ink)}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+h1{font-family:var(--font-d);font-size:clamp(26px,3vw,42px);font-weight:500;line-height:1.05;margin-top:6px}
 h1 em{font-style:italic;font-weight:600;color:var(--gold-ink)}
-.lede{max-width:760px;font-size:15px;color:var(--muted);line-height:1.7}
+.stats{display:flex;gap:8px;flex-shrink:0}
+.st{min-width:92px;padding:9px 12px 8px;border-radius:12px;background:linear-gradient(160deg,var(--navy-2),var(--navy));color:#fff;position:relative;overflow:hidden}
+.st::after{content:'';position:absolute;right:-20px;top:-20px;width:70px;height:70px;border-radius:50%;background:radial-gradient(circle,rgba(227,203,149,.22),transparent 70%)}
+.st b{display:block;font-family:var(--font-d);font-size:clamp(20px,1.8vw,26px);font-weight:600;line-height:1;color:var(--champagne);white-space:nowrap}
+.st span{display:block;font-size:8.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:rgba(255,255,255,.72);margin-top:5px;white-space:nowrap}
 
-.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:28px}
-.st{padding:18px 18px 16px;border-radius:14px;background:linear-gradient(160deg,var(--navy-2),var(--navy));color:#fff;position:relative;overflow:hidden}
-.st::after{content:'';position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(227,203,149,.2),transparent 70%)}
-.st b{display:block;font-family:var(--font-d);font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1;color:var(--champagne)}
-.st span{display:block;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:rgba(255,255,255,.75);margin-top:8px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:clamp(10px,1.8vh,18px) 0 clamp(8px,1.4vh,14px);flex-shrink:0;min-height:34px}
+.crumbs{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:12px;font-weight:600;color:var(--muted)}
+.crumbs button{padding:6px 12px;border-radius:30px;border:1px solid rgba(197,161,90,.35);background:rgba(255,255,255,.6);transition:all .25s}
+.crumbs button:hover{border-color:var(--gold);color:var(--ink)}
+.crumbs .cur{padding:6px 12px;border-radius:30px;background:var(--navy);color:var(--champagne);max-width:46vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.crumbs i{font-style:normal;color:var(--gold)}
+.bar-r{display:flex;align-items:center;gap:8px}
+.pill{font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-ink);border:1px solid var(--gold);padding:8px 14px;border-radius:40px;transition:background .3s;white-space:nowrap}
+.pill:hover{background:rgba(197,161,90,.12)}
+.pager{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--muted)}
+.pager button{width:32px;height:32px;border-radius:50%;border:1px solid rgba(197,161,90,.5);background:#fff;font-size:15px;transition:all .25s}
+.pager button:hover:not(:disabled){background:var(--navy);color:var(--champagne);border-color:var(--navy)}
+.pager button:disabled{opacity:.35;cursor:default}
 
-.bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin:32px 0 18px}
-.filters{display:flex;flex-wrap:wrap;gap:8px}
-.f{font-size:12px;font-weight:600;padding:8px 14px;border-radius:30px;border:1px solid rgba(197,161,90,.4);background:#fff;cursor:pointer;transition:all .25s}
-.f:hover{border-color:var(--gold)}
-.f.on{background:var(--navy);color:var(--champagne);border-color:var(--navy)}
-.f i{font-style:normal;opacity:.6;margin-left:4px}
-.map{font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold-ink);border:1px solid var(--gold);padding:9px 16px;border-radius:40px;transition:background .3s}
-.map:hover{background:rgba(197,161,90,.12)}
+.view{position:relative;flex:1;min-height:0}
+.pane{position:absolute;inset:0;animation:enter .45s cubic-bezier(.16,1,.3,1) both}
+@keyframes enter{from{opacity:0;transform:translateX(24px) scale(.985)}to{opacity:1;transform:none}}
+.pane.back-anim{animation-name:enterBack}
+@keyframes enterBack{from{opacity:0;transform:translateX(-24px) scale(.985)}to{opacity:1;transform:none}}
 
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.pc{display:flex;flex-direction:column;padding:18px 18px 16px;border-radius:14px;background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--gold);transition:transform .35s,box-shadow .35s;animation:rise .5s ease both}
-.pc:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(14,23,38,.1)}
-@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.pc-top{display:flex;justify-content:space-between;gap:8px;align-items:center}
-.cat{font-size:9.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold-ink)}
-.yr{font-size:11px;font-weight:700;color:var(--navy);background:var(--champagne);padding:2px 9px;border-radius:20px;white-space:nowrap}
-.pc h3{font-family:var(--font-d);font-size:21px;font-weight:600;line-height:1.18;margin:8px 0 4px}
-.loc{font-size:12px;font-weight:600;color:var(--muted)}
-.pc p{font-size:13px;line-height:1.55;color:#3A4150;margin-top:8px;flex:1}
-.by{display:flex;align-items:center;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;font-weight:600}
-.by img,.by .ini{width:26px;height:26px;border-radius:50%;object-fit:cover;border:1.5px solid var(--gold);flex-shrink:0}
-.by .ini{display:flex;align-items:center;justify-content:center;background:var(--navy);color:var(--champagne);font-size:10px}
-.by:hover span{color:var(--gold-ink);text-decoration:underline}
-.specs{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.sp{display:inline-flex;align-items:baseline;gap:4px;font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:20px;background:var(--navy);color:var(--champagne)}
-.sp small{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.7);font-weight:700}
-.meta{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;margin-top:12px;font-size:12px}
-.meta dt{font-weight:700;color:var(--gold-ink);font-size:10px;letter-spacing:1.2px;text-transform:uppercase;padding-top:2px}
-.meta dd{color:#2B3240}
-.scope{list-style:none;margin-top:10px}
-.scope li{position:relative;padding-left:15px;font-size:12.5px;line-height:1.5;color:#3A4150}
-.scope li+li{margin-top:3px}
-.scope li::before{content:'';position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
-.more{align-self:flex-start;margin-top:12px;font-size:10.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold-ink);background:none;border:none;cursor:pointer;padding:0}
-.more:hover{text-decoration:underline}
-.pc{cursor:pointer}
-.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(14,23,38,.55);backdrop-filter:blur(6px)}
-.modal.open{display:flex}
-.panel{position:relative;width:100%;max-width:820px;max-height:calc(100vh - 40px);overflow:auto;background:var(--paper);border-radius:18px;box-shadow:0 30px 80px rgba(14,23,38,.35);animation:rise .35s ease}
-.ph{background:linear-gradient(160deg,var(--navy-2),var(--navy));color:#fff;padding:28px 30px 24px;border-radius:18px 18px 0 0}
-.ph .cat{color:var(--champagne)}
-.ph h2{font-family:var(--font-d);font-size:clamp(26px,3vw,34px);font-weight:600;line-height:1.1;margin:8px 0 6px}
-.ph .loc{color:rgba(255,255,255,.75)}
-.ph .specs .sp{background:var(--champagne);color:var(--navy)}
-.ph .specs .sp small{color:rgba(14,23,38,.65)}
-.pb{padding:24px 30px 28px}
-.pb h4{font-size:10px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:var(--gold-ink);margin:18px 0 8px}
-.pb h4:first-child{margin-top:0}
-.pb .meta{font-size:13.5px;gap:6px 14px}
-.pb .scope li{font-size:14px}
-.inv{display:grid;gap:10px}
-.inv div{padding:12px 14px;border-radius:12px;background:#fff;border:1px solid var(--line)}
-.inv b{display:block;font-size:13.5px}
-.inv span{display:block;font-size:12.5px;color:var(--muted);line-height:1.55;margin-top:3px}
-.x{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;cursor:pointer;font-size:20px;line-height:1}
-.pb .by{border-top:none;padding-top:0;margin-top:20px}
-.note{font-size:12px;color:var(--muted);margin-top:22px;max-width:820px}
-footer{position:relative;z-index:1;text-align:center;font-size:11px;color:#8A8F98;padding:0 16px 30px}
+/* Level 1 — category tiles */
+.cats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:1fr;gap:clamp(8px,1vw,14px);height:100%}
+.tile{position:relative;display:flex;flex-direction:column;justify-content:space-between;text-align:left;padding:clamp(12px,1.6vh,18px) 16px;border-radius:16px;background:linear-gradient(160deg,var(--navy-2),var(--navy));color:#fff;overflow:hidden;border:1px solid rgba(227,203,149,.14);transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,border-color .35s;animation:rise .55s cubic-bezier(.16,1,.3,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.tile::before{content:'';position:absolute;right:-40px;top:-40px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(227,203,149,.18),transparent 70%);transition:transform .5s}
+.tile:hover,.tile:focus-visible{transform:translateY(-4px);box-shadow:0 18px 40px rgba(14,23,38,.28);border-color:rgba(227,203,149,.5);outline:none}
+.tile:hover::before{transform:scale(1.4)}
+.ico{width:clamp(44px,min(4.4vw,8vh),68px);height:clamp(44px,min(4.4vw,8vh),68px);color:var(--champagne);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.tile:hover .ico{transform:scale(1.12) rotate(-3deg)}
+.ico svg{width:100%;height:100%;overflow:hidden;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.t-name{font-family:var(--font-d);font-size:clamp(17px,1.45vw,22px);font-weight:600;line-height:1.1;margin-top:8px}
+.t-sub{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-top:6px;font-size:10px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.t-sub b{color:var(--champagne);font-size:11px}
+.t-go{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(227,203,149,.15);color:var(--champagne);font-size:13px;transition:all .3s}
+.tile:hover .t-go{background:var(--champagne);color:var(--navy);transform:translateX(3px)}
+.tile.all{background:linear-gradient(160deg,#F1DDAE,#C5A15A);color:var(--navy)}
+.tile.all .ico,.tile.all .t-sub b{color:var(--navy)}
+.tile.all .t-sub{color:rgba(14,23,38,.65)}
+.tile.all .t-go{background:rgba(14,23,38,.12);color:var(--navy)}
 
-@media(max-width:1000px){.grid{grid-template-columns:1fr 1fr}.stats{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:620px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.wa span{display:none}.wa{padding:10px 12px}.back span{display:none}.logo-text{font-size:20px}}
+/* icon animations */
+.a-spin{animation:spin 8s linear infinite}.a-fast{animation-duration:3.2s}
+@keyframes spin{to{transform:rotate(360deg)}}
+.a-wave{animation:wave 3s linear infinite}
+@keyframes wave{to{transform:translateX(-24px)}}
+.a-fill{animation:fill 2.4s ease-in-out infinite}.a-fill.d2{animation-delay:.4s}.a-fill.d3{animation-delay:.8s}
+@keyframes fill{0%,15%{opacity:.15}40%,85%{opacity:1}100%{opacity:.15}}
+.a-drop{animation:drop 1.8s ease-in infinite}.a-drop.d2{animation-delay:.9s}
+@keyframes drop{0%{transform:translateY(-6px);opacity:0}20%{opacity:1}100%{transform:translateY(14px);opacity:0}}
+.a-zap{animation:zap 1.6s steps(1) infinite}
+@keyframes zap{0%,50%,70%{opacity:1}55%,65%,100%{opacity:.15}}
+.a-flow{stroke-dasharray:3 5;animation:flow 1s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-16}}
+.a-flick{transform-origin:24px 40px;animation:flick 1.4s ease-in-out infinite alternate}
+@keyframes flick{0%{transform:scale(1,1)}50%{transform:scale(.94,1.06)}100%{transform:scale(1.04,.95)}}
+.a-tilt{animation:tilt 3.6s ease-in-out infinite}
+@keyframes tilt{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+.a-bar{transform-box:fill-box;transform-origin:bottom;animation:bar 2.6s ease-in-out infinite}.a-bar.d2{animation-delay:.25s}.a-bar.d3{animation-delay:.5s}
+@keyframes bar{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+.a-needle{animation:needle 3s ease-in-out infinite}
+@keyframes needle{0%,100%{transform:rotate(-70deg)}50%{transform:rotate(45deg)}}
+.a-pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+
+/* Level 2 — project list */
+.plist{display:grid;gap:12px;height:100%;align-content:start}
+.pc{position:relative;display:flex;flex-direction:column;text-align:left;height:var(--ch,170px);padding:14px 16px 12px;border-radius:14px;background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--gold);overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s;animation:rise .5s cubic-bezier(.16,1,.3,1) both}
+.pc:hover,.pc:focus-visible{transform:translateY(-3px);box-shadow:0 16px 32px rgba(14,23,38,.12);outline:none}
+.pc-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pc-top .mi{width:22px;height:22px;color:var(--gold-ink)}
+.pc-top .mi svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.yr{font-size:10.5px;font-weight:700;color:var(--navy);background:var(--champagne);padding:2px 9px;border-radius:20px;white-space:nowrap}
+.pc h3{font-family:var(--font-d);font-size:18px;font-weight:600;line-height:1.15;margin:7px 0 3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.loc{font-size:11.5px;font-weight:600;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pc .cl{font-size:11px;color:#3A4150;margin-top:auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pc .cl b{font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold-ink);margin-right:6px}
+.specs{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px;max-height:24px;overflow:hidden}
+.sp{display:inline-flex;align-items:baseline;gap:4px;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;background:var(--navy);color:var(--champagne)}
+.sp small{font-size:8.5px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.pc .go{position:absolute;right:12px;bottom:10px;font-size:10px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold-ink);opacity:0;transform:translateX(-4px);transition:all .3s}
+.pc:hover .go{opacity:1;transform:none}
+
+/* Level 3 — project detail */
+.detail{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);height:100%;border-radius:18px;overflow:hidden;box-shadow:0 20px 50px rgba(14,23,38,.14);border:1px solid var(--line)}
+.d-l{position:relative;background:linear-gradient(160deg,var(--navy-2),var(--navy));color:#fff;padding:clamp(18px,3vh,30px) clamp(18px,2.4vw,30px);display:flex;flex-direction:column;overflow:hidden}
+.d-l .big{position:absolute;right:-18px;bottom:-18px;width:180px;height:180px;color:rgba(227,203,149,.12)}
+.d-l .big svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.d-cat{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--champagne)}
+.d-l h2{font-family:var(--font-d);font-size:clamp(24px,2.4vw,34px);font-weight:600;line-height:1.08;margin:8px 0 6px}
+.d-l .loc{color:rgba(255,255,255,.75);white-space:normal}
+.d-l .specs{max-height:none}
+.d-l .sp{background:var(--champagne);color:var(--navy)}
+.d-l .sp small{color:rgba(14,23,38,.6)}
+.meta{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin-top:16px;font-size:13px}
+.meta dt{font-weight:700;color:var(--champagne);font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;padding-top:3px}
+.meta dd{color:rgba(255,255,255,.88)}
+.d-nav{display:flex;gap:8px;margin-top:auto;padding-top:16px;position:relative;z-index:1}
+.d-nav button{font-size:10.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;padding:9px 14px;border-radius:30px;border:1px solid rgba(227,203,149,.4);color:var(--champagne);transition:all .25s}
+.d-nav button:hover:not(:disabled){background:var(--champagne);color:var(--navy)}
+.d-nav button:disabled{opacity:.3;cursor:default}
+.d-r{background:var(--paper);padding:clamp(18px,3vh,30px) clamp(18px,2.4vw,32px);overflow:auto}
+.d-r h4{font-size:10px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:var(--gold-ink);margin:18px 0 8px}
+.d-r h4:first-child{margin-top:0}
+.scope{list-style:none}
+.scope li{position:relative;padding-left:16px;font-size:13.5px;line-height:1.55;color:#2B3240}
+.scope li+li{margin-top:5px}
+.scope li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.inv{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+.inv div{padding:10px 12px;border-radius:12px;background:#fff;border:1px solid var(--line)}
+.inv b{display:block;font-size:12.5px}
+.inv span{display:block;font-size:11.5px;color:var(--muted);line-height:1.5;margin-top:3px}
+.d-note{font-size:11px;color:var(--muted);margin-top:16px}
+
+.pc .sn{font-size:11.5px;line-height:1.45;color:#4A5160;margin-top:7px;display:-webkit-box;-webkit-line-clamp:var(--sl,2);-webkit-box-orient:vertical;overflow:hidden}
+.pc .cl{padding-top:6px}
+.t-tag{display:block;font-size:11.5px;line-height:1.4;color:rgba(255,255,255,.62);margin-top:4px}
+.tile.all .t-tag{color:rgba(14,23,38,.7)}
+.pane{display:flex;flex-direction:column}
+.pane>.cats{height:auto;flex:1;max-height:min(100%,620px);margin:auto 0}
+.pane>.plist{flex:1}
+.pane>.detail{flex:1;height:auto;min-height:0}
+@media(min-height:900px) and (min-width:901px){.ico{width:clamp(56px,6vw,84px);height:clamp(56px,6vw,84px)}.t-name{font-size:clamp(19px,1.5vw,24px)}}
+@media(max-height:760px) and (min-width:901px){.t-tag{display:none}}
+/* Partners strip */
+.partners{position:relative;z-index:1;flex-shrink:0;display:flex;align-items:center;gap:18px;height:52px;padding:0 clamp(16px,3.6vw,56px);border-top:1px solid var(--line);background:rgba(255,255,255,.35)}
+.partners .lbl{flex-shrink:0;font-size:9.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-ink);line-height:1.3}
+.marq{flex:1;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.track{display:flex;align-items:center;gap:34px;width:max-content;animation:marq 60s linear infinite}
+.marq:hover .track{animation-play-state:paused}
+@keyframes marq{to{transform:translateX(-50%)}}
+.wm{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-d);font-size:18px;font-weight:700;letter-spacing:.5px;color:#3A4150;opacity:.62;white-space:nowrap;transition:opacity .3s}
+.wm:hover{opacity:1}
+.wm small{font-family:var(--font-b);font-size:9px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)}
+.wm::before{content:'';width:6px;height:6px;transform:rotate(45deg);background:var(--gold);opacity:.7}
+
+@media(max-width:1280px){.st{min-width:80px;padding:8px 10px}.cats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-height:760px) and (min-width:901px){.top .eyebrow{display:none}h1{margin-top:0}.st span{font-size:8px}}
+@media(max-width:1060px){.stats .st:nth-child(n+4){display:none}}
+@media(max-width:900px),(max-height:520px){
+  body{overflow:auto;height:auto;display:block}
+  .stage{display:block}
+  .top{flex-direction:column;align-items:flex-start}
+  .stats{flex-wrap:wrap}.stats .st:nth-child(n+4){display:block}
+  .view{min-height:0}.pane{position:relative;inset:auto}
+  .cats{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px;height:auto}
+  .plist{height:auto}
+  .detail{grid-template-columns:1fr;height:auto}.d-r{overflow:visible}
+  .partners{height:auto;padding:14px 16px;flex-direction:column;align-items:flex-start;gap:8px}.marq{width:100%}
+  .wa span{display:none}.wa{padding:10px 12px}.back span{display:none}
+  .bar{flex-wrap:wrap}.crumbs .cur{max-width:80vw}
+}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
 /* Envisor brand mark (shared) */
@@ -136,31 +221,32 @@ footer{position:relative;z-index:1;text-align:center;font-size:11px;color:#8A8F9
   </div>
 </header>
 
-<main class="wrap">
-  <div class="eyebrow">Our Works &amp; Portfolio</div>
-  <h1>Projects delivered by <em>our experts.</em></h1>
-  <p class="lede">A combined track record of Envisor's experts across solar PV, floating PV, battery storage and hybrid plants, wind and hydro, power transformers and grid analytics &mdash; from 100 kWp rooftops to utility-scale plants in Indonesia and abroad.</p>
-
-  <div class="stats" id="stats"></div>
-
+<main class="stage">
+  <section class="top">
+    <div>
+      <div class="eyebrow">Our Works &amp; Portfolio</div>
+      <h1>Projects delivered by <em>Envisor experts.</em></h1>
+    </div>
+    <div class="stats" id="stats"></div>
+  </section>
   <div class="bar">
-    <div class="filters" id="filters" role="tablist" aria-label="Filter by category"></div>
-    <a class="map" href="https://storymaps.arcgis.com/stories/ac01da24257946b2bc8f2ed94c90306c" target="_blank" rel="noopener">Interactive project map &#8599;</a>
+    <nav class="crumbs" id="crumbs" aria-label="Breadcrumb"></nav>
+    <div class="bar-r" id="barR"></div>
   </div>
-
-  <div class="grid" id="grid"></div>
-  <div class="modal" id="md" role="dialog" aria-modal="true"><div class="panel"></div></div>
-  <p class="note">Projects and engagements were delivered by Envisor experts in their professional roles, including with current and previous employers and as independent consultants. Select a project for full details, or an expert's name to view their CV.</p>
+  <div class="view" id="view" aria-live="polite"></div>
 </main>
-<footer>&copy; 2025 Envisor Group &middot; <a href="https://wa.me/6285121532407" target="_blank" rel="noopener">+62 851-2153-2407</a> &middot; <a href="mailto:hello@envisorai.com">hello@envisorai.com</a></footer>
+
+<section class="partners" aria-label="Organisations our experts have worked with">
+  <span class="lbl">Our experts<br>have worked with</span>
+  <div class="marq"><div class="track" id="track"></div></div>
+</section>
 
 <script src="experts.js"></script>
 <script>
 (function(){
   function esc(t){var d=document.createElement('div');d.textContent=t==null?'':String(t);return d.innerHTML}
   function cat(x){
-    if(x.cat)return x.cat;
-    var t=x.t;
+    if(x.cat)return x.cat;var t=x.t;
     if(/Floating PV/i.test(t))return 'Floating PV';
     if(/Hybrid|BESS/i.test(t))return 'Hybrid & BESS';
     if(/Wind/i.test(t))return 'Wind';
@@ -171,78 +257,138 @@ footer{position:relative;z-index:1;text-align:center;font-size:11px;color:#8A8F9
   }
   function year(y){var m=String(y).match(/\d{4}/);return m?+m[0]:0}
 
+  // Animated, category-specific symbols (48x48 line art)
+  var W='M-24 38c4-3 8-3 12 0s8 3 12 0 8-3 12 0 8 3 12 0 8-3 12 0 8 3 12 0 8-3 12 0';
+  var ICON={
+    'Solar PV':'<g class="a-spin" style="transform-origin:35px 12px"><circle cx="35" cy="12" r="4.5"/><path d="M35 3.5v2.5M35 18v2.5M26.5 12H29M41 12h2.5M29 6l1.8 1.8M39.2 16.2L41 18M29 18l1.8-1.8M39.2 7.8L41 6"/></g><path d="M6 42l6-16h24l-6 16z"/><path d="M9 34h24M20 26l-5 16M28 26l-5 16"/>',
+    'Floating PV':'<path d="M10 30l4-11h22l-4 11z"/><path d="M12 24.5h22M22 19l-4 11M29 19l-4 11"/><g class="a-wave"><path d="'+W+'"/><path d="'+W.replace('38','44')+'" opacity=".6"/></g>',
+    'Hybrid & BESS':'<rect x="8" y="14" width="30" height="22" rx="3"/><path d="M38 21h3v8h-3"/><rect class="a-fill" x="12" y="18" width="6" height="14" rx="1" fill="currentColor" stroke="none"/><rect class="a-fill d2" x="20" y="18" width="6" height="14" rx="1" fill="currentColor" stroke="none"/><rect class="a-fill d3" x="28" y="18" width="6" height="14" rx="1" fill="currentColor" stroke="none"/><path d="M22 4l-3 6h5l-3 6" class="a-zap"/>',
+    'Wind':'<path d="M24 22v22M19 44h10"/><g class="a-spin a-fast" style="transform-origin:24px 20px"><circle cx="24" cy="20" r="2.2"/><path d="M24 17.8V4M26 21.2l11.8 6.8M22 21.2L10.2 28"/></g>',
+    'Hydro':'<path d="M5 8h13l6 32H5z"/><path d="M9 16h9M9 24h11M9 32h12"/><g class="a-drop"><path d="M32 12c0 0-3 4-3 6a3 3 0 0 0 6 0c0-2-3-6-3-6z"/></g><g class="a-drop d2"><path d="M39 10c0 0-2.5 3.4-2.5 5a2.5 2.5 0 0 0 5 0c0-1.6-2.5-5-2.5-5z"/></g><path d="M26 44c3-2 6-2 9 0s6 2 9 0"/>',
+    'Transformer & OLTC':'<rect x="9" y="14" width="30" height="24" rx="2"/><path d="M15 38v5M33 38v5M14 8v6M24 8v6M34 8v6"/><path class="a-zap" d="M25 18l-5 8h6l-4 8"/>',
+    'Grid, Metering & Analytics':'<path d="M15 44L20 8h8l5 36M17.5 26h13M16 35h16M20 8l-8 6h24l-8-6M18 26l12 9M30 26l-12 9"/><path class="a-flow" d="M2 14h10M36 14h10"/>',
+    'Geothermal & O&G':'<path class="a-flick" d="M24 6c6 8 10 12 10 20a10 10 0 0 1-20 0c0-5 3-8 5-11 1 4 3 5 5 6 0-5-2-9 0-15z"/><path d="M8 44h32"/>',
+    'Policy, Regulation & ESG':'<path d="M24 8v34M15 42h18"/><circle cx="24" cy="8" r="2"/><g class="a-tilt" style="transform-origin:24px 13px"><path d="M9 13h30"/><path d="M9 13l-5 11h10zM39 13l-5 11h10z"/></g>',
+    'Strategy & Transformation':'<path d="M6 43h36"/><rect class="a-bar" x="10" y="29" width="6" height="14" rx="1"/><rect class="a-bar d2" x="20" y="21" width="6" height="22" rx="1"/><rect class="a-bar d3" x="30" y="13" width="6" height="30" rx="1"/><path d="M8 24l10-8 8 4 13-12M33 8h6v6"/>',
+    'Energy Efficiency & Audit':'<path d="M7 34a17 17 0 0 1 34 0"/><path d="M11 34h26M24 17v3M12 22l2 2M36 22l-2 2"/><g class="a-needle" style="transform-origin:24px 34px"><path d="M24 34V21"/></g><circle cx="24" cy="34" r="2.4" fill="currentColor"/><path d="M15 42h18"/>',
+    'Studies & Consulting':'<circle class="a-pulse" cx="21" cy="21" r="11"/><path d="M29 29l12 12"/>'
+  };
+  function icon(c){return '<svg viewBox="0 0 48 48" aria-hidden="true">'+(ICON[c]||ICON['Studies & Consulting'])+'</svg>'}
+  var TAG={'Hybrid & BESS':'Battery storage & hybrid power plants','Solar PV':'Ground-mounted, rooftop & C&I solar','Floating PV':'Reservoir & lake-based solar','Strategy & Transformation':'Corporate strategy & value chains','Energy Efficiency & Audit':'Industrial, water & resource audits','Grid, Metering & Analytics':'Planning, metering & grid studies','Wind':'Wind resource & plant design','Geothermal & O&G':'Geothermal, oil & gas economics','Policy, Regulation & ESG':'Energy law, climate policy & ESG','Transformer & OLTC':'Power transformers & tap changers','Hydro':'Mini & run-of-river hydro','Studies & Consulting':'Technical studies & advisory'};
+
   var all=[];
-  EXPERT_ORDER.forEach(function(id){var e=EXPERTS[id];(e.projects||[]).forEach(function(p){all.push({p:p,id:id,e:e,c:cat(p)})})});
+  EXPERT_ORDER.forEach(function(id){var e=EXPERTS[id];(e.projects||[]).forEach(function(p){all.push({p:p,c:cat(p)})})});
   all.sort(function(a,b){return year(b.p.y)-year(a.p.y)});
 
   // Stats
-  var pv=0,bess=0,wh=0,countries={},experts={};
-  all.forEach(function(r){var p=r.p;experts[r.id]=1;pv+=p.pv||0;bess+=p.bess||0;wh+=p.mw||0;
+  var pv=0,bess=0,wh=0,countries={};
+  all.forEach(function(r){var p=r.p;pv+=p.pv||0;bess+=p.bess||0;wh+=p.mw||0;
     String(p.loc).split(/,|&/).forEach(function(l){l=l.trim();var m=l.match(/New Zealand|China|Malaysia|Australia|Taiwan|United States|Switzerland|Cambodia|Philippines/);if(m)countries[m[0]]=1;else if(!/remote/i.test(l))countries.Indonesia=1});
   });
-  var stats=[[all.length,'Projects & engagements'],[(pv/1000).toFixed(1)+' GWp','Solar PV designed'],[Math.round(bess).toLocaleString('en')+' MWh','Battery storage'],[Math.round(wh).toLocaleString('en')+' MW','Wind & hydro'],[Object.keys(countries).length,'Countries']];
+  var stats=[[all.length,'Projects'],[(pv/1000).toFixed(1)+' GWp','Solar PV'],[Math.round(bess).toLocaleString('en')+' MWh','Storage'],[Math.round(wh).toLocaleString('en')+' MW','Wind & hydro'],[Object.keys(countries).length,'Countries']];
   document.getElementById('stats').innerHTML=stats.map(function(s){return '<div class="st"><b>'+s[0]+'</b><span>'+s[1]+'</span></div>'}).join('');
 
-  // Filters
-  var cats=['All'];all.forEach(function(r){if(cats.indexOf(r.c)<0)cats.push(r.c)});
-  var fEl=document.getElementById('filters'),gEl=document.getElementById('grid'),cur='All';
-  function renderFilters(){fEl.innerHTML=cats.map(function(c){var n=c==='All'?all.length:all.filter(function(r){return r.c===c}).length;return '<button class="f'+(c===cur?' on':'')+'" role="tab" aria-selected="'+(c===cur)+'" data-c="'+esc(c)+'">'+esc(c)+'<i>'+n+'</i></button>'}).join('')}
+  // Categories, largest first
+  var cmap={};all.forEach(function(r){(cmap[r.c]=cmap[r.c]||[]).push(r)});
+  var cats=Object.keys(cmap).sort(function(a,b){return cmap[b].length-cmap[a].length});
+  function list(c){return c==='All'?all:(cmap[c]||[])}
+
   function specs(p){var o=[];
     if(p.pv)o.push(['Solar',(p.pv<1?Math.round(p.pv*1000)+' kWp':p.pv+' MWp')]);
     if(p.bess)o.push(['BESS',p.bess+' MWh']);
     if(p.mw)o.push([/Wind/i.test(p.t)?'Wind':'Hydro',p.mw+' MW']);
     return o.length?'<div class="specs">'+o.map(function(x){return '<span class="sp"><small>'+x[0]+'</small>'+esc(x[1])+'</span>'}).join('')+'</div>':''}
-  function meta(r){var p=r.p,o=[];
+  function metric(c){var a=cmap[c],s=0,u='';
+    if(/Solar|Floating/.test(c)){a.forEach(function(r){s+=r.p.pv||0});u=s>=1000?(s/1000).toFixed(1)+' GWp':Math.round(s)+' MWp'}
+    else if(/BESS/.test(c)){a.forEach(function(r){s+=r.p.bess||0});u=Math.round(s)+' MWh'}
+    else if(/Wind|Hydro/.test(c)){a.forEach(function(r){s+=r.p.mw||0});u=Math.round(s)+' MW'}
+    return s?u:''}
+  var GLOSS=[
+    [/sizing, design, (and )?yield simulation|sizing, design, yield simulation/i,'Plant sizing, design & yield simulation','Selecting DC/AC capacity and equipment, laying out the plant, and simulating hour-by-hour production to estimate annual yield.'],
+    [/grid interconnection (study|assessment)|grid connection/i,'Grid interconnection study','Load flow, short-circuit, voltage and frequency checks, and the substation or line upgrades required to connect.'],
+    [/grid impact/i,'Grid impact study','The plant\'s effect on the surrounding network under normal and contingency conditions.'],
+    [/bidding tender|EPC tender/i,'Tender & EPC selection','Technical specifications and scopes of work, then bid evaluation to select the EPC contractor and suppliers.'],
+    [/feasibility/i,'Feasibility study','Technical viability — resource, site, design and grid — to support the investment decision.'],
+    [/hybrid (system )?model|hybrid power plant modelling|sizing tool/i,'Hybrid system modelling','How PV, batteries, wind and gensets share the load over time, to find the least-cost reliable mix.'],
+    [/BESS integration/i,'BESS integration study','Sizing battery storage and checking its effect on the distribution network before connection.'],
+    [/energy audit|audits?\b/i,'Energy & resource audit','Baselines, on-site measurement and savings estimates that turn into investment-ready measures.'],
+    [/tap.changer|OLTC/i,'On-load tap changer service','Reliable transformer voltage regulation through inspection, maintenance, retrofit and training.'],
+    [/high-voltage testing|SFRA|impulse/i,'Transformer testing','Dielectric, thermal and diagnostic tests proving a power transformer is fit for service.'],
+    [/expansion planning|RUPTL|master plan/i,'System planning','Long-term generation and transmission expansion scenarios against demand growth.'],
+    [/policy|regulat|market design/i,'Policy & regulatory analysis','Evidence-based recommendations on rules, markets and incentives for decision makers.']
+  ];
+  function involves(p){var txt=(p.scope||[p.d]).join(' ')+' '+p.t,seen={},o=[];
+    GLOSS.forEach(function(g){if(g[0].test(txt)&&!seen[g[1]]){seen[g[1]]=1;o.push(g)}});return o.slice(0,4)}
+
+  var view=document.getElementById('view'),crumbs=document.getElementById('crumbs'),barR=document.getElementById('barR');
+  var MAP='<a class="pill" href="https://storymaps.arcgis.com/stories/ac01da24257946b2bc8f2ed94c90306c" target="_blank" rel="noopener">Project map &#8599;</a>';
+  var state={v:'cats'};
+  function scrollMode(){return innerWidth<=900||innerHeight<=520}
+
+  function renderCats(){
+    crumbs.innerHTML='<span class="cur">All categories</span>';
+    barR.innerHTML='<button class="pill" data-go="all">View all '+all.length+' projects &#8594;</button>'+MAP;
+    return '<div class="cats">'+cats.map(function(c,i){var m=metric(c);
+      return '<button class="tile" data-c="'+esc(c)+'" style="animation-delay:'+(i*45)+'ms"><span class="ico">'+icon(c)+'</span><span><span class="t-name">'+esc(c)+'</span><span class="t-tag">'+esc(TAG[c]||'')+'</span><span class="t-sub"><span><b>'+cmap[c].length+'</b> project'+(cmap[c].length>1?'s':'')+(m?' · <b>'+m+'</b>':'')+'</span><span class="t-go">&#8594;</span></span></span></button>'}).join('')
+      +'<button class="tile all" data-go="all" style="animation-delay:'+(cats.length*45)+'ms"><span class="ico">'+icon('Studies & Consulting')+'</span><span><span class="t-name">All projects</span><span class="t-tag">Every engagement, newest first</span><span class="t-sub"><span><b>'+all.length+'</b> projects · <b>'+Object.keys(countries).length+'</b> countries</span><span class="t-go">&#8594;</span></span></span></button></div>'}
+
+  function layout(){var w=view.clientWidth,h=view.clientHeight,gap=12;
+    var cols=w>=1150?4:w>=820?3:w>=520?2:1;
+    if(scrollMode())return {cols:cols,per:1e9,ch:170};
+    var ch=170,rows=Math.max(1,Math.floor((h+gap)/(ch+gap)));
+    ch=Math.min(220,Math.floor((h-(rows-1)*gap)/rows));
+    return {cols:cols,per:cols*rows,ch:ch}}
+
+  function renderList(){var L=list(state.c),lay=layout(),pages=Math.max(1,Math.ceil(L.length/lay.per));
+    state.pg=Math.min(state.pg||0,pages-1);
+    crumbs.innerHTML='<button data-go="cats">All categories</button><i>&rsaquo;</i><span class="cur">'+esc(state.c==='All'?'All projects':state.c)+' &middot; '+L.length+'</span>';
+    barR.innerHTML=(pages>1?'<div class="pager"><button data-pg="-1" aria-label="Previous page"'+(state.pg?'':' disabled')+'>&#8249;</button><span>'+(state.pg+1)+' / '+pages+'</span><button data-pg="1" aria-label="Next page"'+(state.pg<pages-1?'':' disabled')+'>&#8250;</button></div>':'')+MAP;
+    var slice=L.slice(state.pg*lay.per,(state.pg+1)*lay.per);
+    return '<div class="plist" style="grid-template-columns:repeat('+lay.cols+',minmax(0,1fr));--ch:'+lay.ch+'px;--sl:'+(lay.ch>=205?3:lay.ch>=180?2:1)+'">'+slice.map(function(r,k){var i=state.pg*lay.per+k,p=r.p;
+      return '<button class="pc" data-i="'+i+'" style="animation-delay:'+(k*35)+'ms"><span class="pc-top"><span class="mi">'+icon(r.c)+'</span><span class="yr">'+esc(p.y)+'</span></span><h3>'+esc(p.t)+'</h3><span class="loc">'+esc(p.loc)+'</span>'+specs(p)+'<span class="sn">'+esc((p.scope||[p.d])[0]||'')+'</span>'
+        +(p.client?'<span class="cl"><b>Client</b>'+esc(p.client)+'</span>':(p.tech?'<span class="cl"><b>Tech</b>'+esc(p.tech.join(' · '))+'</span>':''))+'<span class="go">Details &#8594;</span></button>'}).join('')+'</div>'}
+
+  function renderDetail(){var L=list(state.c),r=L[state.i],p=r.p,inv=involves(p),o=[];
     if(p.client)o.push(['Client',p.client]);
     if(p.tech&&p.tech.length)o.push(['Technology',p.tech.join(' · ')]);
-    if(p.role)o.push(['Role',p.role+(p.org?' — '+p.org:'')]);
-    return o.length?'<dl class="meta">'+o.map(function(x){return '<dt>'+x[0]+'</dt><dd>'+esc(x[1])+'</dd>'}).join('')+'</dl>':''}
-  function scope(p,max){var sc=p.scope||[p.d];var show=max?sc.slice(0,max):sc;
-    return '<ul class="scope">'+show.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>'}
-  var GLOSS=[
-    [/sizing, design, (and )?yield simulation|sizing, design, yield simulation/i,'Plant sizing, design & yield simulation','Selecting DC/AC capacity and equipment, laying out the plant, and simulating hour-by-hour energy production to estimate annual yield and performance ratio.'],
-    [/grid interconnection (study|assessment)|grid connection/i,'Grid interconnection study','Checking how the plant connects to the PLN grid: load flow, short-circuit, voltage and frequency behaviour, and the substation or line upgrades required.'],
-    [/grid impact/i,'Grid impact study','Assessing the plant\'s effect on the surrounding network under normal and contingency conditions, as required by the grid operator.'],
-    [/grid assessment/i,'Grid assessment','Screening nearby substations and transmission lines for available capacity and connection options at candidate sites.'],
-    [/bidding tender|EPC tender/i,'Tender & EPC selection support','Preparing technical specifications and scopes of work, then evaluating bids to select the EPC contractor and equipment suppliers.'],
-    [/feasibility/i,'Feasibility study','Evaluating technical viability — resource, site, design and grid — to support the investment decision.'],
-    [/PPA negotiation/i,'PPA negotiation support','Technical input to the power purchase agreement, such as capacity, energy guarantees and grid-code obligations.'],
-    [/hybrid (system )?model|hybrid power plant modelling|sizing tool/i,'Hybrid system modelling','Modelling how PV, batteries, wind and gensets share the load over time to find the least-cost, most reliable combination.'],
-    [/BESS integration/i,'BESS integration study','Sizing battery storage and checking its effect on the distribution network (here 20 kV) before connection.'],
-    [/electrical design/i,'Electrical design & optimisation','Designing the plant\'s electrical system — collection network, transformers, switchgear and protection — and optimising losses and cost.'],
-    [/factory audit|CIGRE/i,'Transformer factory audit','Auditing transformer manufacturers\' facilities and quality processes against CIGRE guidance before procurement.'],
-    [/factory acceptance test|FAT/i,'Factory acceptance test (FAT)','Witnessing tests at the factory to confirm equipment meets specification before shipment.'],
-    [/performance|operation/i,'Operational performance analysis','Reviewing how an operating plant actually performs against design, to guide operation and future planning.'],
-    [/tap.changer|OLTC/i,'On-load tap changer service','Keeping transformer voltage regulation reliable through inspection, maintenance, retrofit and training.'],
-    [/high-voltage testing|SFRA|impulse/i,'Transformer high-voltage testing','Dielectric, thermal and diagnostic tests that prove a power transformer is fit for service.'],
-    [/theft|loss recovery|metering/i,'Metering & loss analytics','Using meter and billing data to find and recover non-technical losses.']
-  ];
-  function involves(p){var txt=(p.scope||[p.d]).join(' '),seen={},o=[];
-    GLOSS.forEach(function(g){if(g[0].test(txt)&&!seen[g[1]]){seen[g[1]]=1;o.push(g)}});
-    return o}
-  var shown=[];
-  function renderGrid(){shown=all.filter(function(r){return cur==='All'||r.c===cur});
-    gEl.innerHTML=shown.map(function(r,i){var e=r.e,sc=r.p.scope||[r.p.d];
-    return '<article class="pc" data-i="'+i+'" tabindex="0" style="animation-delay:'+Math.min(i*25,400)+'ms"><div class="pc-top"><span class="cat">'+esc(r.c)+'</span><span class="yr">'+esc(r.p.y)+'</span></div>'
-      +'<h3>'+esc(r.p.t)+'</h3><div class="loc">'+esc(r.p.loc)+'</div>'+specs(r.p)+meta(r)+scope(r.p,2)
-      +'<button class="more" data-i="'+i+'">Project details'+(sc.length>2?' (+'+(sc.length-2)+' more)':'')+' &#8594;</button>'
-      +'<a class="by" href="expert.html?id='+r.id+'">'+(e.img?'<img src="'+e.img+'" alt="">':'<span class="ini">'+esc(e.ini||'')+'</span>')+'<span>'+esc(e.short)+'</span></a></article>'}).join('')}
-  var md=document.getElementById('md');document.body.appendChild(md);
-  function openDetail(r){var e=r.e,inv=involves(r.p);
-    md.querySelector('.panel').innerHTML='<button class="x" aria-label="Close">&times;</button>'
-      +'<div class="ph"><span class="cat">'+esc(r.c)+' &middot; '+esc(r.p.y)+'</span><h2>'+esc(r.p.t)+'</h2><div class="loc">'+esc(r.p.loc)+'</div>'+specs(r.p)+'</div>'
-      +'<div class="pb"><h4>Project overview</h4>'+meta(r)
-      +'<h4>Scope of work</h4>'+scope(r.p)
+    if(p.role)o.push(['Expert role',p.role]);
+    crumbs.innerHTML='<button data-go="cats">All categories</button><i>&rsaquo;</i><button data-go="list">'+esc(state.c==='All'?'All projects':state.c)+'</button><i>&rsaquo;</i><span class="cur">'+esc(p.t)+'</span>';
+    barR.innerHTML='<div class="pager"><span>'+(state.i+1)+' / '+L.length+'</span></div>'+MAP;
+    return '<div class="detail"><div class="d-l"><span class="big">'+icon(r.c)+'</span><span class="d-cat">'+esc(r.c)+' &middot; '+esc(p.y)+'</span><h2>'+esc(p.t)+'</h2><span class="loc">'+esc(p.loc)+'</span>'+specs(p)
+      +(o.length?'<dl class="meta">'+o.map(function(x){return '<dt>'+x[0]+'</dt><dd>'+esc(x[1])+'</dd>'}).join('')+'</dl>':'')
+      +'<div class="d-nav"><button data-step="-1"'+(state.i?'':' disabled')+'>&#8249; Previous</button><button data-step="1"'+(state.i<L.length-1?'':' disabled')+'>Next &#8250;</button></div></div>'
+      +'<div class="d-r"><h4>Scope of work</h4><ul class="scope">'+(p.scope||[p.d]).map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>'
       +(inv.length?'<h4>What this involved</h4><div class="inv">'+inv.map(function(g){return '<div><b>'+g[1]+'</b><span>'+g[2]+'</span></div>'}).join('')+'</div>':'')
-      +'<h4>Delivered by</h4><a class="by" href="expert.html?id='+r.id+'">'+(e.img?'<img src="'+e.img+'" alt="">':'<span class="ini">'+esc(e.ini||'')+'</span>')+'<span>'+esc(e.name)+' &mdash; view CV &#8594;</span></a></div>';
-    md.classList.add('open');document.body.style.overflow='hidden';md.querySelector('.x').focus()}
-  function closeDetail(){md.classList.remove('open');document.body.style.overflow=''}
-  md.addEventListener('click',function(ev){if(ev.target===md||ev.target.closest('.x'))closeDetail()});
-  document.addEventListener('keydown',function(ev){if(ev.key==='Escape')closeDetail()});
-  gEl.addEventListener('click',function(ev){if(ev.target.closest('a'))return;var c=ev.target.closest('.pc');if(c)openDetail(shown[+c.getAttribute('data-i')])});
-  gEl.addEventListener('keydown',function(ev){if(ev.key==='Enter'){var c=ev.target.closest('.pc');if(c)openDetail(shown[+c.getAttribute('data-i')])}});
-  fEl.addEventListener('click',function(ev){var b=ev.target.closest('.f');if(!b)return;cur=b.getAttribute('data-c');renderFilters();renderGrid()});
-  renderFilters();renderGrid();
+      +'<p class="d-note">Delivered by Envisor\'s expert team in their professional roles, including with current and previous employers and as independent consultants.</p></div></div>'}
+
+  function render(dir){var html=state.v==='list'?renderList():state.v==='det'?renderDetail():renderCats();
+    view.innerHTML='<div class="pane'+(dir<0?' back-anim':'')+'">'+html+'</div>';
+    var f=view.querySelector('.tile,.pc,.d-nav button:not([disabled])');if(dir&&f&&!scrollMode())f.focus({preventScroll:true})}
+  function go(s,dir){state=s;history.pushState(s,'');render(dir||1)}
+  history.replaceState(state,'');
+  addEventListener('popstate',function(e){state=e.state||{v:'cats'};render(-1)});
+
+  document.addEventListener('click',function(ev){var t;
+    if(t=ev.target.closest('.tile'))return go({v:'list',c:t.getAttribute('data-c'),pg:0});
+    if(t=ev.target.closest('.pc'))return go({v:'det',c:state.c,i:+t.getAttribute('data-i')});
+    if(t=ev.target.closest('[data-go]')){var g=t.getAttribute('data-go');
+      if(g==='all')return go({v:'list',c:'All',pg:0});
+      if(g==='cats')return go({v:'cats'},-1);
+      if(g==='list')return go({v:'list',c:state.c,pg:Math.floor(state.i/layout().per)},-1)}
+    if(t=ev.target.closest('[data-pg]')){state.pg+=+t.getAttribute('data-pg');history.replaceState(state,'');return render(+t.getAttribute('data-pg'))}
+    if(t=ev.target.closest('[data-step]')){state.i+=+t.getAttribute('data-step');history.replaceState(state,'');return render(+t.getAttribute('data-step'))}
+  });
+  document.addEventListener('keydown',function(ev){
+    if(ev.key==='Escape'){if(state.v==='det')go({v:'list',c:state.c,pg:Math.floor(state.i/layout().per)},-1);else if(state.v==='list')go({v:'cats'},-1)}
+    var d=ev.key==='ArrowRight'?1:ev.key==='ArrowLeft'?-1:0;if(!d)return;
+    var b=view.parentNode.parentNode.querySelector(state.v==='det'?'[data-step="'+d+'"]':'[data-pg="'+d+'"]');if(b&&!b.disabled)b.click()});
+  var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){render(0)},150)});
+  render(0);
+
+  // Partner wordmarks (organisations our experts have worked with or for)
+  var P=['PLN','Pertamina','Akuo Energy','Ministry of Energy & Mineral Resources','Ministry of Finance','JICA','Institut Teknologi Bandung','Universitas Gadjah Mada','Reinhausen','Huaming Power','Chevron','WRI Indonesia','Tetra Tech','UNIDO','GIZ','WWF','FAO','EU SWITCH-Asia','CAPRED','Geres','Department of Energy <small>Philippines</small>','NEA <small>Philippines</small>','Curtin University','KEPCO KINGS','Sintra Power'];
+  var items=P.map(function(n){return '<span class="wm">'+n+'</span>'}).join('');
+  document.getElementById('track').innerHTML=items+items;
 })();
 </script>
 </body>
